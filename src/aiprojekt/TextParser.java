@@ -22,7 +22,8 @@ public class TextParser {
 		text = text.replaceAll(REPLACE_ALL_PATTERN, "");
 		text = text.toLowerCase();
 		String[] tokens = text.split("\\s+");
-		List<String> list = Arrays.asList(tokens);
+		LinkedList<String> list = new LinkedList<String>(Arrays.asList(tokens));
+		list.removeAll(Arrays.asList(null,""));
 		//list.removeAll(Collections.singleton(""));
 		return list;
 		
