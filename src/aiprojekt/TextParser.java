@@ -5,8 +5,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Represents a text parser
+ */
 public class TextParser {
-
 	//private static final String REPLACE_ALL_PATTERN = "^\\[[\\d]+:[\\d]+\\] <[\\w]+> |\\.|,|:|;|=";
 	// matches the form [19:32]
 	private static final String MATCH_TIMESTAMP = "^\\[[\\d]+:[\\d]+\\]";
@@ -28,6 +30,4 @@ public class TextParser {
 		return list;
 		
 	}
-	
-	
 }

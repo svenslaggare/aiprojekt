@@ -11,6 +11,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * The main entry point for the pre-processor stage
+ */
 public class Main {
 	static final String DIRPATH = "res/chatlogs/";
 
@@ -22,7 +25,6 @@ public class Main {
 			System.err
 					.println("ERROR: too many arguments to main, not implemented.");
 		}
-
 	}
 
 	/**
@@ -55,5 +57,4 @@ public class Main {
 			}
 		}
 	}
-
 }

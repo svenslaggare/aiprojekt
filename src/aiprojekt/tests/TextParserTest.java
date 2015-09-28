@@ -1,4 +1,4 @@
-package aiprojekt;
+package aiprojekt.tests;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,11 @@ import java.util.List;
 
 import org.junit.Test;
 
+import aiprojekt.TextParser;
+
+/**
+ * Tests the text parser
+ */
 public class TextParserTest {
 	String sentence1 = "Let's try this thing.";
 	List<String> answer1 = new LinkedList<String>(Arrays.asList("let's", "try", "this", "thing"));
@@ -24,5 +29,4 @@ public class TextParserTest {
 		System.out.println(Arrays.toString(parser.tokenize(sentence2).toArray()));
 		assertTrue(answer2.equals(parser.tokenize(sentence2)));
 	}
-
 }
