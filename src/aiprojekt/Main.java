@@ -45,9 +45,14 @@ public class Main {
 	}
 
 	/**
+<<<<<<< HEAD
 
 	 * Tokenizes and indexes the file @code{file}. If @code{file} is a directory, all
 	 * its files and subdirectories are recursively processed.
+=======
+	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
+	 * directory, all its files and subdirectories are recursively processed.
+>>>>>>> e97afa0e997d49f717f7c075992154ecab596d16
 	 */
 	public static void processFiles(File file) {
 		TextParser parser = new TextParser();
@@ -64,7 +69,11 @@ public class Main {
 			} else {
 
 				try (BufferedReader br = new BufferedReader(
+<<<<<<< HEAD
 						new FileReader(file))) {
+=======
+						new FileReader(f))) {
+>>>>>>> e97afa0e997d49f717f7c075992154ecab596d16
 					String sentence;
 
 					while ((sentence = br.readLine()) != null) {
