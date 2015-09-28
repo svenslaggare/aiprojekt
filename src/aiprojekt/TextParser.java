@@ -15,7 +15,9 @@ public class TextParser {
 	private static final String MATCH_TIME_AND_USER = MATCH_TIMESTAMP+" "+MATCH_USERNAME+" ";
 	// matches everything but letters a-z - ' (whitespace)
 	private static final String MATCH_UNWANTED_CHARS = "[^a-zA-Z\\-\\' ]";
-	private static final String REPLACE_ALL_PATTERN = MATCH_TIME_AND_USER+"|"+MATCH_UNWANTED_CHARS;
+	private static final String MATCH_URL = "((https?|ftp|file|http):(//)+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+	private static final String MATCH_URL2="www\\.[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*";
+	private static final String REPLACE_ALL_PATTERN = MATCH_TIME_AND_USER+"|" + MATCH_URL + "|"+ MATCH_URL2 + "|"+MATCH_UNWANTED_CHARS;
 	//private static final String REPLACE_ALL_PATTERN = "^\\[[\\d]+:[\\d]+\\] <[\\w]+> |[^a-zA-Z\\-\\' ]";
 	
 	public List<Token> tokenize(String text) {

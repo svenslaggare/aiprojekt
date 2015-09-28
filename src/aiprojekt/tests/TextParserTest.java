@@ -37,11 +37,28 @@ public class TextParserTest {
 			"testing"), new Token("testing"), new Token("is"), new Token("it"),
 			new Token("working"), new Token(TokenType.END_OF_SENTENCE)));
 
+	String sentence4 = "[21:56] <svEnSlaGGare> you should search: http://www.google.com";
+	ArrayList<Token> answer4 = new ArrayList<Token>(Arrays.asList(new Token(TokenType.START_OF_SENTENCE), new Token("you"), new Token("should"), new Token("search"), new Token(TokenType.END_OF_SENTENCE)));
+	
+	String sentence5 = "[21:56] <gantox> www.lunarstorm.se is good.";
+	ArrayList<Token> answer5 = new ArrayList<Token>(Arrays.asList(new Token(TokenType.START_OF_SENTENCE), new Token("is"), new Token("good"), new Token(TokenType.END_OF_SENTENCE)));
+	
+	TextParser parser = new TextParser();
+	
 	@Test
-	public void testTokenize() {
-		TextParser parser = new TextParser();
-		assertTrue(answer1.equals(parser.tokenize(sentence1)));
+	public void testTokenizeSimple() {
+		assertTrue(answer1.equals(parser.tokenize(sentence1)));	
+	}
+	
+	@Test
+	public void testTokenizeSentence() {
 		assertTrue(answer2.equals(parser.tokenize(sentence2)));
 		assertTrue(answer3.equals(parser.tokenize(sentence3)));
+	}
+	
+	@Test
+	public void testTokenizeURL() {
+		assertTrue(answer4.equals(parser.tokenize(sentence4)));
+		assertTrue(answer5.equals(parser.tokenize(sentence5)));
 	}
 }
