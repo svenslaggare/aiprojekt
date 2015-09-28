@@ -12,12 +12,34 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
-	static final String DIRPATH = "res/chatlogs/";
+	// the big dump goes in this path
+	static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
+	// any small dump goes in this path
+	static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs"; 
+	// run with 
+	static final boolean SAMPLE_LOGS = true;
+	static final boolean TIMER = true;
+	
+	static int processedSentences = 0;
 
 	public static void main(String[] args) {
+		processedSentences = 0;
 		if (args.length == 0) {
-			File file = new File(DIRPATH);
-			processFiles(file);
+			File file;
+			if (SAMPLE_LOGS) {
+				file = new File(SMALL_DUMP_LOGS_PATH);
+			} else {
+				file = new File(BIG_DUMP_LOGS_PATH);
+			}
+			if (TIMER) {
+				long startTime = System.currentTimeMillis();
+				processFiles(file);
+				long stopTime = System.currentTimeMillis();
+				System.out.println("Elapsed time was " + (stopTime - startTime)/1000.0 + " seconds.");
+				System.out.println("Processed "+ processedSentences +" sentences");
+			} else {
+				processFiles(file);
+			}
 		} else {
 			System.err
 					.println("ERROR: too many arguments to main, not implemented.");
@@ -26,8 +48,8 @@ public class Main {
 	}
 
 	/**
-	 * Tokenizes and indexes the file @code{f}. If @code{f} is a directory, all
-	 * its files and subdirectories are recursively processed.
+	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
+	 * directory, all its files and subdirectories are recursively processed.
 	 */
 	public static void processFiles(File f) {
 		TextParser parser = new TextParser();
@@ -42,12 +64,16 @@ public class Main {
 					}
 				}
 			} else {
-				try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+
+				try (BufferedReader br = new BufferedReader(
+						new FileReader(f))) {
 					String sentence;
+
 					while ((sentence = br.readLine()) != null) {
-						List<String> tokens = parser.tokenize(sentence);
+						List<Token> tokens = parser.tokenize(sentence);
+						processedSentences ++;
 						// do something with the tokenized sentence.
-						System.out.println(Arrays.toString(tokens.toArray()));
+						//System.out.println(Arrays.toString(tokens.toArray()));
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

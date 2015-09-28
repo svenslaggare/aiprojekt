@@ -1,5 +1,6 @@
 package aiprojekt;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -18,14 +19,20 @@ public class TextParser {
 	private static final String REPLACE_ALL_PATTERN = MATCH_TIME_AND_USER+"|"+MATCH_UNWANTED_CHARS;
 	//private static final String REPLACE_ALL_PATTERN = "^\\[[\\d]+:[\\d]+\\] <[\\w]+> |[^a-zA-Z\\-\\' ]";
 	
-	public List<String> tokenize(String text) {
+	public List<Token> tokenize(String text) {
 		text = text.replaceAll(REPLACE_ALL_PATTERN, "");
 		text = text.toLowerCase();
 		String[] tokens = text.split("\\s+");
-		LinkedList<String> list = new LinkedList<String>(Arrays.asList(tokens));
-		list.removeAll(Arrays.asList(null,""));
-		//list.removeAll(Collections.singleton(""));
-		return list;
+		ArrayList<Token> tokenList = new ArrayList<Token>();
+		tokenList.add(new Token(TokenType.START_OF_SENTENCE));
+		
+		for(int i=0; i<tokens.length; i++){
+			if(tokens[i] != null && !tokens[i].isEmpty()){
+				tokenList.add(new Token(tokens[i]));
+			}
+		}
+		tokenList.add(new Token(TokenType.END_OF_SENTENCE));
+		return tokenList;
 		
 	}
 	
