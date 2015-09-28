@@ -3,7 +3,7 @@ package aiprojekt;
 import java.util.Arrays;
 
 /**
- * Represents a N-gram
+ * Represents a n-gram
  */
 public class NGram {
 	private final Token[] tokens;
@@ -30,7 +30,7 @@ public class NGram {
 	}
 
 	/**
-	 * Returns the length of the N-gram
+	 * Returns the length of the n-gram
 	 */
 	public int length() {
 		return this.tokens.length;
@@ -42,6 +42,56 @@ public class NGram {
 	 */
 	public Token at(int index) {
 		return this.tokens[index];
+	}
+	
+	/**
+	 * Indicates if the current n-gram starts with the given
+	 * @param other The other n-gram
+	 * @param Indicates if the n-grams can be equal
+	 */
+	public boolean startsWith(NGram other, boolean canBeEqual) {
+		if (other.length() > this.length()) {
+			return false;
+		}
+		
+		if (!canBeEqual && other.length() == this.length()) {
+			return false;
+		}
+		
+		for (int i = 0; i < other.length(); i++) {
+			if (!this.at(i).equals(other.at(i))) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Returns a n-gram with the given length
+	 * @param length The length
+	 * @return The subgram
+	 */
+	public NGram subgram(int length) {
+		if (length > this.length()) {
+			throw new IllegalArgumentException("length > length of n-gram");
+		}
+		
+		Token[] tokens = new Token[length];
+		
+		for (int i = 0; i < length; i++) {
+			tokens[i] = this.at(i);
+		}
+		
+		return new NGram(tokens);
+	}
+	
+	/**
+	 * Indicates if the current n-gram starts with the given
+	 * @param other The other n-gram
+	 */
+	public boolean startsWith(NGram other) {
+		return startsWith(other, true);
 	}
 	
 	@Override

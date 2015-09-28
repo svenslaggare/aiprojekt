@@ -6,22 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Represents N-gram model
+ * Represents n-gram model
  */
 public class NGramModel {
-	private final Map<NGram, Long> nGrams = new HashMap<NGram, Long>();
+	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
+	private final int maxLength;
+	private int totalCount = 0;
 	
 	/**
 	 * Creates a new N-gram model
+	 * @param maxLength The maximum length of a n-gram
 	 */
-	public NGramModel() {
-		
+	public NGramModel(int maxLength) {
+		this.maxLength = maxLength;
 	}
 	
 	/**
-	 * Returns the N-grams in the given tokens
+	 * Returns the n-grams in the given tokens
 	 * @param tokens The tokens
-	 * @param maxLength The maximum length of a N-gram
+	 * @param maxLength The maximum length of a n-gram
 	 * @return The n-grams
 	 */
 	public static List<NGram> getNGrams(List<Token> tokens, int maxLength) {
@@ -38,5 +41,108 @@ public class NGramModel {
 		}
 		
 		return nGrams;
+	}
+	
+	/**
+	 * Process the given tokens, adding them to the model
+	 * @param tokens The tokens
+	 */
+	public void processTokens(List<Token> tokens) {
+		for (NGram nGram : getNGrams(tokens, this.maxLength)) {
+			int count = 0;
+			
+			if (this.ngrams.containsKey(nGram)) {
+				count = this.ngrams.get(nGram);
+			}
+			
+			this.ngrams.put(nGram, count + 1);
+			this.totalCount++;
+		}
+	}
+	
+	/**
+	 * Returns the count for the given n-gram
+	 * @param ngram The n-gram
+	 */
+	public int getCount(NGram ngram) {
+		if (this.ngrams.containsKey(ngram)) {
+			return this.ngrams.get(ngram);
+		}
+		
+		return 0;
+	}
+	
+	/**
+	 * Returns a result for a word prediction
+	 */
+	public static class Result implements Comparable<Result> {
+		private final NGram nGram;
+		private final double probability;
+		
+		/**
+		 * Creates a new result
+		 * @param ngram The n-gram
+		 * @param probability The probability
+		 */
+		public Result(NGram ngram, double probability) {
+			this.nGram = ngram;
+			this.probability = probability;;
+		}
+		
+		/**
+		 * Returns the N-gram
+		 */
+		public NGram getNGram() {
+			return nGram;
+		}
+
+		/**
+		 * Returns the probability
+		 */
+		public double getProbability() {
+			return probability;
+		}
+
+		@Override
+		public int compareTo(Result other) {
+			return Double.compare(other.probability, this.probability);
+		}
+		
+		@Override
+		public String toString() {
+			return "{ n-gram: " + this.nGram + ", p: " + this.probability + " }";
+		}
+	}
+	
+	/**
+	 * Predicts the next word for the given n-gram
+	 * @param ngram The n-gram
+	 * @param numResults The number of results
+	 */
+	public List<Result> predictWord(NGram ngram, int numResults) {
+		//Atm, this method is REALLY stupid :)
+		
+		List<Result> results = new ArrayList<Result>();
+		
+		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
+			NGram currentNgram = current.getKey();
+			
+			if (currentNgram.startsWith(ngram, false)) {
+				int subgramCount = this.getCount(currentNgram.subgram(currentNgram.length() - 1));
+				
+				if (subgramCount > 0) {
+					double probability = (double)current.getValue() / subgramCount;
+					results.add(new Result(currentNgram, probability));
+				}
+			}
+		}
+		
+		results.sort(null);
+		
+		for (int i = results.size() - 1; i >= numResults; i--) {
+			results.remove(results.size() - 1);
+		}
+		
+		return results;
 	}
 }
