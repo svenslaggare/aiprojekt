@@ -39,13 +39,7 @@ public class NGramModelTest {
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String sentence;
 			while ((sentence = br.readLine()) != null) {
-				List<Token> tokens = new ArrayList<Token>();
-				
-				for (String word : parser.tokenize(sentence)) {
-					tokens.add(new Token(word));
-				}
-				
-				sentences.add(tokens);
+				sentences.add(parser.tokenize(sentence));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -164,6 +158,6 @@ public class NGramModelTest {
 			nGramModel.processTokens(sentence);
 		}
 				
-		System.out.println(nGramModel.predictWord(new NGram(createTokens("hello")), 5));
+		System.out.println(nGramModel.predictWord(new NGram(createTokens("windows")), 5));
 	}
 }
