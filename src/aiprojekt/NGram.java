@@ -68,6 +68,14 @@ public class NGram {
 	}
 	
 	/**
+	 * Indicates if the current n-gram starts with the given
+	 * @param other The other n-gram
+	 */
+	public boolean startsWith(NGram other) {
+		return startsWith(other, true);
+	}
+	
+	/**
 	 * Returns a n-gram with the given length
 	 * @param length The length
 	 * @return The subgram
@@ -87,11 +95,51 @@ public class NGram {
 	}
 	
 	/**
-	 * Indicates if the current n-gram starts with the given
-	 * @param other The other n-gram
+	 * Returns a n-gram with just the first token
 	 */
-	public boolean startsWith(NGram other) {
-		return startsWith(other, true);
+	public NGram first() {
+		if (this.length() == 0) {
+			return new NGram(new Token[0]);
+		}
+		
+		return new NGram(new Token[] { this.tokens[0] }, false);
+	}
+	
+	/**
+	 * Returns a n-gram with everything except the first token
+	 */
+	public NGram rest() {
+		if (this.length() == 0) {
+			return new NGram(new Token[0]);
+		}
+		
+		Token[] tokens = new Token[this.length() - 1];
+		
+		for (int i = 1; i < this.length(); i++) {
+			tokens[i - 1] = this.at(i);
+		}
+		
+		return new NGram(tokens, false);
+	}
+	
+	/**
+	 * Appends the given n-gram to the current, returning a new one
+	 * @param other The n-gram
+	 * @return The new n-gram
+	 */
+	public NGram append(NGram other) {
+		Token[] tokens = new Token[this.length() + other.length()];
+		
+		int i = 0;
+		for (Token token : this.tokens) {
+			tokens[i++] = token;
+		}
+		
+		for (Token token : other.tokens) {
+			tokens[i++] = token;
+		}
+		
+		return new NGram(tokens, false);
 	}
 	
 	@Override

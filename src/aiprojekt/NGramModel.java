@@ -29,12 +29,19 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the n-grams
+	 */
+	public Map<NGram, Integer> getNgrams() {
+		return this.ngrams;
+	}
+	
+	/**
 	 * Returns the n-grams in the given tokens
 	 * @param tokens The tokens
 	 * @param maxLength The maximum length of a n-gram
 	 * @return The n-grams
 	 */
-	public static List<NGram> getNGrams(List<Token> tokens, int maxLength) {
+ 	public static List<NGram> getNgrams(List<Token> tokens, int maxLength) {
 		List<NGram> nGrams = new ArrayList<NGram>();
 		
 		for (int i = 0; i < tokens.size(); i++) {
@@ -55,7 +62,7 @@ public class NGramModel {
 	 * @param tokens The tokens
 	 */
 	public void processTokens(List<Token> tokens) {
-		for (NGram nGram : getNGrams(tokens, this.maxLength)) {
+		for (NGram nGram : getNgrams(tokens, this.maxLength)) {
 			int count = 0;
 			
 			if (this.ngrams.containsKey(nGram)) {
@@ -141,6 +148,33 @@ public class NGramModel {
 					double probability = (double)current.getValue() / subgramCount;
 					results.add(new Result(currentNgram, probability));
 				}
+			}
+		}
+		
+		results.sort(null);
+		
+		for (int i = results.size() - 1; i >= numResults; i--) {
+			results.remove(results.size() - 1);
+		}
+		
+		return results;
+	}
+
+	/**
+	 * Predicts the most probable (n+1)-gram for the given n-gram
+	 * @param tree The search tree
+	 * @param ngram The n-gram
+	 * @param numResults The number of results
+	 */
+	public List<Result> predictNext(NGramTree tree, NGram ngram, int numResults) {
+		List<Result> results = new ArrayList<Result>();
+		
+		int subgramCount = this.getCount(ngram);
+		
+		if (subgramCount > 0) {
+			for (NGramTree.Result result : tree.findResults(ngram)) {
+				double probability = (double)result.getCount() / subgramCount;
+				results.add(new Result(ngram.append(result.getNgram()), probability));
 			}
 		}
 		
