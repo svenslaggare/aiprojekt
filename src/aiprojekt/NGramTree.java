@@ -1,6 +1,7 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -153,7 +154,7 @@ public class NGramTree {
 		//Sort the n-gram by length. Purpose of this is to make the insertion code easier.
 		List<Map.Entry<NGram, Integer>> ngrams = new ArrayList<>();
 		ngrams.addAll(model.getNgrams().entrySet());
-		ngrams.sort(new Comparator<Map.Entry<NGram, Integer>>() {
+		Collections.sort(ngrams, new Comparator<Map.Entry<NGram, Integer>>() {
 			@Override
 			public int compare(Entry<NGram, Integer> x, Entry<NGram, Integer> y) {
 				return Integer.compare(x.getKey().length(), y.getKey().length());

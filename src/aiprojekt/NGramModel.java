@@ -1,6 +1,7 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,7 +152,7 @@ public class NGramModel {
 			}
 		}
 		
-		results.sort(null);
+		Collections.sort(results);
 		
 		for (int i = results.size() - 1; i >= numResults; i--) {
 			results.remove(results.size() - 1);
@@ -178,7 +179,7 @@ public class NGramModel {
 			}
 		}
 		
-		results.sort(null);
+		Collections.sort(results);
 		
 		for (int i = results.size() - 1; i >= numResults; i--) {
 			results.remove(results.size() - 1);
