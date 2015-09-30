@@ -22,6 +22,13 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the maximum length of a n-gram
+	 */
+	public int maxLength() {
+		return this.maxLength;
+	}
+	
+	/**
 	 * Returns the n-grams in the given tokens
 	 * @param tokens The tokens
 	 * @param maxLength The maximum length of a n-gram
@@ -115,11 +122,11 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Predicts the next word for the given n-gram
+	 * Predicts the most probable (n+1)-gram for the given n-gram
 	 * @param ngram The n-gram
 	 * @param numResults The number of results
 	 */
-	public List<Result> predictWord(NGram ngram, int numResults) {
+	public List<Result> predictNext(NGram ngram, int numResults) {
 		//Atm, this method is REALLY stupid :)
 		
 		List<Result> results = new ArrayList<Result>();

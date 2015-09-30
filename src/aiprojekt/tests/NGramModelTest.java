@@ -147,7 +147,7 @@ public class NGramModelTest {
 	}
 	
 	/**
-	 * Tests creating a N-gram model for a list of tokens
+	 * Tests creating a n-gram model for a list of tokens
 	 */
 	@Test
 	public void testCreateModel() {
@@ -158,6 +158,6 @@ public class NGramModelTest {
 			nGramModel.processTokens(sentence);
 		}
 				
-		System.out.println(nGramModel.predictWord(new NGram(createTokens("windows")), 5));
+		System.out.println(nGramModel.predictNext(new NGram(createTokens("hello")), 5));
 	}
 }
