@@ -2,18 +2,28 @@ package aiprojekt;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
 public class PredictionGUI {
-	private static JFrame frame;
-	private static JTextArea chat;
-	private static JScrollPane chatScroll;
-	private static JTextField inputField;
-	private static JButton sendButton;
-	private static JLabel nextWordProposals;
+	private WordPredictor wordPredictor;
 	
-	public static void main(String[] args) {
+	private JFrame frame;
+	private JTextArea chat;
+	private JScrollPane chatScroll;
+	private JTextField inputField;
+	private JButton sendButton;
+	private JLabel nextWordProposals;
+	
+	public PredictionGUI(NGramModel ngramModel) {
+		wordPredictor = new WordPredictor(ngramModel, 10);
+		
 		frame = new JFrame("Next Word Predictor");
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,14 +61,6 @@ public class PredictionGUI {
 				BorderFactory.createTitledBorder("Next Word Proposals"),
 				BorderFactory.createEmptyBorder(0, 3, 0, 3)));
 		nextWordProposals.setVerticalAlignment(JLabel.TOP);
-		nextWordProposals.setText(
-				"<html>"
-						+ "1. you<br />2. him<br />"
-						+ "3. you<br />4. him<br />"
-						+ "5. you<br />6. him<br />"
-						+ "7. you<br />8. him<br />"
-						+ "9. you<br />10. him<br />"
-				+ "</html>");
 		frame.add(nextWordProposals);
 		
 		// Updates the proposed next words when space is pressed.
@@ -70,14 +72,20 @@ public class PredictionGUI {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				nextWordProposals.setText(
-						"<html>"
-								+ "1. test<br />2. him<br />"
-								+ "3. test<br />4. him<br />"
-								+ "5. test<br />6. him<br />"
-								+ "7. test<br />8. him<br />"
-								+ "9. test<br />10. him<br />"
-						+ "</html>");
+				if (wordPredictor != null) {
+					List<String> proposals = wordPredictor.predictNextWord(inputField.getText());
+					
+					StringBuilder sb = new StringBuilder("<html>");
+					
+					int place = 1;
+					for (String word : proposals) {
+						sb.append(place++ + ". " + word + "<br />");
+					}
+					
+					sb.append("</html>");
+					
+					nextWordProposals.setText(sb.toString());
+				}
 			}
 		});
 		
@@ -85,5 +93,28 @@ public class PredictionGUI {
 		frame.setVisible(true);
 		
 		inputField.requestFocusInWindow();
+	}
+	
+	public static void main(String[] args) {
+		List<List<Token>> sentences = new ArrayList<List<Token>>();
+		
+		TextParser parser = new TextParser();
+		File file = new File("ubuntu.txt");
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+			String sentence;
+			while ((sentence = br.readLine()) != null) {
+				sentences.add(parser.tokenize(sentence));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		NGramModel ngramModel = new NGramModel(3);
+		for (List<Token> sentence : sentences) {
+			ngramModel.processTokens(sentence);
+		}
+		
+		new PredictionGUI(ngramModel);
 	}
 }
