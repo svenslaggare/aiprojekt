@@ -44,7 +44,7 @@ public class NGramTree {
 	 */
 	public int find(NGram ngram) {
 		if (this.current.equals(ngram)) {
-			return this.count;
+			return 0;
 		} else if (this.children.containsKey(ngram)) {
 			return this.children.get(ngram).count;
 		} else {
@@ -99,21 +99,24 @@ public class NGramTree {
 	/**
 	 * Finds the (n+1)-gram that starts with the given n-gram
 	 * @param results The results
+	 * @param startGram The start gram
 	 * @param ngram The n-gram
 	 */
-	private void findResults(List<Result> results, NGram ngram, int length) {
+	private void findResults(List<Result> results, NGram startGram, NGram ngram) {
 		if (this.current.equals(ngram)) {
-			results.add(new Result(this.current, this.count));
+			return;
 		} else if (this.children.containsKey(ngram)) {
 			for (NGramTree subTree : this.children.get(ngram).children.values()) {
-				results.add(new Result(subTree.current, subTree.count));
+				if (subTree.count > 0) {
+					results.add(new Result(startGram.append(subTree.current), subTree.count));
+				}
 			}
 		} else {
 			NGram first = ngram.first();
 			NGram rest = ngram.rest();
 			
 			if (this.children.containsKey(first)) {
-				this.children.get(first).findResults(results, rest, length);
+				this.children.get(first).findResults(results, startGram, rest);
 			}
 		}
 	}
@@ -125,7 +128,17 @@ public class NGramTree {
 	 */
 	public List<Result> findResults(NGram ngram) {
 		List<Result> results = new ArrayList<>();
-		this.findResults(results, ngram, ngram.length() + 2);
+		
+		if (!ngram.equals(NGram.EMPTY_GRAM)) {
+			this.findResults(results, ngram, ngram);
+		} else {
+			for (NGramTree subTree : this.children.values()) {
+				if (subTree.count > 0) {
+					results.add(new Result(subTree.current, subTree.count));
+				}
+			}
+		}
+		
 		return results;
 	}
 	

@@ -23,12 +23,11 @@ import aiprojekt.Token;
  */
 public class NGramModelTest {
 	private static final List<Token> tokens1 = Arrays.asList(
-		new Token("Hello"), new Token("my"), new Token("friend"),
-		new Token("how"), new Token("are"), new Token("you?"));
+		new Token("hello"), new Token("my"), new Token("friend"),
+		new Token("how"), new Token("are"), new Token("you"));
 		
 	private static final List<List<Token>> sentences = loadTokensFromFile(
 		"res/chatlogs/2006-05-27-#ubuntu.txt");
-	
 	
 	/**
 	 * Loads the given tokens from the given file
@@ -133,50 +132,63 @@ public class NGramModelTest {
 	 */
 	@Test
 	public void testCreateModel() {
-//		NGramModel ngramModel = new NGramModel(3);
-//		for (List<Token> sentence : sentences) {
-//			ngramModel.processTokens(sentence);
-//		}
-//				
-//		NGramTree tree = NGramTree.createTree(ngramModel);
-//		NGram ngram = createNGram("hello", "i");
+		NGramModel ngramModel = new NGramModel(3);
+		for (List<Token> sentence : sentences) {
+			ngramModel.processTokens(sentence);
+		}
+				
+		NGram ngram = NGram.fromWords("hello", "i");
 		
-//		System.out.println(ngramModel.predictNext(ngram, 5));
-//		System.out.println(ngramModel.predictNext(tree, ngram, 5));
+		assertEquals(ngramModel.getCount(ngram), (int)ngramModel.getNgrams().get(ngram));
 	}
 	
 	/**
-	 * Tests the n-gram tree
+	 * Tests creating a n-gram model for a list of tokens
 	 */
 	@Test
-	public void testTree() {
-		long time = 0;
-		
-		for (int i = 0; i < 1; i++) {
-			NGramModel ngramModel = new NGramModel(3);
-			for (List<Token> sentence : sentences) {
-				ngramModel.processTokens(sentence);
-			}
-			
-			long start = System.currentTimeMillis();
-			NGramTree tree = NGramTree.createTree(ngramModel);
-			time = System.currentTimeMillis() - start;
-			
-			NGram ngram = NGram.fromWords("hello");
-			
-			for (NGramTree.Result result : tree.findResults(ngram)) {
-				NGram resultGram = ngram.append(result.getNgram());
-				assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
-			}
-			
-			ngram = NGram.fromWords("hello", "i");
-			
-			for (NGramTree.Result result : tree.findResults(ngram)) {
-				NGram resultGram = ngram.append(result.getNgram());
-				assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
-			}
+	public void testCreateModel2() {
+		NGramModel ngramModel = new NGramModel(3);
+		for (List<Token> sentence : sentences) {
+			ngramModel.processTokens(sentence);
 		}
 		
-//		System.out.println(time);
+		NGramTree tree = NGramTree.createTree(ngramModel);
+		
+		NGram ngram = NGram.fromWords("hello");
+
+		for (NGramTree.Result result : tree.findResults(ngram)) {
+			assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(result.getNgram()));
+		}
+		
+		ngram = NGram.fromWords("hello", "i");
+		
+		for (NGramTree.Result result : tree.findResults(ngram)) {
+			assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(result.getNgram()));
+		}
+	}
+	
+	/**
+	 * Tests predicting the next word
+	 */
+	@Test
+	public void testPredictNext1() {
+		NGramModel ngramModel = new NGramModel(3);
+		ngramModel.processTokens(tokens1);		
+		
+		NGram ngram = NGram.fromWords("hello");
+		List<NGramModel.Result> results = ngramModel.predictNext(ngram, 5);
+		assertEquals(NGram.fromWords("hello", "my"), results.get(0).getNGram());
+	}
+	
+	/**
+	 * Tests predicting the next word
+	 */
+	@Test
+	public void testPredictNext2() {
+		NGramModel ngramModel = new NGramModel(3);
+		ngramModel.processTokens(tokens1);
+		
+		NGram ngram = NGram.fromWords("hello", "you");	
+//		System.out.println(ngramModel.predictNext(ngram, 5));
 	}
 }
