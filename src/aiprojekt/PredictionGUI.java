@@ -99,7 +99,7 @@ public class PredictionGUI {
 		List<List<Token>> sentences = new ArrayList<List<Token>>();
 		
 		TextParser parser = new TextParser();
-		File file = new File("ubuntu.txt");
+		File file = new File("res/chatlogs/ubuntu.txt");
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String sentence;
