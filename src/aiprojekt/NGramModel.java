@@ -46,12 +46,12 @@ public class NGramModel {
 		List<NGram> nGrams = new ArrayList<NGram>();
 		
 		for (int i = 0; i < tokens.size(); i++) {
-			List<Token> nGram = new ArrayList<Token>();
+			List<Token> ngram = new ArrayList<Token>();
 			
 			//Creates the unigram, bigrams, trigrams, ...
 			for (int j = i; j < Math.min(i + maxLength, tokens.size()); j++) {
-				nGram.add(tokens.get(j));
-				nGrams.add(new NGram(nGram.toArray(new Token[nGram.size()]), false));
+				ngram.add(tokens.get(j));
+				nGrams.add(NGram.fromList(ngram));
 			}
 		}
 		

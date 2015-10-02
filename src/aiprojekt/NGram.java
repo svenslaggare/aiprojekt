@@ -1,6 +1,7 @@
 package aiprojekt;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Represents a n-gram
@@ -9,7 +10,12 @@ public class NGram {
 	private final Token[] tokens;
 	
 	/**
-	 * Creates a new token
+	 * Represents an empty n-gram
+	 */
+	public static final NGram EMPTY_GRAM = new NGram(new Token[0], false);
+	
+	/**
+	 * Creates a new n-gram
 	 * @param tokens The tokens
 	 */
 	public NGram(Token[] tokens) {
@@ -17,11 +23,11 @@ public class NGram {
 	}
 	
 	/**
-	 * Creates a new token
+	 * Creates a new n-gram
 	 * @param tokens The tokens
 	 * @param copyArray Indicates if the given array is copied
 	 */
-	public NGram(Token[] tokens, boolean copyArray) {
+	private NGram(Token[] tokens, boolean copyArray) {
 		if (!copyArray) {
 			this.tokens = tokens;
 		} else {
@@ -29,6 +35,15 @@ public class NGram {
 		}
 	}
 
+	/**
+	 * Creates a new n-gram from the given list of tokens
+	 * @param tokens The tokens
+	 * @return
+	 */
+	public static NGram fromList(List<Token> tokens) {
+		return new NGram(tokens.toArray(new Token[tokens.size()]), false);
+	}
+	
 	/**
 	 * Returns the length of the n-gram
 	 */
@@ -91,7 +106,7 @@ public class NGram {
 			tokens[i] = this.at(i);
 		}
 		
-		return new NGram(tokens);
+		return new NGram(tokens, false);
 	}
 	
 	/**
@@ -99,7 +114,7 @@ public class NGram {
 	 */
 	public NGram first() {
 		if (this.length() == 0) {
-			return new NGram(new Token[0]);
+			return EMPTY_GRAM;
 		}
 		
 		return new NGram(new Token[] { this.tokens[0] }, false);
@@ -110,7 +125,7 @@ public class NGram {
 	 */
 	public NGram rest() {
 		if (this.length() == 0) {
-			return new NGram(new Token[0]);
+			return EMPTY_GRAM;
 		}
 		
 		Token[] tokens = new Token[this.length() - 1];
