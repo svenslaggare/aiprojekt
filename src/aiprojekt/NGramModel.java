@@ -30,6 +30,13 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the total count in the model
+	 */
+	public int totalCount() {
+		return this.totalCount;
+	}
+	
+	/**
 	 * Returns the n-grams
 	 */
 	public Map<NGram, Integer> getNgrams() {
@@ -142,7 +149,7 @@ public class NGramModel {
 		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
 			NGram currentNgram = current.getKey();
 			
-			if (currentNgram.startsWith(ngram, false)) {
+			if (currentNgram.startsWith(ngram, false) && currentNgram.length() - ngram.length() == 1) {
 				int subgramCount = this.getCount(currentNgram.subgram(currentNgram.length() - 1));
 				
 				if (subgramCount > 0) {

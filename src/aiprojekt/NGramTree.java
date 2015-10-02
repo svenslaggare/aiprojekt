@@ -1,12 +1,9 @@
 package aiprojekt;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * Represents a n-gram search tree.
@@ -14,7 +11,7 @@ import java.util.Map.Entry;
  */
 public class NGramTree {
 	private final NGram current;
-	private final int count;
+	private int count;
 	
 	private final Map<NGram, NGramTree> children = new HashMap<>();
 	
@@ -34,7 +31,11 @@ public class NGramTree {
 	 * @param count The count
 	 */
 	public void addChild(NGram ngram, int count) {
-		this.children.put(ngram, new NGramTree(ngram, count));
+		if (this.children.containsKey(ngram)) {
+			this.children.get(ngram).count += count;
+		} else {
+			this.children.put(ngram, new NGramTree(ngram, count));
+		}
 	}
 	
 	/**
@@ -100,7 +101,7 @@ public class NGramTree {
 	 * @param results The results
 	 * @param ngram The n-gram
 	 */
-	private void findResults(List<Result> results, NGram ngram, int length) {		
+	private void findResults(List<Result> results, NGram ngram, int length) {
 		if (this.current.equals(ngram)) {
 			results.add(new Result(this.current, this.count));
 		} else if (this.children.containsKey(ngram)) {
@@ -130,7 +131,7 @@ public class NGramTree {
 	
 	/**
 	 * Inserts the given n-gram into the given tree
-	 * @param tree THe tree
+	 * @param tree The tree
 	 * @param ngram The n-gram
 	 * @param count The count
 	 */
@@ -142,8 +143,29 @@ public class NGramTree {
 		} else {
 			NGram first = ngram.first();
 			NGram rest = ngram.rest();
+			
+			if (!tree.children.containsKey(first)) {
+				tree.addChild(first, 0);
+			}
+			
 			insert(tree.children.get(first), rest, count);
 		}
+	}
+	
+	/**
+	 * Creates a root tree
+	 */
+	public static NGramTree rootTree() {
+		return new NGramTree(NGram.EMPTY_GRAM, 0);
+	}
+	
+	/**
+	 * Inserts the given n-gram into the tree
+	 * @param ngram The n-gram
+	 * @param count The count. If the n-gram already exists, the count is added.
+	 */
+	public void insert(NGram ngram, int count) {
+		insert(this, ngram, count);
 	}
 	
 	/**
@@ -151,17 +173,10 @@ public class NGramTree {
 	 * @param model The n-gram model
 	 */
 	public static NGramTree createTree(NGramModel model) {
-		//Sort the n-gram by length. Purpose of this is to make the insertion code easier.
 		List<Map.Entry<NGram, Integer>> ngrams = new ArrayList<>();
 		ngrams.addAll(model.getNgrams().entrySet());
-		Collections.sort(ngrams, new Comparator<Map.Entry<NGram, Integer>>() {
-			@Override
-			public int compare(Entry<NGram, Integer> x, Entry<NGram, Integer> y) {
-				return Integer.compare(x.getKey().length(), y.getKey().length());
-			}			
-		});
-		
-		NGramTree rootTree = new NGramTree(new NGram(new Token[0]), 0);
+
+		NGramTree rootTree = rootTree();
 		
 		//Insert each n-gram in the tree.
 		for (Map.Entry<NGram, Integer> current : ngrams) {

@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class NGram {
 	private final Token[] tokens;
+	private final int start;
+	private final int length;
 	
 	/**
 	 * Represents an empty n-gram
@@ -28,6 +30,9 @@ public class NGram {
 	 * @param copyArray Indicates if the given array is copied
 	 */
 	private NGram(Token[] tokens, boolean copyArray) {
+		this.start = 0;
+		this.length = tokens.length;
+		
 		if (!copyArray) {
 			this.tokens = tokens;
 		} else {
@@ -35,6 +40,18 @@ public class NGram {
 		}
 	}
 
+	/**
+	 * Creates a new n-gram
+	 * @param tokens The underlying tokens array
+	 * @param start The start of the n-gram in the array
+	 * @param length The length of the n-gram
+	 */
+	private NGram(Token[] tokens, int start, int length) {
+		this.tokens = tokens;
+		this.start = start;
+		this.length = length;
+	}
+	
 	/**
 	 * Creates a new n-gram from the given list of tokens
 	 * @param tokens The tokens
@@ -45,10 +62,26 @@ public class NGram {
 	}
 	
 	/**
+	 * Creates a n-gram with the given words
+	 * @param first The first word
+	 * @param others The other words
+	 */
+	public static NGram fromWords(String first, String... others) {
+		Token[] tokens = new Token[others.length + 1];
+		tokens[0] = new Token(first);
+		
+		for (int i = 0; i < others.length; i++) {
+			tokens[i + 1] = new Token(others[i]);
+		}
+		
+		return new NGram(tokens, false);
+	}
+	
+	/**
 	 * Returns the length of the n-gram
 	 */
 	public int length() {
-		return this.tokens.length;
+		return this.length;
 	}
 
 	/**
@@ -56,7 +89,7 @@ public class NGram {
 	 * @param index The index
 	 */
 	public Token at(int index) {
-		return this.tokens[index];
+		return this.tokens[this.start + index];
 	}
 	
 	/**
@@ -110,31 +143,25 @@ public class NGram {
 	}
 	
 	/**
-	 * Returns a n-gram with just the first token
+	 * Returns a unigram with just the first token
 	 */
 	public NGram first() {
 		if (this.length() == 0) {
 			return EMPTY_GRAM;
 		}
 		
-		return new NGram(new Token[] { this.tokens[0] }, false);
+		return new NGram(this.tokens, this.start, 1);
 	}
 	
 	/**
-	 * Returns a n-gram with everything except the first token
+	 * Returns a (n-1)-gram with everything except the first token
 	 */
 	public NGram rest() {
 		if (this.length() == 0) {
 			return EMPTY_GRAM;
 		}
 		
-		Token[] tokens = new Token[this.length() - 1];
-		
-		for (int i = 1; i < this.length(); i++) {
-			tokens[i - 1] = this.at(i);
-		}
-		
-		return new NGram(tokens, false);
+		return new NGram(this.tokens, this.start + 1, this.length - 1);
 	}
 	
 	/**
@@ -146,12 +173,13 @@ public class NGram {
 		Token[] tokens = new Token[this.length() + other.length()];
 		
 		int i = 0;
-		for (Token token : this.tokens) {
-			tokens[i++] = token;
+
+		for (int j = 0; j < this.length; j++) {
+			tokens[i++] = this.at(j);
 		}
 		
-		for (Token token : other.tokens) {
-			tokens[i++] = token;
+		for (int j = 0; j < other.length; j++) {
+			tokens[i++] = other.at(j);
 		}
 		
 		return new NGram(tokens, false);
@@ -161,7 +189,7 @@ public class NGram {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(tokens);
+		result = prime * result + Helpers.arrayHashCode(this.tokens, this.start, this.length); 
 		return result;
 	}
 
@@ -179,8 +207,8 @@ public class NGram {
 			return false;
 		}
 		
-		NGram other = (NGram) obj;
-		if (!Arrays.equals(tokens, other.tokens)) {
+		NGram other = (NGram)obj;		
+		if (!Helpers.arrayEquals(this.tokens, this.start, this.length, other.tokens, other.start, other.length)) {
 			return false;
 		}
 		
@@ -189,6 +217,18 @@ public class NGram {
 	
 	@Override
 	public String toString() {
-		return Arrays.toString(this.tokens);
+		StringBuilder str = new StringBuilder();
+		
+		str.append("[");
+		for (int i = 0; i < this.length; i++) {
+			if (i != 0) {
+				str.append(", ");
+			}
+			
+			str.append(this.at(i));
+		}
+		str.append("]");
+		
+		return str.toString();
 	}
 }

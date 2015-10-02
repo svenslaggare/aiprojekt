@@ -26,29 +26,27 @@ public class WordPredictor {
 	 */
 	public List<String> predictNextWord(String input) {
 		TextParser parser = new TextParser();
-		List<Token> list = parser.tokenize(input);
-
-		// Use the last words of the sentence if if it's longer than biggest
-		// n-gram
-		if (model.maxLength() > list.size()) {
-			int diff = model.maxLength() - list.size();
+		List<Token> tokens = parser.tokenize(input);
+		
+		//Remove the end of sentence from the tokens
+		tokens.remove(tokens.size() - 1);
+				
+		// Use the last words of the sentence if if it's longer than biggest n-gram
+		if (tokens.size() >= model.maxLength()) {
+			int diff = (tokens.size() + 1) - model.maxLength();
 			for (int i = 0; i < diff; i++) {
-				list.remove(i);
+				tokens.remove(0);
 			}
 		}
-
-		list.remove(0);
-		list.remove(list.size() - 1);
-
-		Token[] tokens = list.toArray(new Token[list.size()]);
-		NGram ngram = new NGram(tokens);
-
-		List<NGramModel.Result> result = model.predictNext(ngram, numResults);
+		
+		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
+		List<NGramModel.Result> result = model.predictNext(ngram, numResults);		
 		List<String> predictedWords = new ArrayList<String>();
 
 		for (int i = 0; i < result.size(); i++) {
-			int indexForLast = result.get(i).getNGram().length();
-			predictedWords.add(result.get(i).getNGram().at(indexForLast - 1).toString());
+			NGram resultGram = result.get(i).getNGram();
+			int indexForLast = resultGram.length() - 1;
+			predictedWords.add(resultGram.at(indexForLast).toString());
 		}
 
 		return predictedWords;

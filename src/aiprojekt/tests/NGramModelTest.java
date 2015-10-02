@@ -51,29 +51,7 @@ public class NGramModelTest {
 		
 		return sentences;
 	}
-	
-	/**
-	 * Creates tokens for the given words
-	 * @param words The words
-	 */
-	private static Token[] createTokens(String... words) {
-		Token[] tokens = new Token[words.length];
-		
-		for (int i = 0; i < words.length; i++) {
-			tokens[i] = new Token(words[i]);
-		}
-		
-		return tokens;
-	}	
-	
-	/**
-	 * Creates a n-gram with the given words
-	 * @param words The words
-	 */
-	private static NGram createNGram(String... words) {
-		return new NGram(createTokens(words));
-	}
-	
+			
 	/**
 	 * Tests getting unigrams from a list of tokens
 	 */
@@ -133,13 +111,13 @@ public class NGramModelTest {
 	 */
 	@Test
 	public void testStartsWith() {
-		assertTrue(createNGram("hello", "does").startsWith(createNGram("hello")));
-		assertTrue(createNGram("hello", "does").startsWith(createNGram("hello", "does")));
-		assertFalse(createNGram("all", "does").startsWith(createNGram("hello", "does")));
-		assertFalse(createNGram("hello", "does").startsWith(createNGram("hello", "does", "you")));
+		assertTrue(NGram.fromWords("hello", "does").startsWith(NGram.fromWords("hello")));
+		assertTrue(NGram.fromWords("hello", "does").startsWith(NGram.fromWords("hello", "does")));
+		assertFalse(NGram.fromWords("all", "does").startsWith(NGram.fromWords("hello", "does")));
+		assertFalse(NGram.fromWords("hello", "does").startsWith(NGram.fromWords("hello", "does", "you")));
 		
-		assertTrue(createNGram("hello", "does").startsWith(createNGram("hello"), false));
-		assertFalse(createNGram("hello", "does").startsWith(createNGram("hello", "does"), false));
+		assertTrue(NGram.fromWords("hello", "does").startsWith(NGram.fromWords("hello"), false));
+		assertFalse(NGram.fromWords("hello", "does").startsWith(NGram.fromWords("hello", "does"), false));
 	}
 	
 	/**
@@ -147,34 +125,7 @@ public class NGramModelTest {
 	 */
 	@Test
 	public void testSubgram() {
-		assertEquals(createNGram("hello", "my"), createNGram("hello", "my", "friend").subgram(2));
-	}
-	
-	/**
-	 * Tests the n-gram tree
-	 */
-	@Test
-	public void testTree() {
-		NGramModel ngramModel = new NGramModel(3);
-		for (List<Token> sentence : sentences) {
-			ngramModel.processTokens(sentence);
-		}
-		
-		NGramTree tree = NGramTree.createTree(ngramModel);
-		
-		NGram ngram = createNGram("hello");
-		
-		for (NGramTree.Result result : tree.findResults(ngram)) {
-			NGram resultGram = ngram.append(result.getNgram());
-			assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
-		}
-		
-		ngram = createNGram("hello", "i");
-		
-		for (NGramTree.Result result : tree.findResults(ngram)) {
-			NGram resultGram = ngram.append(result.getNgram());
-			assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
-		}
+		assertEquals(NGram.fromWords("hello", "my"), NGram.fromWords("hello", "my", "friend").subgram(2));
 	}
 	
 	/**
@@ -192,5 +143,40 @@ public class NGramModelTest {
 		
 //		System.out.println(ngramModel.predictNext(ngram, 5));
 //		System.out.println(ngramModel.predictNext(tree, ngram, 5));
+	}
+	
+	/**
+	 * Tests the n-gram tree
+	 */
+	@Test
+	public void testTree() {
+		long time = 0;
+		
+		for (int i = 0; i < 1; i++) {
+			NGramModel ngramModel = new NGramModel(3);
+			for (List<Token> sentence : sentences) {
+				ngramModel.processTokens(sentence);
+			}
+			
+			long start = System.currentTimeMillis();
+			NGramTree tree = NGramTree.createTree(ngramModel);
+			time = System.currentTimeMillis() - start;
+			
+			NGram ngram = NGram.fromWords("hello");
+			
+			for (NGramTree.Result result : tree.findResults(ngram)) {
+				NGram resultGram = ngram.append(result.getNgram());
+				assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
+			}
+			
+			ngram = NGram.fromWords("hello", "i");
+			
+			for (NGramTree.Result result : tree.findResults(ngram)) {
+				NGram resultGram = ngram.append(result.getNgram());
+				assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(resultGram));
+			}
+		}
+		
+//		System.out.println(time);
 	}
 }
