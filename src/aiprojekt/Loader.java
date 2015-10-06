@@ -8,9 +8,10 @@ public class Loader {
 		try (DataInputStream inputStream = new DataInputStream(
 				new BufferedInputStream(new FileInputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
 
-			Map<NGram, Integer> ngrams = new HashMap<>();
 			long start = System.currentTimeMillis();
 			int count = inputStream.readInt();
+			Map<NGram, Integer> ngrams = new HashMap<>(count);
+					
 			List<Token> tokenBuffer = new ArrayList<>();
 			Token startToken = new Token(TokenType.START_OF_SENTENCE);
 			Token endToken = new Token(TokenType.END_OF_SENTENCE);
@@ -37,8 +38,9 @@ public class Loader {
 			}
 			
 			System.out.println("Loaded: " + (System.currentTimeMillis() - start) / 1000.0 + " s");
-			
+			System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
 			System.out.println("N-grams: " + ngrams.size());
+			
 			System.out.println(ngrams.get(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
 			System.out.println(ngrams.get(NGram.fromWords("hello")));
 			System.out.println(ngrams.get(NGram.fromWords("greetings")));
