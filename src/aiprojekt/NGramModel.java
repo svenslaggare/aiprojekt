@@ -39,6 +39,13 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the unigrams
+	 */
+	public Set<NGram> unigrams() {
+		return this.unigrams;
+	}
+	
+	/**
 	 * Returns the n-grams
 	 */
 	public Map<NGram, Integer> getNgrams() {

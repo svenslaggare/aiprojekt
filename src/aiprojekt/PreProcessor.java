@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -58,8 +59,21 @@ public class PreProcessor {
 			
 			try (DataOutputStream outputStream = new DataOutputStream(
 					new BufferedOutputStream(new FileOutputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
-				outputStream.writeInt(this.ngramModel.getNgrams().size());
+				Map<Token, Integer> tokenToId = new HashMap<>();
 				
+				outputStream.writeInt(this.ngramModel.unigrams().size() - 2);	
+				int id = 0;
+				for (NGram unigram : this.ngramModel.unigrams()) {
+					Token token = unigram.at(0);
+					if (token.getType() == TokenType.WORD) {
+						outputStream.writeUTF(token.getWord());
+						tokenToId.put(token, id);
+						id++;
+					}
+				}
+								
+				outputStream.writeInt(this.ngramModel.getNgrams().size());
+								
 				for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
 					outputStream.writeInt(current.getKey().length());
 					
@@ -67,7 +81,7 @@ public class PreProcessor {
 						Token token = current.getKey().at(i);
 						outputStream.writeByte(token.getType().ordinal());
 						if (token.getType() == TokenType.WORD) {
-							outputStream.writeUTF(current.getKey().at(i).toString());
+							outputStream.writeInt(tokenToId.get(token));
 						}
 					}
 					

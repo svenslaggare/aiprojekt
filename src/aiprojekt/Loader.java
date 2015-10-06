@@ -9,6 +9,13 @@ public class Loader {
 				new BufferedInputStream(new FileInputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
 
 			long start = System.currentTimeMillis();
+			
+			int numTokens = inputStream.readInt();
+			Map<Integer, Token> idToToken = new HashMap<>(numTokens);
+			for (int id = 0; id < numTokens; id++) {
+				idToToken.put(id, new Token(inputStream.readUTF()));
+			}
+			
 			int count = inputStream.readInt();
 			Map<NGram, Integer> ngrams = new HashMap<>(count);
 					
@@ -28,8 +35,8 @@ public class Loader {
 					} else if (type == TokenType.END_OF_SENTENCE.ordinal()) {
 						tokenBuffer.add(endToken);
 					} else {
-						String word = inputStream.readUTF();
-						tokenBuffer.add(new Token(word));
+						int tokenId = inputStream.readInt();
+						tokenBuffer.add(idToToken.get(tokenId));
 					}
 				}
 				
