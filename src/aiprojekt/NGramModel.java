@@ -16,7 +16,8 @@ public class NGramModel {
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
 	private final Set<NGram> unigrams = new HashSet<NGram>();
-		
+	private final int[] ngramCounts;
+	
 	private final int matchThreshold = 0;
 	
 //	private final NGramTree tree = NGramTree.rootTree();
@@ -27,6 +28,7 @@ public class NGramModel {
 	 */
 	public NGramModel(int maxLength) {
 		this.maxLength = maxLength;
+		this.ngramCounts = new int[maxLength];
 	}
 	
 	/**
@@ -41,6 +43,19 @@ public class NGramModel {
 	 */
 	public Map<NGram, Integer> getNgrams() {
 		return this.ngrams;
+	}
+	
+	/**
+	 * Returns the count for the given n-gram length
+	 * @param n The n-gram length
+	 * @return
+	 */
+	public int countForNGram(int n) {
+		if (n >= 1 && n <= this.maxLength) {
+			return this.ngramCounts[n - 1];
+		} else {
+			return 0;
+		}
 	}
 	
 	/**
@@ -82,14 +97,37 @@ public class NGramModel {
 			
 			if (this.ngrams.containsKey(ngram)) {
 				count = this.ngrams.get(ngram);
+			} else {
+				this.ngramCounts[ngram.length() - 1]++;			
 			}
 			
 			this.ngrams.put(ngram, count + 1);
 //			this.tree.insert(ngram, 1);
-			
+
 			if (ngram.length() == 1) {
 				this.unigrams.add(ngram);
 			}
+		}
+	}
+	
+	/**
+	 * Should be called after all tokens has been processed.
+	 */
+	public void end() {
+		int threshold = 1;
+		
+		List<NGram> toRemove = new ArrayList<NGram>();
+		
+		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
+			NGram ngram = current.getKey();
+			if (ngram.length() == this.maxLength && current.getValue() <= threshold) {
+				toRemove.add(ngram);
+				this.ngramCounts[ngram.length() - 1]--;
+			}
+		}
+		
+		for (NGram ngram : toRemove) {
+			this.ngrams.remove(ngram);
 		}
 	}
 	
