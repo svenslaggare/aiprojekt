@@ -120,7 +120,7 @@ public class NGramModel {
 		
 		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
 			NGram ngram = current.getKey();
-			if (ngram.length() == this.maxLength && current.getValue() <= threshold) {
+			if (ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
 				this.ngramCounts[ngram.length() - 1]--;
 			}

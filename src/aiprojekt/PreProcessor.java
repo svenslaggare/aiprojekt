@@ -79,6 +79,7 @@ public class PreProcessor {
 				e.printStackTrace();
 			}
 			
+			System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
 			System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
 			System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
 			System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
