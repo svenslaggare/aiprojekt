@@ -72,7 +72,7 @@ public class NGramModel {
 	 * @return The n-grams
 	 */
  	public static List<NGram> getNgrams(List<Token> tokens, int maxLength) {
-		List<NGram> nGrams = new ArrayList<NGram>();
+		List<NGram> ngrams = new ArrayList<NGram>();
 		
 		for (int i = 0; i < tokens.size(); i++) {
 			List<Token> ngram = new ArrayList<Token>();
@@ -80,11 +80,11 @@ public class NGramModel {
 			//Creates the unigram, bigrams, trigrams, ...
 			for (int j = i; j < Math.min(i + maxLength, tokens.size()); j++) {
 				ngram.add(tokens.get(j));
-				nGrams.add(NGram.fromList(ngram));
+				ngrams.add(NGram.fromList(ngram));
 			}
 		}
 		
-		return nGrams;
+		return ngrams;
 	}
 	
 	/**

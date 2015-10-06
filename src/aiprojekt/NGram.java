@@ -77,6 +77,22 @@ public class NGram {
 		return new NGram(tokens, false);
 	}
 	
+	
+	/**
+	 * Creates a n-gram with the given tokens
+	 * @param first The first token
+	 * @param others The other token
+	 */
+	public static NGram fromTokens(Token first, Token... others) {
+		Token[] tokens = new Token[others.length + 1];
+		tokens[0] = first;
+		
+		for (int i = 0; i < others.length; i++) {
+			tokens[i + 1] = others[i];
+		}
+		
+		return new NGram(tokens, false);
+	}
 	/**
 	 * Returns the length of the n-gram
 	 */

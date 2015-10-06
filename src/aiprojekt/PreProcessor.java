@@ -1,10 +1,13 @@
 package aiprojekt;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
+import java.util.Map;
 
 /**
  * The main entry point for the preprocessor stage
@@ -52,6 +55,33 @@ public class PreProcessor {
 			for (int i = 1; i <= ngramModel.maxLength(); i++) {
 				System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
 			}	
+			
+			try (DataOutputStream outputStream = new DataOutputStream(
+					new BufferedOutputStream(new FileOutputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
+				outputStream.writeInt(this.ngramModel.getNgrams().size());
+				
+				for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
+					outputStream.writeInt(current.getKey().length());
+					
+					for (int i = 0; i < current.getKey().length(); i++) {
+						Token token = current.getKey().at(i);
+						outputStream.writeByte(token.getType().ordinal());
+						if (token.getType() == TokenType.WORD) {
+							outputStream.writeUTF(current.getKey().at(i).toString());
+						}
+					}
+					
+					outputStream.writeInt(current.getValue());
+				}
+				
+				outputStream.flush();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
+			System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
+			System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
 		} else {
 			processFiles(file);
 		}
