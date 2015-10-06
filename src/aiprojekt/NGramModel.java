@@ -111,6 +111,25 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Process the given NGrams Map, adding the NGrams one-by-one to the model
+	 * @param tokens The NGrams Map
+	 */
+	public void processNGrams(Map<NGram, Integer> ngrams){
+		
+		for(Map.Entry<NGram, Integer> entry : ngrams.entrySet()){
+			NGram ngram = entry.getKey();
+			Integer count = entry.getValue();
+			
+			this.ngramCounts[ngram.length()-1]++;
+			this.ngrams.put(ngram, count);
+			
+			if(ngram.length()==1){
+				this.unigrams.add(ngram);
+			}
+		}
+	}
+	
+	/**
 	 * Should be called after all tokens has been processed.
 	 */
 	public void end() {

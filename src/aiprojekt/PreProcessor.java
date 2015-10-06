@@ -17,6 +17,8 @@ public class PreProcessor {
 	static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
 	// any small dump goes in this path
 	static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs"; 
+	//Store the file here
+	static final String WRITE_TO_FILE = "res/bin/ngrams.bin";
 	
 	// run with 
 	private final boolean sampleLogs = false;
@@ -56,37 +58,42 @@ public class PreProcessor {
 				System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
 			}	
 			
-			try (DataOutputStream outputStream = new DataOutputStream(
-					new BufferedOutputStream(new FileOutputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
-				outputStream.writeInt(this.ngramModel.getNgrams().size());
-				
-				for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
-					outputStream.writeInt(current.getKey().length());
-					
-					for (int i = 0; i < current.getKey().length(); i++) {
-						Token token = current.getKey().at(i);
-						outputStream.writeByte(token.getType().ordinal());
-						if (token.getType() == TokenType.WORD) {
-							outputStream.writeUTF(current.getKey().at(i).toString());
-						}
-					}
-					
-					outputStream.writeInt(current.getValue());
-				}
-				
-				outputStream.flush();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
-			System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
-			System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
+			writeToFile();
 		} else {
 			processFiles(file);
 		}
 	}
 	
+	private void writeToFile() {
+		try (DataOutputStream outputStream = new DataOutputStream(
+				new BufferedOutputStream(new FileOutputStream(WRITE_TO_FILE)))) {
+			outputStream.writeInt(this.ngramModel.getNgrams().size());
+			
+			for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
+				outputStream.writeInt(current.getKey().length());
+				
+				for (int i = 0; i < current.getKey().length(); i++) {
+					Token token = current.getKey().at(i);
+					outputStream.writeByte(token.getType().ordinal());
+					if (token.getType() == TokenType.WORD) {
+						outputStream.writeUTF(current.getKey().at(i).toString());
+					}
+				}
+				
+				outputStream.writeInt(current.getValue());
+			}
+			
+			outputStream.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+//		System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
+//		System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
+//		System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
+		
+	}
+
 	/**
 	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
 	 * directory, all its files and subdirectories are recursively processed.

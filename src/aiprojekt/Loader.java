@@ -46,4 +46,47 @@ public class Loader {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Loads and returns NGram model from disc.
+	 * @param path File path to file containing stored NGram model. 
+	 */
+	public NGramModel load(String path){
+		Map<NGram, Integer> ngrams = new HashMap<>();
+		try (DataInputStream inputStream = new DataInputStream(
+				new BufferedInputStream(new FileInputStream(path)))) {
+
+			
+			int count = inputStream.readInt();
+			List<Token> tokenBuffer = new ArrayList<>();
+			Token startToken = new Token(TokenType.START_OF_SENTENCE);
+			Token endToken = new Token(TokenType.END_OF_SENTENCE);
+						
+			for (int i = 0; i < count; i++) {
+				int length = inputStream.readInt();
+				tokenBuffer.clear();
+								
+				for (int j = 0; j < length; j++) {
+					int type = inputStream.readByte();
+					
+					if (type == TokenType.START_OF_SENTENCE.ordinal()) {
+						tokenBuffer.add(startToken);
+					} else if (type == TokenType.END_OF_SENTENCE.ordinal()) {
+						tokenBuffer.add(endToken);
+					} else {
+						String word = inputStream.readUTF();
+						tokenBuffer.add(new Token(word));
+					}
+				}
+				
+				int ngramCount = inputStream.readInt();			
+				ngrams.put(NGram.fromList(tokenBuffer), ngramCount);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		NGramModel ngramModel = new NGramModel(3);
+		ngramModel.processNGrams(ngrams);
+		return ngramModel;
+	}
 }

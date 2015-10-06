@@ -8,7 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -17,6 +19,7 @@ import aiprojekt.NGramModel;
 import aiprojekt.NGramTree;
 import aiprojekt.TextParser;
 import aiprojekt.Token;
+import aiprojekt.TokenType;
 
 /**
  * Tests the N-gram model
@@ -28,6 +31,7 @@ public class NGramModelTest {
 		
 	private static final List<List<Token>> sentences = loadTokensFromFile(
 		"res/chatlogs/2006-05-27-#ubuntu.txt");
+
 	
 	/**
 	 * Loads the given tokens from the given file
@@ -165,6 +169,27 @@ public class NGramModelTest {
 		for (NGramTree.Result result : tree.findResults(ngram)) {
 			assertEquals(result.getCount(), (int)ngramModel.getNgrams().get(result.getNgram()));
 		}
+	}
+	
+	/**
+	 * Tests creating a n-gram model with NGrams as parameter.
+	 */
+	@Test
+	public void testCreateModel3(){
+		NGramModel ngramModel = new NGramModel(3);
+		Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
+		NGram ngram1 = new NGram(new Token[]{new Token(TokenType.START_OF_SENTENCE),new Token("hello")});
+		NGram ngram2 = new NGram(new Token[]{new Token("hello"),new Token("i")});
+		ngrams.put(ngram1,new Integer(2));
+		ngrams.put(ngram2,new Integer(4));
+		
+		ngramModel.processNGrams(ngrams);
+		
+		assertEquals(ngramModel.getCount(ngram1), (int)ngramModel.getNgrams().get(ngram1));
+		assertEquals(ngramModel.getCount(ngram2), (int)ngramModel.getNgrams().get(ngram2));
+		
+		
+		
 	}
 	
 	/**
