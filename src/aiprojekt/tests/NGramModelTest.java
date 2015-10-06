@@ -185,10 +185,10 @@ public class NGramModelTest {
 	 */
 	@Test
 	public void testPredictNext2() {
-		NGramModel ngramModel = new NGramModel(3);
-		ngramModel.processTokens(tokens1);
-		
-		NGram ngram = NGram.fromWords("hello", "you");	
+//		NGramModel ngramModel = new NGramModel(3);
+//		ngramModel.processTokens(tokens1);
+//		
+//		NGram ngram = NGram.fromWords("hello", "you");	
 //		System.out.println(ngramModel.predictNext(ngram, 5));
 	}
 }

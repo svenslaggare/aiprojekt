@@ -19,7 +19,7 @@ public class NGramModel {
 		
 	private final int matchThreshold = 0;
 	
-	private final NGramTree tree = NGramTree.rootTree();
+//	private final NGramTree tree = NGramTree.rootTree();
 	
 	/**
 	 * Creates a new N-gram model
@@ -46,9 +46,9 @@ public class NGramModel {
 	/**
 	 * Returns the search tree
 	 */
-	public NGramTree searchTree() {
-		return this.tree;
-	}
+//	public NGramTree searchTree() {
+//		return this.tree;
+//	}
 		
 	/**
 	 * Returns the n-grams in the given tokens
@@ -85,7 +85,7 @@ public class NGramModel {
 			}
 			
 			this.ngrams.put(ngram, count + 1);
-			this.tree.insert(ngram, 1);
+//			this.tree.insert(ngram, 1);
 			
 			if (ngram.length() == 1) {
 				this.unigrams.add(ngram);
@@ -98,7 +98,13 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	public int getCount(NGram ngram) {
-		return this.tree.find(ngram);
+//		return this.tree.find(ngram);
+		
+		if (this.ngrams.containsKey(ngram)) {
+			return this.ngrams.get(ngram);
+		}
+		
+		return 0;
 	}
 	
 	/**
@@ -150,7 +156,7 @@ public class NGramModel {
 	 */
 	private double getProbability(NGram ngram, int count) {
 		double d = 1.0;
-		double alpha = 1.0 / ngram.length();
+		double alpha = 0.5 / ngram.length();
 
 		if (ngram.length() == 1) {
 			return (alpha * count) / this.unigrams.size();
@@ -158,7 +164,7 @@ public class NGramModel {
 				
 		NGram subgram = ngram.subgram(ngram.length() - 1);
 		int subgramCount = this.getCount(subgram);
-
+		
 		if (count > this.matchThreshold) {
 			return d * ((double)count / subgramCount);
 		} else {
