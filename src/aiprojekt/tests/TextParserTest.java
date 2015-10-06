@@ -43,6 +43,9 @@ public class TextParserTest {
 	String sentence5 = "[21:56] <gantox> www.lunarstorm.se is good.";
 	ArrayList<Token> answer5 = new ArrayList<Token>(Arrays.asList(new Token(TokenType.START_OF_SENTENCE), new Token("is"), new Token("good"), new Token(TokenType.END_OF_SENTENCE)));
 	
+	String sentence6 = "=== gantox is now known as noob";
+	ArrayList<Token> answer6 = new ArrayList<Token>();
+	
 	TextParser parser = new TextParser();
 	
 	@Test
@@ -60,5 +63,10 @@ public class TextParserTest {
 	public void testTokenizeURL() {
 		assertTrue(answer4.equals(parser.tokenize(sentence4)));
 		assertTrue(answer5.equals(parser.tokenize(sentence5)));
+	}
+	
+	@Test
+	public void testSystemMessage(){
+		assertTrue(answer6.isEmpty());
 	}
 }

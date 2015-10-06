@@ -24,6 +24,9 @@ public class TextParser {
 	private static final Pattern WORD_PATTERN = Pattern.compile("\\s+");
 	
 	public List<Token> tokenize(String text) {
+		if(text.matches("^[===]")){
+			return new ArrayList<Token>();
+		}
 		text = REPLACE_ALL_PATTERN.matcher(text).replaceAll("");
 		
 		text = text.toLowerCase();
