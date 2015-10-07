@@ -15,7 +15,7 @@ public class NGramModel {
 	private final int maxLength;
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
-	private List<NGram> topUnigrams =  new ArrayList<NGram>(); 
+	private final List<NGram> topUnigrams =  new ArrayList<NGram>(); 
 	private final int[] ngramCounts;
 	
 	private final int matchThreshold = 0;
@@ -89,18 +89,28 @@ public class NGramModel {
 	 */
  	public static List<NGram> getNgrams(List<Token> tokens, int maxLength) {
 		List<NGram> ngrams = new ArrayList<NGram>();
+		getNgrams(tokens, maxLength, ngrams);
+		return ngrams;
+	}
+ 	
+ 	/**
+	 * Returns the n-grams in the given tokens
+	 * @param tokens The tokens
+	 * @param maxLength The maximum length of a n-gram
+	 * @param outList The output list
+	 */
+ 	public static void getNgrams(List<Token> tokens, int maxLength, List<NGram> outList) {
+		List<Token> ngram = new ArrayList<Token>();
 		
-		for (int i = 0; i < tokens.size(); i++) {
-			List<Token> ngram = new ArrayList<Token>();
-			
+		for (int i = 0; i < tokens.size(); i++) {			
 			//Creates the unigram, bigrams, trigrams, ...
 			for (int j = i; j < Math.min(i + maxLength, tokens.size()); j++) {
 				ngram.add(tokens.get(j));
-				ngrams.add(NGram.fromList(ngram));
+				outList.add(NGram.fromList(ngram));
 			}
+			
+			ngram.clear();
 		}
-		
-		return ngrams;
 	}
 	
  	/**
@@ -119,10 +129,6 @@ public class NGramModel {
 		
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
-
-	/*	if (ngram.length() == 1) {
-			this.unigrams.add(ngram);
-		}*/
  	}
  	
 	/**
@@ -132,8 +138,7 @@ public class NGramModel {
 	public void processTokens(List<Token> tokens) {
 		for (NGram ngram : getNgrams(tokens, this.maxLength)) {
 			this.addNGram(ngram, 1);
-		}
-		
+		}	
 	}
 	
 	/**
@@ -151,7 +156,7 @@ public class NGramModel {
 	/**
 	 * Should be called after all tokens has been processed.
 	 */
-	public void end() {
+	public void end() {		
 		int threshold = 1;
 		
 		Iterator<Map.Entry<NGram, Integer>> entryIterator = this.ngrams.entrySet().iterator();
@@ -180,8 +185,7 @@ public class NGramModel {
 		while (topUnigrams.size() > this.topUnigramsCount) {
 			topUnigrams.remove(topUnigrams.size() - 1);
 		}
-		//System.out.println("num of unigrams: " + topUnigrams.size() + "first: " + getCount(topUnigrams.get(0)) + " last: " + getCount(topUnigrams.get(topUnigrams.size()-1)));
-		
+		//System.out.println("num of unigrams: " + topUnigrams.size() + "first: " + getCount(topUnigrams.get(0)) + " last: " + getCount(topUnigrams.get(topUnigrams.size()-1)));	
 	}
 	
 	/**
