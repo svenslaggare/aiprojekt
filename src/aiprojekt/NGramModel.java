@@ -20,6 +20,11 @@ public class NGramModel {
 	
 	private final int matchThreshold = 0;
 	
+	/**
+	 * The default n-gram max length
+	 */
+	public static final int DEFAULT_MAX_NGRAM_LENGTH = 3;
+	
 //	private final NGramTree tree = NGramTree.rootTree();
 	
 	/**
@@ -112,6 +117,25 @@ public class NGramModel {
 //			this.tree.insert(ngram, 1);
 
 			if (ngram.length() == 1) {
+				this.unigrams.add(ngram);
+			}
+		}
+	}
+	
+	/**
+	 * Process the given NGrams Map, adding the NGrams one-by-one to the model
+	 * @param tokens The NGrams Map
+	 */
+	public void processNGrams(Map<NGram, Integer> ngrams){
+		
+		for(Map.Entry<NGram, Integer> entry : ngrams.entrySet()){
+			NGram ngram = entry.getKey();
+			Integer count = entry.getValue();
+			
+			this.ngramCounts[ngram.length()-1]++;
+			this.ngrams.put(ngram, count);
+			
+			if(ngram.length()==1){
 				this.unigrams.add(ngram);
 			}
 		}

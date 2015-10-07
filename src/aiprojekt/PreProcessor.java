@@ -14,17 +14,16 @@ import java.util.Map;
  * The main entry point for the preprocessor stage
  */
 public class PreProcessor {
-	// the big dump goes in this path
-	static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
-	// any small dump goes in this path
-	static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs"; 
+	private static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
+	private static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs"; 
+	public static final String WRITE_TO_FILE = "res/bin/ngrams.bin";
 	
 	// run with 
-	private final boolean sampleLogs = false;
+	private final boolean sampleLogs = true;
 	private final boolean timer = true;
 	
 	private int processedSentences = 0;
-	private NGramModel ngramModel = new NGramModel(3);
+	private NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 	
 	public static void main(String[] args) {
 		PreProcessor processor = new PreProcessor();
@@ -43,12 +42,12 @@ public class PreProcessor {
 			file = new File(BIG_DUMP_LOGS_PATH);
 		}
 		
+		long startTime = System.currentTimeMillis();
+		processFiles(file);
+		ngramModel.end();
+		long stopTime = System.currentTimeMillis();
+		
 		if (timer) {
-			long startTime = System.currentTimeMillis();
-			processFiles(file);
-			ngramModel.end();
-			long stopTime = System.currentTimeMillis();
-			
 			System.out.println("Elapsed time was " + (stopTime - startTime) / 1000.0 + " seconds.");
 			System.out.println("Processed "+ processedSentences +" sentences");
 			
@@ -56,52 +55,59 @@ public class PreProcessor {
 			for (int i = 1; i <= ngramModel.maxLength(); i++) {
 				System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
 			}	
-			
-			try (DataOutputStream outputStream = new DataOutputStream(
-					new BufferedOutputStream(new FileOutputStream("E:\\Programmering\\AI\\ngrams.bin")))) {
-				Map<Token, Integer> tokenToId = new HashMap<>();
-				
-				outputStream.writeInt(this.ngramModel.unigrams().size() - 2);	
-				int id = 0;
-				for (NGram unigram : this.ngramModel.unigrams()) {
-					Token token = unigram.at(0);
-					if (token.getType() == TokenType.WORD) {
-						outputStream.writeUTF(token.getWord());
-						tokenToId.put(token, id);
-						id++;
-					}
-				}
-								
-				outputStream.writeInt(this.ngramModel.getNgrams().size());
-								
-				for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
-					outputStream.writeInt(current.getKey().length());
-					
-					for (int i = 0; i < current.getKey().length(); i++) {
-						Token token = current.getKey().at(i);
-						outputStream.writeByte(token.getType().ordinal());
-						if (token.getType() == TokenType.WORD) {
-							outputStream.writeInt(tokenToId.get(token));
-						}
-					}
-					
-					outputStream.writeInt(current.getValue());
-				}
-				
-				outputStream.flush();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
+		}
+		
+		writeToFile();
+		
+		if (timer) {
 			System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
 			System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
 			System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
 			System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
-		} else {
-			processFiles(file);
 		}
 	}
 	
+	/**
+	 * Writes the data to file
+	 */
+	private void writeToFile() {
+		try (DataOutputStream outputStream = new DataOutputStream(
+				new BufferedOutputStream(new FileOutputStream(WRITE_TO_FILE)))) {
+			Map<Token, Integer> tokenToId = new HashMap<>();
+			
+			outputStream.writeInt(this.ngramModel.unigrams().size() - 2);	
+			int id = 0;
+			for (NGram unigram : this.ngramModel.unigrams()) {
+				Token token = unigram.at(0);
+				if (token.getType() == TokenType.WORD) {
+					outputStream.writeUTF(token.getWord());
+					tokenToId.put(token, id);
+					id++;
+				}
+			}
+							
+			outputStream.writeInt(this.ngramModel.getNgrams().size());
+							
+			for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
+				outputStream.writeInt(current.getKey().length());
+				
+				for (int i = 0; i < current.getKey().length(); i++) {
+					Token token = current.getKey().at(i);
+					outputStream.writeByte(token.getType().ordinal());
+					if (token.getType() == TokenType.WORD) {
+						outputStream.writeInt(tokenToId.get(token));
+					}
+				}
+				
+				outputStream.writeInt(current.getValue());
+			}
+			
+			outputStream.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
 	 * directory, all its files and subdirectories are recursively processed.
@@ -123,7 +129,7 @@ public class PreProcessor {
 				try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 					String sentence;
 					while ((sentence = br.readLine()) != null) {
-						ngramModel.processTokens(parser.tokenize(sentence));
+						this.ngramModel.processTokens(parser.tokenize(sentence));
 						processedSentences++;
 					}
 				} catch (IOException e) {

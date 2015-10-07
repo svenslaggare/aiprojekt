@@ -21,6 +21,14 @@ public class PredictionGUI {
 	private JButton sendButton;
 	private JLabel nextWordProposals;
 	
+	// Use pre-processed NGrams
+	private static final boolean USE_LOADER = false;
+	private static final String LOAD_FILE = "res/bin/ngrams.bin";
+	
+	public PredictionGUI(){
+		
+	}
+	
 	public PredictionGUI(NGramModel ngramModel) {
 		wordPredictor = new WordPredictor(ngramModel, 10);
 		
@@ -94,27 +102,37 @@ public class PredictionGUI {
 		
 		inputField.requestFocusInWindow();
 	}
-	
 	public static void main(String[] args) {
-		List<List<Token>> sentences = new ArrayList<List<Token>>();
-		
-		TextParser parser = new TextParser();
-		File file = new File("res/chatlogs/ubuntu.txt");
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-			String sentence;
-			while ((sentence = br.readLine()) != null) {
-				sentences.add(parser.tokenize(sentence));
+		PredictionGUI gui = new PredictionGUI();
+		gui.run();
+	}
+	
+	public void run(){
+	
+		if(!USE_LOADER){
+			List<List<Token>> sentences = new ArrayList<List<Token>>();
+			TextParser parser = new TextParser();
+			File file = new File("res/chatlogs/ubuntu.txt");
+			
+			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+				String sentence;
+				while ((sentence = br.readLine()) != null) {
+					sentences.add(parser.tokenize(sentence));
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+			
+			NGramModel ngramModel = new NGramModel(3);
+			for (List<Token> sentence : sentences) {
+				ngramModel.processTokens(sentence);
+			}
+			
+			new PredictionGUI(ngramModel);
+			}
+		else {
+			Loader loader = new Loader();
+			new PredictionGUI(loader.load(LOAD_FILE));
 		}
-		
-		NGramModel ngramModel = new NGramModel(3);
-		for (List<Token> sentence : sentences) {
-			ngramModel.processTokens(sentence);
-		}
-		
-		new PredictionGUI(ngramModel);
 	}
 }
