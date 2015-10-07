@@ -3,6 +3,9 @@ package aiprojekt;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Loads a saved n-gram model from a file
+ */
 public class Loader {
 	public static void main(String[] args) {
 		Loader loader = new Loader();

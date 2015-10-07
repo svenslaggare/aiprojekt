@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The main entry point for the preprocessor stage
+ * The pre-processor process text files, generates a n-gram model and saves to file
  */
 public class PreProcessor {
 	private static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 

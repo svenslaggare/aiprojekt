@@ -38,7 +38,11 @@ public class NGramFileTest {
 		assertEquals(loadedModel.getNgrams().size(), preProcessor.getNgramModel().getNgrams().size());
 		
 		for (Map.Entry<NGram, Integer> current : preProcessor.getNgramModel().getNgrams().entrySet()) {
-			assertEquals(loadedModel.getCount(current.getKey()), (int)current.getValue());
+			assertEquals((int)current.getValue(), loadedModel.getCount(current.getKey()));
+		}
+		
+		for (int i = 1; i <= preProcessor.getNgramModel().maxLength(); i++) {
+			assertEquals(loadedModel.countForNGram(i), preProcessor.getNgramModel().countForNGram(i));
 		}
 	}
 }

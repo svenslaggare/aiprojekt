@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -153,13 +154,13 @@ public class NGramModel {
 	public void end() {
 		int threshold = 1;
 		
-		List<NGram> toRemove = new ArrayList<NGram>();
-		
-		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
+		Iterator<Map.Entry<NGram, Integer>> entryIterator = this.ngrams.entrySet().iterator();
+		while (entryIterator.hasNext()) {
+			Map.Entry<NGram, Integer> current = entryIterator.next();
 			NGram ngram = current.getKey();
 			//Remove unique n-grams of length > 1
 			if (ngram.length() > 1 && current.getValue() <= threshold) {
-				toRemove.add(ngram);
+				entryIterator.remove();
 				this.ngramCounts[ngram.length() - 1]--;
 			} else if(ngram.length() == 1) { // Adding all unigrams
 				if (!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM)) {
@@ -167,11 +168,7 @@ public class NGramModel {
 				}
 			}
 		}
-		
-		for (NGram ngram : toRemove) {
-			this.ngrams.remove(ngram);
-		}
-		
+				
 		// Sort the unigrams by count
 		Collections.sort(topUnigrams, new Comparator<NGram>() {
 			public int compare(NGram a, NGram b) {
