@@ -46,8 +46,6 @@ public class Loader {
 			Map<NGram, Integer> ngrams = new HashMap<>(count);
 
 			List<Token> tokenBuffer = new ArrayList<>();
-			Token startToken = new Token(TokenType.START_OF_SENTENCE);
-			Token endToken = new Token(TokenType.END_OF_SENTENCE);
 
 			for (int i = 0; i < count; i++) {
 				int length = inputStream.readInt();

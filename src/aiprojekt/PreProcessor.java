@@ -80,7 +80,7 @@ public class PreProcessor {
 			int id = 0;
 			for (NGram unigram : this.ngramModel.unigrams()) {
 				Token token = unigram.at(0);
-				outputStream.writeUTF(token.getWord());
+				outputStream.writeUTF(token.toString());
 				tokenToId.put(token, id);
 				id++;
 			}
