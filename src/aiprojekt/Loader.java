@@ -31,7 +31,15 @@ public class Loader {
 			int numTokens = inputStream.readInt();
 			Map<Integer, Token> idToToken = new HashMap<>(numTokens);
 			for (int id = 0; id < numTokens; id++) {
-				idToToken.put(id, new Token(inputStream.readUTF()));
+				String token = inputStream.readUTF();
+				
+				if (token.equals("<s>")) {
+					idToToken.put(id, new Token(TokenType.START_OF_SENTENCE));
+				} else if (token.equals("</s>")) {
+					idToToken.put(id, new Token(TokenType.END_OF_SENTENCE));
+				} else {
+					idToToken.put(id, new Token(token));
+				}
 			}
 
 			int count = inputStream.readInt();
@@ -46,16 +54,8 @@ public class Loader {
 				tokenBuffer.clear();
 
 				for (int j = 0; j < length; j++) {
-					int type = inputStream.readByte();
-
-					if (type == TokenType.START_OF_SENTENCE.ordinal()) {
-						tokenBuffer.add(startToken);
-					} else if (type == TokenType.END_OF_SENTENCE.ordinal()) {
-						tokenBuffer.add(endToken);
-					} else {
-						int tokenId = inputStream.readInt();
-						tokenBuffer.add(idToToken.get(tokenId));
-					}
+					int tokenId = inputStream.readInt();
+					tokenBuffer.add(idToToken.get(tokenId));
 				}
 
 				int ngramCount = inputStream.readInt();

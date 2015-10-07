@@ -73,19 +73,19 @@ public class PreProcessor {
 	private void writeToFile() {
 		try (DataOutputStream outputStream = new DataOutputStream(
 				new BufferedOutputStream(new FileOutputStream(WRITE_TO_FILE)))) {
+			//First write all unique tokens
 			Map<Token, Integer> tokenToId = new HashMap<>();
 			
-			outputStream.writeInt(this.ngramModel.unigrams().size() - 2);	
+			outputStream.writeInt(this.ngramModel.unigrams().size());	
 			int id = 0;
 			for (NGram unigram : this.ngramModel.unigrams()) {
 				Token token = unigram.at(0);
-				if (token.getType() == TokenType.WORD) {
-					outputStream.writeUTF(token.getWord());
-					tokenToId.put(token, id);
-					id++;
-				}
+				outputStream.writeUTF(token.getWord());
+				tokenToId.put(token, id);
+				id++;
 			}
 							
+			//Then the n-grams, where the token id points to the previous table
 			outputStream.writeInt(this.ngramModel.getNgrams().size());
 							
 			for (Map.Entry<NGram, Integer> current : this.ngramModel.getNgrams().entrySet()) {
@@ -93,10 +93,7 @@ public class PreProcessor {
 				
 				for (int i = 0; i < current.getKey().length(); i++) {
 					Token token = current.getKey().at(i);
-					outputStream.writeByte(token.getType().ordinal());
-					if (token.getType() == TokenType.WORD) {
-						outputStream.writeInt(tokenToId.get(token));
-					}
+					outputStream.writeInt(tokenToId.get(token));
 				}
 				
 				outputStream.writeInt(current.getValue());
