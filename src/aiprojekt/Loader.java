@@ -11,13 +11,12 @@ public class Loader {
 		Map<NGram, Integer> ngrams = ngramModel.getNgrams();
 
 		System.out.println("Loaded: " + (System.currentTimeMillis() - start) / 1000.0 + " s");
-		System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime()
-						.freeMemory()) / 1024 / 1024 + " MB");
-		System.out.println("N-grams: " + ngrams.size());
+		System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
+		System.out.println("Total n-grams: " + ngrams.size());
 
-		System.out.println(ngrams.get(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
-		System.out.println(ngrams.get(NGram.fromWords("hello")));
-		System.out.println(ngrams.get(NGram.fromWords("greetings")));
+		for (int i = 1; i <= ngramModel.maxLength(); i++) {
+			System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
+		}	
 	}
 
 	/**

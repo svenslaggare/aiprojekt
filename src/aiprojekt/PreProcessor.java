@@ -22,7 +22,7 @@ public class PreProcessor {
 	public static final String FILE_NAME = "ngrams.bin";
 	public static final String FILE_PATH = WRITE_TO_PATH + FILE_NAME;
 	
-	private final boolean sampleLogs = true;
+	private final boolean sampleLogs = false;
 	private final boolean timer = true;
 	
 	private int processedSentences = 0;
@@ -69,9 +69,6 @@ public class PreProcessor {
 		
 		if (timer) {
 			System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
-			System.out.println(this.ngramModel.getCount(NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE), new Token("hello"), new Token("you"))));
-			System.out.println(this.ngramModel.getCount(NGram.fromWords("hello")));
-			System.out.println(this.ngramModel.getCount(NGram.fromWords("greetings")));
 		}
 	}
 	
