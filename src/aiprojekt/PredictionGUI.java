@@ -22,7 +22,7 @@ public class PredictionGUI {
 	private JLabel nextWordProposals;
 	
 	// Use pre-processed NGrams
-	private static final boolean USE_LOADER = false;
+	private static final boolean USE_LOADER = true;
 	private static final String LOAD_FILE = "res/bin/ngrams.bin";
 	
 	public PredictionGUI(){

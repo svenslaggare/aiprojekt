@@ -7,7 +7,7 @@ public class Loader {
 	public static void main(String[] args) {
 		Loader loader = new Loader();
 		long start = System.currentTimeMillis();
-		NGramModel ngramModel = loader.load(PreProcessor.WRITE_TO_FILE);
+		NGramModel ngramModel = loader.load(PreProcessor.FILE_PATH);
 		Map<NGram, Integer> ngrams = ngramModel.getNgrams();
 
 		System.out.println("Loaded: " + (System.currentTimeMillis() - start) / 1000.0 + " s");
@@ -26,6 +26,16 @@ public class Loader {
 	 * @return The model or null if not loaded
 	 */
 	public NGramModel load(String path) {
+		NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
+		File file = new File(path);
+		if(!file.exists()){
+			// we have to create file
+			PreProcessor processor = new PreProcessor();
+			processor.run();
+			return processor.getNgramModel();
+			
+		} else {
+			
 		try (DataInputStream inputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(path)))) {
 
 			int numTokens = inputStream.readInt();
@@ -60,12 +70,13 @@ public class Loader {
 				ngrams.put(NGram.fromList(tokenBuffer), ngramCount);
 			}
 
-			NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 			ngramModel.processNGrams(ngrams);
-			return ngramModel;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+		}
+			return ngramModel;
+		
 	}
 }
