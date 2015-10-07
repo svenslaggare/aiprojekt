@@ -14,22 +14,22 @@ import javax.swing.*;
 public class PredictionGUI {
 	private WordPredictor wordPredictor;
 	
-	private JFrame frame;
-	private JTextArea chat;
-	private JScrollPane chatScroll;
-	private JTextField inputField;
-	private JButton sendButton;
-	private JLabel nextWordProposals;
+	private final JTextField inputField;
+	private final JLabel nextWordProposals;
+	
+	private static final String SPACE_PRESSED = "spacePressed";
+	private static final String BACKSPACE_PRESSED = "backspacePressed";
 	
 	// Use pre-processed NGrams
 	private static final boolean USE_LOADER = false;
 	private static final String LOAD_FILE = "res/bin/ngrams.bin";
 	
-	public PredictionGUI(){
-		
-	}
-	
 	public PredictionGUI(NGramModel ngramModel) {
+		final JFrame frame;
+		final JTextArea chat;
+		final JScrollPane chatScroll;
+		final JButton sendButton;
+		
 		wordPredictor = new WordPredictor(ngramModel, 10);
 		
 		frame = new JFrame("Next Word Predictor");
@@ -70,29 +70,59 @@ public class PredictionGUI {
 				BorderFactory.createEmptyBorder(0, 3, 0, 3)));
 		nextWordProposals.setVerticalAlignment(JLabel.TOP);
 		frame.add(nextWordProposals);
+		updateNextWordPredictions("");
 		
 		// Updates the proposed next words when space is pressed.
 		InputMap inputMap = inputField.getInputMap(JComponent.WHEN_FOCUSED);
-		inputMap.put(KeyStroke.getKeyStroke("SPACE"), "updateWordProposals");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), SPACE_PRESSED);
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0), BACKSPACE_PRESSED);
 		
 		ActionMap actionMap = inputField.getActionMap();
-		actionMap.put("updateWordProposals", new AbstractAction(){
+		
+		actionMap.put(SPACE_PRESSED, new AbstractAction() {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				if (wordPredictor != null) {
-					List<String> proposals = wordPredictor.predictNextWord(inputField.getText());
+				updateNextWordPredictions(inputField.getText());
+			}
+		});
+		
+		actionMap.put(BACKSPACE_PRESSED, new AbstractAction() {
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				int caretPosition = inputField.getCaretPosition();
+				if (caretPosition != 0) {
+					String fieldText = inputField.getText();
 					
-					StringBuilder sb = new StringBuilder("<html>");
-					
-					int place = 1;
-					for (String word : proposals) {
-						sb.append(place++ + ". " + word + "<br />");
+					int len = fieldText.length();
+					if (len > 0) {
+						caretPosition--;
+						
+						String tmp = fieldText.substring(0, caretPosition);
+						
+						if (caretPosition == fieldText.length()) {
+							fieldText = tmp;
+						} else {
+							fieldText = tmp + fieldText.substring(caretPosition + 1, fieldText.length());
+						}
+						
+						if (fieldText.endsWith(" ") || fieldText.length() == 0) {
+							updateNextWordPredictions(fieldText);
+						} else {
+							String[] words = fieldText.split(" ");
+							
+							StringBuilder sb = new StringBuilder();
+							for (int i = 0; i < words.length - 1; i++) {
+								sb.append(words[i] + " ");
+							}
+							
+							updateNextWordPredictions(sb.toString());
+						}
+						
+						inputField.setText(fieldText);
+						inputField.setCaretPosition(caretPosition);
 					}
-					
-					sb.append("</html>");
-					
-					nextWordProposals.setText(sb.toString());
 				}
 			}
 		});
@@ -102,14 +132,9 @@ public class PredictionGUI {
 		
 		inputField.requestFocusInWindow();
 	}
+	
 	public static void main(String[] args) {
-		PredictionGUI gui = new PredictionGUI();
-		gui.run();
-	}
-	
-	public void run(){
-	
-		if(!USE_LOADER){
+		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();
 			File file = new File("res/chatlogs/ubuntu.txt");
@@ -129,10 +154,24 @@ public class PredictionGUI {
 			}
 			
 			new PredictionGUI(ngramModel);
-			}
-		else {
+		} else {
 			Loader loader = new Loader();
 			new PredictionGUI(loader.load(LOAD_FILE));
 		}
+	}
+	
+	private void updateNextWordPredictions(String text) {
+		List<String> proposals = wordPredictor.predictNextWord(text);
+		
+		StringBuilder sb = new StringBuilder("<html>");
+		
+		int place = 1;
+		for (String word : proposals) {
+			sb.append(place++ + ". " + word + "<br />");
+		}
+		
+		sb.append("</html>");
+		
+		nextWordProposals.setText(sb.toString());
 	}
 }
