@@ -89,7 +89,7 @@ public class PreProcessor {
 	/**
 	 * Writes the data to file
 	 */
-	public void writeToFile(String path) {		
+	public void writeToFile(String path) {
 		try (DataOutputStream outputStream = new DataOutputStream(
 				new BufferedOutputStream(new FileOutputStream(path)))) {
 			//First write all unique tokens
@@ -110,6 +110,13 @@ public class PreProcessor {
 				id++;
 			}
 
+			//Then the top ranked unigrams
+			outputStream.writeInt(this.ngramModel.topUnigrams().size());
+			for (NGram ngram : this.ngramModel.topUnigrams()) {
+				Token token = ngram.at(0);
+				outputStream.writeInt(tokenToId.get(token));
+			}
+			
 			//Then the n-grams, where the token id points to the previous table
 			outputStream.writeInt(this.ngramModel.getNgrams().size());
 							
