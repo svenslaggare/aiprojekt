@@ -15,8 +15,10 @@ import java.util.Map;
  */
 public class PreProcessor {
 	private static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
-	private static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs"; 
-	public static final String WRITE_TO_FILE = "res/bin/ngrams.bin";
+	private static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs";
+	public static final String WRITE_TO_PATH = "res/bin/";
+	public static final String FILE_NAME = "ngrams.bin";
+	public static final String FILE_PATH = WRITE_TO_PATH+FILE_NAME;
 	
 	// run with 
 	private final boolean sampleLogs = true;
@@ -67,12 +69,26 @@ public class PreProcessor {
 		}
 	}
 	
+	public NGramModel getNgramModel(){
+		if(processedSentences != 0){
+			return ngramModel;
+		} else {
+			System.err.println("PreProcessor didn't process any sentences. (check that a file at "+SMALL_DUMP_LOGS_PATH+" or "
+					+ BIG_DUMP_LOGS_PATH + " exists)");
+			return null;
+		}
+	}
+	
 	/**
 	 * Writes the data to file
 	 */
 	private void writeToFile() {
+		File directory = new File(WRITE_TO_PATH);
+		if(!directory.isDirectory()){
+			directory.mkdirs();
+		}
 		try (DataOutputStream outputStream = new DataOutputStream(
-				new BufferedOutputStream(new FileOutputStream(WRITE_TO_FILE)))) {
+				new BufferedOutputStream(new FileOutputStream(FILE_PATH)))) {
 			//First write all unique tokens
 			Map<Token, Integer> tokenToId = new HashMap<>();
 			
