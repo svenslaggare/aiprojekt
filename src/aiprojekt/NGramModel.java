@@ -1,7 +1,9 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +17,9 @@ public class NGramModel {
 	private final int maxLength;
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
-	private final Set<NGram> unigrams = new HashSet<NGram>();
+	private List<NGram> topUnigrams =  new ArrayList<NGram>(); 
+	private final String BEGINNING_UNIGRAM = "<s>";
+	private final String END_UNIGRAM = "</s>";
 	private final int[] ngramCounts;
 	
 	private final int matchThreshold = 0;
@@ -46,8 +50,8 @@ public class NGramModel {
 	/**
 	 * Returns the unigrams
 	 */
-	public Set<NGram> unigrams() {
-		return this.unigrams;
+	public List<NGram> unigrams() {
+		return this.topUnigrams;
 	}
 	
 	/**
@@ -116,9 +120,9 @@ public class NGramModel {
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
 
-		if (ngram.length() == 1) {
+	/*	if (ngram.length() == 1) {
 			this.unigrams.add(ngram);
-		}
+		}*/
  	}
  	
 	/**
@@ -129,6 +133,7 @@ public class NGramModel {
 		for (NGram ngram : getNgrams(tokens, this.maxLength)) {
 			this.addNGram(ngram, 1);
 		}
+		
 	}
 	
 	/**
@@ -156,12 +161,30 @@ public class NGramModel {
 			if (ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
 				this.ngramCounts[ngram.length() - 1]--;
+			}else if(ngram.length() == 1){ // Adding all unigrams
+				if(!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM) ){
+					topUnigrams.add(ngram);			
+				}else{
+					System.out.println(ngram.toString());
+				}
 			}
 		}
 		
 		for (NGram ngram : toRemove) {
 			this.ngrams.remove(ngram);
 		}
+		// Sort the unigrams by count
+		Collections.sort(topUnigrams, new Comparator<NGram>(){
+			public int compare(NGram a, NGram b){
+				return Integer.compare(getCount(b), getCount(a));
+			}
+		});
+		// Removing all except for top 100
+		while(topUnigrams.size()>100){
+			topUnigrams.remove(topUnigrams.size()-1);
+		}
+		//System.out.println("num of unigrams: " + topUnigrams.size() + "first: " + getCount(topUnigrams.get(0)) + " last: " + getCount(topUnigrams.get(topUnigrams.size()-1)));
+		
 	}
 	
 	/**
@@ -230,7 +253,7 @@ public class NGramModel {
 		double alpha = 0.5 / ngram.length();
 
 		if (ngram.length() == 1) {
-			return (alpha * count) / this.unigrams.size();
+			return (alpha * count) / this.topUnigrams.size();
 		}
 				
 		NGram subgram = ngram.subgram(ngram.length() - 1);
@@ -249,7 +272,7 @@ public class NGramModel {
 	 * @param ngram The current n-gram
 	 */
 	private void predictNext(List<Result> results, NGram ngram) {	
-		for (NGram unigram : this.unigrams) {
+		for (NGram unigram : this.topUnigrams) {
 			NGram predictedNgram = ngram.append(unigram);
 			double probability = this.getProbability(predictedNgram, this.getCount(predictedNgram));
 

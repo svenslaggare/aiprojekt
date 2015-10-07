@@ -127,6 +127,7 @@ public class PredictionGUI {
 			for (List<Token> sentence : sentences) {
 				ngramModel.processTokens(sentence);
 			}
+			ngramModel.end();
 			
 			new PredictionGUI(ngramModel);
 			}
