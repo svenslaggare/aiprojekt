@@ -12,7 +12,7 @@
 hs_err_pid*
 
 # chatlogs
-chatlogs/
+chatlogs/big_dump_logs
 bin/
 .settings
 
