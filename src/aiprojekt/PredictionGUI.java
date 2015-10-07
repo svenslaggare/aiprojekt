@@ -107,9 +107,8 @@ public class PredictionGUI {
 		gui.run();
 	}
 	
-	public void run(){
-	
-		if(!USE_LOADER){
+	public void run() {
+		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();
 			File file = new File("res/chatlogs/ubuntu.txt");
@@ -129,8 +128,7 @@ public class PredictionGUI {
 			}
 			
 			new PredictionGUI(ngramModel);
-			}
-		else {
+		} else {
 			Loader loader = new Loader();
 			new PredictionGUI(loader.load(LOAD_FILE));
 		}
