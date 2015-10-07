@@ -81,7 +81,7 @@ public class Loader {
 					ngrams.put(NGram.fromList(tokenBuffer), ngramCount);
 				}
 
-				ngramModel.processNGrams(ngrams);
+				ngramModel.addNGrams(ngrams);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;
