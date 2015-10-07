@@ -1,14 +1,11 @@
 package aiprojekt;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Represents n-gram model
@@ -18,11 +15,13 @@ public class NGramModel {
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
 	private List<NGram> topUnigrams =  new ArrayList<NGram>(); 
-	private final String BEGINNING_UNIGRAM = "<s>";
-	private final String END_UNIGRAM = "</s>";
 	private final int[] ngramCounts;
 	
 	private final int matchThreshold = 0;
+	private final int topUnigramsCount = 100;
+	
+	private final static NGram BEGINNING_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
+	private final static NGram END_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
 	
 	/**
 	 * The default n-gram max length
@@ -48,9 +47,9 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Returns the unigrams
+	 * Returns the top ranked unigrams
 	 */
-	public List<NGram> unigrams() {
+	public List<NGram> topUnigrams() {
 		return this.topUnigrams;
 	}
 	
@@ -158,14 +157,13 @@ public class NGramModel {
 		
 		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
 			NGram ngram = current.getKey();
+			//Remove unique n-grams of length > 1
 			if (ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
 				this.ngramCounts[ngram.length() - 1]--;
-			}else if(ngram.length() == 1){ // Adding all unigrams
-				if(!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM) ){
+			} else if(ngram.length() == 1) { // Adding all unigrams
+				if (!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM)) {
 					topUnigrams.add(ngram);			
-				}else{
-					System.out.println(ngram.toString());
 				}
 			}
 		}
@@ -173,15 +171,17 @@ public class NGramModel {
 		for (NGram ngram : toRemove) {
 			this.ngrams.remove(ngram);
 		}
+		
 		// Sort the unigrams by count
-		Collections.sort(topUnigrams, new Comparator<NGram>(){
-			public int compare(NGram a, NGram b){
+		Collections.sort(topUnigrams, new Comparator<NGram>() {
+			public int compare(NGram a, NGram b) {
 				return Integer.compare(getCount(b), getCount(a));
 			}
 		});
-		// Removing all except for top 100
-		while(topUnigrams.size()>100){
-			topUnigrams.remove(topUnigrams.size()-1);
+		
+		// Removing all except for top
+		while (topUnigrams.size() > this.topUnigramsCount) {
+			topUnigrams.remove(topUnigrams.size() - 1);
 		}
 		//System.out.println("num of unigrams: " + topUnigrams.size() + "first: " + getCount(topUnigrams.get(0)) + " last: " + getCount(topUnigrams.get(topUnigrams.size()-1)));
 		

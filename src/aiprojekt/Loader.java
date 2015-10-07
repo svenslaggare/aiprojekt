@@ -72,6 +72,7 @@ public class Loader {
 				}
 
 				ngramModel.processNGrams(ngrams);
+				ngramModel.end();
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;

@@ -8,7 +8,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The main entry point for the preprocessor stage
@@ -18,9 +20,8 @@ public class PreProcessor {
 	private static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs";
 	public static final String WRITE_TO_PATH = "res/bin/";
 	public static final String FILE_NAME = "ngrams.bin";
-	public static final String FILE_PATH = WRITE_TO_PATH+FILE_NAME;
+	public static final String FILE_PATH = WRITE_TO_PATH + FILE_NAME;
 	
-	// run with 
 	private final boolean sampleLogs = true;
 	private final boolean timer = true;
 	
@@ -46,7 +47,7 @@ public class PreProcessor {
 		
 		long startTime = System.currentTimeMillis();
 		processFiles(file);
-		ngramModel.end();
+		this.ngramModel.end();
 		long stopTime = System.currentTimeMillis();
 		
 		if (timer) {
@@ -59,7 +60,12 @@ public class PreProcessor {
 			}	
 		}
 		
-		writeToFile();
+		File directory = new File(WRITE_TO_PATH);
+		if (!directory.isDirectory()) {
+			directory.mkdirs();
+		}
+		
+		writeToFile(FILE_PATH);
 		
 		if (timer) {
 			System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
@@ -69,8 +75,12 @@ public class PreProcessor {
 		}
 	}
 	
-	public NGramModel getNgramModel(){
-		if(processedSentences != 0){
+	/**
+	 * Returns the n-gram model
+	 * @return
+	 */
+	public NGramModel getNgramModel() {
+		if (processedSentences != 0) {
 			return ngramModel;
 		} else {
 			System.err.println("PreProcessor didn't process any sentences. (check that a file at "+SMALL_DUMP_LOGS_PATH+" or "
@@ -82,25 +92,27 @@ public class PreProcessor {
 	/**
 	 * Writes the data to file
 	 */
-	private void writeToFile() {
-		File directory = new File(WRITE_TO_PATH);
-		if(!directory.isDirectory()){
-			directory.mkdirs();
-		}
+	public void writeToFile(String path) {		
 		try (DataOutputStream outputStream = new DataOutputStream(
-				new BufferedOutputStream(new FileOutputStream(FILE_PATH)))) {
+				new BufferedOutputStream(new FileOutputStream(path)))) {
 			//First write all unique tokens
 			Map<Token, Integer> tokenToId = new HashMap<>();
 			
-			outputStream.writeInt(this.ngramModel.unigrams().size());	
+			Set<Token> tokens = new HashSet<>();
+			for (NGram ngram : this.ngramModel.getNgrams().keySet()) {
+				if (ngram.length() == 1) {
+					tokens.add(ngram.at(0));
+				}
+			}
+			
+			outputStream.writeInt(tokens.size());	
 			int id = 0;
-			for (NGram unigram : this.ngramModel.unigrams()) {
-				Token token = unigram.at(0);
+			for (Token token : tokens) {
 				outputStream.writeUTF(token.toString());
 				tokenToId.put(token, id);
 				id++;
 			}
-							
+
 			//Then the n-grams, where the token id points to the previous table
 			outputStream.writeInt(this.ngramModel.getNgrams().size());
 							
@@ -125,7 +137,7 @@ public class PreProcessor {
 	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
 	 * directory, all its files and subdirectories are recursively processed.
 	 */
-	private void processFiles(File file) {
+	public void processFiles(File file) {
 		TextParser parser = new TextParser();
 		
 		// do not try to tokenize fs that cannot be read

@@ -175,7 +175,7 @@ public class NGramModelTest {
 	 * Tests creating a n-gram model with NGrams as parameter.
 	 */
 	@Test
-	public void testCreateModel3(){
+	public void testCreateModel3() {
 		NGramModel ngramModel = new NGramModel(3);
 		Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
 		NGram ngram1 = new NGram(new Token[]{new Token(TokenType.START_OF_SENTENCE),new Token("hello")});
@@ -186,10 +186,7 @@ public class NGramModelTest {
 		ngramModel.processNGrams(ngrams);
 		
 		assertEquals(ngramModel.getCount(ngram1), (int)ngramModel.getNgrams().get(ngram1));
-		assertEquals(ngramModel.getCount(ngram2), (int)ngramModel.getNgrams().get(ngram2));
-		
-		
-		
+		assertEquals(ngramModel.getCount(ngram2), (int)ngramModel.getNgrams().get(ngram2));	
 	}
 	
 	/**
