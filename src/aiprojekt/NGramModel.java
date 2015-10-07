@@ -25,7 +25,7 @@ public class NGramModel {
 	 */
 	public static final int DEFAULT_MAX_NGRAM_LENGTH = 3;
 	
-//	private final NGramTree tree = NGramTree.rootTree();
+	private final NGramTree tree = NGramTree.rootTree();
 	
 	/**
 	 * Creates a new N-gram model
@@ -73,9 +73,9 @@ public class NGramModel {
 	/**
 	 * Returns the search tree
 	 */
-//	public NGramTree searchTree() {
-//		return this.tree;
-//	}
+	public NGramTree searchTree() {
+		return this.tree;
+	}
 		
 	/**
 	 * Returns the n-grams in the given tokens
@@ -114,7 +114,7 @@ public class NGramModel {
 		}
 		
 		this.ngrams.put(ngram, currentCount + count);
-//		this.tree.insert(ngram, count);
+		this.tree.insert(ngram, count);
 
 		if (ngram.length() == 1) {
 			this.unigrams.add(ngram);
