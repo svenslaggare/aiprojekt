@@ -58,6 +58,7 @@ public class WordPredictorTest {
 		model.processTokens(sentence3);
 		
 		WordPredictor predictor = new WordPredictor(model, 2);
+		
 		assertEquals(Arrays.asList("my", "bye"), predictor.predictNextWord("hello"));
 	}
 	
