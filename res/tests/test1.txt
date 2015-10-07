@@ -1,0 +1,200 @@
+[12:00] <coucho> lol
+[12:00] <sybariten> holy bananas
+[12:00] <sybariten> you were right amphi
+[12:00] <sybariten> amphi: merci!
+[12:00] <jayrod06> see guys this is why i need the quicktime aac encoder
+[12:00] <jayrod06> http://www.rjamorim.com/test/aac128v2/plot12z.png
+[12:01] <jayrod06> look at how much better it is then faac
+[12:01] <colliier88> how do i install belkin f5d7001 on ubuntu
+[12:01] <sybariten> i had like 400 megs in there ... how the kfcu is one supposed to know where to look for files moved to thrash? cause its not visible from the desktop or so, is it?
+[12:01] <darwin188> hello, i need some help with ubuntu
+[12:01] <darwin188> i just installed it to a powermac and I am getting an error message saying that the xserver cant start
+[12:01] <amphi> sybariten: I'd have thought so; I don't use gnome
+[12:01] <colliier88> how do i install belkin f5d7001 on ubuntu
+[12:02] <hedrek> !amarok
+[12:02] <ubotu> I guess amarok is a music player for Linux and Unix with an intuitive interface. See http://amarok.kde.org ; amaroK's features: http://amarok.kde.org/content/view/51/1/
+[12:02] <sybariten> amphi: neither would i... if i was sure i wouldnt lose stuff by changing
+[12:02] <colliier88> how do i install belkin f5d7001 on ubuntu
+[12:02] <amphi> sybariten: lose stuff?
+[12:02] <I_Love_DRM> Isn't the "thrash can" on the bootom right? next to the 4 desktop screen selectors.
+[12:02] <Amin> !bash
+[12:02] <ubotu> For a list of basic commands, see https://wiki.ubuntu.com/BasicCommands
+[12:02] <Amin> !init
+[12:02] <ubotu> Init is how Ubuntu starts up misc. system services at boot time.  To control the services, please install the package "BUM" from "Universe" Repository
+[12:02] <sybariten> amphi: you know ... uh .. the terminal here in gnome has tabs, and it has choices to change char emulation instantly. could i do that under xfce, etc etc
+[12:02] <sybariten> loose stuff like that
+[12:03] <jayrod06> !Aac
+[12:03] <ubotu> methinks aac is read http://wiki.ubuntu.com/RestrictedFormats for information about aac support
+[12:03] <crazy_penguin> night all! // jo ejt!
+[12:03] <AlwaysIcey> Yep. I was just about to mention that I_Love_DRM.
+[12:03] <colliier88> how do i install belkin f5d7001 on ubuntu
+[12:03] <amphi> sybariten: guess so; just use gnome-terminal I suppose; I use mrxvt for tabbed xterms
+[12:03] <sybariten> I_Love_DRM: you have a thrashcan there ?
+[12:03] <darwin188> i just installed ubuntu to a powermac and I am getting an error message saying that the xserver cant start
+[12:03] <darwin188> can anyone help me out?
+[12:03] <AlwaysIcey> I do too.  it looks like a calculator on my screen, but it's a trash can.
+[12:03] <cr1mson> How do I correct 'dpkg-deb: subprocess paste killed by signal (Broken pipe)' ?
+[12:03] <sybariten> amphi: but i couldnt use gnome-terminal under antyhing but gnome could i
+[12:04] <amphi> darwin188: you need to mess with sudo dpkg-reconfigure xserver-xorg I guess
+[12:04] <nelisa> hey folks, newcommer here
+[12:04] <amphi> sybariten: why not?
+[12:04] <cr1mson> I'm trying to install glibc
+[12:04] <darwin188> and then?
+[12:04] <colliier88> how do i install belkin f5d7001 on ubuntu
+[12:04] <CLAUDIA> hola
+[12:04] <amphi> sybariten: AFAIK it's a standalone prog (albeit with a lot of shared lib deps probably)
+[12:04] <CLAUDIA> alguien que sepa de linux que me ayude
+[12:04] <Old> "rpm -U webmin-1.260-1.noarch.rpm" - this command doesnt seem to work for me, any ideas of how to use a. rpm file?
+[12:04] <AlwaysIcey> Claudia, hablas ingles?
+[12:04] <Old> I need to install it
+[12:04] <bimberi> ompaul: yes i like the new edubuntu background too - although it's a kinda cold and is missing New Zealand (bug reported) :)
+[12:04] <nelisa> is there a way to lower my screen resolution, Ubuntu loaded tops and is hard on my eyes
+[12:04] <CLAUDIA> no
+[12:04] <amphi> !tell CLAUDIA about es
+[12:04] <AlwaysIcey> !es
+[12:04] <ubotu> Hispanohablantes: Por favor usen #ubuntu-es, #kubuntu-es o #edubuntu-es, alli obtendran mas ayuda.
+[12:04] <gnomefreak> Old: ubuntu is debian not redhat
+[12:04] <sybariten> amphi: i thought gnome stuff required gnome as the window manager (althouih its prolly bigger than just a window manager today) to run, just as all K-programs (Kdevelop an all) would require KDE ... etc
+[12:04] <ompaul> bimberi, :-)
+[12:05] <Amin> !rpm
+[12:05] <ubotu> methinks rpm is the Redhat Package Management file. Very similar to Debian's DEB files, but require alien to install. ask me about !alien
+[12:05] <nelisa> hola CLAUDIA
+[12:05] <gnomefreak> Old: ubuntu uses .debs not .rpms
+[12:05] <Old> ooh
+[12:05] <CLAUDIA> hola nelisa
+[12:05] <Amin> !alien
+[12:05] <ubotu> somebody said alien was a program to convert RPMs to DEBs. Its use is discouraged, as it could create serious problems. Website: http://www.kitenet.net/programs/alien/
+[12:05] <gnomefreak> CLAUDIA: #ubuntu-es
+[12:05] <Old> Is there a way to use .rpms, like renaming it or something?
+[12:05] <gnomefreak> Amin: alien isnt really recommended to use
+[12:05] <amphi> sybariten: you can run kde progs without kde (you still need the libs), same for gnome; I run gnome progs like gthumb here without gnome
+[12:05] <gnomefreak> Old: find a deb
+[12:05] <Madpilot> Old, there's "alien", but you should look for a deb first
+[12:05] <CLAUDIA> gracias
+[12:05] <aj_> how do you add backports to dapper? like so i can get lame debs?
+[12:05] <amphi> CLAUDIA: de nada
+[12:06] <Old> gnomefreak i cant tbh, this guide is old, and i bet the file isnt on google anymore
+[12:06] <Old> I'll look
+[12:06] <gnomefreak> Old: what is the app?
+[12:06] <CLAUDIA> sabes espaol
+[12:06] <Madpilot> aj_, there won't be any backports for Dapper yet - development of the next version hasnt' started yet
+[12:06] <sybariten> ok next question ...  if i compile something and then do make install in order to get it in place.... (in this case irssi) .. and i already had that tool installed via apt-get ... will make be able to "overwrite" my old version, and will the apt-system know that i got a new version of the irc client??
+[12:06] <DBO> !es
+[12:06] <ubotu> Hispanohablantes: Por favor usen #ubuntu-es, #kubuntu-es o #edubuntu-es, alli obtendran mas ayuda.
+[12:06] <CLAUDIA> amphi
+[12:06] <gnomefreak> CLAUDIA: join #ubuntu-es
+[12:06] <sybariten> amphi: ok didnt know that
+[12:06] <robertj> are there any good wiki pages for setting up software mixing of sound?
+[12:06] <nelisa> how to lower the res
+[12:06] <robertj> I can't get my sdl games & teamspeak to play nice
+[12:06] <aj_> so you can't get lame or mythtv in a repo?
+[12:06] <Old> gnomefreak, it's webmin, for administrating your counter-strike servers (game servers)
+[12:07] <Old> http://mirrors.redwoodvirtual.com/mirrors/www.webmin.com/download.html
+[12:07] <gnomefreak> aj_: did you enable universe and multiverse
+[12:07] <aj_> yes
+[12:07] <Old> Can i use any of those?
+[12:07] <gnomefreak> !webmin
+[12:07] <ubotu> See https://wiki.ubuntu.com/WebminWithoutARootAccount for webmin instructions for Ubuntu. Webmin runs on https://localhost:10000 - As of Ubuntu 6.06, webmin is REMOVED from Ubuntu and will no longer be supported
+[12:07] <disinterseted_pe> how do i go about finding out about this 'mmsh://a814.l1977144512.c19771.g.lm.akamaistream.net/D/814/19771/v0001/reflector:44512?MSWMExt=.asf'.
+[12:07] <amphi> sybariten: some of the integration stuff may not work (those DEs must be for _something_ ;), but the individual profs should work
+[12:07] <lurk3rX> dis, thats a windows media player link :p
+[12:07] <Old> thanks gnomefreak, i'll just take a peak
+[12:07] <lurk3rX> i think
+[12:08] <AlwaysIcey> Yep. That's what it is Lurk3rX
+[12:08] <BerryAllen> hi all
+[12:08] <coucho> i need help with vnc server, anyone up for that?
+[12:08] <nelisa> hey!!!
+[12:08] <BerryAllen> anyone have open-xchange working in a ubuntu box?
+[12:08] <disinterseted_pe> ok but when i installed easyubuntu last night the media played today it doesnt
+[12:08] <MENDIGO> Can anyone helpme with this: "W: No foi possvel checar a lista de pacotes fonte http://br.archive.ubuntu.com breezy-backports/universe Packages (/var/lib/apt/lists/br.archive.ubuntu.com_ubuntu_dists_breezy-backports_universe_binary-i386_Packages) - stat (2 Arquivo ou diretrio no encontrado)"
+[12:08] <AlwaysIcey> nelisa, I'll look into the resolutions right now.
+[12:08] <gnomefreak> MENDIGO: #ubuntu-br
+[12:08] <AlwaysIcey> Sorry for the delay.
+[12:08] <sybariten> amphi: ok thanks man
+[12:08] <nelisa> thanks AlwaysIsey
+[12:09] <nelisa> MENDIGO, looks like you've gor a missing package
+[12:09] <crowley1027> got*
+[12:09] <MENDIGO> nelisa, how can i fix this?
+[12:09] <crowley1027> capitalization error
+[12:09] <amphi> MENDIGO: sudo apt-get update perhaps
+[12:09] <nelisa> MENDIGO, can you reach those pages in your browser?
+[12:10] <nelisa> MENDIGO, are you behind proxy?
+=== crowley1027 is now known as ^_^
+[12:10] <AlwaysIcey> nelisa, Click on System > Preferences > Screen Resolutions, and change it there.
+[12:10] <MENDIGO> mkdir /var/lib/apt/lists/br.archive.ubuntu.com_ubuntu_dists_breezy-backports_universe_binary-i386_Packages would help?
+[12:10] <^_^> hehe
+[12:10] <^_^> <^_^>
+[12:10] <^_^> <^_^><^_^>
+[12:10] <^_^> Lmao
+[12:10] <aj_> oops multiverse wan't enabled i thought it was but i did it by hand
+[12:10] <nelisa> AlwaysIcey, there's only a resolution there, that's way to high for my miopia
+[12:10] <coucho> i can't get vnc server to work properly, again, anyone interested in helping me?
+[12:10] <nelisa> AlwaysIcey, how to get more res enabled?
+[12:11] <amphi> MENDIGO: no
+[12:11] <AlwaysIcey> One more second nelisa, I'll look at mine.
+[12:11] <nelisa> coucho, I've dealed with VNC back in my win days
+[12:11] <nelisa> if I get a workable ress I would do better
+[12:11] <coucho> nelisa: i'm still in those XD
+[12:11] <nelisa> AlwaysIcey, thanks
+[12:12] <AlwaysIcey> nelisa, Try clicking on the arrows next to the resolution.  Tell me if any more options are there.
+[12:12] <^_^> this name is taken :(
+[12:12] <^_^> <^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^><^_^>
+[12:12] <nelisa> AlwaysIcey, negative
+[12:12] <Old> Webmin is written entirely in Perl. Please enter the full path to the
+[12:12] <Old> Perl 5 interpreter on your system.
+[12:12] <Old> Full path to perl (default /usr/bin/perl):
+[12:12] <Old> Anyone ?
+[12:12] <mikebot> anyone know why my mplayer always gives me the error "New_Face failed. Maybe the font path is wrong. Please supply the text font file (~/.mplayer/subfont.ttf)."
+[12:12] <RandolphCarter> http://arstechnica.com/journals/microsoft.ars/2006/5/21/4048 - bye bye Ballmer :)
+[12:12] <AlwaysIcey> How about the refresh rate, what options are there?
+[12:12] <amphi> RandolphCarter: he's going somewhere?
+[12:12] <sybariten> mikebot: what does google say ?
+[12:12] <RandolphCarter> amphi: gotham prison
+[12:12] <nelisa> AlwaysIcey, 60 Hx only
+[12:12] <RandolphCarter> mikebot: did you install the mplayer-fonts package?
+[12:13] <Old> gnomefreak, read above. Could you help me perhaps?
+[12:13] <mikebot> sybariten, RandolphCarter not sure
+[12:13] <Old> nice job btw
+[12:13] <nelisa> AlwaysIcey, Resolution 1280x1024
+[12:13] <coucho> nelisa: maybe you're able to help me out?
+[12:13] <gnomefreak> Old: that should be the path iirc
+[12:13] <AlwaysIcey> Is it an older computer nelisa?
+[12:13] <amphi> RandolphCarter: ah, the purges begin ;)
+[12:13] <Old> gnomefreak, what's the exact path (Im new to ubuntu)
+[12:13] <nelisa> it's a laptop an HP Pavilion N5495
+[12:13] <gnomefreak> Old: i dont do much with perl except use it in scripts
+[12:14] <MENDIGO> nelisa, no, i was going to update to Dapper Drake but then when i saw that would have to download 500mb I choose to Cancel
+[12:14] <xdica> hi olks
+[12:14] <gnomefreak> Old: /usr/bin/perl
+[12:14] <mikebot> RandolphCarter, how do i do that?
+[12:14] <Nintendud> I just installed the 686 optimized kernel for Ubuntu, and now mplayer and xmms don't run. if I launch them from the command line, it just says "segmentation fault". I recompiled mplayer, but it still says the same error. any ideas? I tried googling, and maybe the nvidia X driver is related to this problem (I had a bit of a problem getting X to work with the nvidia driver when I installed the kernel, but it eventually worked)
+[12:14] <guenni> hallo
+[12:14] <Old> cheers gnomefreak
+[12:14] <RandolphCarter> mikebot: sudo aptitude install mplayer-fonts
+[12:14] <mikebot> RandolphCarter, thanks
+[12:14] <AlwaysIcey> I'm not sure then nelisa.  I haven't tried this on a laptop, so I'm not too sure how what resolution options you should have.
+[12:14] <MENDIGO> nelisa, I did a backup of the sources.list then i replace it with the backup and did a apt-get update
+[12:15] <Old> thanks, It's installing now gnomefreak.
+[12:15] <HellDragon> hi , im on a live cd how can i partitionate my HDD
+[12:15] <HellDragon> what software i need
+[12:15] <RandolphCarter> Nintendud: you need to install the linux-686 package
+[12:15] <HellDragon> ubuntu breezy live cd
+[12:15] <Nintendud> RandolphCarter: I did
+[12:15] <Nintendud> ;p
+[12:15] <nelisa> AlwaysIcey, how do I poll my hardware for more res options?
+[12:15] <RandolphCarter> hmm, so it can't be missing the nvidia kmod :(
+[12:15] <guenni> whois guenni
+[12:15] <Nintendud> oh wait
+[12:15] <Nintendud> RandolphCarter: looks like I didn't. wtf o_O
+[12:15] <nelisa> join #ubuntu-laptop
+[12:15] <coucho> i've got ubuntu running at 1280x800 on an acer 3023 with an ati card
+[12:15] <Nintendud> I'll check this out, thanks
+[12:15] <HellDragon> Qtparted
+[12:15] <HellDragon> wooh
+[12:16] <sybariten> anyone here using irssi? please raise a hand
+[12:16] <RandolphCarter> Nintendud: :P np's
+[12:16] <ruchbah> >hand<
+[12:16] <dell500> anyone here know a bit about raid? specifically raid0
+[12:16] <Nintendud> RandolphCarter: would I have to restart? they still segmentation fault
+[12:16] <AlwaysIcey> nelisa, possibly in System > Administration > Device Manager.
+[12:16] <RandolphCarter> Nintendud: yup, you'd need to restart
