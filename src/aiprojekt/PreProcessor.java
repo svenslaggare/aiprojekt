@@ -22,7 +22,7 @@ public class PreProcessor {
 	public static final String FILE_NAME = "ngrams.bin";
 	public static final String FILE_PATH = WRITE_TO_PATH + FILE_NAME;
 	
-	private final boolean sampleLogs = false;
+	private final boolean sampleLogs = true;
 	private final boolean timer = true;
 	
 	private int processedSentences = 0;
