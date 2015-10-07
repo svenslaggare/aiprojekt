@@ -116,7 +116,7 @@ public class PreProcessor {
 				Token token = ngram.at(0);
 				outputStream.writeInt(tokenToId.get(token));
 			}
-			
+						
 			//Then the n-grams, where the token id points to the previous table
 			outputStream.writeInt(this.ngramModel.getNgrams().size());
 							

@@ -13,7 +13,6 @@ hs_err_pid*
 
 # chatlogs
 chatlogs/
-/bin/
-
+bin/
 .settings
-res
+
