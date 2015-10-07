@@ -30,7 +30,7 @@ public class NGramModelTest {
 		new Token("how"), new Token("are"), new Token("you"));
 		
 	private static final List<List<Token>> sentences = loadTokensFromFile(
-		"res/chatlogs/2006-05-27-#ubuntu.txt");
+		"res/tests/2006-05-27-#ubuntu.txt");
 
 	
 	/**
@@ -183,7 +183,7 @@ public class NGramModelTest {
 		ngrams.put(ngram1,new Integer(2));
 		ngrams.put(ngram2,new Integer(4));
 		
-		ngramModel.processNGrams(ngrams);
+		ngramModel.addNGrams(ngrams);
 		
 		assertEquals(ngramModel.getCount(ngram1), (int)ngramModel.getNgrams().get(ngram1));
 		assertEquals(ngramModel.getCount(ngram2), (int)ngramModel.getNgrams().get(ngram2));	

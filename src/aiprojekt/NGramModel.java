@@ -148,10 +148,10 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Process the given NGrams Map, adding the NGrams one-by-one to the model
-	 * @param tokens The NGrams Map
+	 * Adds the given n-gram map (n-gram to count) to the model
+	 * @param ngrams The n-gram map
 	 */
-	public void processNGrams(Map<NGram, Integer> ngrams) {		
+	public void addNGrams(Map<NGram, Integer> ngrams) {		
 		for (Map.Entry<NGram, Integer> entry : ngrams.entrySet()) {
 			NGram ngram = entry.getKey();
 			int count = entry.getValue();

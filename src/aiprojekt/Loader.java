@@ -40,14 +40,14 @@ public class Loader {
 			try (DataInputStream inputStream = new DataInputStream(
 					new BufferedInputStream(new FileInputStream(path)))) {
 
+				//The token index
 				int numTokens = inputStream.readInt();
 				Map<Integer, Token> idToToken = new HashMap<>(numTokens);
 				for (int id = 0; id < numTokens; id++) {
 					String token = inputStream.readUTF();
 
 					if (token.equals("<s>")) {
-						idToToken.put(id,
-								new Token(TokenType.START_OF_SENTENCE));
+						idToToken.put(id, new Token(TokenType.START_OF_SENTENCE));
 					} else if (token.equals("</s>")) {
 						idToToken.put(id, new Token(TokenType.END_OF_SENTENCE));
 					} else {
@@ -55,6 +55,14 @@ public class Loader {
 					}
 				}
 
+				//The top ranked unigrams
+				int topUnigramsCount = inputStream.readInt();
+				for (int i = 0; i < topUnigramsCount; i++) {
+					int tokenId = inputStream.readInt();
+					ngramModel.topUnigrams().add(NGram.fromTokens(idToToken.get(tokenId)));
+				}
+				
+				//The n-grams
 				int count = inputStream.readInt();
 				Map<NGram, Integer> ngrams = new HashMap<>(count);
 
@@ -73,8 +81,7 @@ public class Loader {
 					ngrams.put(NGram.fromList(tokenBuffer), ngramCount);
 				}
 
-				ngramModel.processNGrams(ngrams);
-				ngramModel.end();
+				ngramModel.addNGrams(ngrams);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;

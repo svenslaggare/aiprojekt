@@ -22,7 +22,8 @@ public class NGramFileTest {
 	public void testProcessAndLoad() {
 		PreProcessor preProcessor = new PreProcessor();
 		preProcessor.processFiles(new File("res/tests/test1.txt"));
-		preProcessor.getNgramModel().end();
+		NGramModel actualModel = preProcessor.getNgramModel();
+		actualModel.end();
 		
 		String testFilePath = "res/bin/test.bin";
 		
@@ -35,14 +36,18 @@ public class NGramFileTest {
 		
 		Loader loader = new Loader();
 		NGramModel loadedModel = loader.load(testFilePath);
-		assertEquals(loadedModel.getNgrams().size(), preProcessor.getNgramModel().getNgrams().size());
+		assertEquals(loadedModel.getNgrams().size(), actualModel.getNgrams().size());
 		
-		for (Map.Entry<NGram, Integer> current : preProcessor.getNgramModel().getNgrams().entrySet()) {
+		for (Map.Entry<NGram, Integer> current : actualModel.getNgrams().entrySet()) {
 			assertEquals((int)current.getValue(), loadedModel.getCount(current.getKey()));
 		}
 		
-		for (int i = 1; i <= preProcessor.getNgramModel().maxLength(); i++) {
-			assertEquals(loadedModel.countForNGram(i), preProcessor.getNgramModel().countForNGram(i));
+		for (int i = 1; i <= actualModel.maxLength(); i++) {
+			assertEquals(loadedModel.countForNGram(i), actualModel.countForNGram(i));
+		}
+		
+		for (int i = 0; i < actualModel.topUnigrams().size(); i++) {
+			assertEquals(loadedModel.topUnigrams().get(i), actualModel.topUnigrams().get(i));
 		}
 	}
 }
