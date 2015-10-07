@@ -20,7 +20,12 @@ public class NGramModel {
 	
 	private final int matchThreshold = 0;
 	
-//	private final NGramTree tree = NGramTree.rootTree();
+	/**
+	 * The default n-gram max length
+	 */
+	public static final int DEFAULT_MAX_NGRAM_LENGTH = 3;
+	
+	private final NGramTree tree = NGramTree.rootTree();
 	
 	/**
 	 * Creates a new N-gram model
@@ -36,6 +41,13 @@ public class NGramModel {
 	 */
 	public int maxLength() {
 		return this.maxLength;
+	}
+	
+	/**
+	 * Returns the unigrams
+	 */
+	public Set<NGram> unigrams() {
+		return this.unigrams;
 	}
 	
 	/**
@@ -61,9 +73,9 @@ public class NGramModel {
 	/**
 	 * Returns the search tree
 	 */
-//	public NGramTree searchTree() {
-//		return this.tree;
-//	}
+	public NGramTree searchTree() {
+		return this.tree;
+	}
 		
 	/**
 	 * Returns the n-grams in the given tokens
@@ -87,26 +99,35 @@ public class NGramModel {
 		return ngrams;
 	}
 	
+ 	/**
+ 	 * Adds the given n-gram to the model
+ 	 * @param ngram The n-gram
+ 	 * @param count The count
+ 	 */
+ 	private void addNGram(NGram ngram, int count) {
+		int currentCount = 0;
+		
+		if (this.ngrams.containsKey(ngram)) {
+			currentCount = this.ngrams.get(ngram);
+		} else {
+			this.ngramCounts[ngram.length() - 1]++;			
+		}
+		
+		this.ngrams.put(ngram, currentCount + count);
+		this.tree.insert(ngram, count);
+
+		if (ngram.length() == 1) {
+			this.unigrams.add(ngram);
+		}
+ 	}
+ 	
 	/**
 	 * Process the given tokens, adding them to the model
 	 * @param tokens The tokens
 	 */
 	public void processTokens(List<Token> tokens) {
 		for (NGram ngram : getNgrams(tokens, this.maxLength)) {
-			int count = 0;
-			
-			if (this.ngrams.containsKey(ngram)) {
-				count = this.ngrams.get(ngram);
-			} else {
-				this.ngramCounts[ngram.length() - 1]++;			
-			}
-			
-			this.ngrams.put(ngram, count + 1);
-//			this.tree.insert(ngram, 1);
-
-			if (ngram.length() == 1) {
-				this.unigrams.add(ngram);
-			}
+			this.addNGram(ngram, 1);
 		}
 	}
 	
@@ -114,18 +135,11 @@ public class NGramModel {
 	 * Process the given NGrams Map, adding the NGrams one-by-one to the model
 	 * @param tokens The NGrams Map
 	 */
-	public void processNGrams(Map<NGram, Integer> ngrams){
-		
-		for(Map.Entry<NGram, Integer> entry : ngrams.entrySet()){
+	public void processNGrams(Map<NGram, Integer> ngrams) {		
+		for (Map.Entry<NGram, Integer> entry : ngrams.entrySet()) {
 			NGram ngram = entry.getKey();
-			Integer count = entry.getValue();
-			
-			this.ngramCounts[ngram.length()-1]++;
-			this.ngrams.put(ngram, count);
-			
-			if(ngram.length()==1){
-				this.unigrams.add(ngram);
-			}
+			int count = entry.getValue();
+			this.addNGram(ngram, count);
 		}
 	}
 	
