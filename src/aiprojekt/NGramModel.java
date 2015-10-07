@@ -174,7 +174,16 @@ public class NGramModel {
 				this.ngramCounts[ngram.length() - 1]--;
 			}else if(ngram.length() == 1) { // Adding all unigrams
 				if (!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM)) {
-					topUnigrams.add(ngram);			
+					boolean contains = false; 
+					for(int i = 0; i<topUnigrams.size();i++){
+						if(topUnigrams.get(i).equals(ngram)){
+							contains = true; 
+							break;
+						}
+					}
+					if(!contains){
+						topUnigrams.add(ngram);			
+					}		
 				}
 			}
 		}
