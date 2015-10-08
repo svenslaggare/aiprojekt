@@ -80,13 +80,26 @@ public class Evaluator {
 
 	}
 
+	/**
+	 * Test if actual next word equals any of the top K predicted words.
+	 * 
+	 * Store data (the position of the match in the top K list, the word
+	 * position in the sentence matched).
+	 * 
+	 * @param predictedWords
+	 *            Next word predictions.
+	 * @param sentence
+	 *            The correct sentence.
+	 * @param correctWordPosition
+	 *            The index of the correct word in the sentence.
+	 */
 	private void predictionCorrectness(ArrayList<String> predictedWords,
 			ArrayList<Token> sentence, int correctWordPosition) {
 		testedWords++;
 		String correctWord = sentence.get(correctWordPosition).toString();
-		//System.out.println("correct word: " + correctWord);
+		// System.out.println("correct word: " + correctWord);
 		for (int i = 0; i < predictedWords.size(); i++) {
-		//	System.out.println("Predicted: " + predictedWords.get(i));
+			// System.out.println("Predicted: " + predictedWords.get(i));
 			if (predictedWords.get(i).equals(correctWord)) {
 				// increment count for match at top-list position i.
 				countTopResultHit[i]++;
@@ -104,6 +117,9 @@ public class Evaluator {
 
 	}
 
+	/**
+	 * Prints the results to System.out
+	 */
 	private void processResults() {
 		int totalCorrectPredicted = 0;
 		System.out.println("Count of hits at specified position in top "
