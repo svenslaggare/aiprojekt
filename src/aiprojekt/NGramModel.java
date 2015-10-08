@@ -26,6 +26,10 @@ public class NGramModel {
 	private final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
 	private final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
 	
+	//Probabilities cache
+	private final Map<NGram, Double> probabilities = new HashMap<>();
+	private final Map<NGram, Double> alphas = new HashMap<>();
+	
 	/**
 	 * The default n-gram max length
 	 */
@@ -271,21 +275,31 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
 	 */
-	private double getProbability(NGram ngram, NGram unigram) {
-		if (ngram.equals(NGram.EMPTY_GRAM)) {
+	private double getProbability(NGram ngram, NGram unigram) {		
+		if (this.probabilities.containsKey(unigram)) {
+			return this.probabilities.get(unigram);
+		}
+		
+		if (ngram.equals(NGram.EMPTY_GRAM)) {		
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
-			return d * (double)getCount(unigram) / this.totalUnigramCount;
+			double probability = d * (double)getCount(unigram) / this.totalUnigramCount;
+			this.probabilities.put(unigram, probability);
+			return probability;
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
 		
 		int count = getCount(predictedNgram);
 		double d = this.goodTuringEstimation.estimate(count) / count;
-		if (count > matchThreshold) {			
-			return d * (double)count / getCount(ngram);
+		if (count > matchThreshold) {	
+			double probability = d * (double)count / getCount(ngram);
+			this.probabilities.put(predictedNgram, probability);
+			return probability;
 		} else {
-			return getAlpha(ngram) * getProbability(ngram.rest(), unigram);
+			double probability = getAlpha(ngram) * getProbability(ngram.rest(), unigram);
+			this.probabilities.put(predictedNgram, probability);
+			return probability;
 		}
 	}
 	
@@ -294,6 +308,10 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	private double getAlpha(NGram ngram) {
+		if (this.alphas.containsKey(ngram)) {
+			return this.alphas.get(ngram);
+		}
+		
 		int ngramCount = getCount(ngram);
 		
 		double beta = 1.0;
@@ -310,12 +328,10 @@ public class NGramModel {
 				restSum += getProbability(ngram.rest(), unigram);
 			}
 		}
-		
-		if (beta == 0.0 || restSum == 0.0) {
-			System.err.println(ngram);
-		}
-				
-		return beta / restSum;
+					
+		double alpha = beta / restSum;		
+		this.alphas.put(ngram, alpha);
+		return alpha;
 	}
 	
 	/**
@@ -324,6 +340,8 @@ public class NGramModel {
 	 * @param numResults The number of results
 	 */
 	public List<Result> predictNext(NGram ngram, int numResults) {
+		//TODO: Clear caches when adding Janssons learner.
+		
 		List<Result> results = new ArrayList<Result>();
 		
 		for (NGram unigram : this.getPossibleUnigrams(ngram)) {

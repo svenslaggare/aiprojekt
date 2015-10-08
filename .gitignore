@@ -16,3 +16,4 @@ res/chatlogs/big_dump_logs/
 bin/
 .settings
 
+*.m
