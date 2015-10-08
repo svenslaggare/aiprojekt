@@ -97,27 +97,36 @@ public class PredictionGUI {
 					
 					int len = fieldText.length();
 					if (len > 0) {
+						String[] words = fieldText.split(" ");
+						int numWords = fieldText.endsWith(" ") ? words.length : words.length - 1;
+						
+						StringBuilder sb = new StringBuilder();
+						for (int i = 0; i < numWords; i++) {
+							sb.append(words[i] + " ");
+						}
+						String oldWords = sb.toString();
+						
 						caretPosition--;
 						
-						String tmp = fieldText.substring(0, caretPosition);
+						String textBerfore = fieldText.substring(0, caretPosition);
 						
 						if (caretPosition == fieldText.length()) {
-							fieldText = tmp;
+							fieldText = textBerfore;
 						} else {
-							fieldText = tmp + fieldText.substring(caretPosition + 1, fieldText.length());
+							fieldText = textBerfore + fieldText.substring(caretPosition + 1, fieldText.length());
 						}
 						
-						if (fieldText.endsWith(" ") || fieldText.length() == 0) {
-							updateNextWordPredictions(fieldText);
-						} else {
-							String[] words = fieldText.split(" ");
-							
-							StringBuilder sb = new StringBuilder();
-							for (int i = 0; i < words.length - 1; i++) {
-								sb.append(words[i] + " ");
-							}
-							
-							updateNextWordPredictions(sb.toString());
+						words = fieldText.split(" ");
+						numWords = fieldText.endsWith(" ") ? words.length : words.length - 1;
+						
+						sb = new StringBuilder();
+						for (int i = 0; i < numWords; i++) {
+							sb.append(words[i] + " ");
+						}
+						String newWords = sb.toString();
+						
+						if (!oldWords.equals(newWords)) {
+							updateNextWordPredictions(newWords);
 						}
 						
 						inputField.setText(fieldText);
@@ -137,7 +146,8 @@ public class PredictionGUI {
 		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();
-			File file = new File("res/chatlogs/small_dump_logs/ubuntu.txt");
+			//File file = new File("res/chatlogs/small_dump_logs/ubuntu.txt");
+			File file = new File("res/chatlogs/ubuntu_small.txt");
 			
 			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 				String sentence;
