@@ -181,6 +181,17 @@ public class NGram {
 	}
 	
 	/**
+	 * Returns a unigram with just the last token
+	 */
+	public NGram last() {
+		if (this.length() == 0) {
+			return EMPTY_GRAM;
+		}
+		
+		return new NGram(this.tokens, this.start + this.length() - 1, 1);
+	}
+	
+	/**
 	 * Appends the given n-gram to the current, returning a new one
 	 * @param other The n-gram
 	 * @return The new n-gram

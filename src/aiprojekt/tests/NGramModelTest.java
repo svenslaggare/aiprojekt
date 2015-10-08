@@ -128,7 +128,29 @@ public class NGramModelTest {
 	 */
 	@Test
 	public void testSubgram() {
-		assertEquals(NGram.fromWords("hello", "my"), NGram.fromWords("hello", "my", "friend").subgram(2));
+		assertEquals(
+			NGram.fromWords("hello", "my"),
+			NGram.fromWords("hello", "my", "friend").subgram(2));
+	}
+	
+	/**
+	 * Tests the first method
+	 */
+	@Test
+	public void testFirst() {
+		assertEquals(
+			NGram.fromWords("hello"),
+			NGram.fromWords("hello", "my", "friend").first());
+	}
+	
+	/**
+	 * Tests the first method
+	 */
+	@Test
+	public void testLast() {
+		assertEquals(
+			NGram.fromWords("friend"),
+			NGram.fromWords("hello", "my", "friend").last());
 	}
 	
 	/**

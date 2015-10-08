@@ -16,7 +16,6 @@ public class NGramModel {
 	private final int maxLength;
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
-	//private final Set<NGram> unigrams = new HashSet<NGram>();
 	private final List<NGram> topUnigrams =  new ArrayList<NGram>();
 	private final int[] ngramCounts;
 	
@@ -121,20 +120,6 @@ public class NGramModel {
 		
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
-
-		if (ngram.length() == 1) { // Pretty stupid to iterate over all unigrams
-			boolean contains = false; 
-			for(int i = 0; i<topUnigrams.size();i++){
-				if(topUnigrams.get(i).equals(ngram)){
-					contains = true; 
-					break;
-				}
-			}
-			if(!contains){
-				topUnigrams.add(ngram);			
-			}
-			
-		}
  	}
  	
 	/**
@@ -172,18 +157,10 @@ public class NGramModel {
 			if (ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
 				this.ngramCounts[ngram.length() - 1]--;
-			}else if(ngram.length() == 1) { // Adding all unigrams
-				if (!ngram.toString().equals(BEGINNING_UNIGRAM) && !ngram.toString().equals(END_UNIGRAM)) {
-					boolean contains = false; 
-					for(int i = 0; i<topUnigrams.size();i++){
-						if(topUnigrams.get(i).equals(ngram)){
-							contains = true; 
-							break;
-						}
-					}
-					if(!contains){
-						topUnigrams.add(ngram);			
-					}		
+			} else if (ngram.length() == 1) { // Adding all unigrams
+				if (!ngram.toString().equals(BEGINNING_UNIGRAM)
+					&& !ngram.toString().equals(END_UNIGRAM)) {
+					this.topUnigrams.add(ngram);			
 				}
 			}
 		}
@@ -198,8 +175,9 @@ public class NGramModel {
 		for (NGram ngram : toRemove) {
 			this.ngrams.remove(ngram);
 		}
-		// Removing all except for top 100
-		while(topUnigrams.size()>100){
+		
+		// Removing all except for top
+		while (topUnigrams.size() > this.topUnigramsCount) {
 			topUnigrams.remove(topUnigrams.size()-1);
 		}
 	}
@@ -261,6 +239,23 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the possible unigrams for the given n-gram
+	 * @param ngram The n-gram
+	 */
+	private Set<NGram> getPossibleUnigrams(NGram ngram) {
+		Set<NGram> possibleNGrams = new HashSet<>();
+		for (NGram unigram : this.topUnigrams) {
+			possibleNGrams.add(unigram);
+		}
+		
+		for (NGramTree.Result result : this.tree.findResults(ngram)) {
+			possibleNGrams.add(result.getNgram().last());
+		}
+		
+		return possibleNGrams;
+	}
+	
+	/**
 	 * Returns the probability of observing the given n-gram
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
@@ -269,7 +264,7 @@ public class NGramModel {
 		double d = 1.0;
 		
 		if (ngram.equals(NGram.EMPTY_GRAM)) {
-			return d * (double)getCount(unigram) / this.topUnigrams.size();
+			return d * (double)getCount(unigram) / this.totalUnigramCount;
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
@@ -282,6 +277,10 @@ public class NGramModel {
 		}
 	}
 	
+	/**
+	 * Returns the alpha value for the given n-gram
+	 * @param ngram The n-gram
+	 */
 	private double getAlpha(NGram ngram) {
 		double d = 0.5;
 		int ngramCount = getCount(ngram);
@@ -289,7 +288,7 @@ public class NGramModel {
 		double beta = 1.0;
 		double restSum = 0.0;
 		
-		for (NGram unigram : topUnigrams) {
+		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
 			NGram predictedNgram = ngram.append(unigram);
 			
 			int count = getCount(predictedNgram);
@@ -310,8 +309,8 @@ public class NGramModel {
 	 */
 	public List<Result> predictNext(NGram ngram, int numResults) {
 		List<Result> results = new ArrayList<Result>();
-
-		for (NGram unigram : this.topUnigrams) {
+		
+		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
 			if (unigram.equals(new NGram(new Token[]{ new Token(TokenType.START_OF_SENTENCE) }))
 			|| unigram.equals(new NGram(new Token[]{ new Token(TokenType.END_OF_SENTENCE) }))) {
 				continue;
