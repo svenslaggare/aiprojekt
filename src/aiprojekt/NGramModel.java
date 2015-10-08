@@ -294,7 +294,6 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	private double getAlpha(NGram ngram) {
-//		return 1.0;
 		int ngramCount = getCount(ngram);
 		
 		double beta = 1.0;
@@ -334,11 +333,10 @@ public class NGramModel {
 			
 			double probability = this.getProbability(ngram, unigram);
 
-//			if (probability < 0 || probability > 0 || Double.isNaN(probability)) {
-//			if (Double.isNaN(probability)) {
-//				System.err.println(unigram);
-//			}
-			
+			if (probability < 0 || probability > 1 || Double.isNaN(probability)) {
+				System.err.println("Invalid probability: " + unigram + ": " + probability);
+			}
+						
 			if (probability > 0) {
 				results.add(new Result(ngram.append(unigram), probability));
 			}

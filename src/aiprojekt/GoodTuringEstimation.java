@@ -22,6 +22,23 @@ public class GoodTuringEstimation {
 	private double b;
 	
 	/**
+	 * Creates a new Good-Turing smoothing
+	 */
+	public GoodTuringEstimation() {
+		
+	}
+	
+	/**
+	 * Sets the log-linear parameters (a+b*log(r))
+	 * @param a The constant factor
+	 * @param b The slope
+	 */
+	public void setLogLinear(double a, double b) {
+		this.a = a;
+		this.b = b;
+	}
+	
+	/**
 	 * Adds an observation of the given count
 	 * @param count The count
 	 */
@@ -38,50 +55,55 @@ public class GoodTuringEstimation {
 	 * Calculates the smoothed Good-Turing estimation based on the observations
 	 */
 	public void fitToData() {
-		//Calculate Z_r
-		Integer[] rs = this.frequencyOfFrequencies.keySet().toArray(new Integer[this.frequencyOfFrequencies.size()]);
-		Map<Integer, Double> zR = new TreeMap<>();
+		if (this.frequencyOfFrequencies.size() > 1) {
+			//Calculate Z_r
+			Integer[] rs = this.frequencyOfFrequencies.keySet().toArray(new Integer[this.frequencyOfFrequencies.size()]);
+			Map<Integer, Double> zR = new TreeMap<>();
+					
+			for (int i = 0; i < rs.length; i++) {
+				int r = rs[i];
+				int t = 0;
+				int q = 0;
 				
-		for (int i = 0; i < rs.length; i++) {
-			int r = rs[i];
-			int t = 0;
-			int q = 0;
-			
-			if (i == 0) {
-				q = 0;
-			} else {
-				q = rs[i - 1];
+				if (i == 0) {
+					q = 0;
+				} else {
+					q = rs[i - 1];
+				}
+				
+				if (i == rs.length - 1) {
+					t = 2 * r - q;
+				} else {
+					t = rs[i + 1];
+				}
+				
+				zR.put(r, this.frequencyOfFrequencies.get(r) / (0.5 * (t - q)));
 			}
 			
-			if (i == rs.length - 1) {
-				t = 2 * r - q;
-			} else {
-				t = rs[i + 1];
-			}
+			//Do a least square fitting to log(Z_r)=a+b*log(r)
+			double[][] matrixA = new double[zR.size()][2];
+			double[] logZR = new double[zR.size()];
 			
-			zR.put(r, this.frequencyOfFrequencies.get(r) / (0.5 * (t - q)));
+			for (int i = 0; i < rs.length; i++) {
+				int r = rs[i];
+				matrixA[i][0] = 1;
+				matrixA[i][1] = Math.log10(r);
+				logZR[i] = Math.log10(zR.get(r));
+			}	
+			
+			RealMatrix A = MatrixUtils.createRealMatrix(matrixA);
+			RealMatrix AT = A.transpose();
+			RealMatrix lhs = AT.multiply(A);
+			RealMatrix rhs = AT.multiply(MatrixUtils.createColumnRealMatrix(logZR));
+					
+			DecompositionSolver solver = new LUDecomposition(lhs).getSolver();
+			RealVector solution = solver.solve(rhs.getColumnVector(0));
+			this.a = solution.getEntry(0);
+			this.b = solution.getEntry(1);
+		} else {
+			this.a = 0.0;
+			this.b = 0.0;
 		}
-		
-		//Do a least square fitting to log(Z_r)=a+b*log(r)
-		double[][] matrixA = new double[zR.size()][2];
-		double[] logZR = new double[zR.size()];
-		
-		for (int i = 0; i < rs.length; i++) {
-			int r = rs[i];
-			matrixA[i][0] = 1;
-			matrixA[i][1] = Math.log10(r);
-			logZR[i] = Math.log10(zR.get(r));
-		}	
-		
-		RealMatrix A = MatrixUtils.createRealMatrix(matrixA);
-		RealMatrix AT = A.transpose();
-		RealMatrix lhs = AT.multiply(A);
-		RealMatrix rhs = AT.multiply(MatrixUtils.createColumnRealMatrix(logZR));
-		
-		DecompositionSolver solver = new LUDecomposition(lhs).getSolver();
-		RealVector solution = solver.solve(rhs.getColumnVector(0));
-		this.a = solution.getEntry(0);
-		this.b = solution.getEntry(1);
 	}
 	
 	/**
@@ -89,8 +111,8 @@ public class GoodTuringEstimation {
 	 * @param count The count
 	 */
 	public double estimate(int count) {
-		double smooted1 = Math.pow(10, this.a * Math.log10(count + 1) + b);
-		double smooted2 = Math.pow(10, this.a * Math.log10(count) + b);
+		double smooted1 = Math.pow(10, this.a + this.b * Math.log10(count + 1));
+		double smooted2 = Math.pow(10, this.a + this.b * Math.log10(count));
 		return (count + 1) * smooted1 / smooted2;
 	}
 }

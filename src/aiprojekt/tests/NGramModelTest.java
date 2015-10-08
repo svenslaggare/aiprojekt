@@ -218,10 +218,11 @@ public class NGramModelTest {
 	public void testPredictNext1() {
 		NGramModel ngramModel = new NGramModel(3);
 		ngramModel.processTokens(tokens1);		
+		ngramModel.end();
 		
 		NGram ngram = NGram.fromWords("hello");
 		List<NGramModel.Result> results = ngramModel.predictNext(ngram, 5);
-		assertEquals(NGram.fromWords("hello", "my"), results.get(0).getNGram());
+		assertEquals(NGram.fromWords("hello", "are"), results.get(0).getNGram());
 	}
 	
 	/**
@@ -231,6 +232,7 @@ public class NGramModelTest {
 	public void testPredictNext2() {
 //		NGramModel ngramModel = new NGramModel(3);
 //		ngramModel.processTokens(tokens1);
+//		ngramModel.end();
 //		
 //		NGram ngram = NGram.fromWords("hello", "you");	
 //		System.out.println(ngramModel.predictNext(ngram, 5));
