@@ -27,7 +27,11 @@ public class WordPredictor {
 	public List<String> predictNextWord(String input) {
 		TextParser parser = new TextParser();
 		List<Token> tokens = parser.tokenize(input);
+		return predictNextWord(tokens);
 		
+	}
+	
+	public List<String> predictNextWord(List<Token> tokens) {
 		//Remove the end of sentence from the tokens
 		tokens.remove(tokens.size() - 1);
 				
