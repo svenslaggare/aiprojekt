@@ -1,0 +1,32 @@
+<xtknight> well actually it can, but only once they reach 85..that's a CPU feature not a linux one.  there is no userspace gov for C2D yet
+[12:04] <xtknight> unsupported?
+[12:04] <xtknight> not that i know of yet, it can't.
+[12:04] <javaJake> centinul, sorry the S<number> is what I meant
+[12:04] <ferret_0567> hmm...
+[12:04] <bXi> !ati
+[12:04] <ubotu> To install the Ati/NVidia drivers for your video card, see https://help.ubuntu.com/community/BinaryDriverHowto
+[12:04] <AndyC1> Slart: ah, thanks. doubt i would see too huge a battery life increase anyway
+[12:04] <Alan> Stormx2, depends on the mood i'm in - gmpc, ncmpc, pympd.... all create the same problem, as does plain 'mpc toggle'
+=== Yodude [n=youssef@213.255.224.30]  has left #ubuntu [] 
+=== tarelerulz [n=tareleru@71.237.223.209]  has joined #ubuntu
+[12:05] <[H4z3] > Can anyone help with the problems upgrading to feisty fawn?
+=== kahrytan [n=kahrytan@pool-71-176-21-36.nrflva.east.verizon.net]  has joined #ubuntu
+[12:05] <centinul> javajake: my system doesn't boot up into rcS do that wouldn't help
+[12:05] <user_> hey guys, i have one question. Do you reads techblog?
+[12:05] <Stormx2> Alan: I was about to suggest checking with mpc heh. My only recommendation is uninstall, build-dep and compile from source.
+[12:05] <Slart> AndyC1: nah.. you might get more from making hard drives go to sleep.. disabling other stuff etc
+[12:05] <centinul> how do I get my system to boot into that runlevel?
+=== nekton[A]  is now known as nekton
+[12:05] <javaJake> centinul, oh, no kidding! What does it use to boot?
+=== Tim [n=twright@leibniz.catalyst.net.nz]  has joined #ubuntu
+[12:05] <centinul> javajake: it boots to runlevel 2
+[12:06] <Stormx2> Alan: it isn't that much of a big deal doing that.
+[12:06] <centinul> can I change that?
+[12:06] <kahrytan> Stormx: The mic does work but....
+[12:06] <javaJake> centinul, OK, then use folder /etc/rc2.d/ instead...
+=== DimmuR [n=DimmuR@87-205-220-111.adsl.inetia.pl]  has joined #ubuntu
+=== reassor [i=reassor@213.77.25.35]  has joined #ubuntu
+=== g0ow [n=g0ow@cpe-70-114-62-88.satx.res.rr.com]  has joined #ubuntu
+[12:06] <centinul> ya I realize that, but can I change the runlevel that it boots to?
+[12:06] <Alan> Stormx2, i can do it in a way that can easily be uninstalled with apt-get/aptitude ?
+[12:06] <GaiaX11_> Why did they kick mozilla and opera away from the repos?
