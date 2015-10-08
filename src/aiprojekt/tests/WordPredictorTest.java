@@ -25,15 +25,13 @@ public class WordPredictorTest {
 	private final List<Token> sentence2 = Arrays.asList(
 			new Token(TokenType.START_OF_SENTENCE),
 			new Token("hello"),
-			new Token("bye"),
+			new Token("my"),
 			new Token(TokenType.END_OF_SENTENCE));
 	
 	private final List<Token> sentence3 = Arrays.asList(
 			new Token(TokenType.START_OF_SENTENCE),
 			new Token("hello"),
-			new Token("my"),
-			new Token("name"),
-			new Token("is"),
+			new Token("bye"),
 			new Token(TokenType.END_OF_SENTENCE));
 	
 	/**
@@ -41,10 +39,12 @@ public class WordPredictorTest {
 	 */
 	@Test
 	public void testPredictNextWord() {
-		NGramModel model = new NGramModel(4);
+		NGramModel model = new NGramModel(3);
 		model.processTokens(sentence1);
-
-		WordPredictor predictor = new WordPredictor(model, 1);
+		model.processTokens(sentence2);
+		model.end();
+		
+		WordPredictor predictor = new WordPredictor(model, 5);
 		assertEquals(Arrays.asList("my"), predictor.predictNextWord("hello"));
 	}
 	
@@ -53,7 +53,8 @@ public class WordPredictorTest {
 	 */
 	@Test
 	public void testPredictNextWord2() {
-		NGramModel model = new NGramModel(4);
+		NGramModel model = new NGramModel(3);
+		model.end();	
 		model.processTokens(sentence1);
 		model.processTokens(sentence2);
 		model.processTokens(sentence3);
@@ -72,7 +73,8 @@ public class WordPredictorTest {
 	public void testLongerThanMax() {
 		NGramModel model = new NGramModel(2);
 		model.processTokens(sentence1);
-
+		model.end();	
+	
 		WordPredictor predictor = new WordPredictor(model, 1);
 		assertEquals(Arrays.asList("name"), predictor.predictNextWord("hello my"));
 	}
