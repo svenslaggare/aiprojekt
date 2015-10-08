@@ -3,6 +3,7 @@ package aiprojekt.tests;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -59,7 +60,9 @@ public class WordPredictorTest {
 		
 		WordPredictor predictor = new WordPredictor(model, 2);
 		
-		assertEquals(Arrays.asList("my", "bye"), predictor.predictNextWord("hello"));
+		List<String> results = predictor.predictNextWord("hello");
+		Collections.sort(results);
+		assertEquals(Arrays.asList("bye", "my"), results);
 	}
 	
 	/**

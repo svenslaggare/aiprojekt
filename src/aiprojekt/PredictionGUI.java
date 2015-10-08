@@ -21,7 +21,7 @@ public class PredictionGUI {
 	private static final String BACKSPACE_PRESSED = "backspacePressed";
 	
 	// Use pre-processed NGrams
-	private static final boolean USE_LOADER = true;
+	private static final boolean USE_LOADER = false;
 	private static final String LOAD_FILE = "res/bin/ngrams.bin";
 	
 	public PredictionGUI(NGramModel ngramModel) {
@@ -137,7 +137,7 @@ public class PredictionGUI {
 		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();
-			File file = new File("res/chatlogs/ubuntu.txt");
+			File file = new File("res/chatlogs/small_dump_logs/ubuntu.txt");
 			
 			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 				String sentence;

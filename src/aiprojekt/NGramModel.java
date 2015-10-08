@@ -18,11 +18,13 @@ public class NGramModel {
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
 	private final List<NGram> topUnigrams =  new ArrayList<NGram>();
 	private final int[] ngramCounts;
+	private int totalUnigramCount = 0;
 	
 	private final int matchThreshold = 0;
 	private final int topUnigramsCount = 100;
-	private final static NGram BEGINNING_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
-	private final static NGram END_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
+	
+	private final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
+	private final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
 	
 	/**
 	 * The default n-gram max length
@@ -30,10 +32,8 @@ public class NGramModel {
 	public static final int DEFAULT_MAX_NGRAM_LENGTH = 3;
 	
 	private final NGramTree tree = NGramTree.rootTree();
-	private int totalUnigramCount = 0;
 	
-	private final Map<Integer, Integer> frequencyOfFrequencies = new HashMap<>();
-	private int totalSeenObjects = 0;
+	private final GoodTuringEstimation goodTuringEstimation = new GoodTuringEstimation();
 	
 	/**
 	 * Creates a new N-gram model
@@ -123,6 +123,10 @@ public class NGramModel {
 		
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
+		
+		if (ngram.length() == 1) {
+			this.totalUnigramCount++;
+		}
  	}
  	
 	/**
@@ -161,18 +165,12 @@ public class NGramModel {
 				toRemove.add(ngram);
 				this.ngramCounts[ngram.length() - 1]--;
 			} else if (ngram.length() == 1) { // Adding all unigrams
-				if (!ngram.toString().equals(BEGINNING_UNIGRAM)
-					&& !ngram.toString().equals(END_UNIGRAM)) {
+				if (!ngram.toString().equals(START_OF_SENTENCE_UNIGRAM)
+					&& !ngram.toString().equals(END_OF_SENTENCE_UNIGRAM)) {
 					this.topUnigrams.add(ngram);			
 				}
 				
-				int frequency = 0;
-				int count = current.getValue();
-				if (this.frequencyOfFrequencies.containsKey(count)) {
-					frequency = this.frequencyOfFrequencies.get(count);
-				}
-				
-				this.frequencyOfFrequencies.put(count, frequency + 1);
+				this.goodTuringEstimation.addObservation(current.getValue());
 			}
 		}
 
@@ -192,9 +190,7 @@ public class NGramModel {
 			this.topUnigrams.remove(topUnigrams.size() - 1);
 		}
 		
-		for (Map.Entry<Integer, Integer> current : this.frequencyOfFrequencies.entrySet()) {
-			this.totalSeenObjects += current.getKey() * current.getValue();
-		}
+		this.goodTuringEstimation.fitToData();
 	}
 	
 	/**
@@ -252,21 +248,7 @@ public class NGramModel {
 			return "{ n-gram: " + this.nGram + ", p: " + this.probability + " }";
 		}
 	}
-	
-	/**
-	 * Returns the Good-Turing estimation of the given count
-	 * @param count The count
-	 */
-	private double calculateGoodTuringEstimation(int count) {
-//		if (count == 0) {
-//			return (double)this.frequencyOfFrequencies.get(1) / this.totalSeenObjects;
-//		} else {
-//			return (double)(count + 1) * this.frequencyOfFrequencies.get(count + 1)
-//					/ (this.frequencyOfFrequencies.get(count) * this.totalSeenObjects);
-//		}
-		return 0.5;
-	}
-	
+		
 	/**
 	 * Returns the possible unigrams for the given n-gram
 	 * @param ngram The n-gram
@@ -292,15 +274,15 @@ public class NGramModel {
 	private double getProbability(NGram ngram, NGram unigram) {
 		if (ngram.equals(NGram.EMPTY_GRAM)) {
 			int count = getCount(unigram);
-			double d = this.calculateGoodTuringEstimation(count) / count;
+			double d = this.goodTuringEstimation.estimate(count) / count;			
 			return d * (double)getCount(unigram) / this.totalUnigramCount;
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
 		
 		int count = getCount(predictedNgram);
-		double d = this.calculateGoodTuringEstimation(count) / count;
-		if (count > matchThreshold) {
+		double d = this.goodTuringEstimation.estimate(count) / count;
+		if (count > matchThreshold) {			
 			return d * (double)count / getCount(ngram);
 		} else {
 			return getAlpha(ngram) * getProbability(ngram.rest(), unigram);
@@ -312,7 +294,7 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	private double getAlpha(NGram ngram) {
-		double d = 0.5;
+//		return 1.0;
 		int ngramCount = getCount(ngram);
 		
 		double beta = 1.0;
@@ -323,12 +305,17 @@ public class NGramModel {
 			
 			int count = getCount(predictedNgram);
 			if (count > matchThreshold) {
+				double d = this.goodTuringEstimation.estimate(count) / count;
 				beta -= d * (double)count / ngramCount;
 			} else {
 				restSum += getProbability(ngram.rest(), unigram);
 			}
 		}
 		
+		if (beta == 0.0 || restSum == 0.0) {
+			System.err.println(ngram);
+		}
+				
 		return beta / restSum;
 	}
 	
@@ -341,12 +328,16 @@ public class NGramModel {
 		List<Result> results = new ArrayList<Result>();
 		
 		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
-			if (unigram.equals(new NGram(new Token[]{ new Token(TokenType.START_OF_SENTENCE) }))
-			|| unigram.equals(new NGram(new Token[]{ new Token(TokenType.END_OF_SENTENCE) }))) {
+			if (unigram.equals(START_OF_SENTENCE_UNIGRAM) || unigram.equals(END_OF_SENTENCE_UNIGRAM)) {
 				continue;
 			}
 			
 			double probability = this.getProbability(ngram, unigram);
+
+//			if (probability < 0 || probability > 0 || Double.isNaN(probability)) {
+//			if (Double.isNaN(probability)) {
+//				System.err.println(unigram);
+//			}
 			
 			if (probability > 0) {
 				results.add(new Result(ngram.append(unigram), probability));

@@ -30,7 +30,7 @@ public class NGramModelTest {
 		new Token("how"), new Token("are"), new Token("you"));
 		
 	private static final List<List<Token>> sentences = loadTokensFromFile(
-		"res/tests/2006-05-27-#ubuntu.txt");
+		"res/tests/ubuntu.txt");
 
 	
 	/**
