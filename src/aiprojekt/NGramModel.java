@@ -271,6 +271,17 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Adds the given n-gram probability to the cache
+	 * @param ngram The n-gram
+	 * @param probability The probability of the n-gram
+	 * @return The probability
+	 */
+	private double addProbability(NGram ngram, double probability) {
+		this.probabilities.put(ngram, probability);
+		return probability;
+	}
+	
+	/**
 	 * Returns the probability of observing the given n-gram
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
@@ -283,9 +294,7 @@ public class NGramModel {
 		if (ngram.equals(NGram.EMPTY_GRAM)) {		
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
-			double probability = d * (double)getCount(unigram) / this.totalUnigramCount;
-			this.probabilities.put(unigram, probability);
-			return probability;
+			return this.addProbability(unigram, d * (double)getCount(unigram) / this.totalUnigramCount);
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
@@ -293,13 +302,9 @@ public class NGramModel {
 		int count = getCount(predictedNgram);
 		double d = this.goodTuringEstimation.estimate(count) / count;
 		if (count > matchThreshold) {	
-			double probability = d * (double)count / getCount(ngram);
-			this.probabilities.put(predictedNgram, probability);
-			return probability;
+			return this.addProbability(predictedNgram, d * (double)count / getCount(ngram));
 		} else {
-			double probability = getAlpha(ngram) * getProbability(ngram.rest(), unigram);
-			this.probabilities.put(predictedNgram, probability);
-			return probability;
+			return this.addProbability(predictedNgram, getAlpha(ngram) * getProbability(ngram.rest(), unigram));
 		}
 	}
 	

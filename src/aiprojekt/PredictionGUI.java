@@ -146,8 +146,7 @@ public class PredictionGUI {
 		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();
-			//File file = new File("res/chatlogs/small_dump_logs/ubuntu.txt");
-			File file = new File("res/chatlogs/ubuntu_small.txt");
+			File file = new File("res/chatlogs/small_dump_logs/ubuntu.txt");
 			
 			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 				String sentence;
