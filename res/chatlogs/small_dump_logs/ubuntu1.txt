@@ -1,0 +1,2384 @@
+=== sparq_ is now known as sparq
+[00:04] <furkan_> Excuse me, I was going to ask you something.where we need only connect to chat???
+=== josh is now known as Guest4574
+=== Quatroking_ is now known as Quatroking
+[00:07] <furkan_> Excuse me, I was going to ask you something.where we need only connect to chat
+[00:08] <furkan_> ask me question please
+[00:08] <S_SubZero> so that's what google translate does the other way around.. amazing
+[00:11] <synire> How would one find the path of an application installed using terminal?
+[00:11] <zykotick9> synire: "whereis foo"
+[00:11] <synire> zykotick9: thanks!
+[00:12] <zykotick9> synire: fyi, that _might_ not work...
+[00:14] <zykotick9> synire: infact, i like the output/info from "which foo" better (but, both assume you used apt/apt-get/aptitude to install)
+[00:14] <synire> zykotick9: sure did
+[00:16] <synire> zykotick9: I found an alternative, "locate" seems to work for it.
+[00:16] <nataly> Hi, how do I install this patch - https://bugs.launchpad.net/ubuntu/+source/gvfs/+bug/1296275  ???
+[00:16] <wafflej0ck> zykotick9, thought which used the path
+[00:16] <ubottu> Launchpad bug 1296275 in gvfs (Ubuntu Utopic) "PTP Cameras not working on 14.04, works flawlessly on 12.04" [Low,Triaged]
+[00:16] <wafflej0ck> !info which
+[00:16] <ubottu> Package which does not exist in utopic
+[00:16] <wafflej0ck> man page says: which  returns  the  pathnames of the files (or links) which would be executed in the current environment, had its arguments been given as commands in a strictly POSIX-conformant shell.  It does this by searching the PATH for
+[00:16] <wafflej0ck>        executable files matching the names of the arguments. It does not follow symbolic links.
+[00:16] <synire> that explains as I am running 14.04 which i believe is utopic
+[00:17] <nataly> i mean how do I install or run - Patch: http://launchpadlibrarian.net/177343655/libgphoto2_2.5.4-1ubuntu1_2.5.4-1ubuntu2.diff.gz
+[00:17] <zykotick9> wafflej0ck: for real fun try "dpkg -S foo" for the path to all files installed from package with full paths ;)
+[00:17] <wafflej0ck> synire, locate you need to use, sudo updatedb after installing things for it to update the index
+[00:17] <wafflej0ck> zykotick9, hmm thought that one was -L ... will have to check man on both of those too
+[00:18] <zykotick9> wafflej0ck: lol, ya -L is WAY better
+[00:18] <synire> Should I run updatedb everytime after apt-get install? or is there a auto update every x time?
+[00:18] <wafflej0ck> synire, not sure, man updatedb or man locate
+[00:19] <wafflej0ck> synire, ah says daily cron
+[00:19] <zykotick9> wafflej0ck: tbo i never liked/used locate because of the whole updating thing.  i'll break down and use find if it comes to that ;)
+[00:19] <zykotick9> synire: ^
+[00:19] <synire> find sublime_text
+[00:19] <wafflej0ck> zykotick9, yeah find can definitely be useful but more complicated
+[00:19] <synire> Like that?
+[00:19] <WillW> Hey all, I'm trying to get an NTFS folder on a network share using samba, but I always have permission denied. EXT4 works fine. Here is my fstab: http://paste.ubuntu.com/9652569/ and here is smb.conf(if necessary): http://paste.ubuntu.com/9652575/
+[00:20] <cryptodan> WillW: the fstype is not ntfs-3g but ntfs
+[00:21] <WillW> cryptodan: neither ntfs nor ntfs-3g work
+[00:21] <Buntunub_> well.. is ntfs-3g a recognized switch?
+[00:21] <Buntunub_> in Linux
+[00:21] <nataly> any idea how to get PTP camera (casio) to work in 14.04?
+[00:21] <wafflej0ck> synire, the sublime text executable is actually just subl I'm pretty sure, not sure about the syntax for the find command there are typically flags you need to set
+[00:21] <cryptodan> WillW: can you access it via file manager?
+[00:22] <WillW> the ntfs-3g partition is mounted and working the way its supposed to
+[00:22] <WillW> yes
+[00:22] <cryptodan> there is no NFTS-3G File System
+[00:22] <Buntunub_> try dropping the -3g
+[00:22] <cryptodan> NTFS*
+[00:22] <WillW> uh sure
+[00:22] <Buntunub_> the rest of it looks fine to me
+[00:23] <cryptodan> and you do not need samba to access a physical drive that is in the machine
+[00:23] <WillW> the ntfs-3g partition is games and doesnt need to be on a network share anyway
+[00:23] <Buntunub_> you will need to remount after
+[00:23] <cryptodan> WillW: there is no such thing as a NTFS-3G file system
+[00:23] <WillW> cryptodan: ok ill get rid of it.... what do you mean i don't need samba?
+[00:24] <Buntunub_> samba is for windows file sharing across a network
+[00:24] <cryptodan> Samba is used for networking with windows or creating a domain controller in linux
+[00:24] <synire> wafflej0ck: Thanks, I'll read that manpage for "find"
+[00:24] <WillW> cryptodan Buntnub_: Well yes I'm trying to share one folder across the network, and it needs to be win-compatible too
+[00:24] <WillW> is there a better way?
+[00:25] <Buntunub_> are you sharing from Linux to windows or windows to Linux
+[00:25] <cryptodan> WillW: by the looks of it the drive is local
+[00:25] <WillW> cryptodan: yes it is
+[00:25] <cryptodan> then you do not need in it in fstab the way it is
+[00:25] <Buntunub_> well then you don't need samba to access a local drive such as with a dual boot
+[00:26] <WillW> Ok i'll clarify:
+[00:26] <WillW> two PCs
+[00:26] <rsully> I have a GTS 450 I'm trying to test (14.04.1 live cd) - I upgraded my mobo's bios incase that was it, but I still can't get it to show up under `lspci` and I don't see anything obvious in dmesg
+[00:26] <WillW> one with windows and ubuntu
+[00:26] <WillW> sharing that NTFS folder over the network
+[00:26] <WillW> the other is ubuntu
+[00:26] <WillW> needs to access that folder
+[00:26] <cryptodan> WillW: http://askubuntu.com/questions/247341/mounting-samba-share-in-using-fstab
+[00:27] <Buntunub_> just reading back what you typed there.. you are trying to test a video card and lspci does not show it on the Ubuntu bux
+[00:27] <Buntunub_> box
+[00:28] <Buntunub_> ?
+[00:28] <WillW> cryptodan: will this make the folder accessible from windows machines?
+[00:28] <nataly> cant get pics from casio camera in 14.04 - used to work in 12.x?! any ideas?
+[00:28] <rsully> yeah - I don't care about trying to use the video card, I just want it to show up (use it for cuda, etc)
+[00:28] <Buntunub_> does it show up on the windows box?
+[00:28] <rsully> I don't have a windows box
+[00:28] <Buntunub_> ahh ok lol
+[00:28] <rsully> the previous owner was using it fine in their dell tho
+[00:28] <Buntunub_> ok so its a pcie card?
+[00:29] <rsully> yeah pcie 2 x16
+[00:29] <Buntunub_> sure its plugged in fully?
+[00:29] <cryptodan> WillW: from windows you will need to add the same username and password and setup samba to become a domain controller
+[00:29] <rsully> I've tried reseating it :/
+[00:29] <Buntunub_> ok np.. sounds like you are missing a driver
+[00:30] <Buntunub_> weird that lspci does not at least see something though
+[00:30] <rsully> I figured it would show up in a hardware listing even without a driver
+[00:30] <rsully> or even a mention in dmesg
+[00:30] <WillW> cryptodan: lastly, the folder needs to have guest access so anyone can put stuff in it
+[00:30] <Buntunub_> yeah the kernel should at least see something there
+[00:30] <cryptodan> WillW: thats not adviseable
+[00:31] <WillW> cryptodan: I know, but this is my home network, and its really just a filesharing folder
+[00:31] <Buntunub_> did you try to load the Nvidia driver using the Ubuntu driver install thingy
+[00:32] <rsully> no, I suspect I have to add the universe repo for that?
+[00:32] <Buntunub_> correct
+[00:32] <cryptodan> WillW: in windows can you actually see the ubuntu machine?
+[00:32] <Buntunub_> you can check nouveau see if it supports your chipset
+[00:32] <Buntunub_> otherwise you use the proprietary blob
+[00:33] <nataly> so i have a PTP camera (casio) and i think i have this bug - and here is the "fix" - wtf do I do to implement this fix --> http://launchpadlibrarian.net/177343655/libgphoto2_2.5.4-1ubuntu1_2.5.4-1ubuntu2.diff.gz
+[00:33] <WillW> cryptodan: I think so, I can check in a few mins, but right now, nautilus on the client machine can see the "windows network" and access folders in there
+[00:33] <rsully> the graphics card chipset that is?
+[00:33] <cryptodan> WillW: so the Windows machine is sharing the content?
+[00:33] <rsully> nouveau lists gts 450 as compatible
+[00:34] <Buntunub_> then try using it first
+[00:34] <revo> happy 2015 every one
+[00:34] <cpt_yossarian> happy new years :)
+[00:35] <rsully> Buntunub_ any idea how I can tell which nvidia-graphics-drivers-* package i need?
+[00:35] <WillW> cryptodan: Yes, the windows/ubuntu machine is sharing the content, with guest access. Any other windows/ubuntu machine needs to be able to access it from the network, without a login
+=== bazhang_ is now known as bazhang
+[00:35] <cryptodan> WillW: you are not making any sense at all
+[00:35] <WillW> cryptodan: I think the link you originally sent is for mounting networked drives
+[00:35] <cryptodan> WillW: that is what it is
+=== arif-ali_ is now known as arif-ali
+=== zoktar_ is now known as zoktar
+=== DEADB33F_ is now known as DEADB33F
+=== Dat- is now known as Dat
+[00:36] <Buntunub_> best bet is to google for a ubuntu neauvou guide
+[00:36] <revo> ok so , now that we broke down the sauce down and bit buzzin' from not drinking to much...i have a question ??? How do i open jpg files in ubuntu ???
+=== cnj_ is now known as cnj
+[00:36] <WillW> cryptodan: Ok sorry, I'll explain a bit better, but thatnks for taking the time to help
+[00:37] <WillW> cryptodan: My desktop has a "public" folder, which I want to share documents with my friends who come over. This folder can be accessed from windows and ubuntu on my desktop.
+[00:37] <rsully> hrm the guide says to use "xserver-xorg-video-nouveau" - I hope that won't try to use the card by default
+[00:37] <revo> 05question ??? How do i open jpg files in ubuntu ???
+[00:38] <Buntunub_> that is the xserver for it yeah
+[00:38] <cryptodan> WillW: then follow the link I linked too
+[00:38] <WillW> cryptodan: Ok, will do, thanks
+[00:39] <Buntunub_> try this rsully https://help.ubuntu.com/community/BinaryDriverHowto/Nvidia
+[00:39] <WillW> cryptodan: wait wait wait, no, this is to mount a folder already on the network, mapping it to a local folder. I'm trying to do the inverse.
+[00:39] <WillW> I have a local folder that needs to be networked
+[00:40] <rsully> Buntunub_ tried that with "installation without X" but ubuntu-drivers is an empty list since it can't see the card
+[00:41] <nataly> so i have a PTP camera (casio) and i think i have this bug - and here is the "fix" - HOW do I implement this fix --> http://launchpadlibrarian.net/177343655/libgphoto2_2.5.4-1ubuntu1_2.5.4-1ubuntu2.diff.gz
+[00:41] <Buntunub_> https://help.ubuntu.com/community/BinaryDriverHowto/Nvidia
+[00:41] <Buntunub_> http://nouveau.freedesktop.org/wiki/UbuntuPackages/
+[00:41] <cryptodan> WillW: On Ubuntu?
+[00:41] <Buntunub_> i mean
+[00:41] <Buntunub_> sounds like you can have both
+[00:42] <Buntunub_> so install the binary blob and you can also have neauvou
+[00:42] <Buntunub_> nouveau
+[00:42] <Buntunub_> you can switch
+[00:42] <rsully> ah ok
+[00:42] <Buntunub_> you need to append your xorg.conf
+[00:42] <WillW> cryptodan: Host PC ubuntu/win has folder. Folder needs to be network accessible.
+[00:42] <rsully> Buntunub_ well I don't want to use this card for my desktop
+[00:42] <Buntunub_> Section "Device"
+[00:42] <Buntunub_> Identifier "n"
+[00:42] <Buntunub_> Driver "nouveau"
+[00:42] <Buntunub_> EndSection
+[00:43] <cryptodan> WillW: what are you doing again you are not making any sense
+[00:43] <rsully> I just want to (a) verify it will/can work for future VM passthrough and (b) be able to test using it for computations
+[00:43] <cryptodan> What machine do you want to be the server?
+[00:44] <rsully> Buntunub_ looks like nouveau is already installed btw
+[00:44] <WillW> cryptodan: Ubuntu is the server
+[00:44] <Buntunub_> yes it should be
+[00:44] <Buntunub_> you probably just need to append your xorg.conf
+[00:44] <cryptodan> WillW: and are the /media/ mounts physical drives?
+[00:44] <rsully> that would only matter if i wanted to use the card in X
+[00:44] <WillW> cryptodan: Yes
+[00:44] <rsully> but the problem is much lower level - the system doesn't even see the hardware
+[00:45] <Buntunub_> yeah that's why I am leaning to the proprietary
+[00:45] <cryptodan> WillW: https://help.ubuntu.com/community/Samba/SambaServerGuide
+[00:45] <Buntunub_> just install the nvidia blob
+[00:46] <Buntunub_> easy to install the nvidia driver on linux these days
+[00:46] <rsully> right but there isn't just 1, there is a whole list of them and I don't see any listing that says card A = driver B
+[00:46] <Buntunub_> did you try the nvidia website
+[00:46] <WillW> cryptodan: Yes, samba is configured, and I have success sharing a physical EXT4 partition over the network
+[00:47] <rsully> no, the nvidia site recommends to use the nvidia blobs provided by ubuntu
+[00:47] <WillW> cryptodan: But, the other PCs have a "permission denied" error when accessing the networked NTFS folder
+[00:47] <rsully> ill try their generic ones
+[00:48] <WillW> cryptodan: MY smb.conf(share defs are at the bottom): http://paste.ubuntu.com/9652575/
+[00:48] <Buntunub_> there are PPAs with it
+[00:48] <cryptodan> Is the NTFS Drive listed in the Samba Configuration?
+[00:48] <Buntunub_> http://www.howopensource.com/2012/10/install-nvidia-geforce-driver-in-ubuntu-12-10-12-04-using-ppa/
+[00:48] <Buntunub_> thats version 304
+[00:49] <cryptodan> WillW: is that /media.william actually NTFS or is it EXT4?
+[00:49] <WillW> cryptodan: NTFS
+[00:49] <cryptodan> that maybe causing issues
+[00:50] <englishlearner> ot: what channel is best for learning english? where people write in correct grammar/structure? thx
+[00:50] <cryptodan> If your ext4 works why not move everything to it?
+[00:50] <Buntunub_> your asking the wrong crowd
+[00:50] <acerspyro> englishlearner: Likely support channels with pro users.
+[00:50] <Buntunub_> linux devs are the last people to ask about grammar
+[00:51] <acerspyro> Not here anyways.
+[00:51] <Buntunub_> unless its about C or C+
+[00:51] <englishlearner> thanks
+[00:51] <WillW> cryptodan: Because the Server PC has windows on it, and its sharing it too, when I'm booted into windows. Windows cannot read EXT4
+[00:51] <acerspyro> np
+[00:52] <rsully> Buntunub_ alright installing from that ppa
+[00:53] <rsully> it did something that completely messed up my display
+[00:53] <WillW> cryptodan: There is some sort of windows hack maybe to read EXT4 but I'd much rather not mess with windows
+[00:53] <rsully> it looks super zoomed in and stretched
+[00:53] <Buntunub_> get rid of your xorg.conf
+[00:53] <Buntunub_> just move it
+[00:53] <rsully> how can i do that when i cant use the computer
+[00:54] <rsully> its literally zoomed into like a 50 pixel area
+[00:54] <Buntunub_> mv /etc/X11/xorg.conf /etc/X11/xorg.conf.backup
+[00:54] <Buntunub_> reboot to safe mode
+[00:54] <Buntunub_> or switch to VT
+[00:54] <rsully> i am running from the live cd
+[00:54] <rsully> this is just meant to test to see if the card will work
+[00:54] <Buntunub_> wow lol
+[00:55] <Buntunub_> you can't install an nvidia driver using the live cd
+[00:55] <rsully> why not -_-
+[00:55] <Buntunub_> where would you install it to
+[00:55] <Buntunub_> the cd?
+[00:55] <rsully> its all in ram?
+[00:55] <Buntunub_> no I don't think ti works like that
+[00:55] <rsully> yeah it does
+[00:55] <rsully> writes go to ram
+[00:56] <Buntunub_> but the driver wont kick in till you reboot
+[00:56] <WillW> rsully Buntunub_: you CAN install the drivers from live cd but you really shouldnt
+[00:56] <rsully> yeah but thats fine for testing :)
+[00:56] <Buntunub_> try restarting X
+[00:56] <rsully> so i moved xorg config (i think) how can i get it to respawn
+[00:56] <WillW> also the drivers dont kick in until restarting X, yeah
+[00:57] <Buntunub_> you should not need it
+[00:57] <Buntunub_> just restart x
+[00:57] <rsully> which command
+[00:57] <rsully> restart lightdm?
+[00:57] <WillW> sudo service lightdm restart
+=== Hexeon|2 is now known as Hexeon
+[00:58] <rsully> gah not doing anything
+[00:58] <Buntunub_> log out and from the login screen there should be an option to restart x
+[00:59] <Buntunub_> least there is with gnome and kde
+[00:59] <rsully> well I'm still in zoomed in mess, so if i logout i suspect I won't be able to actually do anything
+[00:59] <rsully> I'm lucky that I have a terminal window open
+[00:59] <cpt_yossarian> does anybody have any experience w/ installing the intel graphics stack on 14.04? is it normally a long process with their GUI installer?
+[01:00] <Buntunub_> honestly the best way to test if a distro works on your system is to install it as dual boot or on another drive
+[01:00] <cpt_yossarian> it's been chugging along for about 10 minutes now at 100% cpu...
+[01:00] <Buntunub_> only so much you can do from a live environment and it will never really tell you much
+[01:01] <rsully> the only thing I am trying to do is see if this pci card would work
+[01:01] <Buntunub_> and TBH.. Linux will usually always work except in few cases these days
+[01:01] <rsully> yeah like right now :p
+[01:01] <Buntunub_> if you install it dual boot your system will work fine
+[01:01] <WillW> TBH.... linux never works correctly out of the box, but thats the fun of it
+[01:02] <Buntunub_> and you will still have windows
+[01:02] <Buntunub_> yes correct will
+[01:02] <Buntunub_> but his nvidia card is very well supported in Linux
+[01:02] <rsully> yes unless the PCI slot is broken, or the card somehow died
+[01:02] <rsully> which is what I'd like to find out
+[01:03] <Buntunub_> i thought you said it worked fine under windows when I asked you
+[01:03] <rsully> it worked on the previous owner's gaming rig
+[01:03] <rsully> I have never used it in this motherboard
+[01:04] <rsully> and no, this computer does not have windows installed
+[01:04] <Buntunub_> and you have no other OS on that system?
+=== Sleepnbum is now known as Guest42715
+[01:04] <rsully> lol I don't have a hard drive in this system. I am trying to do prep/testing before I decide how I want to configure it
+[01:05] <Buntunub_> well putting a hard drive on it would generally be a good idea
+[01:05] <rsully> yeah I plan to get about 6 of them, but that is a few weeks away
+=== Darknet` is now known as Darknet
+[01:05] <WillW> rsully: if you think the PCI is broken, do you have a second graphics card?
+[01:06] <Buntunub_> is it going to be for server use.. gaming use... what
+[01:06] <rsully> Buntunub_ server
+[01:06] <rsully> WillW nope, just mobo's vga
+[01:06] <rsully> my display is hooked up to VGA now
+[01:06] <Buntunub_> web server.. file server..
+[01:06] <WillW> rsully: what? if its for server use why the graphics card
+[01:06] <Bashing-om> rsully: IS this Nvidia card added, where formerly you were using an onboard graphics chip ? If so might re-arrange the video priority in bios .
+[01:07] <rsully> WillW 2 uses: passthrough to windows VM, use for gpu programming
+[01:08] <rsully> Bashing-om I didn't see any video priority in bios
+[01:08] <WillW> Hmm... maybe theres a way to test the functionality of the card remotely?
+=== `Yoda is now known as Yoder
+[01:10] <cryptodan> So its a dual boot environment WillW?
+[01:10] <WillW> cryptodan: yes
+[01:10] <Bashing-om> rsully: The video priority settings may be cryptic . Look carefully if formerly you were using onboard video .
+[01:10] <cryptodan> WillW: that is the issue
+[01:11] <WillW> cryptodan: the NTFS partition is separate from the boot partition, and windows isn't in hibernate or anything
+[01:11] <cryptodan> WillW: you need a dedicated server machine not a dual boot environment
+[01:11] <rsully> Bashing-om well the other interesting part to this is I am using ubuntu live usb to boot. but as I had mentioned, I wasn't even seeing this card with `lspci` or in dmesg
+[01:11] <WillW> cryptodan: well I don't want a dedicated server, I'm using windows 7 and ubuntu desktop
+[01:11] <WillW> cryptodan: just wanna share a folder on it
+[01:12] <cryptodan> WillW: thats how shares work
+[01:12] <cryptodan> WillW: you need a dedicated machine not a dual boot system
+[01:13] <WillW> cryptodan: So what you're saying is Ubuntu can share EXT4 folders, and windows can share NTFS, but neither of them can share both?
+[01:13] <cryptodan> WillW: if ubuntu is down and not powered on or booted into that ext4 is not there and same with windows
+[01:14] <WillW> cryptodan: I'm a bit confused now
+[01:15] <cryptodan> WillW: is ubuntu and windows on the same computer?
+[01:15] <WillW> cryptodan: yes
+[01:15] <cryptodan> then what you are doing is not doable WillW
+[01:15] <WillW> cryptodan: well hang on, 3 partitions: windows NTFS, shared NTFS, and linux EXT4
+[01:16] <cryptodan> No can do as a server
+[01:16] <WillW> cryptodan: even when windows is powered down, not in hibernate?
+[01:16] <cryptodan> I thought you had one dedicated Ubuntu Machine and Windows Clients
+[01:16] <WillW> sh
+[01:16] <WillW> ah
+[01:16] <cryptodan> permissions come into play in linux that are not manageable on linux
+[01:17] <WillW> cryptodan: Yes, NTFS cant do permissions, but the entire partition can be mounted with the same permissions, which is acceptable in my case. Is there no way to use this?
+[01:17] <cryptodan> Nope not for what you want
+[01:18] <WillW> Screw this im writing my own kernel
+[01:18] <cryptodan> WillW: it has nothing to do with the Kernel
+[01:18] <WillW> OS
+[01:18] <cryptodan> It has everything to do with your non-dedicated environment
+[01:19] <WillW> cryptodan: Any chance you can give me a technical rundown of why it can't happen?
+[01:19] <cryptodan> two operating systems cannot be booted and running at the same time
+[01:19] <rsully> Bashing-om yeah just went through bios, no video priority
+[01:19] <WillW> cryptodan: again, one system will be COMPLETELY powered down
+[01:20] <rsully> just went and grabbed an hdmi display to use with the gfx card to see if maybe when the vga messes up the card starts to work
+[01:20] <earthrocka> still having trouble getting dvds to play after installing ubuntu-restricted- extras and libdvdread4
+[01:20] <earthrocka> anyone know where to go after this
+[01:20] <earthrocka> some dvds will play others wont
+[01:20] <cryptodan> on linux the ntfs file system is not manageable to the point of what you are wanting to do you still needed a dedicated windows server or a dedicated linux server with a configured samba to act as a domain controller
+[01:21] <earthrocka> i got another machine running ubuntu and dont have this prob ... but for some reason i cant get them to play on this laptop lol
+[01:22] <WillW> cryptodan: And you're saying there's no way I can mount an NTFS partition with 777 perms and have samba point to one folder on that partition to share?
+[01:22] <Ranieri_> What's up Ubuntu?
+[01:28] <cryptodan> WillW: correct
+[01:28] <WillW> cryptodan: http://ubuntuforums.org/showthread.php?t=1894192 seems it might be possible, I'm going to get rid of stuff and try again... I still don't see why there would be any technical limitation
+[01:29] <ilhami> hey
+[01:29] <ilhami> do you remember last time when I was here?
+[01:29] <ilhami> daftykins
+[01:30] <rww> can we not start this again, thanks
+[01:32] <ilhami> rww: no man. I asked about some stuff back then but I forgot which OS I was using. :-D it's so weird.
+=== gac_ is now known as gac
+[01:40] <WillW> cryptodan: I DID IT
+[01:41] <WillW> I was missing the "force user" line, which i saw before but thought unnecessary
+[01:42] <WillW> but because fstab mounts and locks to a user, I need samba to fake the guest to be the user that the partition is mounted to
+[01:44] <WillW> Now im going to reboot because I mucked with fstab so somethings going to break
+[01:45] <rsully> meh I'm out of ideas for this PCIe card
+[01:47] <RNeville> I can't seem to share a folder between my ubuntu box and a windows box.
+[01:48] <RNeville> When I check Samba on the Ubuntu 14.04 box it looks like I've set access to "allow access to everyone"
+[01:48] <WillW_2> RNeville: I got your back bro i just did this a minute ago
+[01:48] <RNeville> On my windows machine I see the Ubuntu computer and folder I set up in Ubuntu 14.04 to be public
+[01:49] <RNeville> WillW_2: K
+[01:49] <RNeville> but I get a a permission not allowed on this folder
+[01:50] <WillW_2> is the folder on EXT4 or ntfs
+[01:50] <RNeville> Even though I can see the folder "Documents" on the Ubuntu machine from the Windows machine
+[01:50] <RNeville> I think the folder WillW_2 is an EXT4 folder
+[01:52] <ilhami> I must have been mentally away that day.
+[01:52] <ilhami> I seriously don't remember anything.
+[01:52] <WillW> RNeville: So to be clear up to this point, you haven't set up share defs through smb.conf, and you've right clicks on the folder in nautilus and added a local network share, correct?
+[01:53] <WillW> RNeville: Assuming thats the case, but anyway whats the permissions on that folder
+[01:53] <RNeville> I used the Samba Server Configuration gui to set up a folder" Documents" to be accessable by all
+[01:54] <RNeville> My Windows 10 machine see the folder, but I get a permissions error for this folder when I try to open on Windows machine
+[01:55] <WillW> RNeville: can you post the contents of /etc/samba/smb.conf to  http://paste.ubuntu.com/
+[01:55] <RNeville> WillW: I think I can, it will take a minute
+[01:56] <WillW> RNeville: take care to look through and remove any passwords if you've set those up
+[01:56] <RNeville> WillW: thx
+=== AcidRain is now known as Neytiri
+[02:02] <RNeville> WillW: http://pastebin.com/GtrRM8Em
+[02:03] <WillW> RNeville: You can access your Documents folder, and you want to add another networked folder with the same settings, right?
+[02:04] <RNeville> I can't access this "Documents" folder from my Windows 10 box
+=== deww_ is now known as deww
+[02:04] <RNeville> Of course, I can access it from the Ubuntu machine - which it is on!
+[02:05] <WillW> RNeville: Ok, remind me again what the intended result is, I switched computers during this convo. Are you adding another folder, or did you want to make changes to Documents?
+[02:06] <HarrryW> From what i have gatherd, he wants to acess his "Documents" folder from his windows 10 box
+[02:06] <HarrryW> WillW:
+[02:06] <RNeville> I want to be to access the "Documents" folder on a Windows machine on my LAN - which I can't do. I can see the folder on the windows machine but not access it
+[02:07] <WillW> RNeville: OK, gotcha, 1 min
+[02:07] <HarrryW> are you running off something like vmware?
+[02:07] <HarrryW> RNeville:
+[02:07] <RNeville> no
+[02:07] <RNeville> No virtual machines involved in anyway
+[02:07] <HarrryW> and are you booting ubuntu or using vmware
+[02:07] <HarrryW> ah right
+[02:07] <HarrryW> didnt get that message
+[02:08] <RNeville> HarrryW: no problem
+[02:08] <HarrryW> what you can do
+[02:08] <HarrryW> wait
+[02:08] <HarrryW> what windows are you on?
+[02:08] <RNeville> Windows 10
+[02:09] <HarrryW> right
+[02:09] <HarrryW> i take it that is the beta build?
+[02:09] <RNeville> Yes, unfortunately
+[02:09] <HarrryW> i have seen some photos of it
+[02:09] <HarrryW> is it nice?
+[02:10] <WillW> RNeville: uncomment "browseable = yes" and add
+[02:10] <WillW> read only = no
+[02:10] <RNeville> Yes, the first couple of builds were stable, but last few have been constantly trying to update
+[02:10] <HarrryW> ah right, that kind of sucks
+[02:10] <HarrryW> im gonna stick with 7 ultimate for the moment
+[02:10] <HarrryW> its really nice
+[02:11] <RNeville> Yes HarrryW , I would stick with 7
+[02:11] <RNeville> WillW: thx
+[02:11] <HarrryW> I mean, the underlying functions and whatnot of windows 8 are ment to be great, but it feels really weird for some reason to me when i use it
+[02:11] <WillW> RNeville: I forgot, after that, do this command
+[02:12] <WillW> sudo /etc/init.d/samba restart
+[02:13] <WillW> or a reboot is fine too
+[02:13] <RNeville> I'm a complete newbie to Linux, so I'm not sure how to use chmod to set permissions on samba.conf in order to change this file
+[02:13] <RNeville> any help appreciated
+[02:13] <Zergling316> good evening
+[02:14] <Zergling316> every boot ubuntu performs a complete disk check
+[02:14] <WillW> RNeville: in terminal, type
+[02:14] <WillW> sudo gedit
+[02:14] <Zergling316> is there anything i can do?
+[02:14] <WillW> don't change perms on smb.conf, just open gedit as root ;)
+[02:15] <davido_> My scroll wheel has stopped working in Ubuntu, but within a Windows guest via VirtualBox with mouse integration, no problem.  Any thoughts?
+[02:15] <WillW> RNeville: to open terminal, the default shortcut is ctrl-alt-T
+[02:15] <RNeville> WillW: thx
+[02:17] <bubbasaures> Zergling316, Can you pastebin your /etc/fstab
+=== zz_saschpe is now known as saschpe
+[02:18] <bubbasaures> youcan show it with cat /etc/fstab in the terminal
+[02:19] <RNeville> WillW: still getting a "You do not have permission to access \\LINUXMACHINE\Documents." on the Windows side of things
+[02:19] <RNeville> Even though I can see the folder on the Windows box
+[02:20] <WillW> RNeville: You've restarted samba after applying the changes to smb.conf?
+[02:20] <RNeville> yes, could I have a problem on the Windows side of things?
+[02:20] <gr33n7007h> you could use python -m SimpleHTTPServer if you have python
+[02:20] <WillW> RNeville: possibly but unlikely
+[02:21] <RNeville> I ran the sudo /etc/init.d/samba restart
+[02:21] <WillW> RNeville: do you want guest access or just access for people in your domain?
+[02:21] <Zergling316> bubbasaures: sure 1 moment
+[02:21] <RNeville> not sure
+[02:21] <RNeville> I only have two computers on my LAN; of course I have no domain controller
+=== MoeD_ is now known as MoeD
+[02:22] <WillW> RNeville: You did also uncomment that one line right?
+[02:22] <RNeville> Yes
+[02:22] <Zergling316> bubbasaures: http://pastebin.com/F3z5DFjx
+[02:22] <RNeville> I'll repost my samba.conf file - just a moment
+[02:23] <bubbasaures> Zergling316, You have ubuntu on an ext2?
+[02:23] <Zergling316> yes
+[02:24] <bubbasaures> Zergling316, open fstab and change the 1 at the end of this to a 0  "UUID=6d993113-296d-4a0d-9169-8ff6b6914e33 /               ext2    errors=remount-ro 0       1"
+[02:24] <Zergling316> okay thanks :)
+[02:24] <Zergling316> where can i read about what i just did? :D
+[02:25] <Zergling316> would like to understand it a bit better and use ubuntu as my daily os
+[02:25] <Zergling316> you dont know for a solution to chromium being shifted a few pixel to the right in fullschreen too do you? :D
+[02:26] <bubbasaures> Zergling316, That disk check used to be every 30 boots now not ever, however when one is done now or you want one done that number is changed
+[02:26] <bubbasaures> man fstab will give code info
+[02:27] <Zergling316> ah thanks :)
+[02:27] <RNeville> WillW: I can't relaunch gedit; and I can't seem to kill the gedit process - it appears totally hung
+[02:28] <RNeville> sudo kill <process num> does seem to work
+[02:28] <WillW> RNeville: ctrl-alt-T, type xkill, hit enter, and left-click on gedit
+[02:28] <WillW> ah ok
+[02:29] <WillW> uhh, reboot?
+[02:29] <HarrryW> RNeville: Ik that you're doing something, but is it easy to get your hands on windows 10?
+[02:29] <WillW> not really no, Canadian internet here
+[02:29] <WillW> it would take ages to download
+[02:29] <WillW> oh whoops sorry i misread
+[02:29] <HarrryW> but
+[02:29] <RNeville> WillW: I don't have a gedit window to select with xkill
+[02:29] <HarrryW> getting your hands on it
+[02:29] <HarrryW> is it possible
+[02:29] <HarrryW> like
+[02:29] <HarrryW> free donwload
+[02:29] <HarrryW> or what
+[02:29] <unopaste> HarrryW you have been muted for 60 seconds as it looks like you are pasting lots of lines into the channel, please use http://paste.ubuntu.com and paste just the URL of your data here when you are unmuted
+[02:30] <RNeville> HarrryW: yes, you can download Windows 10 from Microsoft webpage
+[02:30] <RNeville> HarrryW: Just need to sign-up for Microsoft account
+[02:30] <WillW> RNeville just reboot and maybe gedit will launch then
+[02:30] <RNeville> WillW: k
+[02:30] <WillW> RNeville: or you can use pico with sudo pico
+[02:31] <HarrryW> ive got one so that will be easy
+[02:31] <HarrryW> thanks RNeville
+[02:32] <Jpmh> if I use a variable like $! in a numeric context it seems to have a nueric value of the last error number, if I use it in a string conext it seems to be the text description of that error.  How is this done?
+[02:32] <Jpmh> oop - please ignore - wrong window
+[02:38] <WillW> RNeville: wb, your share definition at the bottom of /etc/samba/smb.conf should look like this http://paste.ubuntu.com/9652968/
+[02:39] <RNeville> WillW: thx
+[02:40] <WillW> I have to go, but if it still doesn't work, try adding the lines  create mask = 0777
+[02:40] <WillW> and directory mask = 0777
+[02:41] <WillW> wait no no dont do that
+[02:41] <WillW> make them both 0755
+[02:41] <WillW> or 750 if you dont want guests
+[02:41] <WillW> 0750*
+[02:42] <chocolate> hi ...
+[02:43] <chocolate> do you know guy what isp use for their billing system?
+[02:43] <sopu> join #hackthissite
+[02:44] <chocolate> thanks, sopu
+[02:45] <chocolate> sopu: nobody there
+[02:47] <netf0x> Hey guys, let me start by wishing everyone a lovely new year...
+[02:48] <wafflej0ck> chocolate, how is this an ubuntu support issue, if it isn't this isn't the place for a discussion you may want to try #ubuntu-offtopic or some other more pertinent channel
+[02:48] <netf0x> Is there anyway I could run the gnome version which comes with 10.04 on 14.04 and install the Emerald theme manager and Compiz settings manager?
+[02:48] <wafflej0ck> netf0x, not sure about emerald or compiz but you may want to check out Mate since it is a fork of the older gnome if you don't like Gnome 3
+[02:48] <rww> there's probably plenty of ways, none of which are not a terrible idea
+[02:49] <xangua> netf0x: or you could use ubuntu mate 14.04
+[02:49] <netf0x> wafflej0ck, Thanks ;)
+[02:49] <rww> emerald isn't maintained at all, compiz is pretty much dead, the only bit I'd go with is GNOME, which as others have said is usable as MATE
+[02:50] <netf0x> xangua, Awesome!
+[02:50] <netf0x> rww, Shame really, good things never last :)
+[02:50] <wafflej0ck> netf0x, I'm honestly a big fan of Gnome 3... liked Gnome 2 as well back in the day but I'm happy with the direction things are going
+[02:52] <netf0x> wafflej0ck, Me too and I don't mind Unity. It's just that I had a particular setup on 10.04 and would love to replicate it on the newer version.
+=== orangutan is now known as saffrondust
+[02:55] <reggie-man> Should I download and install things from their official website, or through the default repositories? I was about to download Tor, when I realized there is a Tor in the repositories, as well as on their website, but they don't mention anything about the one in the repositories, which makes me think they don't support it.
+[02:55] <wafflej0ck> reggie-man, always use apt-get or the software center if it's an available option so you get package updates from the repositories
+[02:56] <wafflej0ck> reggie-man, you may not always get the latest version this way but you get one tested by the repository maintainers, if you *need* the newest then it's up  to you to compile/install and maintain the updates
+[02:56] <reggie-man> Hmm. I guess so, but why wouldn't they recommend that on their website, wafflej0ck?
+[02:57] <wafflej0ck> reggie-man, not sure which site you're talking about in particular but I can't really tell you why someone decided to do something can only speculate :)
+[02:58] <reggie-man> wafflej0ck: I know you can only speculate. I'm talking about the Tor website. https://www.torproject.org/download/download-easy.html.en
+[02:59] <wafflej0ck> reggie-man, yeah so projects that don't want to align themselves with one particular distro or maintain the different distribution packages aren't going to point you to something specific to Ubuntu or whatever it may be... nice thing about how they have this setup though is it's a no installer zip like eclipse so you just extract and run no need to actually run an install script, but again updates would be a manual process
+[03:00] <reggie-man> Alright. Thank you wafflej0ck.
+[03:01] <devnull_> hi
+[03:01] <wafflej0ck> reggie-man, lots of sites that "support" ubuntu will have ubuntu specific instructions, but then to appease the red hat guys you have to do an RPM too and so on and so forth for other distributions, some projects they isolate themselves more from the particular distros, and np
+[03:03] <wallbroken> hi
+[03:04] <wallbroken> anybody of you uses dell xps ?
+[03:04] <wafflej0ck> hello wallbroken better to ask a specific support question but no I don't (they are nice though)
+[03:05] <wallbroken> i'm interested to buy a dell xps 13" developer edition with ubuntu preinstalled, and i need to know if is completely supported
+[03:06] <wallbroken> http://www.dell.com/us/business/p/xps-13-linux/pd
+[03:07] <cryptodan> wallbroken: why not get a system76
+[03:07] <wallbroken> what?
+[03:07] <wafflej0ck> wallbroken, you mean by dell? seems like a question you'd want to pass by dell support it does appear they would support it though if they include 1 year support
+[03:07] <cryptodan> wallbroken: www.system76.com
+[03:07] <wallbroken> what i need to know is about drivers
+[03:07] <wafflej0ck> I have a sys76 machine though too, I understand they are typically rebranded clevo machines but I appreciate the ubuntu support and have been very happy with it for the last couple of years
+[03:08] <wallbroken> many times happened that ubuntu had not the appropriate drivers for many of peripherals of my old laptops, like webcam, notification leds, standby
+[03:09] <rypervenche> I'm on a system76 galago (clevo). I love it.
+[03:09] <wafflej0ck> wallbroken, dell wouldn't be selling it with Ubuntu if those were problems really
+[03:09] <wafflej0ck> wallbroken, they would kill themselves with the included year of support if everything wasn't working
+[03:09] <wafflej0ck> wallbroken, drivers for "modern" hardware has typically been very good lately too
+[03:10] <wallbroken> those system76 are horrible, i need a very thin ultabook
+[03:10] <ankita> my right click not working on desktop and all icons of desktop and wallpaper gone!!
+[03:11] <rypervenche> wallbroken: The galago is quite thin.
+[03:11] <cryptodan> https://system76.com/laptops/galago
+[03:11] <wafflej0ck> wallbroken, well you asked about a laptop with linux support and they're a company that has been doing it for years so it's not a way out of left field suggestion and you didn't say it had to be as thin as paper initially :)
+[03:12] <wafflej0ck> the galago is pretty slim too but yeah design wise they aren't typically as fancy as other manufacturers but they work well with ubuntu
+[03:12] <wallbroken> i mean "thin" as a macbook air,and i don't need dvd drive reader,
+[03:12] <wafflej0ck> dell has tried ubuntu laptops on and off over the last few years but I haven't seen them stick to it
+[03:12] <Temp46> hello?
+[03:13] <rypervenche> Temp46: Welcome. Do you have a question? :)
+[03:13] <cuddylier> Anyone any idea how to solve this apt-get -f install error? http://pastie.org/private/imjotadpxuw8pl1euva I'm running ubuntu 12.10 and have already adjusted my sources to the archive.
+[03:13] <Temp46> is there a torrent client that forces all packets through tun0 and cuts connection if vpn connection is lost?
+[03:14] <ankita> my right click not working on desktop and all icons of desktop and wallpaper gone!!
+[03:14] <wallbroken> wafflej0ck, that dell has also a touchscreen monitor
+[03:14] <synire> Whats a good audio/video capture software for a webcam on utopic 14.04?
+[03:14] <wallbroken> maybe is the reason why is too much expensive
+[03:15] <rypervenche> Temp46: Hmmm, I only use deluge myself, but it looks as though you can choose an interface to use with it. I would assume that it wouldn't work if that interface weren't working. Would need to test it though. I don't know about other clients. I've only seriously used deluge and qbittorrent.
+[03:16] <jimmyd> Cheese>>
+[03:16] <wafflej0ck> wallbroken, ooo yeah it does look nice I can't lie :) I don't think it's an aweful idea but would want to check one out in person and would be good to get a little longer term commitment from dell on support, I really don't find the touchscreen to be too compelling though aside from maybe testing emulated mobile stuff
+[03:16] <Temp46> rypervenche: thanks for your suggestion :)
+[03:16] <ankita> my right click not working on desktop and all icons of desktop and wallpaper gone!!
+[03:16] <wafflej0ck> synire, yeah Cheese is the basic one guvcview is more complex if you have a more advanced camera can do some cool stuff
+[03:17] <wafflej0ck> ankita, have you tried recovery mode to see if you're having some graphics driver related issue or if it's something else
+[03:17] <rypervenche> Temp46: qbittorrent also has an interface that you may use under the Advanced options. I think that would do what you like on both clients.
+[03:17] <synire> wafflej0ck: I got cheese up but I'm not seeing anything for setting up pulling audio and video from the webcam.
+[03:17] <wafflej0ck> ankita, also more info about what you're running will help, lsb_release -a in a terminal to get system info
+[03:18] <jimmyd> you gotta tweek it
+[03:18] <ankita> wafflej0ck, xubuntu 14.04
+[03:19] <wafflej0ck> ankita, has this been a problem since initial install or some problem that just started occurring but you've been using it before?
+[03:19] <jimmyd> it froze a coupletime on me in 14.04 but then went ahead and worked fine
+[03:19] <wafflej0ck> synire, sorry not sure what you mean there, I open cheese and have options for capturing photos or video/audio
+[03:20] <ankita> wafflej0ck, after install It was running well.but 1 day i started my pc and it went wrong
+[03:20] <ankita> wafflej0ck, before I tried to install some graphics driver
+[03:21] <wafflej0ck> ankita, okay so you can try nomodeset boot parameter for the kernel to have it use the default graphics drivers instead of whatever you may have installed to see that it's what's causing the problem
+[03:21] <wafflej0ck> !nomodeset > ankita
+[03:21] <ubottu> ankita, please see my private message
+[03:21] <ankita> wafflej0ck, how can I do that ?
+[03:21] <synire> wafflej0ck: I guess the options are conditional on if its detecting the mic? Or possibly the record video function does not do audio.
+=== gigi is now known as Guest7526
+[03:23] <wafflej0ck> ankita, see the private message ubottu sent you, long story short, do you have a grub menu? if not use shift to show grub during boot, select your normal startup (should be selected by default) hit e to edit it, you'll see the word "quiet" in the file that opens change that to nomodeset, and hit Ctrl+X, your system will boot, since you took out quiet it will show you all the checks it's doing during startup but then should boot
+[03:23] <wafflej0ck> with the basic graphic drivers
+[03:23] <synire> wafflej0ck: I'm going to check out that guvcview and see if I get different results.
+=== Guest7526 is now known as Gigi7526
+[03:23] <Temp46> rypervenche: it continues on eth0 if tun0 is deleted :/ (qbittorrent)
+[03:24] <ankita> wafflej0ck,  I got it :)
+=== limon is now known as Guest3085
+[03:24] <wafflej0ck> synire, hmm typically Cheese is the simple way to go and records both audio and video by default I think, but I really rarely record stuff from the webcam usually doing some screen capture type stuff instead, but guvcview is good for adjusting pan/tilt on an orbitsphere camera for hangouts
+[03:24] <wafflej0ck> also guvcview just has more options
+[03:27] <RNeville> When I run the testparm command I don't get any obvious errors, but it doesn repeat all the lines of code in the samba.conf file - like it just skipped over certain commands
+[03:28] <RNeville> Is this normal?
+[03:28] <jimmyd> Whats the differenv=ce between synaptic pacage manager and ubuntu software center
+[03:28] <rypervenche> Temp46: Give deluge a shot then. And if not, we can search online.
+[03:29] <Temp46> im trying right now
+[03:29] <wafflej0ck> jimmyd, functionally they are pretty similar but think synaptic marks your updates with priorities
+[03:30] <wafflej0ck> jimmyd, like security issues vs small bug fixes... could be wrong though I just use apt-get 99% of the time
+[03:30] <Temp46> when i click apply in the deluge settigns it deletes the interface input field *facepalm*
+[03:30] <jimmyd> Ive used apt get too
+[03:32] <jimmyd> most of the time i just use what ever the default is and from my point of view i don't know if it effects the programs or not
+[03:32] <wafflej0ck> synire, if you're just having audio issues with the webcam between different GUIs but the video is fine I would probably check out alsamixer and other audio related utils to see if you maybe need to enable/unmute the mic or something
+[03:32] <linuxuz3r> xS
+[03:32] <linuxuz3r> xD
+[03:34] <wafflej0ck> jimmyd, some good points on software center vs synaptic on this forum http://ubuntuforums.org/showthread.php?t=2176903
+[03:36] <jimmyd> Thanks Wafflejock
+[03:36] <wafflej0ck> jimmyd, really whatever floats your boat there but just don't ever try to use some combination of 2 installer methods at the same time (lock file should in theory stop this from happening but you never know)
+[03:39] <rypervenche> Temp46: http://www.evolware.org/?p=293
+[03:39] <Temp46> thanks a ton :)
+[03:40] <sheer> happy new year everyone
+[03:40] <sheer> $15 to anyone that manages to help me :3
+[03:41] <rypervenche> sheer: No need for money. What's your question?
+[03:41] <cfhowlett> sheer, sure.  it's the Year of the Linux Desktop!
+[03:41] <jimmyd> so if you use apt-get then does it tell you if you need an update or do you do it manually time totime
+[03:41] <sheer> http://i.imgur.com/BQxmseQ.png
+[03:42] <TheTopBloke> good luck with that
+[03:42] <cfhowlett> jimmyd, you can set autoupdate options or you can manually trigger updates with apt.
+[03:42] <Temp46> but i dont understand any of that networking tutorial :D
+[03:42] <Temp46> i need to take a better look at it some time
+[03:42] <rypervenche> Temp46: Well, what you are wanting to do is not necessarily a basic user thing :P
+[03:43] <Temp46> i only used ubuntu for 2 days nothing is easy :P
+[03:43] <rypervenche> sheer: What is your question along with the image?
+[03:43] <sheer> how do i see the things under my external hdd again
+[03:43] <sheer> is the question
+[03:43] <Bashing-om> jimmyd: Be aware, update syncs the data bases to your mirror, it is "sudo apt-get update" that updates the software in respect to the data bases .
+[03:44] <rypervenche> sheer: What do you mean "see"? You just open the folder where your external hard drive is located. Can you tell us what you are trying that isn't working?
+[03:45] <sheer> Ok, I installed Ubuntu the other day. I connected the external drive for the first time last night.
+[03:46] <sheer> I tried cutting and pasting a file, but the transfer stopped, maybe the cable was moved - the transfer didn't complete and now nothing shows up under "external"
+[03:47] <rypervenche> sheer: Was there anything else on the external drive before that or was that the only file that you tried to transfer?
+[03:47] <cfhowlett> sheer, suggest you use the command line so you can see what's happening e.g. cp sourcefile.foo targetfile.foo
+[03:47] <sheer> the drive was almost full
+[03:47] <sheer> 91gb unused of 1tb
+[03:47] <sheer> cfhowlett, would you mind directing me on the exact full commands?
+[03:48] <cfhowlett> sheer wait 1
+[03:51] <ghost_> can anyone help me?
+[03:52] <daftykins> not until you ask a question
+[03:52] <ghost_> oh ok
+[03:52] <rypervenche> hahaha
+[03:53] <cfhowlett> sheer, http://paste.ubuntu.com/9653144/   command to copy .mp4 from Desktop to Videos
+[03:53] <ghost_> im using a swapfile to hibernate in ubuntu and it works, but after i turn my laptop on the fn keys stop working and the user is already logged in, how can i fix this?
+[03:53] <sheer> copy .mp4 from Desktop to Videos? I'm lost
+[03:54] <sheer> should I be using this command?
+[03:54] <cfhowlett> sheer, as an example  http://paste.ubuntu.com/9653147/
+[03:54] <sheer> Ok
+[03:54] <sheer> But his is that relevant to me?
+[03:55] <cfhowlett> sheer, this will let you see if your file copies from point A > B
+[03:55] <sheer> so should I try to copy it to the external HDD?
+[03:55] <cfhowlett> sheer, exactly.  a simple text file will suffice
+[03:58] <sheer> can't even get the DIR right yet
+[04:00] <sheer> cfhowlett, would you mind spelling it out for me as if this is the first time i've used a PC?
+[04:00] <cfhowlett> sheer, no problem
+[04:00] <cfhowlett> http://paste.ubuntu.com/9653162/
+[04:01] <droid99> sheer, really? first time?  *please dont ban me*
+[04:02] <cfhowlett> sheer, cp = "copy" -v = "verbose" (lots of feedback).  you're targeting an external device so /media/username/target directory      in this case, my USB/PRINTING directory
+[04:02] <cfhowlett> sheer, "mount" or "lsusb" will display connected devices
+[04:03] <sheer> it at least knows it's a western digital drive connected
+[04:04] <sheer> i'm having trouble getting the directory right
+[04:04] <cfhowlett> sheer, run the mount commnad
+[04:05] <sheer> alright so /media/me/EXTERNAL but now for my desktop dir
+[04:05] <cfhowlett> sheer, line 20 = /dev (device)/sdb  (/sda is your primary HDD, next is sdb ...) 4 is the 4th partition on the device
+[04:06] <sheer> my lines aren't numbered,
+[04:07] <cfhowlett> sheer, read the content and find your device
+[04:07] <sheer>  /media/me/EXTERNAL, that's done
+[04:07] <sheer> i need my desktop dir for the .txt file
+[04:09] <sheer> cfhowlett, cp: cannot create regular file ‘/media/zvi/EXTERNAL/test.txt’: Input/output error
+[04:10] <cfhowlett> sheer, there it is.  i/o means one of your storage devices is funked up or is configured incorrectly
+[04:12] <sheer> cfhowlett, what would one do about that?
+[04:12] <cfhowlett> sheer, backup immediately, stop using it and replace.  but backup first.  did I mention backup?  cause you really should backup.  NOW
+[04:13] <sheer> IDK how I'd back it up - most of the data I don't need, just a few documents
+=== Ornacia is now known as nenolod
+[04:14] <sheer> i only need 5% of the data from it but Idk how to back it up?
+[04:15] <andlabs|2> What is /currently/ the best way to burn an ISO to a DVD-R via command line?
+[04:15] <andlabs|2> still dvd+rw-tools?
+[04:16] <daftykins> i thought mkisofs was one of such tools
+[04:17] <cfhowlett> sheer, USB or whatever you have.  Recognize that a failing drive *WILL* fail at the WORST possible moment thus ... backup now.
+[04:17] <Loshki> I've always used growisofs...
+[04:18] <daftykins> ^grow that's the one
+[04:18] <andlabs|2> mkisofs aaaaa too many options and no man page :
+[04:18] <andlabs|2> :|
+[04:18] <andlabs|2> growisofs is dvd+rw-tools
+[04:18] <cfhowlett> daftykins, tools to test hard drive?  smartmonctl or something?  I believe sheer has a failing drive ...
+[04:18] <andlabs|2> all right then, thanks
+[04:18] <daftykins> cfhowlett: ah right, never fear... slightly drunk new year daftykins is here
+[04:19] <cfhowlett> daftykins, sir, put the eggnog down and step away from the keyboard ...
+[04:19] <daftykins> sheer: can you run "sudo apt-get install smartmontools pastebinit" then "sudo smartctl -a /dev/sda | pastebinit"
+[04:19] <daftykins> cfhowlett: but :(
+[04:19] <Loshki> gsmartcontrol is the gui version, makes it idiot-proof...
+[04:20] <cfhowlett> sheer, gsmartcontrol is recommended.  run it to test your hard drives.
+[04:20] <daftykins> no point running tests, just give us the smarctl output
+[04:21] <Loshki> Also, SMART does *not* work over USB, very annoying that...
+[04:21] <daftykins> oh we're talking about an external? ok i haven't been following.
+[04:21] <andlabs|2> oh that actually works!
+[04:21] <daftykins> no harm in *trying* though
+[04:21]  * andlabs|2 considers filing a bug report against gnome-disk-utility
+[04:21] <cfhowlett> daftykins, yes, external
+[04:22] <cfhowlett> y
+[04:22] <Temp46> where is the /usr/include/GL with the fglrx drivers? what do i need to do to compile opengl applications?
+[04:23] <sheer> cfhowlett, daftykins what was I supposed to do now?
+[04:24] <sheer> get gsmartcontrol?
+[04:24] <daftykins> after doing what?
+[04:25] <sheer> daftykins, are you asking me?
+[04:25] <daftykins> i am
+[04:26] <Xandhin> happy new year for those over gmt -5 and over
+[04:26] <daftykins> sheer: you can run "sudo apt-get install smartmontools pastebinit" at least
+[04:26] <sheer> i haven't really done anything previously
+[04:27] <sheer> but i just ran your command
+[04:27] <daftykins> ok so those two packages are installed now?
+[04:27] <cfhowlett> sheer, for reference: smartctl -x /dev/sda returned the following.  note line #26  http://paste.ubuntu.com/9653204/
+[04:28] <daftykins> sheer: identify which device name your external hard disk is, e.g. /dev/sdb or /dev/sdc, etc... by running "sudo fdisk -l"
+[04:28] <Bashing-om> Temp46: http://wiki.cchtml.com/index.php/Ubuntu_Trusty_Installation_Guide#Removing_Catalyst.2Ffglrx . Also includes docs to build the driver .
+[04:28] <Temp46> thank you :)
+[04:29] <sheer> Smartctl open device: /dev/sdb [SAT] failed: Permission denied
+[04:29] <cfhowlett> sheer, sudo ...
+[04:31] <daftykins> sheer: so if /dev/sdb is your external, "sudo smartctl -a /dev/sdb | pastebinit" then share the link with us here
+[04:32] <sheer> daftykins, http://paste.ubuntu.com/9653216/
+=== Gatewayy_ is now known as Gatewayy
+[04:33] <daftykins> that looks ok to me
+[04:33] <sheer> ok sounds good!
+=== Desty is now known as Guest63065
+[04:34] <daftykins> sheer: cfhowlett - so what's the main issue? disk seems healthy
+[04:34] <cfhowlett> daftykins, note: his cp command failed on i/o error
+[04:34] <daftykins> oh, nasty
+[04:34] <daftykins> maybe worth trying another USB port
+[04:35] <cfhowlett> daftykins, I suspected his external drive was announcing its unfortunate demise ...
+[04:35] <cfhowlett> sheer, try plugging your external drive to a different USB port and test your CP command again
+[04:36] <cfhowlett> daftykins, line 128 of his smartctl output?
+[04:37] <sheer> daftykins, CP command?
+[04:37] <cfhowlett> sheer, cp = copy
+[04:38] <daftykins> that's a new one on me. normally obvious flaws come up in the SMART data table
+[04:38] <cfhowlett> sheer, change your USB port and try again
+[04:39] <sheer> unable to mount EXTERNAL
+[04:39] <sheer> operation was cancelled
+[04:40] <cfhowlett> sheer, sudo umount
+[04:40] <sheer> sudo: unmount: command not found
+[04:40] <bipul> Hello, Happy new year to all.
+[04:40] <cfhowlett> sheer, Umount
+[04:40] <cfhowlett> not UNmount
+[04:40] <bipul> I have question. I would like to know.
+[04:40] <cfhowlett> !ask | bipul,
+[04:40] <ubottu> bipul,: Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[04:41] <sheer> Usage: umount -h | -V
+[04:41] <sheer>        umount -a [-d] [-f] [-r] [-n] [-v] [-t vfstypes] [-O opts]
+[04:41] <sheer>        umount [-d] [-f] [-r] [-n] [-v] special | node...
+[04:41] <sheer> sorry for the spam
+[04:41] <sheer> http://paste.ubuntu.com/9653228/
+[04:41] <daftykins> sheer: "sudo umount /dev/sdb"
+[04:42] <bipul> When I am trying to execute this command "echo $JAVA_HOME" inside my terminal. It does not showing me any path. I would like to know why is it not happening?
+[04:42] <daftykins> bipul: because you don't have that environment variable. so make one!
+[04:42] <daftykins> bipul: export JAVA_HOME=/path/to/
+[04:42] <daftykins> bipul: also, these questions would be more relevant in a java development channel
+[04:43] <sheer> umount: /dev/sdb: not found
+[04:43] <daftykins> did you unplug it already?
+[04:45] <cfhowlett> sheer, sudo fdisk -l will show what's still attached.
+[04:45] <sheer> only hDD i think
+[04:45] <sheer> Partition 1 does not start on a physical sector boundary.
+[04:46] <bipul> daftykins: Exactly, but i have mention all this environmental variable inside my .bashrc file JAVA_HOME=/usr/lib/jvm/default-java/bin export JAVA_HOME PATH=$PATH:$JAVA_HOME export PATH
+[04:46] <cfhowlett> sheer, so is your target HD connected or not?
+[04:46] <sheer> no it's not
+[04:46] <cfhowlett> ...
+[04:46] <sheer> i got a message soon as i plugged it in
+[04:46] <sheer> that it was unable to mount
+[04:46] <cfhowlett> sheer, that's ... bad
+[04:46] <sheer> but i just reconnected the usb cable and now it's time to
+[04:47] <sheer> to idk what
+[04:47] <cfhowlett> sheer, test your file cp
+[04:47] <sheer> what does it mean that my partition 1 doesn't start on a physical sector boundary?
+[04:47] <sheer> ok i'll try to remember that cp command
+[04:48] <bipul> daftykins: http://paste.ubuntu.com/9653235/
+[04:48] <sheer> how's that command go again cfhowlett ?
+[04:48] <bipul> Sorry for the late response. Since i am sitting on very low internet connection.
+[04:48] <cfhowlett> sheer, cp sourcefil target location
+[04:49] <cfhowlett> sheer, like this:  http://paste.ubuntu.com/9653245/
+[04:50] <dunpeal> Hi. I'm looking for instructions for setting RAID 0 up with Ubuntu 14.04.
+[04:50] <bipul> Oh could anyone please help me.
+=== James_F is now known as Guest74071
+[04:50] <cfhowlett> bipul, ask #bash
+[04:50] <bipul> ok..
+[04:50] <cfhowlett> !raid | dunpeal
+[04:50] <ubottu> dunpeal: Tips and tricks for RAID and LVM can be found on https://help.ubuntu.com/community/Installation/SoftwareRAID and http://www.tldp.org/HOWTO/LVM-HOWTO - For software RAID, see https://help.ubuntu.com/community/FakeRaidHowto
+[04:51] <daftykins> bipul: sorry don't know anything about .bashrc
+[04:51] <daftykins> bipul: #bash maybe
+[04:51] <bipul> daftykins: Oh no problem. Thanking you for giving me your time.
+[04:51] <sheer> can't get my home DIR right -____-
+[04:51] <bipul> Thank you*
+=== DEADB33F_ is now known as DEADB33F
+[04:52] <dunpeal> cfhowlett: thanks, but I think I have hardware RAID support
+[04:54] <droid99> dunpeal: they're a little busy right now
+[04:54] <droid99> you can find way to enter your raid config tho
+[04:56] <Inv1s1ble_> I'm having trouble setting up a local apt repository. It complains about not being able to find binary-amd64 information even though my repo only contains binary-all packages: http://askubuntu.com/questions/567591/apt-failing-unable-to-find-binary-amd64-tree-on-all-architecture-repository
+[04:59] <cfhowlett> sheer, problem solved?
+[05:03] <sheer> cfhowlett, no,
+[05:03] <sheer> I forgot my desktop DIR
+[05:04] <cfhowlett> sheer, sheer/DESKTOP
+[05:06] <droid99> sheer, do you have windows?
+[05:06] <sheer> cp: cannot create regular file ‘/media/zvi/EXTERNAL/test.txt’: Input/output error
+[05:06] <sheer> droid99, i do not anymore
+[05:06] <droid99> plug it in windows, and copy required files
+[05:06] <droid99> oww
+[05:06] <sheer> i have a mac only :|
+[05:07] <droid99> that's OK, plug into your mac ..
+[05:07] <droid99> copy your required file
+[05:07] <droid99> prepare your warranty
+[05:07] <sheer> can't
+[05:07] <sheer> nothing shows up in the mac either just EXTERNAL
+[05:07] <droid99> and back it to factory if it's possible
+[05:08] <sheer> it's NFTS if that matters
+[05:08] <sheer> last opened 1 january 1970 apparently
+[05:08] <cfhowlett> sheer, ubuntu can read NTFS
+[05:08] <cfhowlett> sheer, time travelling HDD - I like it!
+[05:09] <sheer> lol
+[05:09] <sheer> if linux is so great why do i need windows to deal with this :)
+[05:09] <cfhowlett> sheer, linux is not guaranteed against hardware failures ...
+[05:11] <droid99> yup, the hd is not intended for server use
+[05:11] <droid99> not surprised, that it'll fail
+[05:12] <sheer> just funny that it fails when i'm about to deal with it
+[05:12] <sheer> and back it up
+[05:13] <sheer> so to back it up I need a drive larger than 1gb and what else?
+[05:14] <cfhowlett> sheer, unplug until you are ready to backup. every read/write on that drive brings it closer to failure
+[05:14] <sheer> oh lol -__-
+[05:14] <sheer> so i've been helping it fail now
+[05:15] <cfhowlett> sheer, well we WERE hoping to be wrong, but as even a USB change doesn't seem to bring it back, I'd say the problem is safely localized to the device itself.  sorry about that.
+[05:16] <cfhowlett> sheer, in the future, perhaps a cloud based backup + secondary onsite?  for example, dropbox + USB copy of essential files?
+[05:18] <droid99> sheer, you can return the hd to vendor
+[05:18] <daftykins> larger than 1TB i hope, not 1GB ;)
+[05:36] <sheer> might anyone have a recommendation for excellent external hdd's that won't break?
+[05:37] <sheer> and also non external drives recommendation to back things up safely since i assume non external is safer
+[05:38] <daftykins> i actually am always fond of WD
+[05:38] <daftykins> just go for what you can get with the longest warranty length
+[05:38] <cfhowlett> sheer, WD seems to be the default for external HDD.  Get a name brand, not the el cheapo knock-off
+[05:39] <OerHeks> they don't make bad drives anymore
+[05:42] <wafflej0ck> sheer, anything with mechanical parts is subject to and will eventually fail but most drives that fail typically do so in a short period of time after they are first used
+[05:43] <rypervenche> sheer: I always go WD.
+[05:43] <cfhowlett> sheer, this ^^^. also: exactly why you should have 2 or 3 backup options.  cloud + a hand USB for the most critical has worked well for me.  YMMV
+[05:43] <wafflej0ck> sheer, there is no silver bullet to storage, depending on your needs different types of storage can be better or worse, personally I have a NAS with a couple of WD drives in it that just mirrors for my personal stuff
+[05:44] <wafflej0ck> also most of my important stuff is code so that gets synched to a remote git repository
+[05:44] <wafflej0ck> also use OwnCloud (used to use DropBox but have switched recently)
+[05:44] <wafflej0ck> TarSnap seems like a good option for offsite encrypted backups too again depending on your needs
+[05:45] <gansteed> once ubuntu released, all the packages will NOT upgrade anymore(except security updates), right?
+[05:45] <cfhowlett> gansteed, not necessarily.
+[05:46] <gansteed> cfhowlett: ?
+[05:47] <cfhowlett> gansteed, critical updates, backports, kernel upgrades ...
+[05:47] <cfhowlett> gansteed, for example, the samsung brick upgrade, heartbleed ...
+[05:47] <OerHeks> gansteed, i may hope so packages get updates after release
+[05:48] <gansteed> cfhowlett, got it
+[05:49] <gansteed> OerHeks, i hope so, too. for example, virtualbox, docker and so on
+[05:49] <daftykins> gansteed: there are always PPAs
+[05:50] <duoi_ghost> hi all, how can i have a single command ("sudo service network-manager restart") run on resume from suspend?
+[05:50] <wafflej0ck> gansteed, yeah some of those things will update themselves as well like virtualbox I believe checks on start
+[05:50] <gansteed> i don't like ppas, it's a little bit slow
+[05:50] <daftykins> gansteed: 'slow' ? what?
+[05:50] <gansteed> daftykins, i mean network speed :)
+[05:51] <daftykins> that's highly dependant on a given PPA, so not *ALL* PPAs are necessarily slow
+[05:51] <OerHeks> outside launchpad yes
+[05:52] <wafflej0ck> yeah depends on target server, traffic in between etc. etc. internet speeds are complicated
+[05:52] <gansteed> daftykins, :D
+[05:53] <gansteed> virtualbox PPA in oracle, Docker PPA in docker.io, these 2 are really really slow :(
+[05:53] <wafflej0ck> I don't use a ton of PPAs but when I don't recall ever really thinking about the network performance much though... only thing in recent history I can think of that took some time to install was the ievms script but that downloads a bunch of huge virtual machine images of windows so that's understandable
+[05:56] <gansteed> :]
+[05:58] <ablest1980> hi happy new year
+[06:04] <saj> Hi! If I make a channel in some IRC server, will it be automatically created on other servers too?
+[06:04] <KyouReeUs4nfo> Happy 2015 !!! peace.
+[06:04] <daftykins> saj: servers, yes. networks, no. for more go and ask #freenode because this isn't even VAGUELY an ubuntu question
+[06:04] <saj> ohh! thanks!
+[06:05] <dunpeal> Hi. I'm having this issue, the installer keeps crashing, and I'm not sure how to proceed: https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/1391731
+[06:05] <ubottu> Launchpad bug 1391731 in ubiquity (Ubuntu) "Installer crashed while installing Ubuntu 14.04.1" [High,New]
+[06:06] <daftykins> dunpeal: try from a flash drive
+[06:07] <dunpeal> daftykins: I am using a flash drive (USB key)
+[06:07] <daftykins> ah so that's not your bug
+[06:07] <daftykins> did you hash your download too?
+[06:07] <daftykins> verify your drive?
+[06:07] <dunpeal> I did
+[06:07] <dunpeal> and it is my bug
+[06:07] <daftykins> EFI or legacy install?
+[06:07] <daftykins> then why do you refer to a DVD?
+[06:07] <dunpeal> exact same package is crashing.
+[06:08] <dunpeal> this is a problem with the ubiquity package
+[06:08] <cfhowlett> dunpeal,"this bug effects one person" ... so low priority ...
+[06:08] <dunpeal> cfhowlett: ...?  It's marked as High Priority
+[06:08] <OerHeks> dunpeal, try live mode first, then install ?
+[06:08] <cfhowlett> dunpeal, also marked "unassigned" ...
+[06:09] <dunpeal> OerHeks: I'm trying to install without "download updates while installing"
+[06:09] <dunpeal> so far it seems like it might work
+[06:09] <dunpeal> it seems like a bug in the latest unbiquity package
+[06:10] <dunpeal> damn, crashed again.
+[06:10] <daftykins> memtest.
+[06:10] <dunpeal> daftykins: good idea.
+[06:10] <dunpeal> I'll run it right now.
+=== JailbrokenSith is now known as annoymouse
+[06:29] <dunpeal> How do I tell Launchpad that this bug also affects me?
+[06:32] <dunpeal> this bug report system is truly awful btw
+[06:32] <dunpeal> when the installer crashes, it launches a FF window that goes to launchpad
+[06:32] <daftykins> this is a volunteer run channel, feedback here isn't going to go anywhere
+[06:33] <dunpeal> alas, you need to open a launchpad account to be able to report the bug you just sent.
+[06:44] <JohnnyL> why can't I modify settings in dconf-editor under gnome?
+[06:48] <jwflol> anybody awake?
+[06:49] <dae-> jwflol ?
+[06:49] <jwflol> would like to know where I should best define environment variables permanently for use in my bspwm config file? In my .zshrc or in the config file itself?
+[06:49] <guest6791> si
+[06:49] <shadowe989> yep
+[06:49] <dae-> french Oo ?
+[06:50] <guest6791> bspwm is in official repos?
+[06:50] <jwflol> no, but besides that, for any other application
+[06:51] <rypervenche> !fr | dae-
+[06:51] <ubottu> dae-: Nous sommes desoles mais ce canal est en anglais uniquement. Si vous avez besoin d'aide ou voulez discuter en français, veuillez taper /join #ubuntu-fr ou /join #ubuntu-qc. Merci.
+[06:51] <guest6791> i tried to build it to no avail
+[06:51] <jwflol> if I'm going to set an environment variable for any config file, should it be set in .zshrc or in some other place?
+[06:51] <dae-> yep i know ^^ just i'm supris by the "si "
+[06:53] <rypervenche> dae-: Il y a quand même des gens ici qui parlent français, but you sould go to #ubuntu-fr for that :)
+[06:53] <shadowe989> dae-, Spanish for yes. si is "if" in french.
+[06:53] <shadowe989> i think. =/
+[06:55] <dae-> si is yes in french no litteral and in spanish ^^
+[06:57] <shadowe989> dae-, ah thanks. French is a nice language. I just know some Spanish a partner speaks it. =)
+[06:57] <shadowe989> dae-, maybe after I learn C++ i'll pick up french =D
+[06:58] <HarrryW> lol shadowe989
+=== keroberros is now known as gtfo-hmirr
+[07:15] <pentanol> hi someone around?
+[07:16] <Mr_Sheesh> around but too rusty to help probably
+[07:16] <pentanol>  why xorg wont start? xf86EnableIOPorts: failed to set IOPL for I/O  http://pastebin.ca/2895323
+[07:16] <pentanol> I have dummy_drv.so and xserver-xorg-input-void installed
+[07:16] <qubic> happy new year #ubuntu!
+[07:16] <RNeville> same to you qubic
+[07:16] <pentanol> yea, happy new year
+[07:17] <Mr_Sheesh> 44 min to gi here, west coast
+[07:17] <Mr_Sheesh> go*
+[07:19] <ramsub07> Hi guys, I'm currently using 13.10. I have a live USB containing 14.04, is it possible to upgrade without loosing data ?
+[07:20] <pentanol> no ideas why xorg won't work?
+[07:22] <Mr_Sheesh> No sorry, to rusty.
+[07:22] <Mr_Sheesh> too*
+[07:24] <JohnnyL> i tried gnome-color-chooser but the scrollbars aren't changing width
+[07:29] <cfhowlett> !home | ramsub07, yes.  make a /home.  don't format.
+[07:29] <ubottu> ramsub07, yes.  make a /home.  don't format.: Your home directory is where all of your personal files are usually kept. For moving your home directory to a separate partition, please see: https://help.ubuntu.com/community/Partitioning/Home/Moving
+[07:29] <pentanol> I want start X in openvz virtual machine with xfce4 and Xorg wont start up.
+[07:29] <ramsub07> cfhowlett: If But for that, I need to create another partition ?
+=== andrex is now known as andrex|off
+[07:30] <cfhowlett> ramsub07, yep.  a dedicated /home partition makes it caveman simple to upgrade and save data.  Backup ^2, of course ...
+[07:31] <ramsub07> cfhowlett: not enough space on the disk :( Is there any other way ?
+[07:32] <cfhowlett> ramsub07, backup ^2, DO NOT format your current /home and /pray
+=== gtfo-hmirr is now known as tmro
+[07:35] <mimarcu> Hello
+[07:35] <HarrryW> Ola amego
+[07:37] <mimarcu> Hey I usualy enjoy building things with linux rather than fixing them an one know how to fix kernel panics
+[07:37] <mimarcu> *anyone
+[07:38] <cfhowlett> mimarcu, reboot.  choose an earlier kernel that works OR dist-upgrade to update the kernel
+[07:40] <mimarcu> well I kind of need to fix it because I don't have Internet and I'm using a cellot phone to talk to you because the kernal panic is on a cutom router that I built years ago.
+[07:41] <airking> So I have 500GB internal HDD and a 1TB external hdd.  My server has 2 SATA plugs.  i need to clone the 500GB to the 1TB.  could I use my ubuntu liveUSB to do that?  and how fast would the transfer be?  the way I'm doing it now will take about another 20 hours
+[07:42] <mimarcu> I used clonezilla and it took less than half a day
+[07:42] <airking> jesus
+[07:42] <wafflej0ck> airking, depends on the SATA connection type (II or III) and the drive buffers and speeds among other things you'd need to supply the models at least to find specs on the drives
+[07:42] <airking> thats a long time...
+[07:42] <airking> 7200RPM HGST drives
+[07:42] <airking> thats about all I know
+[07:43] <airking> I'm currently using dd to copy to an external HDD at 8.4MB/s
+[07:43] <ramsub07> Hi guys I'm not able to get dual monitor setup on ubuntu 13.10, on a hybrid graphic PC working.
+[07:43] <airking> and I'll have to copy to the other drive AGAIN when this is done
+[07:43] <airking> so about 30 hours total wait
+[07:44] <airking> Not asko g for specifics
+[07:44] <Harrryw_> thats a really long time lol
+[07:44] <airking> I just want to know if its faster to stop now and do thaf
+[07:44] <ramsub07> xrandr --output VGA1 --auto --right-of LVDS1 --output VGA1 --auto --scale 1x1
+[07:44] <ramsub07> command gives the following output:
+[07:44] <ramsub07> xrandr: cannot find crtc for output VGA1
+[07:44] <airking> I have about 20 hours more work doing it this way
+[07:44] <mimarcu> maybe I should look for a IRC channel for the linux kernel.
+[07:44] <mimarcu> or general linux
+[07:45] <airking> If we assume SATA 2, would it still be faster?
+[07:45] <airking> This wait is killing me
+[07:45] <airking> I have NOTHING to do
+[07:45] <Harrryw_> what yotube lol
+[07:46] <king> hello
+[07:46] <king> did anyones know about the RedDevil IRC Client
+=== king is now known as Guest15719
+[07:46] <airking> wafflej0ck: Can you give me a rough estimate if I say Sata 2 and that theyre 7200RPM drives?
+[07:47] <wafflej0ck> airking, looks like it's about 50-100MB/s
+[07:47] <airking> fuck yes i'm doing thst
+=== Guest15719 is now known as H4Ck3R
+[07:48] <cfhowlett> airking, language ... clean & family friendly.  EVERYONE
+[07:48] <H4Ck3R> guys please did anyone knows about the RedDevil IRC Client
+[07:48] <H4Ck3R> ?
+[07:48] <airking> oh yeah, sorry about the language
+[07:49] <Blue11> H4Ck3R: I've never heard of it -- I'm lazy and use either pidgin or irssi
+[07:51] <wafflej0ck> H4Ck3R, nope havne't used it, used Quassel, XChat and now using HexChat, is it part of the main repos and what's the issue?
+[07:52] <wafflej0ck> airking, how's it currently connected?
+[07:52] <wafflej0ck> airking, USB?
+[07:53] <chromosome> hello, guys i just drag and dropped a text file into kate, but the file is kinda fixed on center of my screen, its not going. image:-> http://imgur.com/zAJUZey
+[07:54] <chromosome> dragged*
+[07:54] <cfhowlett> chromosome, fpaste.org
+[07:54] <cfhowlett> !paste | chromosome
+[07:54] <ubottu> chromosome: For posting multi-line texts into the channel, please use http://paste.ubuntu.com | To post !screenshots use http://imgur.com/ !pastebinit to paste directly from command line | Make sure you give us the URL for your paste - see also the channel topic.
+[07:55] <chromosome> cfhowlett, its only the icon of the file.
+[07:58] <chromosome> cfhowlett, did you see the image?
+[07:59] <botch> Boom zip and a POW!  ....hello...
+[07:59] <cfhowlett> chromosome, yep ...
+[07:59] <wafflej0ck> botch, if you just want to chat join #ubuntu-offtopic, this chat is reserved for support questions/help
+[08:00] <chromosome> cfhowlett, i shut-down the pc? i'm in middle of some download without resume support? Any solution?
+[08:01] <cfhowlett> chromosome, use terminal for download!  wget file.foo        then wget -c file.foo to resume dl
+=== coolsa_ is now known as coolsa
+[08:02] <chromosome> cfhowlett, thanks :D
+[08:03] <cfhowlett> chromosome, happy2help!
+[08:12] <airking> How do I list the connected drives and theirnsizes?
+[08:13] <airking> nvm, go it
+[08:13] <airking> got it*
+[08:14] <airking> Okay, so I need to clone /dev/sda to /dev/sdb  would the best way to do that be "dd if=/dev/sda of=/dev/sdb"?
+[08:16] <airking> If anyone can confirm this before I run it, that would be great...
+[08:16] <bynarie> airking, should work
+[08:16] <cfhowlett> airking, confirm for yourself ... use the -s (sandbox testing) flag:
+[08:17] <bynarie> is it an entire filesystem or wht?
+[08:17] <airking> yeah
+[08:17] <airking> I got a new harddrive
+[08:17] <airking> moving from 500GB to 1TB
+[08:17] <cfhowlett> dd -s andsoforth IIRC
+[08:17] <airking> dd inavlid option -s
+[08:19] <cfhowlett> airking, indeed.  silly me.  I though -s was the sandbox flag on all CLI
+[08:19] <Luffy> hey guys how to install broadcom wifi driver from usb?
+[08:19] <Kevin-_-> does anyone have a tutorial for having a GUI for amazon ec2?  I can't seem to get it to work at all
+[08:19] <cfhowlett> !broadcom | Luffy
+[08:19] <ubottu> Luffy: Help with Broadcom bcm43xx can be found at https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx
+[08:20] <cfhowlett> Luffy, you're booted from your USB now?
+[08:20] <Luffy> ty
+[08:20] <bynarie> airking, im not sure, but i believe you need to specificy which partition, not just /dev/sda but /dev/sda1
+[08:20] <bynarie> i might be wrong
+[08:20] <Luffy> actually i have installed ubuntu alongside windows and using wifi on windows
+[08:20] <cfhowlett> Luffy, so ... broadcom on USB means what????
+[08:20] <bynarie> Luffy, more details
+[08:21] <urubi> hi, how can i make the transitions in synfig. mine is missing.
+[08:21] <cfhowlett> urubi, ask the synfig channel
+[08:21] <airking> So I'm getting 28.8MB/s  it's not 50-100, but I'll take it
+[08:21] <airking> thanks guys :)
+[08:21] <urubi> where is he?
+[08:21] <cfhowlett> urubi, he ain't in ubuntu
+[08:22] <kostkon> !find synfig
+[08:22] <urubi> maby !!
+[08:22] <ubottu> Found: libsynfig-dev, libsynfig0, synfig, synfig-dbg, synfig-examples
+[08:22] <kostkon> !info synfig
+[08:23] <ubottu> synfig (source: synfig): vector-based 2D animation renderer. In component universe, is optional. Version 0.64.1-2build1 (utopic), package size 68 kB, installed size 237 kB
+[08:23] <airking> Dwon to 4 hours and 30 minutes from 30 Hours, thanks guys :)
+[08:23] <cfhowlett> urubi http://www.synfig.org/cms/en/support/
+[08:24] <bynarie> airking, dont want to reformat and reinstall??
+[08:25] <airking> bymarie: Not when I have almost 500GB of data on windoes
+[08:25] <airking> windows*
+[08:25] <bynarie> thats quite a bit
+[08:25] <airking> I will be nuking my linux part
+[08:25] <airking> Hence the upgrade to 1TB :)
+[08:25] <bynarie> gotcha
+[08:25] <airking> I have a lot of steam games
+[08:26] <airking> I broke 150 yesterday
+[08:26] <airking> :D
+[08:26] <frankd> gross :p
+[08:26] <airking> :(
+[08:26] <airking> Whats gross about steam?
+[08:27] <frankd> 150 games is gross
+[08:27] <frankd> haha
+[08:27] <frankd> but to be fair, my network is far more grosser
+[08:28] <cfhowlett> airking, one dozen dozen = 1 gross
+[08:28] <frankd> lol
+[08:28] <airking> yeah, so 244
+[08:28] <airking> err
+[08:28] <airking> 144
+[08:28] <frankd> youre just over a gross!
+[08:28] <airking> I cant math
+[08:28] <airking> too tired
+[08:28] <frankd> http://i.imgur.com/jlLfs0c.png
+[08:28] <frankd> THATS gross!
+[08:28] <airking> Spent all night at a big NYE bash in the city with my girl
+[08:28] <cfhowlett> That's OK.  He can't grammar.
+[08:29] <frankd> airking, very nice
+[08:29] <frankd> i take it youre on the east coast then
+[08:29] <airking> Yep
+[08:29] <airking> Raleigh
+[08:30] <cfhowlett> holy!!! looks like a "pirate hangout" ...
+[08:32] <bynarie> dam i thought everyone in here was from a the UK or africa
+[08:33] <cfhowlett> bynarie, eh, NO, ubuntu is GLOBAL.
+[08:33] <bynarie> yes i know
+[08:38] <avenger> d
+[08:38] <avenger> In which sfotware can i see visulization of music?
+[08:39] <cfhowlett> avenger, clarify, player visualization?
+[08:40] <duoi_ghost> :wq
+[08:40] <avenger> When music plays some ramdom visula effect aopers like in windows media player
+[08:41] <kostkon> avenger, give audacious a try
+[08:41] <kostkon> !info audacious
+[08:41] <ubottu> audacious (source: audacious): small and fast audio player which supports lots of formats. In component universe, is optional. Version 3.5-2 (utopic), package size 250 kB, installed size 1549 kB
+[08:43] <avenger> Need full screen visulization
+[08:44] <cfhowlett> avenger, audacious will go full screen
+[08:44] <avenger> I tried it the visuliztion didnt go full screen
+[08:51] <cfhowlett> avenger, well, according to RayCharles and I, it DOES do fullscreen.
+[08:51] <cfhowlett> http://imagebin.org/326852
+=== hades_ is now known as Guest95902
+=== Guest95902 is now known as pimp
+[09:07] <shiggitay> hey all... I'm trying to make an initramfs image for my tablet to boot from an SD card... I have found this: https://help.ubuntu.com/community/BootFromSD but I'm not running a *buntu OS. I'm running Funtoo Linux. I"m sure the fundamentals are the same, but how would I go about settiing it up right?
+=== greenmon is now known as greenmon2
+[09:20] <JohnnyL> What is the font size controller for the tabs in firefox under Ubuntu?
+[09:22] <tenX> JohnnyL: had to fix that some time ago but forgot
+[09:23] <tenX> gotta hate to adjust window based software on alternative desktops
+[09:28] <JohnnyL> tenX: thats nice.
+[09:35] <shiggitay> anyone?
+[09:36] <shiggitay> Okay new question: where can I get the deb installer for initramfs-tools?
+=== Guest21465 is now known as sUbMuNdO
+[09:49] <Cobalt> Hello merry new year. Now I have an Apple Magic Trackpad linked to my desktop via bluetooth. Ubuntu 14.10 erroneously thinks this it has a laptop battery at 18%. I also have a bluetooth keyboard which it thinks is at 0%. It occasionally reports that my device is critically low at 0% and disconnects the trackpad. How do I stop this from happening?
+[09:50] <nomic> they're not standard devices - they're apple -- that is really a pc problem -- maybe ask in #hardware Cobalt
+[09:51] <nomic> not a linux problem - a hardware problem
+[09:52] <Cobalt> nomic: Why are there 3 launchpad bugs filed against this then, with one stating it's been fixed, but with a buggy patch that has some regressions in it?
+[09:53] <Cobalt> nomic: Same issue with other brands of bluetooth devices.
+[09:56] <Cobalt> Specifically I want to know where this event is triggered and then I can turn it off, ie, noticing that the device is at 0% and disconnecting it - there has to be a script that disconnects the device; it has to be hardware agnostic. I need to take down that script.
+[10:01] <shiggitay> Cobalt, that sounds like an annoying issue...   I hope you get it resolved.
+[10:14] <edu> can anyone tell me how to install a package from a third party file (like a zip) that I download from a site?
+[10:20] <Cobalt> shiggitay: It is annoying, though not fatal. So yeah, just need to find where this event is triggered and take off the script/rule.
+[10:20] <shiggitay> yeah
+[10:20] <shiggitay> I wish you luck :)
+[10:21] <Cobalt> But I think Linux has gotten so complex now things are difficult to troubleshoot.
+[10:21] <shiggitay> I'm working on something myself that's just as frustrating.... making an initramfs that knows where my tablet's SD card is so I can boot. lol
+[10:21] <Cobalt> Ah. That may be why I never managed to get my SD card reader to work on my netbook.
+[10:22] <shiggitay> haha
+[10:22] <Cobalt> :( Nobody seems to know anything about this event thing.
+[10:23] <shiggitay> sorry.. I don't run the same hardware/software as you
+=== jack is now known as Guest53065
+=== Varazir_ is now known as Varazir
+[10:40] <creatorb> hi all :)
+[10:44] <walilo789> Hi, I'm on ubuntu 14.04 , i can't install any package or make update
+[10:47] <creatorb> walilo789: what the error?
+[10:48] <creatorb> walilo789: i mean see the error notif
+[10:49] <walilo789> creatorb,  on the panel i see a forbiden icon , "Error, BrokenCount > 0"
+[10:57] <Sbur> I have a question about my Ubuntu 14.10 (64 bit) system.  When I boot it, it tells me that my screensaver is VERY OLD and invites me to upgrade it.  Should I do that, or is it a scam?
+[10:57] <Sbur> one detail ... it is in "Low Latency" mode at the time
+[11:02] <ararob> Sbur, how does it tell you that?
+[11:02] <Sbur> ararob: Popup
+[11:04] <HiddenCloud> hello, I want to make my system trim my root directory on every boot
+[11:04] <HiddenCloud> I've seen that this can be done by putting fstrim -v / in rc.local
+[11:04] <HiddenCloud> but I have /home on a HDD
+[11:04] <HiddenCloud> how do I exempt /home?
+[11:06] <Sbur> ararob: It says "Warnng This version of xscreensaver is VERY OLD! Please upgrade.http://www.jwz.org/xscreensaver/ (If this is the latest version that your distro ships, then your distro is doing you a disservice.  Build from source.)"
+[11:08] <ararob> Sbur, sounds fishy, yes. Only popup i get in ubuntu is when there's an update notice in ubuntu official resporatories.
+[11:08] <Sbur> ararob: But, aside from running clamtk or something like that, how do I get rid of that?
+[11:12] <HiddenCloud> how do I switch to root user again?
+[11:12] <cfhowlett> !root | HiddenCloud,
+[11:12] <ubottu> HiddenCloud,: Do not try to guess the root password, that is impossible. Instead, realise the truth... there is no root password. Then you will see that it is 'sudo' that grants you access and not the root password. Look at https://help.ubuntu.com/community/RootSudo
+[11:13] <HiddenCloud> yeah I know
+[11:13] <HiddenCloud> but there's a command that lets you switch to other users
+[11:13] <cfhowlett> HiddenCloud, su otheruser
+[11:13] <HiddenCloud> yes thanks
+[11:13] <ararob> Sbur, check your process manager if anything suspicious. kill it, and do "updatedb && locate applicationname", if you're sure that's the one. Then switch to root and delete it. But personally, i'd just reinstall ubuntu, because you never know what else is lurking there.
+[11:14] <kostkon> Sbur, is it ubuntu or some other derivative?
+[11:15] <Sbur> ararob: I'm a n00b with that kind of thing.  I am not sure I could find and determine what is suspicious or not. But reinstalling Ubuntu, I can only conceive doing after a backup of my data
+[11:16] <Codmadnesspro> How would I get my .sh script to startup on boot?
+[11:16] <Sbur> kostkon: Ubuntu 14.10 (Low latency) whatever that means
+[11:16] <kostkon> Sbur, do you remember installing xscreensaver?
+[11:17] <Sbur> I'm looking if I find xscreensaver in the PIDs
+[11:18] <Sbur> kostkon: ararob: I have an xscreensaver -- no splash.  I also see that it is with xfce4
+[11:18] <Sbur> in task manager
+[11:19] <Sbur> kostkon: ararob: Should I kill or uninstall xscreensaver or not?
+=== Yukitteru is now known as Yukinotteru
+[11:19] <Sbur> Even if it isn't Ubuntu related ... HAPPY NEW YEAR !!!!
+[11:19] <kostkon> Sbur, probably xubuntu (or xubuntu-desktop) comes with xscreensaver by default
+[11:19] <kostkon> Sbur, is it ubuntu or xubuntu?
+[11:20] <Sbur> kostkon: I never installed Xubuntu.  I have both Ubuntu and Ubuntu Studio on different partitions of the same computer
+[11:20] <kostkon> Sbur, i think studio uses xfce so it must have come from there
+[11:21] <Sbur> kostkon: So killing or uninstalling xscreensaver is a good thing or a dangerous thing to do?
+[11:21] <cfhowlett> Sbur, ubuntustudio uses xfce.  as xscreensaver has been proven to conflict with lightdm/locker, I've disabled it
+[11:21] <kostkon> Sbur, it's your choice. neither good nor bad
+[11:22] <Sbur> ok.
+[11:22] <kostkon> Sbur, or what cfhowlett recommends
+[11:22] <cfhowlett> Sbur, screen burnin really isn't that much of a thing on modern monitors
+[11:23] <Sbur> kostkon: I type cfhowlett and follow suggestions?
+[11:23] <kostkon> Sbur, lol what
+[11:24] <cfhowlett> Sbur, LOL no you can just go into settings and turn off xscreensaver
+[11:24] <kostkon> Sbur, no, see cfhowlett's message above ^^
+[11:24] <Sbur> kostkon: Oops
+[11:24] <Sbur> thx and bye
+[11:25] <kostkon> :/
+[11:27] <atizva> is there anyoje here
+[11:27] <atizva> hey
+[11:36] <iemi> bounce
+[11:36] <shiggitay> fart
+[11:37] <iemi> shigionoth
+[11:37] <userings> Hi. I have a NTFS partition, and i want to cut from it's size to create a new partition. The problem is that: Gparted didn't allow me to cut from it. Just the up narrow is active in Resize window.
+[11:38] <userings> Also, there is a orange triangle right to the /dev/sda1.
+[11:38] <xangua> userings: backup, boot from a live dvd/usb , use gparted
+[11:38] <userings> I do it.
+[11:38] <iemi> trice
+[11:40] <iemi> ntfs_has_hidden_blocks
+[11:42] <iemi> is_she_a_woman_now?
+[11:42] <userings> How to do it?
+[11:42] <Codmadnesspro> How do I get a shell script to run on startup?
+[11:42] <iemi> I_ask_because_she_holds_key_memory
+[11:43] <iemi> cod_rc.local
+[11:44] <iemi> smitz_dishonours_GOD_by_whome_nixon_claims_to_contract_it_to_work_for
+[11:45] <Codmadnesspro> rc local?
+[11:45] <iemi> this_state_is_supposed_to_be_theocracy
+[11:45] <bazhang> iemi, cut that out
+[11:46] <Codmadnesspro> What is iemi even doing lol
+[11:46] <iemi> cod_"rc.local"
+[11:46] <Codmadnesspro> ...
+[11:46] <iemi> cod_"/etc/rc.local"
+[11:47] <Codmadnesspro> Error:	Directory /etc/rc.local: no such file or directory
+[11:47] <iemi> calling_Lt._Garner
+[11:49] <Cobalt> walilo789: You have broken packages, I think, that need to be removed, or reinstalled.
+[11:59] <ost> what do you guys think about kylin ubuntu?
+[12:05] <Loan-266> hello
+[12:05] <Loan-266> which of you live in detroit here ? --
+[12:06] <bazhang> thats not on topic here Loan-266
+[12:06] <bazhang> try a loco if you wish Loan-266
+[12:06] <jgcampbel> could anyone here suggest a room to get info on web based software for business and there integration
+[12:06] <bazhang> !loco | Loan-266
+[12:06] <ubottu> Loan-266: Information on Ubuntu Local Community Teams is at http://loco.ubuntu.com/
+[12:07] <iLoveJava> Is it possible to have multiple gtk theme engines installed on a computer?
+[12:07] <Cobalt> bazhang: Maybe he was looking for a local Ubuntu community? :P
+[12:07] <bazhang> use alis to search jgcampbel
+[12:07] <jgcampbel> alis ?
+[12:07] <bazhang> !alis | jgcampbel
+[12:07] <ubottu> jgcampbel: alis is a services bot that can help you find channels. Read "/msg alis help list" . For more help or questions relating to alis, please join #freenode. Example usage: /msg alis list #ubuntu* or /msg alis list *http*
+[12:07] <jgcampbel> bazhang ok thanks
+[12:07] <bazhang> Cobalt, I just gave him a link to search for one
+[12:08] <Cobalt> All well and good.
+[12:14] <PowerTee>  help
+[12:14] <PowerTee> i use open source drivers for my amd 280x (7970) but there is no /usr/include/GL
+[12:18] <keynes> hi :).
+[12:18] <keynes> anybody work with Murex?
+[12:22] <chocolate> bazhang: thank you, alis is really useful command
+[12:22] <chocolate> how to find other interesting commands?
+[12:22] <bazhang> chocolate, /msg ubottu brain
+[12:23]  * keynes bit chocolate 
+[12:23] <bazhang> chocolate, for irc, /msg chanserv help  /msg nickserv help
+[12:23]  * keynes cut pices of chocolate
+[12:23] <bazhang> keynes what is murex
+[12:23] <chocolate> thanks bazhang
+[12:23] <bazhang> keynes please stop that
+[12:24]  * keynes save the pices in the refrigerator.
+[12:24] <bazhang> !ot | keynes
+[12:24] <ubottu> keynes: #ubuntu is the Ubuntu support channel, for all Ubuntu-related support questions. Please use #ubuntu-offtopic for other topics (though our !guidelines apply there too). Thanks!
+[12:25] <keynes> bazhang, is a enterprice software similar to SAP. The money that you can win with Murex is maximun: 600£ per day.
+[12:25] <keynes> bazhang, i know man, but no such the string "Murex" i all freenode :(
+[12:25] <keynes> *in
+[12:30] <no_gravity> Hello! What would be good tools in Ubuntu repos for time-series reporting? There seems to be no way to swith between daily,weekly and monthly views in OpenOffice Calc time series charts.
+[12:31] <Daghdha> What are transitional dummy apckages?
+[12:31] <Daghdha> i see 6 in my update. all 7kb, should i install them? I mean are they normal? SOunds dodgy to me  :D
+=== QueensMelons is now known as MelonsOf2015
+[12:34] <cfhowlett> no_gravity, open office?  pretty sure libre office is the preferred flavor
+[12:34] <cfhowlett> Daghdha, normal.
+[12:35] <no_gravity> cfhowlett: i think libre office cannot do daily,weekly,monthly views either
+[12:38] <Daghdha> thanks cfhowlett
+[12:55] <robynata> :-D
+=== hades_ is now known as Guest89065
+[13:00] <chalcedony> my husband is trying to set up ubuntu 14.04 on a new drive, from DVD. Where is the screen to choose 'install ubuntu'?
+[13:00] <Daghdha> If i wanna run dns for only 2 domains should i get bind? I read someone mentioning tinydns instead. What would you guys use?
+[13:00] <chalcedony> i thought it would come up when it boots.. it isn't, goes to main screen.
+[13:02] <cfhowlett> chalcedony, system > install ubuntu
+[13:02] <chalcedony> cfhowlett, thank you :))
+[13:02] <cfhowlett> chalcedony, happy2help
+[13:06] <torrente> hi
+=== marko is now known as bg-momak
+[13:09] <kristenbb> hello, can someone please help me to troubleshoot why my ubuntu laptop is not able to join a particular wireless network, although he is able to join another wireless network, and although another computer is able to join the first network ?
+[13:10] <chocolate> kristenbb: MAC address filtering?
+[13:11] <chalcedony> cfhowlett, he's got that side menu. is 'system' the cog wheel? we don't see 'install ubuntu' anywhere
+[13:11] <kristenbb> chocolate: no, I don't think I have set that up. But I'd just really like to see error logs so that I have an answer, rather than guessing.
+[13:12] <Voyage> Hi, Is there ANY RELIABLE screen capture software like windows has? I have tried kazoom and many.
+[13:12] <cfhowlett> chalcedony, thought you said it booted in to the main desktop???
+[13:12] <cfhowlett> voyage recordmydesktop
+[13:12] <Voyage> cfhowlett,  ya, tried that too
+[13:12] <JunkHunk> hello I need some help. I am trying to build this network scheme: http://www.pasteall.org/pic/show.php?id=81867 but I still need to make some things clear. Is the scheme correct or do you see any flaw? and  could I use a single ubuntu server to perform all tasks in the red box? (router_vlans+switch+multiserver)? It would be great if anybody could address me to some good tutorials to get it done. thanks
+[13:12] <chalcedony> cfhowlett, it's pinky-purple
+=== l3dx_ is now known as l3dx
+[13:13] <cfhowlett> chalcedony, didn't ask the color.  did he get the main screen or is he still at the login
+[13:13] <chalcedony> cfhowlett, it seems to skip everything and just go right there
+[13:14] <cfhowlett> chalcedony, got it.  NOW ... system > install ubuntu
+[13:14] <chalcedony> cfhowlett, we don't see it?
+[13:14] <cfhowlett> chalcedony, search for it
+[13:14] <chalcedony> i did
+[13:15] <chalcedony> cfhowlett, got something about select sources to install additional software?
+[13:15] <cfhowlett> chalcedony, picture time
+[13:15] <cfhowlett> !paste
+[13:15] <ubottu> For posting multi-line texts into the channel, please use http://paste.ubuntu.com | To post !screenshots use http://imgur.com/ !pastebinit to paste directly from command line | Make sure you give us the URL for your paste - see also the channel topic.
+[13:15] <Addi> hi
+[13:15] <chalcedony> cfhowlett, ty
+[13:16] <Voyage> cfhowlett,  any other?
+[13:16] <chalcedony> ill go see
+[13:16] <cfhowlett> Voyage, software center search: desktop recorder
+[13:17] <Addi> #smwc
+=== MelonsOf2015 is now known as twentyFifteenMel
+=== matthewvz is now known as Guest63816
+[13:18] <cfhowlett> chalcedony, if the "install ubuntu" option is absent, that typically means you are looking at a currently installed ubuntu ... NOT a live session
+=== twentyFifteenMel is now known as TwoOhOneFiveMelo
+=== TwoOhOneFiveMelo is now known as Two0OneFiveMelon
+[13:19] <kaka> i have installed b43-fwcutter, but now how to install particular broadcom driver(e.g BCM43322) ? and  i have no internet access on my UNIX machine.
+[13:21] <cfhowlett> kaka, not sure you need the b43.  have you installed pastebinit?
+[13:21] <kaka> nope and im new to ubuntu
+[13:22] <cfhowlett> kaka, open a terminal.  sudo apt-get install pastebinit       <enter>
+[13:22] <kaka> ok will work without internet?
+[13:23] <cfhowlett> kaka,  ah, right!  sorry. OK, plan B.  Do you have your ubuntu installation USB/CD?
+=== Two0OneFiveMelon is now known as FunctionalProces
+[13:23] <Sabastiaan> hapyp 2015 people^^
+[13:23] <kaka> i was following : https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx
+[13:23] <kaka> yup
+[13:23] <cfhowlett> kaka,  ah, right!  sorry. OK, plan B.  Do you have your ubuntu installation USB/CD? <<<<<<<<<<<
+[13:23] <kaka> installed b43 from cd
+[13:23] <kaka> yes i have
+[13:24] <cfhowlett> kaka good. open that with your file manager.
+[13:24] <kaka> ok continue i am taking notes
+[13:25] <cfhowlett> kaka, let's go PM
+[13:25] <kaka> ok
+[13:31] <sherlock_regus> channel for algorithms??
+[13:32] <Voyage> sherlock_regus,  #programming
+=== joachim is now known as Guest59278
+=== ubuntu is now known as Guest14697
+=== sherlock_ is now known as Guest47744
+[13:56] <Kaka>  how to install broadcom wifi drivers in ubuntu 14.10!!
+[13:57] <EriC^^> !bc43
+[13:57] <EriC^^> !broadcom
+[13:57] <ubottu> Help with Broadcom bcm43xx can be found at https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx
+[13:58] <Kaka> i followed instructions give on that page and have installed b43-fwcutter
+[13:59] <Kaka> btw i have no internet access on my unix machine
+[14:04] <EriC^^> Kaka: type lspci -vvnn | grep 14e4
+=== Guest42649 is now known as Whew3
+[14:05] <Kaka> ya i did and its BCM4322
+[14:06] <cfhowlett> Kaka, verify!  you told me something different
+[14:06] <cfhowlett> <kaka> i have installed b43-fwcutter, but now how to install particular broadcom driver(e.g BCM43322) ? and  i have no internet access on my UNIX machine.
+[14:07] <Kaka> yup thats true cf
+[14:07] <cfhowlett> 43322 is not 4322 ...
+[14:07] <cfhowlett> details matter
+[14:08] <Kaka> oh fk typing mistake :( sry
+[14:08] <Kaka> didnt notice that
+[14:09] <EriC^^> Kaka: type lsmod | grep b43
+[14:10] <vlastik_> Could you point me where I could read/learn about remote access to my 14.04 LTS from a Windows machine on LAN and also from outside our router, please?
+[14:10] <Kaka> Eric PM?
+[14:10] <cfhowlett> !samba | vlastik_
+[14:10] <ubottu> vlastik_: Samba is the way to cooperate with Windows environments. Links with more info: https://wiki.ubuntu.com/MountWindowsSharesPermanently and https://help.ubuntu.com/12.04/serverguide/C/windows-networking.html
+[14:10] <Paramezius> hello, is there any way to prevent a package from automatic updating?
+[14:11] <EriC^^> Kaka: better to talk here
+[14:11] <vlastik_> cfhowlett: Thank you.
+[14:11] <cfhowlett> vlastik_, happy2help
+[14:11] <Paramezius> I manually installed a package and i need that old version, not the one that the updater sugests me to install
+[14:11] <Kaka> its the same machine where i have insatlled Ubuntu so you can tell me all the steps and i ll take notes
+[14:12] <EriC^^> Kaka: if lsmod shows b43 loaded, try to remove conflicting drivers, it's outlined here https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx#Switching_between_drivers
+[14:13] <Kaka> ok
+[14:15] <dreamcat6> hello. i am wondering if new UIDs for daemon user accounts are statically or dynamically allocated, when i install new .deb pkgs
+[14:16] <BluesKaj_> Happy New Year everyone!
+[14:17] <rsully> great way to start the new year: lost power from midnight to 1:30 am
+[14:17] <dreamcat6> newvermind. maybe my UID number conflict is b/c my docker container is based on debian (rather than ubuntu). probably the UIDs don't map the same on debian vs ubuntu
+=== havingFun is now known as xrosnight
+=== LazyO|off is now known as LazyO
+[14:29] <nefka> ciao
+[14:29] <nefka> !list
+[14:29] <ubottu> nefka: No warez here! This is not a file sharing channel (or network); read the channel topic. If you're looking for information about me, type « /msg ubottu !bot ». If you're looking for a channel, see « /msg ubottu !alis ».
+=== LazyO is now known as LazyO|off
+[14:34] <cl_martin> How to update driver of my nvidia card?
+=== ochiotte1 is now known as ochiottes
+[14:36] <ProfJoaoTeles> Good Morning
+[14:36] <ProfJoaoTeles> happy new year
+=== jack is now known as Guest45542
+[14:45] <ablest1980> hi
+[14:48] <Makalak> hi guys, no one seems to be responsive over at #ubuntu-touch, so i hope you can help me, I'm trying to build utouch but i keep getting this error http://pastebin.com/QdvAPyBg , there is no reference to it online, more so google insist on redirecting me to a similiar error __system_property_get which seems to be referenced correctly anyway
+=== |Aerides| is now known as Aerides
+[14:55] <Hcom> join
+[14:55] <Hcom> ?
+[14:55] <Hcom> exit
+[14:57] <MoltenSlag> Hello guys - can I clone my ubuntu installation encrypted by cryptfs (LUKS partition) without moving whole partition un-decrypted? Can I mount it somehow and then clone?
+=== SonikkuAmerica is now known as S-USA|0x07df
+=== Crazy_Atheist is now known as Guest15627
+[15:02] <maeryo> echo -a $logo $nick 님께서 당신을 $chan 채널로 초대하셨습니다.
+[15:03] <ramchandra> !ask
+[15:03] <ubottu> Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[15:03] <ramchandra> oops
+=== TruthMatters is now known as LogicMatters
+[15:03] <ramchandra> MoltenSlag: and why you can't copy the partition?
+=== mish is now known as Mish_
+[15:08] <Kaka> @eric there were no conflicting driver error when i tried lsmod | grep b43
+=== tcpman is now known as Guest14637
+[15:09] <EriC^^> Kaka: if it returned nothing then the driver isn't loaded
+[15:09] <EriC^^> did you follow those steps?
+[15:09] <Kaka> it returned like b43   400218 0
+[15:09] <Kaka> bcma 52443 1 b43
+[15:10] <Kaka> yes
+=== Guest15627 is now known as Crazy_Atheist
+[15:13] <feurd> Hi. Is it possible to connect my two computers with ssh, in root, both of them having the same ssh key?
+[15:16] <imbezol> feurd: sure. copy the .ssh folder from one to the other
+[15:17] <imbezol> feurd: that is.. /root/.ssh
+[15:17] <imbezol> feurd: you'd make the key on one, and copy it (specifically the id_dsa or id_rsa file) over to the other
+[15:18] <imbezol> feurd: make sure you also replicate the permissions on the folder and files
+[15:18] <feurd> imbezol: well, that's what I did. I sync the /root/ of one onto the other, so they have the same thing. But now I can't connect anymore
+[15:18] <imbezol> feurd: what are you connecting from?
+[15:19] <imbezol> from system 1 to system 2 and vice versa?
+[15:19] <imbezol> or is there a third system that connects to both?
+[15:19] <feurd> I try to connect my desktop to my laptop. It worked before, because they both had their key. Then I synced my desktop onto my laptop, so they now have the exact same /root/ folder. But I can't establish a connection anymore
+[15:19] <BluesKaj_> feurd, whynot just use normal ssh from one to the other
+[15:20] <feurd> no third system
+[15:20] <feurd> it's a root to root connection, so I need a keyed conneciton
+[15:20] <imbezol> feurd: what's the log say? it should tell you why the key was not accepted
+[15:20] <BluesKaj_> feurd, seems you made the connection more complicated than it needs to be
+[15:20] <imbezol> feurd: or try with ssh -v to get more verbose messaging
+[15:21] <feurd> actually, it does not even ask me for a key passphrase. Just the standard password.
+[15:21] <imbezol> feurd: that's like it's way of telling you it's not using the key. that usually indicates the permissions are not correct
+[15:21] <imbezol> feurd: that will get logged so you can check to be sure
+[15:21] <feurd> Previously, when I attempted a connection, it asked for the key passphrase. Now, it just asks for the session password. But in root, it's not sufficient.
+[15:22] <imbezol> feurd: yup. check the perms first
+[15:22] <feurd> But I connect in root. So I have all permissions. No?
+[15:23] <feurd> Oooh
+[15:23] <feurd> maybe I should add the pub key in the authirized_keys file?
+[15:23] <imbezol> unless you check the log it's guesswork
+[15:24] <feurd> where can I see the log?
+[15:24] <imbezol> /var/log/syslog
+[15:24] <imbezol> or /var/log/auth.log
+[15:25] <imbezol> but yeah.. if you overwrote the authorized_keys file you'll need to fix it
+[15:25] <feurd> nothing in the log by the way
+[15:26] <feurd> not this one at least
+=== Guest47744 is now known as sherlock_regus
+[15:26] <imbezol> ok. probably the keys file then
+[15:26] <imbezol> it's the server that logs it
+[15:26] <imbezol> but if you run the client with ssh -v then you'll see it request key auth and what the server answered
+[15:27] <MoltenSlag> ramchandra: I'm using like 10% of the partition, I don't want to copy 90% of empty encrypted data
+[15:27] <ramchandra> resize it and then copy?
+[15:28] <MoltenSlag> ramchandra: good call, I'll try this way then, thanks
+[15:29] <feurd> imbezol: It worked.
+[15:29] <imbezol> great
+[15:30] <imbezol> feurd: how are you syncing /root?
+[15:30] <imbezol> feurd: would it make more sense to sync just a couple directories within so you don't overwrite?
+[15:31] <imbezol> feurd: or you can use something like rsync to do the sync and tell it to exclude the .ssh directory
+[15:32] <feurd> imbezol: well, right, I don't know what's the best option. If they have the same key, I can do exactly the same things with both.
+[15:34] <feurd> imbezol: I just created the sync script. I'm still wondering how to configure it the best
+[15:34] <imbezol> feurd: unless you need all the hidden folders etc in there just sync a subdir or two
+[15:35] <imbezol> feurd: or use rsync..
+[15:35] <feurd> I already use rsync
+[15:35] <imbezol> feurd: --exclude=.ssh/
+[15:37] <feurd> I know. But then, all the keys in authorized_keys and known_hosts would not be shared, which means that I could not estabish the same connections with my laptop and my desktop
+[15:37] <imbezol> feurd: --exclude=.ssh/authorized_keys
+[15:37] <imbezol> feurd: up to you :D
+[15:38] <feurd> I'll see what is the more practical
+[15:38] <imbezol> you can put a system's own key in there too
+[15:38] <imbezol> so you could just create an authorized_keys that has both their keys
+[15:38] <imbezol> but since the private keys are the same too... probably the same anyways
+[15:39] <BluesKaj_> feurd, no need to be root, just share the required files on each computer then run ssh from one to the other , it's really quite simple
+[15:39] <feurd> BluesKaj_: I need to be in root to sync the root folder
+[15:39] <BluesKaj_> but why ?
+[15:40] <feurd> well, if I don't connect to the root session of the other computer, then I don't have access to files
+[15:40] <imbezol> i guess the question is what are you doing as root that you need to sync the files across?
+[15:40] <BluesKaj_> you just ne3ed to share those files
+=== niexukang__ is now known as niexukang
+[15:41] <imbezol> normally you'd work as a normal user where your files are accessible by them rather than root
+[15:41] <imbezol> generally you're not working on documents etc as root
+[15:42] <SchrodingersScat> I am also concerned by that.
+[15:42] <feurd> Sorry, I'm a bit lost. My goal is for my two computers to have (partially at least) the same root folder. And I don't think I can achieve that without connecting in root. Am I wrong?
+[15:43] <imbezol> why the root folder though?
+[15:43] <feurd> Well, first, to have the same settings on both
+[15:44] <penna> is there any trick when I have installed libstdc++.so.6 and a program complains: /usr/lib/i386-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.20' not found
+[15:44] <penna> glibc installed too
+[15:44] <imbezol> feurd: same settings for what?
+[15:44] <feurd> share the same scripts
+[15:44] <feurd> the same aliases
+[15:44] <BluesKaj_> did somebody advise you to share the root folder between pcs?
+[15:44] <Jpmh> if I switch using ctrl-alt-F1 why does this stop the processes that are working in my graphics ctrl-alt-f7 login
+[15:45] <feurd> I find it pretty conveniant. Is it that bad?
+[15:45] <imbezol> feurd: for scripts you might want to do something like create a /usr/local/sbin/ directory, put them there, and sync that folder
+[15:45] <BluesKaj_> Jpmh, try ctrl+alt+F8
+[15:45] <imbezol> feurd: that is, assuming these are scripts  you need to run as root for some reason
+[15:45] <feurd> I have scripts that I launch in root mode
+[15:46] <imbezol> feurd: it's your system so you can do as you like of course but i'm just curious what the heck you're doing as root all the time lol
+[15:46] <Jpmh> BluesKaj_: 1) I do not believe that I have such a task and 2) even if I did, why?
+[15:46] <imbezol> feurd: so much so that you're doing root on both systems all the time
+[15:48] <feurd> Who said I was in root all the time? I just have several scripts, aliases, etc, that I have in root, and I would prefer to sync them. For all the rest, I use my standard account.
+[15:48] <BluesKaj_> Jpmh, when you drop to a TTY/VT usually the return to desktop is ctrl+alt+F7, works ok here but I don't run unity so i'm still on X server here
+=== LazyO|off is now known as LazyO|Off
+[15:49] <Jpmh> BluesKaj_: yes, I am aware of that.  My question is why does the F7 process get paused, this is a multi user, multi processing OS
+[15:50] <feurd> For example, I've seen that to backup the entire system with rsync, it's better to run it in root to guarantee the permissions remain the same
+[15:51] <BluesKaj_> Jpmh, dunno why , that's new one one on me
+[15:51] <BluesKaj_> anyway got errands to run ....BBL
+=== mahmoud is now known as Guest56853
+[15:53] <imbezol> feurd: yup.. tough to do without roto read and write perms
+[15:53] <imbezol> *root
+[15:56] <guest-4ODtLa> Hello there!
+[15:56] <daftykins> hi
+[15:56] <guest-4ODtLa> I think I've reached a critical situation after forgetting my password for Ubuntu 12.04 system
+[15:57] <guest-4ODtLa> I found a solution
+[15:57] <guest-4ODtLa> http://www.liberiangeek.net/2012/09/recover-lost-passwords-in-ubuntu-12-04-recovery-mode/
+[15:58] <guest-4ODtLa> Can I get some help regarding this? I'm not sure about using command: mount -rw -o remount /
+[15:58] <nomic> live CD.
+[15:58] <guest-4ODtLa> Is there any threat to data?
+[15:58] <daftykins> guest-4ODtLa: it's enabling write access so you can change the password, has to be done
+[15:58] <daftykins> just do it :P
+[15:58] <imbezol> guest-4ODtLa: when you boot into recovery mode the / partition is set read only.. that just sets it read write so it can remember the password change you do
+[15:59] <guest-4ODtLa> daftykins, So I can just go ahead with that link? imbezol
+[15:59] <guest-4ODtLa> and shoot those commands?
+[15:59] <daftykins> your alternative is: none
+[15:59] <guest-4ODtLa> Don't scare me -_-
+[15:59] <guest-4ODtLa> Say yes/no?
+[16:00] <imbezol> guest-4ODtLa: you can't set a new password without writing to the drive
+[16:00] <guest-4ODtLa> Is my data safe?
+[16:00] <imbezol> guest-4ODtLa: by your tone it sounds like this data is very important
+[16:00] <daftykins> just get on with it :)
+[16:01] <guest-4ODtLa> imbezol,  Just confirm that everything will remain the same as it was before
+[16:01] <guest-4ODtLa> daftykins, Ok
+[16:01] <guest-4ODtLa> imbezol, Indeed, it is!
+[16:01] <imbezol> guest-4ODtLa: so if you're drive melts down you can just use the backups you've been carefully creating
+[16:01] <guest-4ODtLa> :)
+=== FunctionalProces is now known as QueensMelons
+[16:02] <guest-4ODtLa> Thanks, I'm going to do it :)
+[16:03] <guest-4ODtLa> Hope to come with a good news :P
+[16:03] <imbezol> we'll be holding out collective breath
+[16:03] <guest-4ODtLa> Fingers crossed! Here I go...
+[16:04] <antonio__> ciaoooooù
+[16:15] <KamalKaur> imbezol: Hey!
+[16:16] <KamalKaur> I got my things there only :D
+[16:16] <SleePy> My Ubuntu server keeps crashing.  I just watched it do it again.  Doesn't even shutdown just looks like a power loss.  Is there a place I can look in the logs to try and see if something got logged before power was completely lost?
+[16:17] <KamalKaur> imbezol: But loast some settings
+[16:17] <KamalKaur> lost*
+[16:17] <ikonia> SleePy: if it's a power loss, it's not an ubuntu problem
+[16:17] <SleePy> Hasn't crashed since I removed the storage array.
+[16:17] <ikonia> SleePy: ubuntu can't log anything if the power is going
+=== KamalKaur is now known as guest-4ODtLa
+[16:17] <SleePy> Darn.  Motherboard doesn't log those entries either :|  Guess its a good old manual ignore the raid alerts and test each drive one by one.
+[16:18] <guest-4ODtLa> imbezol: There?
+[16:18] <imbezol> SleePy: likely a power supply issue
+[16:18] <imbezol> guest-4ODtLa: you don't lose settings by changing your password so something else caused that
+[16:19] <guest-4ODtLa> imbezol: I'm unable to change brightness
+[16:19] <ikonia> SleePy: ignore raid alerts ?
+[16:19] <guest-4ODtLa> and icon size goes to default
+[16:19] <SleePy> ikonia: I removed my storage drives.  4 1TB drives in a raid 10
+[16:20] <ikonia> SleePy: how where you configuring the raid on them ?
+[16:20] <SleePy> When Ubuntu is up, it shows them resyncing, but not rebuilding
+[16:20] <SleePy> mdadm
+[16:20] <ikonia> why do you expect them to rebuild ?
+[16:20] <ikonia> they should not be rebuilding
+[16:20] <SleePy> I don't expect them to.  But I just noticed the status was active, resyncing
+[16:20] <ikonia> why is that bad ?
+[16:21] <imbezol> SleePy: it probably doesn't crash without the drives because of the lowered power requirements
+[16:21] <SleePy> Well the server hasn't crashed since I removed the drives.  By logic, putting the drives back it will crash once the array is up and it tries to start syncing again
+[16:21] <imbezol> SleePy: try a new / bigger power supply
+[16:21] <SleePy> 700 watt power supply for 4 full size drives, 2 laptop drives (raid 1 OS) and 3 fans
+[16:22] <SleePy> It should be plenty.  Has been running 5 months with this configuration no problem
+[16:22] <imbezol> SleePy: video card is one of the biggest users.. but even if it "should" be enough.. they do die on occasion
+[16:22] <ikonia> SleePy: does the power just die on it, or does it reboot ?
+[16:22] <SleePy> No video card in this.  Onboard only
+[16:22] <SleePy> Its losing power.  I see the fans spin down and then spin up as it auto restarts
+[16:23] <ikonia> it's losing power ?
+[16:23] <imbezol> i've said my piece. good luck :)
+[16:23] <ikonia> does the power just cut, or does it reboot
+[16:23] <SleePy> Seems like it.  I'm not losing power where its at because the TV is plugged into the same outlet and hasn't turned off
+[16:23] <SleePy> Power cut it seems like it.
+[16:23] <ikonia> SleePy: so it just powers down, and you have to power it back on ?
+[16:24] <SleePy> Ubuntu doesn't go through the shutdown phase, I just see video lost and then the bios screen
+[16:24] <ikonia> so it's rebooting then
+[16:24] <ikonia> it's resetting
+[16:24] <SleePy> It auto reboots on power failure
+[16:24] <ikonia> SleePy: turn off auto reboot in the bios
+[16:24] <ikonia> SleePy: then put the drives back in
+[16:24] <ikonia> it's important to know what's actually happening
+[16:25] <everetthitchh> hi
+[16:26] <anomaly6> :)
+[16:27] <koyunbaba> hi! i have a problem with xubuntu 14.04, the notification icon of dropbox is always missing! I can't find the solution on web...can anyone help me?
+[16:29] <SleePy> Actually, I have "Restore on AC/Power loss" set to "Power Off"
+[16:29] <ikonia> SleePy: so that sounds like a panic
+[16:29] <SleePy> So it would have to be rebooting I think, but its a instant reboot like somebody is hitting the reset
+[16:29] <ikonia> as opposed to a power loss
+[16:29] <ikonia> look in the syslog to check the status of what it's been doing
+[16:29] <ikonia> SleePy: do you have a monitor/screen on this system
+[16:30] <glob> koyunbaba: type lspci
+[16:31] <SleePy> ikonia: I just hooked it up over vga.  It has a HDMI hookup to the screen, but overscan issues on my tv prevent me from using hdmi during bios configs
+[16:31] <ikonia> I suggest you monitor the screen
+[16:31] <SleePy> Yes
+[16:31] <SleePy> I also have pings going and they drop out
+[16:31] <koyunbaba> http://pastebin.com/eAtg4Wvp
+[16:32] <ikonia> of course they will drop
+[16:32] <ikonia> you're system is powering off
+[16:32] <ikonia> what do you expect ?? what good is pinging the machine ?
+[16:32] <SleePy> Well when I was watching movies in the other room and they stopped working, it was my basic tests to see what was going on
+[16:33] <ikonia> watch the screen and see if there is any message such as a panic when it reboots
+[16:33] <jagmeet> hello there Happy new year! I have accidently deleted my data from my home folder in ubuntu. Can you please suggest me some procedure to recover it.
+[16:33] <ikonia> also let the raid arrays rebuild, do nothing on the system until they are in a clean state
+[16:33] <vrooom> Is it easy to change from Unity to Gnome? I really dislike Unity.
+[16:33] <SleePy> There are none, just goes black and then the ASUS bios screen shows up
+[16:33] <imbezol> jagmeet: backups are likely your only option
+[16:33] <vrooom> Is it just the graphics or what happens to all my files when I change?
+[16:34] <imbezol> vrooom: you can have several different desktop environments installed and switch freely between them
+[16:34] <imbezol> vrooom: if you find you don't like gnome you can switch back to unity
+[16:35] <jagmeet> imbezol, is there any recovery software or like that for ubuntu?
+[16:35] <imbezol> jagmeet: it's more dependent on the filesystem than the distro
+[16:35] <imbezol> jagmeet: you can do some googling on the particular filesystem you're using for your homedir but i think you'll find you're out of luck
+[16:36] <imbezol> jagmeet: unless you had backups or some sort of cloud solution
+[16:36] <loostro> how can I create my own home server and create virtual machines on it, which would be accessible from outside (WAN)?
+[16:37] <loostro> currenlty I have an ubuntu server, with apache/php/other stuff on it
+[16:37] <loostro> i'd like to move all the "apps needed for my website" inside a virtual box
+[16:37] <loostro> to keep the "host machine" as "clean" (without additional software) as possible
+[16:38] <teward> loostro: two options in VBox: Bridged Adapter netowrking, or Double-NAT
+[16:38] <teward> s/in VBox/with VBox/
+[16:38] <guest-4ODtLa> imbezol: This light will take my eye sight -_-
+[16:38] <guest-4ODtLa> I'm unable to change brightness from anywhere
+[16:38] <jagmeet> imbezol, okey can you please suggest me some software, which can recover data on filesystem ext4?
+[16:38] <teward> loostro: if you create the individual virtual machines with bridged networking then your home router sees the VMs as individual devices
+[16:39] <loostro> does this require additional hardware? (specialised router or something)? or is it all software installed on my host machine?
+[16:39] <SleePy> Well now it won't even get past the bios.  Not an Ubuntu issue at all..  Seems like power supply or a bad drive
+[16:39] <teward> loostro: if you use double NAT, then you port-forward to the host machine, and on the host machine you set up NAT rules in VirtualBox to forward further into the VMs
+[16:39] <teward> loostro: any standard router works, it's all part of VirtualBox,.
+[16:39] <imbezol> guest-4ODtLa: i don't have the answer for that
+[16:39] <guest-4ODtLa> :(
+[16:39] <loostro> OK, is it avaliable for free? or does it require some payed/advanced version of the software?
+[16:40] <loostro> paid*
+[16:40] <imbezol> jagmeet: google ext4 undelete
+[16:40] <infinatious> Hello
+[16:40] <razvan_> hello
+[16:40] <vrooom> how do i find out my ubuntu version
+[16:40] <infinatious> can I use unity 8 from live cd
+[16:41] <imbezol> jagmeet: looks like extundelete is actually in apt
+[16:41] <infinatious> Can you use unity 8 from live CD?
+[16:41] <jagmeet> imbezol, Thanku. Hope it works! :)
+[16:41] <imbezol> good luck
+[16:41] <infinatious> Can you use unity 8 from live CD?
+=== LazyO|Off is now known as LazyO
+[16:42] <imbezol> jagmeet: you'll probably want to backup your system before using those tools
+[16:42] <imbezol> jagmeet: they may do funky things to your filesystem
+[16:42] <imbezol> jagmeet: just don't write anything to the affected filesystem
+[16:43] <imbezol> jagmeet: the more changes on that filesystem the less likely you'll be able to recover anything
+[16:47] <jagmeet> imbezol, thanks for advice. Is it a good backup tool shipped with ubuntu or I should try something else!
+[16:48] <imbezol> jagmeet: sorry.. just not familiar with the tools as i haven't had to use them in a long time
+[16:48] <imbezol> jagmeet: you may need to do some reading
+[16:49] <Giwrgaras> hi, i tried to partition my hd using the live cd. Now i successfuly have 22gb's free but ubuntu sees it as a separate hd. How do i add them to my current ubuntu disk?
+[16:49] <jagmeet> imbezol, okey well thanks for your help.
+[16:49] <jagmeet> :)
+[16:50] <cfhowlett> Giwrgaras, delete that partition.  expand the partition you have into the empty space
+[16:51] <Sockseven> Anyone know of something like xephyr that allows for hardware Gl acceleration?
+[16:51] <Giwrgaras> i didnt use Gparted, only the live cd
+[16:51] <dunpeal> Hi. I am suffering from this issue: https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/1391731
+[16:51] <ubottu> Launchpad bug 1391731 in ubiquity (Ubuntu) "Installer crashed while installing Ubuntu 14.04.1" [High,Confirmed]
+[16:52] <dunpeal> Can anyone recommend a way around this problem?
+[16:52] <dunpeal> I understand ubiquity is the graphical installer. Can I run an alternative installer, perhaps a text-based one?
+=== ASHER is now known as Guest43742
+[16:54] <cfhowlett> dunpeal, sure.  #ubuntu-server is text-based
+[16:55] <dunpeal> cfhowlett: what are the implications of using Ubuntu Server for a developer workstation?
+[16:56] <cfhowlett> dunpeal, you]
+[16:56] <dunpeal> this is definitely the type of box I'd normally install the Desktop flavor.
+[16:56] <cfhowlett> you'll still need to install the DE and apps you want; trivial.  sudo apt-get install ubuntu-desktop
+[16:57] <cfhowlett> !mini | dunpeal, or try the mini if you have an active ethernet connection during install
+[16:57] <ubottu> dunpeal, or try the mini if you have an active ethernet connection during install: The Minimal CD image is very small in size, and it downloads most packages from the Internet during installation, allowing you to select only those you want.  The installer is text based (rather than graphical as used on the Desktop DVD). See https://help.ubuntu.com/community/Installation/MinimalCD
+[16:57] <nataly> casio camera which worked in 12 wont be recognized in 14.04 - any ideas?
+[16:57] <dunpeal> cfhowlett: or xubuntu-desktop I assume?
+[16:58] <cfhowlett> dunpeal, exactomundo
+[16:58] <nataly> i think this is the bug - but i have no idea how to fix or path this? https://bugs.launchpad.net/ubuntu/+source/gvfs/+bug/1296275
+[16:58] <ubottu> Launchpad bug 1296275 in gvfs (Ubuntu Utopic) "PTP Cameras not working on 14.04, works flawlessly on 12.04" [Low,Triaged]
+[16:58] <dunpeal> cfhowlett: cool, thanks!
+[16:59] <cfhowlett> dunpeal, if possible, mini if not server >>> desktop
+[17:00] <vrooom> is gnome already installed when I install 14.04 or do I have to fetch it?
+[17:00] <dunpeal> cfhowlett: I do have an internet connection, but usb-creator-gtk doesn't seem to like mini.iso
+[17:00] <phao> Hi. When I mistype my password in a login screen or when trying to sudo something, I get a delay before I can try again.
+[17:00] <dunpeal> vrooom: it's installed.
+[17:01] <phao> How can I decrease that delay?
+[17:01] <vrooom> should I close everything before I switch?
+[17:01] <dunpeal> vrooom: wait, you're switching to pure Gnome desktop?
+[17:01] <vrooom> pure?
+[17:01] <dunpeal> vrooom: what exactly are you trying to do?
+[17:02] <vrooom> dunpeal: i have unity, dont really like it. want to try gnome and kde
+[17:02] <dunpeal> vrooom: OK, yeah, that's a big change.
+[17:02] <dunpeal> vrooom: you will definitely want to restart if you switch.
+[17:03] <nataly> i think this is the bug - but i have no idea how to fix or patch this? https://bugs.launchpad.net/ubuntu/+source/gvfs/+bug/1296275
+[17:03] <ubottu> Launchpad bug 1296275 in gvfs (Ubuntu Utopic) "PTP Cameras not working on 14.04, works flawlessly on 12.04" [Low,Triaged]
+[17:04] <nataly> i need help w casio camera in 14.04 - wont recognize it :/
+[17:05] <vrooom> dunpeal: how is the switch done? it is hard to find a not outdated document on it
+[17:05] <dunpeal> vrooom: I'm not entirely sure honestly. I would try via a LiveCD instead of actually switching desktop on a working system.
+[17:05] <dunpeal> especially since you also want to try KDE
+[17:06] <dunpeal> vrooom: generally, if you want an alternative desktop you are better off installing an alternative flavor from scrach, e.g. Kubuntu
+[17:07] <vrooom> well i want to try them first
+=== monkeyjuice is now known as rudybotdog
+[17:07] <dunpeal> OK. So get LiveCDs of every flavor you want to try, play with it, decide what you like, and install it.
+=== rudybotdog is now known as monkeyjuice
+=== IdleOne is now known as Guest98005
+[17:08] <dunpeal> (Personally I'd recommend Xubuntu)
+[17:08] <vrooom> does Linux "age"? My computer seems to have gotten slower since i Installed Unity/Ubuntu 6 months ago
+[17:10] <dunpeal> vrooom: it can happen if you install a lot of services.
+[17:10] <dunpeal> i.e. programs that are constantly running and eating up CPU cycles.
+[17:10] <vrooom> what about becoming part of a botnet
+[17:10] <vrooom> lower risk on Linux?
+[17:10] <Giwrgaras> hi, how do i expand my partition using the live cd?
+[17:11] <nrobinson> hello everyone!
+[17:11] <wandered56> Hi. Have some problem with ZTE modem (AC5730) on 14.04, can someone help?
+[17:11] <TimR> Hi guys I am having apache2 issues the server isnt redirecting to the correct site and I have sites enabled but its not redirecting
+[17:11] <dunpeal> vrooom: yes, lower risk, still possible.
+[17:12] <daftykins> TimR: first time running a web server?
+[17:12] <wandered56> When I connect it to PC, it takes a min for OS to detect it, though modem is already on.
+[17:12] <dunpeal> malware can still happen in Linux, it's just that you need to be more careless to get it.
+[17:12] <TimR> daftykins no
+[17:12] <daftykins> TimR: are you serving just one site right now, or multiple?
+[17:13] <wandered56> Any ZTE modem users here?
+[17:13] <TimR> one server is just running one site
+[17:13] <nrobinson> derp
+[17:14] <daftykins> TimR: and what does it do?
+[17:14] <Giwrgaras> can i use gparted and just allocate disk size ? or i do that only with the live cd in a virtual environment?
+[17:14] <kubunto> anyone know how to get linux up to snuff on bluetooth
+[17:15] <TimR> it just keeps redirecting to default page when I already added it to /etc/apache2/sites-available
+[17:15] <TimR> and enabled the site
+[17:15] <daftykins> you have to replace the 'default'
+[17:16] <daftykins> typically you add two new directives within the config of those hosting multiple sites too
+[17:17] <TimR> because whats in there now is default conf and ssl-default and my site conf
+[17:17] <daftykins> yes, remove default
+[17:18] <TimR> can i just disable default
+[17:18] <daftykins> experiment if you like
+[17:19] <kubunto> anyone know about ubuntu and bluetooth
+[17:20] <daftykins> kubunto: you have to ask a more specific question to get any form of response
+[17:20] <kubunto> daftykins: i want to be able to use a bluetooth mic with my xubuntu machine
+[17:21] <kubunto> daftykins: i am unable to even see it thru the bluetooth utilities so far
+[17:21] <daftykins> mmk, well i know nothing about it so address the channel, not me
+[17:22] <kubunto> anyone know about ubuntu and bluetooth
+[17:23] <vrooom> how do I use multiple windows in gnome?
+[17:23] <vrooom> or is that feature only in KDE?
+[17:24] <daftykins> you mean virtual desktops i would think
+[17:24] <vrooom> like i can have one desktop for surfing, one for working etc
+[17:24] <kubunto> vrooom: virtual desktops is a thing in most ubuntu derivatives
+[17:24] <kubunto> certainly in xubuntu
+[17:24] <Crell> There's an Ubuntu flavor that does't do it?
+[17:24] <kubunto> and kubuntu
+[17:24] <vrooom> in unity?
+[17:25] <kubunto> look at settings -> workspace
+[17:26] <xeniphon> I'm having a consistent problem.  I am running Google Chrome on UUU 14.10.   When I open a video on Youtube, Unity crashes.  It seems to crash in such a way that I can't simply restart unity (I think because something on the dbus is slightly wedged)
+[17:26] <xeniphon> Any idea how to narrow down my unity crash?
+[17:27] <daftykins> test the guest account
+[17:27] <xeniphon> I have multiple user accounts and the unity crash is consistent across all of them.
+[17:29] <vrooom> kubunto, i cannto find settings->workspace (im on gnome in 14.04)
+[17:30] <kubunto> vrooom: sadly i am not running ubuntu but i would search either settings or workspace in the search utility
+[17:31] <jhutchins> xeniphon: Does it work with firefox?
+[17:31] <xeniphon> I suspect something in the Unity->compiz->mesa->Intel HD linkage is at fault here.  When I try to restart unity it gets an error with something on the dbus.
+[17:32] <xeniphon> So far Firefox has caused no crashes, although playback in firefox is choppy.
+[17:32] <th3_mol3> hi, I'm using Ubuntu 14.04
+[17:32] <th3_mol3> under the sound button at the top it has a list of audio applications
+[17:32] <th3_mol3> just wondering if there's any way to remove or add them
+[17:32] <xeniphon> The video in chrome is very nice and smooth, but all the window decorations are gone; panel is gone, launcher is gone.
+[17:33] <xeniphon> I attempted to fall back on an old standard (twm) and found that something in the Unity collection of *stuff* has completely claimed the menu bar and moved it away, so even TWM is more challenging than it should be.
+[17:35] <foxlet> th3_mol3: If you mean the applet under the volume menu, as far as I know, no.
+[17:35] <rayq> th3_mol3: see this link http://askubuntu.com/a/468839
+[17:35] <Seveas> xeniphon: you shouldn't be using unity with twm :)
+[17:35] <foxlet> th3_mol3: Not without going into dconf.
+[17:35] <xeniphon> when unity crashes and I can't manipulate any windows, I attempted to bring up _any_ window manager to help me get around.
+[17:36] <xeniphon> TWM and MWM were my first fallbacks, and you're right - they don't get around.
+[17:36] <dunpeal> OK, apparently my installer is failing since I am trying to install grub over a hardware RAID0 setup.
+[17:36] <Seveas> xeniphon: ah, I only saw your last line :)
+[17:36] <dunpeal> Which Ubiquity doesn't properly recognize.
+[17:37] <Seveas> xeniphon: switch youtube to html5, maybe it's the flash crap making it crash.
+[17:37] <th3_mol3> ty foxlet, rayq
+[17:37] <xeniphon> My standard tricks  - CTRL-ALT-Backspace --- init 3; init 5; -- mwm...  None of them help me get out of whatever wedged process I have, and Unity is a complex beasty indeed.
+[17:38] <daftykins> xeniphon: probably because zapping is disabled as default, ubuntu doesn't use runlevels and so on
+[17:38] <jhutchins> xeniphon: init 3 = init 5 in ubuntu.
+[17:38] <Seveas> xeniphon: c-a-bksp has been disabled eons ago, and runlevels don't matter anymore either. So all those things are no-ops.
+[17:39] <xeniphon> daftykins, jhutchins;  I get it.  Fine...
+[17:39] <Seveas> time to drag yourself into the 2010's :)
+[17:39] <xeniphon> I still get rather well and wedged.  I hate that CTRL-ALT-F1, CTRL-ALT-DEL is my MOST EFFICIENT way to get back in operation.  I want to find the broken piece and fix it.
+[17:40] <daftykins> you can still get to TTYs and restart lightdm
+[17:40] <xeniphon> seveas; and how would I switch youtube to html5?
+[17:40] <xeniphon> daftykins a restart of lightdm errors out.
+[17:40] <Seveas> xeniphon: https://www.youtube.com/html5
+[17:40] <foxlet> th3_mol3: In terms of adding an app, you could try manually writing a .desktop for your app, then adding it to /usr/share/applications and editing the values in dconf.
+[17:41] <daftykins> sounds like your install is broken
+[17:41] <NinjaCowboy> What package provides windres? I have mingw32-binutils installed, but I still get windres: command not found.
+[17:41] <Seveas> NinjaCowboy: binutils-mingw-w64-i686: /usr/bin/i686-w64-mingw32-windres
+[17:41] <xeniphon> Daftykins:  Probably.  Now how do I find what is broken?
+[17:41] <daftykins> no idea.
+[17:42] <Seveas> NinjaCowboy: mingw32-binutils: /usr/bin/i586-mingw32msvc-windres
+[17:42] <daftykins> try reinstalling ubuntu-desktop and running a dist-upgrade
+[17:42] <ghost__> hi
+[17:42] <ghost__> can someone please help me?
+[17:42] <jabberwalky123> hi
+[17:42] <xeniphon> daftykins:  no thanks.  I am not a Windoze admin.  :P
+[17:42] <vrooom> so Unity has several workspaces? how?
+[17:42] <Seveas> ghost__: nope. You haven't told us what you need help with and we can't read minds :)
+[17:43] <bubbasaures> ghost__, stste a support issue for help.
+[17:43] <cfhowlett> !ask | ghost__,
+[17:43] <bubbasaures> state*
+[17:43] <ubottu> ghost__,: Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[17:43] <daftykins> xeniphon: ok well you're on your own then.
+[17:43] <xeniphon> :-D
+[17:43] <NinjaCowboy> vroom: Ctrl+Alt+arrow keys
+[17:43] <NinjaCowboy> vrooom: Ctrl+Alt+arrow keys
+[17:44] <ghost__> oh lol
+[17:44] <ghost__>  im using a swapfile to hibernate in ubuntu and it works, but after i turn my laptop on the fn keys stop working and the user is already logged in, how can i fix this?
+[17:44] <Seveas> ghost__: the fact that the user is already logged in is the whole point of hibernate :)
+[17:44] <Seveas> (no idea on the fn keys)
+[17:45] <vrooom> NinjaCowboy, how do you enable it?
+[17:45] <bubbasaures> ghost__, You ever have a swap partition and it worked, not sure a swap file is the best or optimal.
+[17:45] <kss> Hi, i have a problem with mouse. Pointer does not move, buttons does not work. Yesterday everything was fine, but today,only touchpad works. It is wireless mouse, and when i plug in the adapter, laser is gloving. Any ideas?
+[17:45] <ghost__> no i mean, the user directly enters without asking for password
+[17:45] <cfhowlett> kss, wireless mouse?  batteries ...
+[17:46] <NinjaCowboy> vrooom: What Ubuntu version? I'm using 12.04 and it does that by default. There's a switcher icon in the launcher, too.
+[17:46] <kss> nope it is not the case
+[17:46] <kss> laser is gloving
+[17:46] <Seveas> cfhowlett: "laser is glowing" :)
+[17:46] <kss> glowing*
+[17:46] <bubbasaures> ghost__> no i mean, the user directly enters without asking for password  to whom are you addressing?
+[17:46] <xeniphon> seveas:  did I mention that my crash happens with Google Chrome?  I do believe it defaults to HTML5
+[17:46] <vrooom> 14.04
+[17:46] <vrooom> how do I enable bluetooth
+[17:46] <Seveas> xeniphon: could be, I don't use chrome :)
+[17:46] <ghost__> seveas
+[17:46] <cfhowlett> !bt | vrooom
+[17:46] <cfhowlett> !bluetooth | vrooom
+[17:46] <ubottu> vrooom: For instructions on how to set up bluetooth, see https://help.ubuntu.com/community/BluetoothSetup
+[17:47] <jhutchins> xeniphon: Did you tell us whether firefox crashes as well?
+[17:47] <bubbasaures> !who | ghost__ always use nicks
+[17:47] <ubottu> ghost__ always use nicks: As you can see, this is a large channel. If you're speaking to someone in particular, please put their nickname in what you say (use !tab), or else messages get lost and it becomes confusing :)
+[17:47] <ghost__> and is a swap partition better than a swap file?
+[17:47] <Seveas> jhutchins: yes he did and no it doesn't but is choppy.
+=== magic is now known as Auv
+[17:47] <xeniphon> jhutchins:  Yes I did and no it does not.  Firefox works brilliantly.
+=== sherlock_ is now known as Guest95579
+[17:47] <ghost__> oh sorry, it's my first time using irc :p
+[17:47] <bubbasaures> ghost__, A swap file is a last resort generally, and resizing swap.
+[17:48] <bubbasaures> a resizing*
+[17:49] <xeniphon> jhutchins: and for clarity, Chrome does not crash.  Chrome continues to run and play videos.  The screen blanks out for a moment and the panel, launcher and "window chrome" go away.
+[17:49] <NinjaCowboy> vrooom: You should have this icon in the launcher. http://tinyurl.com/p6llhcw If you don't, you probably have to install ccsm and change some settings.
+[17:49] <Seveas> xeniphon: anything in dmesg or the xorg log? Sounds like a driver hang followed by a unity crash.
+[17:50] <NinjaCowboy> I swear, the System Settings in Ubuntu is becoming almost worthless.
+[17:50] <xeniphon> (window chrome = min, max, close, and resize handles...  distinct from Google Chrome which the browser around witch the chrome  - um - collects.)
+[17:50] <Basketball> happy new year
+[17:51] <Seveas> happy 2015 to you, Basketball
+[17:51] <bubbasaures> NinjaCowboy, linux is configs in the end from the cli, if the gui does not suite you.
+[17:51] <xeniphon> Seveas:  I've seen nothing in dmesg.  Having trouble finding standard bits like .xsession errors and xorg logs in Ubuntu.
+[17:52] <Seveas> /var/log/Xorg.0.log
+[17:52] <Seveas> ~/.xsession-errors tends to be useless, but you may be "lucky"
+[17:52] <Pombolo> k
+[17:53] <Pombolo> l
+[17:53] <drrthe>  /format awl_display_key_active = $Q%K|$N%n $H%U$C%n$S
+[17:54] <xeniphon> Ah hah: "[  3768.905] (EE) intel(0): Detected a hung GPU, disabling acceleration."
+[17:54] <Seveas> ding! ding! ding!
+[17:54] <xeniphon> Now, how the heck do I have a hung GPU?
+[17:55] <Seveas> viagra
+[17:56] <xeniphon> Seveas: (no, those sites work just fine.  )
+[17:56] <Seveas> which Ubuntu version? I had this with 14.04
+[17:57] <xeniphon> Seveas: 14.10 (upgraded from previous versions - I think I started at 13.04 with this machine.  The 14.04 upgrade made all kinds of messes I am still working through.)
+[17:58] <Seveas> I'd suggest a reinstall with a fresh 14.10. That helped in my case.
+[17:58] <xeniphon> On my work machines that would be absolutely the thing to do.  On my learning machine this is exactly how I keep skills up... find the problem and FIX IT ;-)
+[17:59] <feurd> Is there a command line to move a file to a destination, and directy go to that destination with the terminal?
+[17:59] <EriC^^> feurd: make an alias
+[18:00] <davido_> I asked this a few days ago but it scrolled away before anyone really noticed....  My mouse scroll wheel works only intermittently in Ubuntu. This started recently.  I have verified it works fine elsewhere, thus ruling out hardware as the issue.
+[18:00] <xeniphon> Seveas: ( I can't tell you the number of oddities that cropped up by 1- using Likewise on 13.04, then 2- likewise is gone and I've moved back to winbindd in 14  - mostly user-account issues, but still)
+[18:00] <feurd> EriC^^: Ok thanks. I just wanted to be sure I was not missing something before creating an alias
+[18:01] <feurd> I don't know how to create such an alias though...
+[18:01] <Seveas> mingw32-binutils: /usr/bin/i586-mingw32msvc-windres
+[18:01] <davido_> By intermittently I mean a window will scroll a few clicks and then stop scrolling.
+[18:02] <davido_> Quite annoying; you don't realize how much you use the scroll wheel until it stops working.
+[18:02] <feurd> davido_: I had the same issue with my mouse. I changed for an other one and it was ok. So it might be a driver issue.
+[18:03] <feurd> Is it a razer or a cybord by any chance?
+[18:03] <davido_> feurd Possibly, but if so, it's been introduced as a regression, because it worked fine from 2011 until last week.
+[18:03] <davido_> feurd: just the generic one that came with the pc years ago.
+[18:04] <davido_> (I'm not that into hardware :)
+[18:04] <feurd> Mhmm ok. So probably not a driver issue :(
+[18:04] <davido_> well, it still could be, but it would indicate a bug that came with an update along the way.
+=== netfox is now known as Guest69723
+[18:06] <feurd> And would affect drivers for old generic hardware?
+[18:06] <davido_> Who knows what the kernel dev team have done recently ;)
+[18:06] <feurd> New Year's Eve bugs :)
+[18:07] <davido_> It's not hard to imagine a tweak here could have an unintended (and untested) effect there.
+[18:08] <davido_> Maybe I will try swapping it out with a different one though.
+[18:14] <daftykins> someone really needs to temporarily ban derk0pf
+[18:15] <vrooom> NinjaCowboy, i dont have Bluetooth symbol in my taskbar
+[18:15] <vrooom> i had Bluetooth working on windows, it is a chip in the machine, not a dongle.
+[18:15] <NinjaCowboy> vrooom: If you're talking about bluetooth, there should be an icon for it in the System Settings.
+[18:17] <davido_> Back to my mouse scroll wheel; forgot to mention that it does work under a virtual guest (VirtualBox) running Windows.
+[18:17] <davido_> Same machine.
+[18:18] <notfadssss> +
+[18:18] <notfadssss> 6+
+[18:19] <blackangelpr> guys anyone uses in here realtime instead of noatime in your fstab ?
+[18:20] <blackangelpr> --> relatime
+[18:21] <vrooom> NinjaCowboy, yes, but i cannot turn it on. if i do, it still says not enabled and i go back to settings and into bluetooth again it is disabled
+[18:32] <g105b> I'm a bit confused about all the different desktop environments out there... is Ubuntu currently using Gnome in any way?
+[18:32] <jrtappers> Is there an easy way to tell which company is at fault for a server not being accessible from one connection, but available from others?
+[18:33] <rwp> jrtappers, Observe the routes using traceroute.  See where one works and one doesn't.  Point fingers then.
+[18:33] <jrtappers> rwp, Thats about where I am
+[18:33] <rwp> g105b, You can always install GNOME or KDE or LXDE or XFCE or whatever but the default at install time is Unity.
+[18:33] <monst> after displaying an image to TTY1 with fbi, how can I reset back to console?
+[18:33] <k1l_> g105b: unity is based on gnome. if you want gnome-shell as standard see the gnome edition.
+[18:33] <g105b> rwp: ok I just thought Unity was the launcher on top of Gnome... it looks similar.
+[18:34] <g105b> k1l_: I see
+[18:34] <rwp> Regarding routing...  On the larger Internet everything is mostly handled with handled with BGP to dynamically route around breakage. But sometimes it is broken anyway.
+[18:34] <k1l_> g105b: it is a shell for gnome like gnome-shell is. just another shell :)
+[18:34] <jrtappers> Having to use ssh over ssh tunnel to access the server...
+[18:34] <g105b> What is the global/local menu feature a part of.... is that gnome?
+[18:34] <rwp> g105b, Looking similar is only an indication that they were influenced by similar ideas. It is quite different code.
+[18:35] <k1l_> g105b: you mean the menue bar? that is unity, which is a compiz plugin
+[18:35] <g105b> k1l_: now you see why I'm confused :) compiz comes from where?
+[18:35] <pl1x> any idea why the fan only runs loud when i use ubuntu/linux on my toshiba tecra notebook?
+[18:36] <k1l_> g105b: compiz is back from the gnome2 times. it was used for the 3d cube etc eyecandy stuff. gnome has mutter for that since gnome3.
+[18:37] <k1l_> but unity still uses compiz even on the gnome3 base. the gnome shell uses mutter for that stuff.
+[18:38] <bug_sniper> how much disk space does ubuntu desktop take?
+[18:38] <OerHeks> bug_sniper, 7 gb+
+[18:38] <bug_sniper> I see
+[18:39] <bug_sniper> maybe I'll install the server instead or just go with puppy linux
+[18:39] <g105b> k1l_: so on the whole, compiz is just hanging around for the odd feature here and there?
+[18:40] <feurd> I don't know if someone here uses i3, but when I have 3 windows in a row, how can I stack only twho of them?
+[18:40] <k1l_> g105b: no. unity was build "inside" compiz so they need to keep it even on the gnome 3 base. for the new unity8 (which will work on MIR) there will be no compiz involved. its just that for the old x-server unity no one wanted to do the complete rewrite.
+[18:41] <g105b> I think I understand, thanks.
+[18:43] <dunpeal> Can I install Ubuntu with a RAID setup using the Desktop installer?
+[18:44] <Giwrgaras> office 2010 on ubuntu? Does it work? anyone knows?
+[18:44] <SchrodingersScat> !info libreoffice | Giwrgaras
+[18:44] <ubottu> Giwrgaras: libreoffice (source: libreoffice): office productivity suite (metapackage). In component universe, is optional. Version 1:4.3.3-0ubuntu1 (utopic), package size 26 kB, installed size 165 kB
+[18:44] <Giwrgaras> thats crap what can i do with that
+[18:44] <Giwrgaras> i tried via wine
+[18:45] <Giwrgaras> and it says platinum for 2010 but i tried 3 different editions without luck
+[18:45] <Giwrgaras> maybe 2007?
+[18:46] <bekks> There is no "Platinum" for Office 2010.
+[18:46] <bekks> Or do you refer to the support "state" in wine?
+[18:46] <vrooom> How do I install CCSM?
+[18:47] <blackangelpr> Giwrgaras, just curious what do you do in office that you cant do in libreoffice?
+[18:48] <xangua> go to software centre and install compiz settings vrooom
+[18:49] <k1l_> vrooom: ccsm is for advanced users. you can break your desktop system with that. better use unity-tweak-tool
+[18:50] <vrooom> not on unity
+[18:50] <7F1ACDQDF> hello
+[18:50] <7F1ACDQDF> anyone uses deluge ?
+[18:50] <bekks> !ask | 7F1ACDQDF
+[18:50] <ubottu> 7F1ACDQDF: Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[18:50] <vrooom> k1l_, i cant get workspaces to work
+[18:50] <vrooom> how do i create a new one
+[18:51] <k1l_> vrooom: which desktop and which ubuntu version?
+[18:51] <7F1ACDQDF> bekks, what are you doing ?
+[18:52] <bekks> 7F1ACDQDF: Do you have a specific support question? If so, then just feel free to ask it :)
+[18:53] <7F1ACDQDF> bekks, that requires someone that uses and knows deluge first
+[18:53] <Giwrgaras> blackangelpr:
+[18:53] <bekks> 7F1ACDQDF: It requires a specific question.
+[18:53] <blackangelpr> ?
+[18:53] <Giwrgaras> onenote mostly
+[18:53] <Giwrgaras> also ms excel
+[18:53] <Giwrgaras> and powerpoint ofcourse
+[18:53] <k1l_> 7F1ACDQDF: ok, then wait until someone raises a voice and says he uses it and stay silent for that time. or you could just ask the question and see if someone can help.
+[18:54] <Giwrgaras> i rely heavily on onenote and i see no good alternative on ubuntu unfortunately
+[18:54] <k1l_> 7F1ACDQDF: (hint: 2nd way works better on irc)
+[18:54] <bekks> Giwrgaras: Evernote.
+[18:55] <blackangelpr> Giwrgaras, http://askubuntu.com/questions/511629/does-libre-office-have-an-equivalent-of-one-note-or-is-there-another-alternativ   please note you can use it online or find an alternative program mentioned on the link provided
+[18:56] <7F1ACDQDF> bekks, k1l_ i think you are wrong.
+[18:56] <bekks> 7F1ACDQDF: Good luck then.
+[18:57] <7F1ACDQDF> bekks, you were not providing any
+[18:57] <Giwrgaras> blackangelpr:  thanks. i tried to use the online solution but it doesnt compare to the real one. Also the other programs also are not good alternatives. I think wine is a good solution
+[18:58] <marshal0505> 7F1ACDQDF: He tried helping you but  you refused
+[18:59] <7F1ACDQDF> marshal0505, he helped nothing
+[18:59] <7F1ACDQDF> marshal0505, instead vroom contacted me in private because he was using deluge
+[19:00] <7F1ACDQDF> vrooom, I found the solution. You need to use complete allocation to be able to change file priorities
+[19:00] <vrooom> Maybe workspaces isnt what i thought?
+[19:00] <vrooom> I want a separate desktop for programming and surfing
+[19:00] <vrooom> I canot do that
+[19:00] <vrooom> i have the workspace symbol in bottom right, using gnome on 14.04
+[19:00] <k1l_> vrooom: what ubuntu exactly? what desktop in use?
+[19:00] <bekks> vrooom: Which desktop environment do you use, then?
+[19:01] <bekks> Ah, gnome. Didnt use that as a desktop for years now, sorry.
+[19:01] <vrooom> if I click Preferences and add to the nbr of workspaces it doesnt do anything
+[19:01] <vrooom> bah
+[19:01] <vrooom> i go back to unity maybe7
+[19:03] <Loshki> vrooom: your terminology is a bit off, desktops and workspaces aren't the same. Dunno why yours aren't working. Never had that particular problem.
+[19:06] <dunpeal> !raid
+[19:06] <ubottu> Tips and tricks for RAID and LVM can be found on https://help.ubuntu.com/community/Installation/SoftwareRAID and http://www.tldp.org/HOWTO/LVM-HOWTO - For software RAID, see https://help.ubuntu.com/community/FakeRaidHowto
+=== soee_ is now known as soee
+[19:10] <johnb003> how can I get a sense of how my iptables rules are working?
+=== andlabs is now known as andlabs|2
+[19:13] <andlabs|2> Is there a way I can *install* MS-DOS or FreeDOS to a USB stick from Linux? unetbootin doesn't produce a working flash drive (as usual)
+[19:16] <deSouza> how do i update 14.04 to 14.10?
+[19:17] <MonkeyDust> !upgrade
+[19:17] <ubottu> For upgrading, see the instructions at https://help.ubuntu.com/community/UpgradeNotes - see also http://www.ubuntu.com/desktop/get-ubuntu/upgrade
+[19:17] <k1l_> deSouza: run the update-manager
+[19:21] <xangua> andlabs|2: usually unetbootin is only for linux distros, you can try multiboot or multisystem (not in software centre)
+[19:22] <joeb3_>  johnb003  sudo iptables -vL
+[19:22] <johnb003> 1.4.12
+[19:23] <johnb003> I am using linux mint 15 which is no longer supported
+[19:23] <johnb003> so I haven't been getting updates lately.
+[19:24] <johnb003> oh lowercase v
+[19:24] <joeb3_> yes
+[19:24] <daftykins> !mint | johnb003
+[19:24] <ubottu> johnb003: Linux Mint is not a supported derivative of Ubuntu. Please seek support in #linuxmint-help on irc.spotchat.org
+[19:25] <k1l_> johnb003: besides mint not beeing supported in this room but in the mint channels, you need to upgrade. unsupported releases suffer from more issues than you can handle
+[19:25] <johnb003> yeah, I realize that now :(
+[19:25] <johnb003> I didn't know when I installed it
+[19:25] <johnb003> but it's a major pain to do that
+[19:26] <daftykins> johnb003: c'est la vie
+[19:27] <daftykins> install a supported OS, and discuss it in their channels
+[19:27] <daftykins> it's not too much to ask :)
+[19:27] <johnb003> a week of my time seems like a lot
+[19:30] <andlabs|2> xangua: do you have a link? googling just gives me some suspicious looking page in french
+[19:31] <xangua> andlabs|2: if you mean multisystem, yes it's in french http://liveusb.info/dotclear/index.php?pages/install
+[19:32] <blackangelpr> guys anyone knows if Qualcomm Atheros AR9085 Wireless  its supported on 14.10 ?
+[19:32] <squinty> andlabs|2:  freedos has an iso listed on their page   why not just dd it?
+[19:34] <vbgunz> tail -n 10 /fileX returns lines of text whereas $(tail -n 10 /fileX) joins them. How can I capture the output without joining the lines?
+[19:34] <andlabs|2> squinty: because I also need to add some files to it
+[19:35] <andlabs|2> (I have always dd'd disk images to flash drives in the past though =P screw unetbootin)
+[19:35] <vbgunz> got it, I had to double quote it
+[19:38] <andlabs|2> squinty: unless there's a way I can add files?
+[19:39] <bekks> andlabs|2: dd it, then mount the usb, and do what you want to do to it.
+[19:42] <squinty> andlabs|2:  according to their page " Install only, does not include LiveCD"   dd and then install to medium of choice and then add perhaps?
+[19:45] <andlabs|2> squinty: perhaps I can do this on an old computer
+[19:46] <daftykins> o0
+[19:46] <bekks> andlabs|2: you dont need an old computer for doing that.
+[19:47] <feurd> Is there a way to change part of the name of a file without retyping the full new name?
+[19:47] <feurd> I want to go from 'long-name-bla' to 'long-name-pop'
+[19:48] <feurd> and there are many ambiguities so the TAB function is not very convenient.
+[19:48] <squinty> feurd:  type a few letters and then hit your tab key (will autocomplete if file is found in currect directory)
+[19:48] <squinty> feurd:  ok ignore that last one  lol!
+[19:48] <daftykins> feurd: #bash
+[19:49] <feurd> daftykins: Mhmm, could you be more specific?
+[19:49] <OerHeks> Why not just nautilus, you would be ready by now
+[19:50] <daftykins> feurd: it's a channel
+[19:50] <feurd> daftykins: oh ok. I'll see there. Thanks.
+[19:52] <squinty> andlabs|2:  heh   see if you have any rll or mfm drives to go with the old computer..  ;-)
+[19:54] <andlabs|2> squinty: lol
+[19:54] <andlabs|2> 2002
+[19:54] <andlabs|2> I had an arch install since that was the only thng that works on it
+[19:54] <andlabs|2> ...until it decided to push a kernel without HDD support in an update
+[19:54] <andlabs|2> I hope the freedos installer can partition around that
+[19:55] <blackangelpr> anyone knows how to make this wifi works? Qualcomm Atheros AR9085 Wireless
+[19:55] <daftykins> guys ubuntu support chat only, you're welcome to take fine nostalgia to #ubuntu-offtopic
+[19:55] <daftykins> blackangelpr: before you asked if it does, so are you saying you have booted/installed 14.10 on this system now?
+[19:56] <blackangelpr> 14.04
+[19:56] <blackangelpr> not sure if 14.10 support it
+[19:56] <blackangelpr> daftykins, do you know a link to verify ?
+[19:57] <daftykins> blackangelpr: so you haven't booted or installed?
+[19:57] <blackangelpr> it have 14.04
+[19:57] <bekks> blackangelpr: And your wifi is working?
+[19:57] <blackangelpr> no.. ^^
+[19:58] <blackangelpr> thats why i ask if some one knows something about that spesific wifi dev
+[19:59] <bekks> blackangelpr: Your question should be "How do I get an AR9085 wifi working on Ubuntu 14.04?" then, instead of taking polls for 14.10 ;)
+[19:59] <daftykins> yeah but you weren't very clear on whether you were looking to buy such a device, or already had ubuntu installed on it :P
+[20:00] <blackangelpr> my bad
+[20:01] <g0uZ> https://bugs.launchpad.net/ubuntu/+source/audit/+bug/1317188
+[20:01] <ubottu> Launchpad bug 1317188 in audit (Ubuntu) "auditctl in Precise 1204 uses syscall API deprecated since 2006, fails to work with kernels after 2013-04-30" [Undecided,New]
+[20:01] <g0uZ> will it be fix ?
+[20:04] <g105b> Can I get global/local menubars in another distro? Is it just a simple Compiz configuration?
+=== user_ is now known as user0815
+[20:05] <OerHeks> g105b, global menu is unity-only, AFAIK
+[20:08] <erisco> my macbook running ubuntu 14.04 boots to a black screen. this may be after I enabled a proprietary nvidia driver
+[20:09] <erisco> I cannot get access to a tty (or the screen may still be off when I switch to one)
+[20:10] <daftykins> !nomodeset | erisco
+[20:10] <ubottu> erisco: A common kernel (boot)parameter is nomodeset, which is needed for some graphic cards that otherwise boot into a black screen or show corrupted splash screen. See http://ubuntuforums.org/showthread.php?t=1613132 on how to use this parameter
+[20:10] <erisco> I cannot get access to the grub boot menu
+[20:10] <erisco> I hold the shift keys, tap them, nothing has worked after repeated attempts
+[20:11] <erisco> I can get to the grub shell by hitting esc ... perhaps I can apply the boot parameter there
+[20:13] <xangua> OerHeks: g105b doesn't kde has global menu since version 3¿
+[20:13] <g105b> xangua: I do not know, will look into it thanks.
+[20:16] <deaths> how do u change the resolution of the screen
+[20:16] <[R]> i just installed a fresh ubuntu, and i dunno what i broke... but when i click an icon in the unity launcher, it's supposed to show all the running instances, but it's not... is there a setting i turned off somewhere?
+[20:18] <xangua> [R]: sounds like expose plugin, maybe you changed something using compiz settings manager or unity tweak
+[20:19] <[R]> i dont see an expose...
+[20:19] <[R]> i see expo
+[20:19] <xangua> that one, not on ubuntu right now :P
+[20:20] <xangua> you can also just delete compiz config if you don't find what you modified
+[20:21] <[R]> hrm
+[20:21] <johnb003> I have 4x drives which I'd like to use as part of a raid and to add a few more drives in the process of setting up my raid. Do I need all the discs to be the same size?
+[20:21] <[R]> i guess thats easiest
+[20:22] <johnb003> or can the new ones be bigger? will it impact the raid? I'm thinking Raid-Z or something
+[20:22] <bekks> johnb003: Technically, no. But the you will be wasting the delta of the bigger disks.
+[20:22] <bekks> johnb003: RAIDZ is something which is available using ZFS only. In case of ZFS, you should redesign your approach, since it works fdifferently from conventional RAID solutions.
+[20:23] <johnb003> well, I currently am not using a hardware raid, nor a fs based raid
+[20:23] <johnb003> I have a backup-style raid
+[20:23] <johnb003> it does a snapshot every so often to form the pairty
+[20:24] <johnb003> I don't really like it though, it seems fragile
+[20:24] <bekks> johnb003: That makes no sense: "it does a snapshot every so often to form the parity".
+[20:24] <johnb003> the concept is that the data doesn't change much
+[20:24] <johnb003> but after thinking about it I have the same problem with it
+[20:24] <johnb003> that you're intuitively having
+[20:24] <johnb003> that's why I want to change it
+[20:24] <bekks> johnb003: However, using ZFS, you should get yourself more deeper into the specifics of RAIDZ1-3
+[20:25] <johnb003> would you recommend anything other than ZFS?
+[20:25] <upyeclipse> zermelo frankel set system?
+[20:25] <upyeclipse> system->theory
+[20:25] <bekks> johnb003: I'd recommend a hardware RAID or ZFS.
+[20:25] <upyeclipse> :)
+=== alexander is now known as Guest9830
+[20:26] <johnb003> so, I'm on the right track then
+[20:26] <johnb003> it's for a nas / server, with a lot of media
+[20:26] <Guest9830> Hi everyone! I'm trying to setup an IRC on my server. I'm using XChat and it keeps saying I have to install identd (?) after I tried installing . Can someone guide me a little bit ?
+[20:26] <johnb003> ok I'll go read about RAIDZI-3
+[20:27] <johnb003> was the i a typo?
+[20:27] <bekks> johnb003: Yes :)
+[20:27] <[R]> Guest9830: sounds like you should properly configure your server to not require identd
+[20:27] <bekks> johnb003: you can start here: http://zfsonlinux.org/docs.html
+[20:27] <Guest9830> Guest9830 is that a safe thing to do?
+[20:28] <Guest9830> Oh wait, I'm replying to myself xD [R] I meant
+[20:28] <daftykins> Guest9830: sounds like you need to do a fair bit more reading :P
+[20:28] <[R]> well no sane server requires it to begin with...
+[20:28] <johnb003> bekks: one of my big questions is will I be able to setup my raid with data on the drives currently?
+[20:28] <johnb003> I may double my storage to be able to do it...
+[20:28] <daftykins> you may notice in most connection logs, it reads "got no ident response"
+[20:28] <bekks> johnb003: No, thats impossible.
+[20:28] <bekks> johnb003: And impossible regardless of ZFS.
+[20:28] <johnb003> can't be impossible :P
+[20:29] <johnb003> can I grow my raid after I create it?
+[20:29] <bekks> johnb003: Well, so invent, copyright, trademark and sell it :)
+[20:29] <bekks> johnb003: Depending on the specifics of your RAID, you may be able to grow it afterwards.
+[20:30] <johnb003> if I double the storage and setup the new raid with the new storage, then copy all the data in from the initial drives.
+[20:30] <johnb003> Once added, I can then wipe the old drives and add them on to the raid
+[20:30] <johnb003> that's my thinking anyway
+[20:30] <bekks> johnb003: Thats depends on the specifics of your raid.
+[20:30] <johnb003> ok
+[20:33] <blurkis> sorry if OT, but is any one using digitalocean here that can pm me? I have a question regarding setting up dns etc?
+[20:33] <erisco> daftykins: I booted with nomodeset but the screen was still black
+[20:34] <dreks> I already ran apt-get to install a package... If i re-run apt-get with the --install-suggests option, it does not install the suggested packages that were passed over the first time
+[20:34] <aaearon> can anyone give me an example of their fstab mounting auto mounting nfs? when changing permissions im getting operation denied
+[20:34] <dreks> how can i get the suggested packages installed?
+[20:34] <g0uZ> https://bugs.launchpad.net/ubuntu/+source/audit/+bug/1317188 when will it be fixed ? its quiet a problem to have auditd not working on a LTS server 12.04
+[20:34] <ubottu> Launchpad bug 1317188 in audit (Ubuntu) "auditctl in Precise 1204 uses syscall API deprecated since 2006, fails to work with kernels after 2013-04-30" [Undecided,New]
+[20:35] <upyeclipse> How do I show hidden files?
+[20:36] <streulma> upyeclipse Ctrl H
+[20:39] <nutzz> Hey guys, I have a problem with some programs on ubuntu 14.04 (including kvirc and chrome), they have a very strange appearance, they look like old win3.1. I added some screenshots http://imgur.com/Edcno5k(chrome's icons fo refresh and arrows) and http://imgur.com/Ck08acJ(kvirc). What should I do?
+=== Yukinotteru is now known as Yukitteru
+[20:41] <mauriada> !list
+[20:41] <ubottu> mauriada: No warez here! This is not a file sharing channel (or network); read the channel topic. If you're looking for information about me, type « /msg ubottu !bot ». If you're looking for a channel, see « /msg ubottu !alis ».
+[20:43] <bubbasaures> nutzz, Be careful your links are not attached to your message,
+[20:43] <nutzz> http://imgur.com/Edcno5k and http://imgur.com/Ck08acJ(kvirc).
+[20:44] <bubbasaures> neither show anything
+[20:45] <SkulduggeryQ> Hey guys, I've been having a problem where when I use skype on ubuntu the sound and mic aren't picked up. Anyone have any ideas on how to fix this?
+[20:46] <SkulduggeryQ> eh?
+[20:48] <bubbasaures> SkulduggeryQ, Two versions skyoes and the ubuntu repo, which are you using?
+[20:48] <bubbasaures> skypes*
+[20:49] <Pnut> I'm running Ubuntu on a virtual box on Windows 7 and I can't get apt-get to work
+[20:49] <Pnut> ping and other network commands work
+[20:50] <SkulduggeryQ> I'm using the one I got from the skype website
+[20:50] <SkulduggeryQ> from the install on linux section
+[20:50] <xangua> Pnut: how about you show us the actuall apt-get message¿
+[20:50] <bubbasaures> SkulduggeryQ, Try the ubuntu repos version that is what is suggested, just a guess on it changing however.
+[20:50] <SkulduggeryQ> ok
+[20:51] <SkulduggeryQ> sorry i forget whats the uninstall command?
+[20:51] <Pnut> xangua it there is no message, just freezes when it tries to connect to server
+[20:51] <bubbasaures> !skype | SkulduggeryQ if needed
+[20:51] <ubottu> SkulduggeryQ if needed: To install Skype on Ubuntu, see https://help.ubuntu.com/community/Skype - To record on Skype, check: https://wiki.ubuntu.com/SkypeRecordingHowto - Please use open protocols instead if you can, see !Ekiga
+[20:51] <Pnut> [Connecting to us.archive.ubuntu.com] [Connecting to security
+[20:52] <Pnut> then nothing
+[20:52] <acer> hola
+[20:52] <SkulduggeryQ> ok
+[20:54] <Pnut> can no one help me?
+[20:54] <k1l> Pnut: give it some time?
+[20:55] <Pnut> it's taking way too long k1l
+[20:55] <k1l> Pnut: means?
+[20:55] <Pnut> what?
+[20:55] <k1l> how long did you wait?
+[20:55] <Pnut> several minutes
+[20:57] <streulma> Pnut, that's likely a dns problem of problem with your internet
+[20:57] <Pnut> dns works for other things though streulma
+[20:58] <streulma> Pnut, you can try another mirror in the Settings
+[20:58] <Pnut> where can I find mirrors?
+[21:01] <andlabs|2> ok turns out unetbootin works fine
+[21:01] <andlabs|2> on my old computer
+[21:01] <andlabs|2> for freedos
+[21:01] <andlabs|2> but freedos does not fix this program :D
+[21:01] <andlabs|2> off to find a way to get real MS-DOS working...
+[21:04] <Bashing-om> Pnut: Gui ? then -> SOFTWARE SOURCES > On the Ubuntu Software tab, select the drop down for "Download From" , Select Other > Choose your country then click on Choose best server....This will ping all the mirror sites for the best ping and then it will select the better server.
+[21:09] <jim_> Hi everybody, I have a question about some pdf files that has embeded audio file. How can i play this type of pdf files?
+[21:10] <erisco> how do you change the video driver being used? ubuntu boots to a black screen
+[21:10] <TheSurgeon> I am running Lubuntu and want to add a Sweex LW 323 stick but how do I install the driver. Anybody willing to help a noob?
+[21:10] <jim_> ---
+[21:11] <TheSurgeon> The Sweex LW 323 is a WIFI stick, BTW.
+[21:11] <k1l> erisco: what driver do you use now? and what card?
+[21:11] <Bashing-om> !nomodeset | erisco
+[21:11] <ubottu> erisco: A common kernel (boot)parameter is nomodeset, which is needed for some graphic cards that otherwise boot into a black screen or show corrupted splash screen. See http://ubuntuforums.org/showthread.php?t=1613132 on how to use this parameter
+[21:11] <k1l> TheSurgeon: run "lsusb" and give the line with that device please
+[21:12] <jim_> CRLF
+[21:12] <jim_> Hi everybody, I have a question about some pdf files that has embeded audio file. How can i play this type of pdf files?
+[21:12] <bekks> jim_: You could try the Adobe Acrobat Reader.
+[21:13] <TheSurgeon> k1l, Bus 003 Device 002: ID 177f:0323 Sweex
+[21:13] <jim_> @bekks, in ubuntu?
+[21:13] <bekks> jim_: Yes.
+[21:13] <erisco> Bashing-om: I set nomodeset yet still booted to a black screen
+[21:13] <jim_> @bekks, thanks!
+[21:14] <yflzn04571> and then some prims in logic
+=== tammytg is now known as tammy
+=== yflzn04571 is now known as tammytg
+[21:14] <Bashing-om> erisco: A black screen -- OR to a grub prompt ? What makes you think you need to change the graphics driver ?
+[21:14] <helasraizam> After updating Ubuntu to 14.10 (which had Grub2 installed with UEFI/gpt filesystem), I get a kernel panic on Arch
+[21:14] <helasraizam> [ 0.762548] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0).
+[21:14] <helasraizam> Everything worked fine before the update.  I've run boot-repair (from Ubuntu and livedisks), grub-mkconfig, and update-grub, and even checked /boot/grub/grub.cfg and validated the UUID and partition number with blkid.  I'm pretty lost when it comes to Grub; can anyone run me through troubleshooting?
+=== tammytg is now known as wallyyyyyyyy
+[21:15] <tammy> :/
+[21:15] <ikonia> helasraizam: what has arch got to do with ubuntu
+[21:15] <erisco> Bashing-om:a black screen
+[21:16] <k1l> TheSurgeon: does it work if you stick it in?
+[21:16] <TheSurgeon> k1l, no. It does not blink and does not show up in the panel.
+[21:16] <helasraizam> ikonia: I had Grub installed on Ubuntu, and that's what's causing the kernel panic, not the Arch filesystem (which worked fine before the upgrade)
+[21:16] <helasraizam> (I think)
+[21:16] <k1l> TheSurgeon: please show a "dmesg" in a pastebin
+[21:17] <ikonia> helasraizam: no
+[21:17] <ikonia> helasraizam: grub just boots it, nothing else
+[21:17] <wallyyyyyyyy> wallyyyyyyyy: not MSDOS, cmd.exe
+[21:17] <erisco> Bashing-om: I recently changed to an nvidia driver. That is all I can think of that is relevant
+[21:17] <Bashing-om> erisco: As k1l requests, card and driver installed > pastebin the results of -> lspci -nnk | grep -iA3 vga , sudo lshw -C display . We see what tale is told .
+[21:18] <soman> How can I download a page with a table from http://www.myscore.ru/football/russia/premier-league/results/ using wget / curl?
+[21:18] <erisco> I cannot see anything on the screen so how am I supposed to tell you that information?
+[21:18] <rmajkla> heyo
+[21:18] <helasraizam> ikonia: I think that's where the problem is.  Kernel panic means grub couldn't get to Arch to begin with, and that's what I'd like to troubleshoot
+[21:18] <ikonia> helasraizam: you're wrong
+[21:18] <ikonia> helasraizam: kernel panic means it's got to arch and booted the kernel
+[21:18] <bekks> helasraizam: Thats wrong.
+[21:18] <ikonia> hence "kernel panic"
+[21:19] <ikonia> it's booted the arch kernel - and it's panicing = arch problem
+[21:19] <bekks> helasraizam: Arch is unable to identify the block device you specified to be the root filesystem. Thats a Arch linux problem, and has nothing to do with grub/ubuntu.
+[21:20] <bekks> helasraizam: From what I've read in here this evening, it seems to be a broken kernel update in Archlinux. So please contact the Archlinux support.
+[21:20] <plut0> depmod is throwing a 'Bus error', how do i fix this?
+[21:20] <helasraizam> Ah.  I just came from #archlinux-newbie and they were under the impression that a module may have been missing or something from the Ubuntu side.  So you're saying that Grub has identified and booted Arch to get me this error?
+[21:20] <ikonia> helasraizam: no
+[21:20] <ikonia> helasraizam: because it's booting the arch kernel
+[21:20] <ikonia> so it's the arch kernel that's panicing
+[21:20] <Bashing-om> erisco: Good point ! .. ok, can you boot to grub's boot menu .. and try and boot to terminal by editing the boot parameter line ? ( e key -> replace quiet splash with the term text, ctl+x to continue the boot process ) .
+[21:21] <helasraizam> Alright ikonia, bekks.  Thanks
+[21:22] <TheSurgeon> k1l, http://pastebin.com/vg1mH1d7
+[21:23] <tammytg> I'm trying to create an sftp-only user and lock them to a contained folder, But I can't even get that username to log in correctly right now. I keep getting Network error: Software caused connection abort. I've tried the top 10 google returns for https://www.google.ca/search?&q=ubuntu%20set%20user%20to%20sftp
+[21:23] <k1l> TheSurgeon: for bananapi support please see their support channels.
+[21:23] <TheSurgeon> k1l, ok
+[21:24] <erisco> ffs
+[21:24] <erisco> how do you change the default key mapping
+[21:24] <erisco> for some reason ubuntu continually takes me off US and goes to UK which means I cannot type my blooming password
+[21:26] <erisco> Bashing-om:unfortunately it seems I cannot login
+[21:26] <bufferloss> how can I automatically swap my capslock and ctrl keys on startup?
+[21:26] <erisco> because I cannot type the needed chars for my password
+[21:26] <plut0> depmod is throwing a 'Bus error', how do i fix this?
+[21:26] <bufferloss> I used to put this in e.g. .xinitrc
+[21:26] <bufferloss> but that doesn't seem to take effect now in unity
+[21:28] <Bashing-om> erisco: I may have seen that as a reported bug .. Let me see what I can find on it .
+[21:30] <erisco> I have managed to find where # is finally, but I am still having trouble logging in... not sure now
+[21:30] <erisco> got it!
+[21:34] <superdingus> What are the risks/downside to using sudo for graphical applications? i.e. "sudo gedit"
+[21:34] <bekks> superdingus: The risks of messing up permissions for graphical applications.
+[21:34] <bekks> Just use gksudo instead.
+[21:35] <superdingus> Something I can fix on my own? I ask because any attempts to use gksudo completely crash my DE, so I've been assessing the risks of just not bothering with it
+[21:35] <erisco> still trying to find the pipe symbol so I can run that command...
+[21:35] <bekks> superdingus: Just use gksudo :)
+[21:35] <k1l> superdingus: what desktop? what ubuntu? what program?
+[21:35] <superdingus> gksudo gedit under ubuntu gnome remix
+[21:36] <superdingus> gives the error code that it could not call gnome.session.manager, then the DE crashes, and my computer locks up for ~2 minutes while everything relaunches
+[21:37] <superdingus> I was under the impression that using sudo gedit instead of gksudo gedit could cause edited text files to be owned by root and only root, so I was under the impression I could sudo chown to fix it when need be
+=== annoymouse is now known as MaybeNotJonSeals
+[21:38] <fakam> Hello, I want to use linux 24-7 but when I close my laptop lid the lap top seems to stay on and therefore gets really hot, instead of shutting down into sleep mode. Any Suggestions?
+[21:39] <estacado> Hi
+[21:39] <estacado> Any using kodi?
+[21:39] <estacado> I have a problem
+[21:39] <fakam> Ask a question if anyone can help they will.
+[21:39] <superdingus> fakam: depending on your DE, go to settings -> power -> laptop close actions
+[21:40] <superdingus> worked for me under gnome shell, not sure what the exact path is for Unity
+[21:40] <fakam> on power hibernate but it doesn't seem to do that.
+[21:40] <estacado> I press mark as watched and it doesn't work
+[21:40] <superdingus> fakam: I never hibernate under Ubuntu, try setting it to suspend. That's what I've always used
+[21:41] <estacado> On the movies etc
+[21:41] <fakam> Suspend is to sleep?
+[21:41] <superdingus> Yup, suspend is sleep
+[21:42] <fakam> So it should not  get hot when in sleep right..
+[21:42] <fakam> I come back and my laptop is really hot..
+[21:43] <squinty> estacado:  there are  #kodi and #kodi-linux  channels available here on freenode
+[21:43] <superdingus> Suspend is the equivalent of Sleep in Windows. So no, your laptop shouldn't be getting hot during suspend
+[21:43] <superdingus> AFAIK
+[21:43] <fakam> I will try it.
+=== MaybeNotJonSeals is now known as annoymouse
+[21:44] <superdingus> I've always had bad luck with hibernate, both in Windows and most Linux distros I've tried
+[21:46]  * XCVB understand why his program isn't working
+[21:46] <Bashing-om> erisco: Having more difficulties ? Long time no see you .
+[21:52] <plut0> depmod is throwing a 'Bus error', how do i fix this?
+[21:54] <erisco> Bashing-om: http://paste.ubuntu.com/9656411
+[21:55] <Bashing-om> erisco: Looking at your http://paste.ubuntu.com/9656411 .
+=== Unibob is now known as DJ_Unibob
+[21:57] <upyeclipse> how do I unmount a drive from the shell?
+[21:57] <andygraybeal> how do i unmount a usb thumb drive.  i do "sudo umount /dev/sdb1" it looks like it worked, but it never unmounts it.. i'm confused.
+[21:58] <andygraybeal> upyeclipse, woah weird :)
+=== bob is now known as Guest15844
+=== scott is now known as Guest64049
+[22:02] <fakam> Everytime i boot into linux I get Sorry, Ubuntu 14.04 has experienced an internal error.. This particular error is apport.. But it's different each time.. sever annoyance.
+=== Bashing-1m is now known as Bashing-om
+[22:03] <monst> howdy #ubuntu
+[22:04] <monst> I am curious how get a console back on tty1
+[22:04] <monst> I can push images or startx on tty1
+[22:04] <monst> but when I kill them it doesnt got back to a console
+[22:04] <k1l> monst: dont startx. start the lightdm or stop the lightdm
+[22:05] <Bashing-om> erisco: Per http://www.nvidia.com/object/IO_32667.html , the 340.xx series of drivers support that card . What driver is loaded ? pastebinit /var/log/Xorg.0.log .
+[22:05] <erisco> how can I revert to the nouveau driver using the command line? preferably without uninstalling the nvidia drivers
+=== aboudreault_ is now known as aboudreault
+=== neunon_ is now known as neunon
+=== harttho_ is now known as harttho
+=== Tzunamii_ is now known as Tzunamii
+=== jrg_ is now known as jrg
+=== joe75_ is now known as joe75
+=== mkv is now known as m4v
+=== dragonslay_ is now known as dragonslay
+[22:05] <monst> just tried that k1l, screen didnt update
+=== DavidDuffey is now known as dduffey
+=== vahl is now known as Guest47429
+[22:06] <k1l> monst: what ubuntu is that? what desktop? and what is your goal there?
+=== KindOne_ is now known as KindOne
+=== Guest64049 is now known as Dragnslcr
+[22:06] <monst> Ugg I guess I am in the wrong channel, this is actually raspbian
+[22:07] <Bashing-om> erisco: To revert to open source, the proprietary Nvidia driver must be removed 1st . Depending on how you installed the driver, is how it will be removed .
+=== robher_ is now known as robher
+[22:07] <k1l> monst: well yes. raspbian got their own channels
+[22:07] <erisco> Bashing-om: Xorg.0 is empty so I will paste Xorg.1
+[22:07] <sadfdsa> It's new years day and suddenly my flash is no longer working.  It was working last night.  Anyone else seen this problem??
+[22:07] <monst> yeah, ill try there sorry
+=== iker__ is now known as prueba555
+[22:08] <prueba555> exit
+[22:08] <erisco> Bashing-om: http://paste.ubuntu.com/9656483
+[22:11] <Bashing-om> erisco: no current /Xorg.0.log might be a problem . I still look at what was , be back soonest.
+[22:12] <mucus> hi, i'm following https://www.digitalocean.com/community/tutorials/how-to-setup-vnc-for-ubuntu-12 that guide and i'm at step 4, but really at a loss as to what i'm being asked to do
+[22:14] <erisco> Bashing-om: I uninstalled the nvidia drivers and now I can see my screen again
+[22:14] <erisco> but I have awful performance without them
+[22:15] <Skuldugg1> :Tristam, are you the real Tristam?
+[22:15] <Skuldugg1> Tristam:
+[22:16] <ax562> Hello
+[22:17] <ax562> I recently through on 12.04lts 64bit on a laptop with 8.1
+[22:17] <ax562> Grub2 wasnt working properly
+[22:17] <ax562> So i used boot-repair
+[22:18] <ax562> To fix dual boot
+[22:18] <ax562> It kind of did
+[22:19] <ax562> But now instead of having windows 8.1 option at boot menu
+[22:19] <ax562> I have system setup option
+[22:20] <Giwrgaras> anyone else using wine?
+[22:20] <plut0> how do i fix this error coming from dpkg? dpkg: warning: version 'initrd.img-3.13.0-24-lowlatency' has bad syntax: version number does not start with digit
+[22:21] <ax562> So when i choose system setup from grub it takes me to bios where i have to choose windows boot manager
+[22:21] <qwerty_> i need help to connect my wifi
+[22:21] <Balzy> Hello! I've recently created a GPG key and having a backup is really recommended, what media would you suggest to use, if you were looking for a durable and secure one?
+[22:22] <ax562> Then windows 8.1 boots
+=== Etarius_ is now known as Etarius
+[22:23] <ax562> Any suggestions?
+[22:26] <pryorda> Anyone know why there is a long pause upon login when I dont login for awhile
+[22:26] <ax562> No idea
+[22:27] <pryorda> its fine after the first time
+[22:27] <pryorda> it didnt start doing this till i upgraded to...
+[22:27] <pryorda> 14.04.1
+[22:29] <wafflej0ck> pryorda, you may want to pull up a separate terminal and run top to see what process is using the CPU assuming it's some processing that's slowing things down
+[22:29] <pryorda> again i have to step away for so long before it does it again
+[22:29] <wafflej0ck> pryorda, Ctrl+Alt+F1 to get to a text terminal then Ctrl+Alt+F7 to get back to the X/GUI display
+[22:30] <pryorda> its only via ssh
+[22:30] <wafflej0ck> maybe some connectivity issue in that case too, not sure though I'm on 14.04.1 on my server too and it doesn't seem to have this problem, how long is the delay?
+[22:31] <bekks> pryorda: Thats the DNS resolution that sshd is trying to perform. You can disable that in the sshd settings.
+[22:31] <wafflej0ck> that said I use a key based login not password not sure if that makes a difference
+[22:31] <pryorda> bekks: tried UseDNS no and yes
+[22:31] <pryorda> no dif
+[22:32] <pryorda> wafflej0ck: 5-10s sometimes
+[22:32] <utox> !list
+[22:32] <pryorda> wafflej0ck: i use key based as well
+[22:32] <ubottu> utox: No warez here! This is not a file sharing channel (or network); read the channel topic. If you're looking for information about me, type « /msg ubottu !bot ». If you're looking for a channel, see « /msg ubottu !alis ».
+[22:33] <wafflej0ck> you connect with IP or DNS? might be worth trying by IP to see if it's related to DNS since I imagine that would eliminate the possibiliity
+[22:33] <bekks> 5-10s? I thought you were talking about a long pause.
+[22:33] <Bashing-om> plut0: Where are you getting the initrd.img error advisory ?
+[22:33] <pryorda> that is a long pause
+[22:33] <pryorda> considering all my other vms login instantly
+[22:33] <wafflej0ck> agree 5-10 seconds isn't a huge deal but am curious why the delay
+[22:33] <pryorda> centos 7 is instant
+[22:34] <wafflej0ck> my AWS instance I'm in within 2 seconds from running my connection script
+[22:34] <pryorda> sec
+[22:37] <pryorda> pastebin.ca/2895563
+[22:38] <pryorda> thats with putting my password in
+[22:39] <paul__> Hi
+[22:40] <paul__> Does anyone know how to get the Azbuka Cyrillic keyboard layout to work?
+[22:41] <paul__> http://hypertext.su/azbuka-keyboard/?lang=en
+[22:45] <wad> I'm using 14.04, does this document apply? I can't seem to find this menu. https://help.ubuntu.com/community/NetworkPrintingWithUbuntu
+[22:46] <xangua> wad yes, just type printer in the dash
+[22:46]  * wad tries
+[22:47] <OerHeks> first thing i check is the date at the end of the page
+[22:47] <pryorda> wafflej0ck: could it be bash-completion doing its inital cache
+[22:47] <pryorda> and its just expiring?
+[22:49] <wafflej0ck> pryorda, suppose so but really not sure where you'd want to look next, I mean iotop, ntop, top/htop are typically my go to for performance things but since it's intermittent that makes it more difficult to debug
+[22:50] <wafflej0ck> also since it's a pretty short window for the delay it may be hard to see when that's happening exactly, would be better to have tools like top that can run over time but I'm not aware of any
+[22:50] <wafflej0ck> probably exists though nothing is coming to mind
+[22:56] <upyeclipse> cp ~/dev/micropython/my_project /media/staffan/PYBFLASH
+[22:56] <upyeclipse> cp: omitting directory ‘/home/staffan/dev/micropython/my_project’
+[22:56] <upyeclipse> what am i doing wrong?
+[22:56] <SchrodingersScat> man cp # look for -R for recursive
+[22:57] <upyeclipse> actually i dont want to copy the dir but rather all files in the dir
+[22:57] <upyeclipse> is there an easy way to do that?
+[22:57] <SchrodingersScat> then you can probably use *
+[22:58] <upyeclipse> cp ~/dev/micropython/my_project/* /media/staffan/PYBFLASH   ?
+[22:58] <upyeclipse> yes
+[22:58] <upyeclipse> that worked
+[22:58] <upyeclipse> ty
+[22:58] <SchrodingersScat> great
+[22:59] <knobo> Can anyone help me with this: http://ubuntuforums.org/showthread.php?t=2251730
+[22:59] <knobo> I get libGL error: Version 4 or later of flush extension not found when I start glxgears
+[23:00] <knobo> and "libGL error: failed to load driver: i915"
+[23:00] <SchrodingersScat> upyeclipse: that will skip files that start with . though, and also not copy directories.
+[23:02] <upyeclipse> ok files that start with '.' is not a problem but directories might be.
+[23:02] <daftykins> knobo: what graphics hardware? what driver is in use?
+[23:02] <upyeclipse> i guess there is a way to copy everything?
+[23:02] <upyeclipse> how do unmount a flash drive?
+[23:03] <daftykins> sudo umount /mount/point -or- /dev/sdX
+[23:05] <knobo> daftykins: how do I find out? lshw... I'll try
+[23:05] <daftykins> lspci
+[23:05] <daftykins> driver, i would read /var/log/Xorg.0.log
+[23:06] <upyeclipse> daftykins, an point=path?
+[23:07] <daftykins> upyeclipse: a mount point is the path it is available on yes
+[23:07] <knobo> daftykins: something like this: II) intel(0): Using Kernel Mode Setting driver: i915, version 1.6.0 20080730
+[23:07] <knobo> display:0 product: Mobile 945GM/GMS, 943/940GML Express Integrated Graphics Controller
+[23:07] <daftykins> knobo: "pastebinit /var/log/Xorg.0.log" might be easier for me to see what i'm thinking of. what kernel are you on also?
+[23:07] <upyeclipse> sudo umount /media/staffan/PYBFLASH
+[23:07] <knobo> configuration: driver=i915 latency=0
+[23:08] <upyeclipse> daftykins, should the /mount/point be replaced entiely like that ^
+[23:08] <upyeclipse> nothing happens...
+[23:08] <daftykins> upyeclipse: Linux doesn't make it known when a command succeeds
+[23:08] <knobo> daftykins: Linux integer 3.16.0-28-generic #38-Ubuntu SMP Fri Dec 12 17:38:37 UTC 2014 i686 i686 i686 GNU/Linux
+[23:08] <daftykins> upyeclipse: type "mount" or "df -h" to recognise whether a device is still mounted
+[23:08] <knobo> http://paste.ubuntu.com/9656745/
+[23:09] <daftykins> knobo: ok, looks like the driver is working fine. somehow missing libraries then, i don't know anything about openGL packages though
+[23:10] <upyeclipse> daftykins, ty. it worked. but when you unmount graphically the symbol disappears from the bar on the left. now it was unmounted but the symbol was still there
+[23:10] <daftykins> upyeclipse: i fail to see the relevance :)
+[23:10] <knobo> daftykins: ok, thank you for the help.
+[23:11] <leeyaa> hello
+[23:11] <xchatter> OMG, someone can help me? I messed up my encrypted LVM Ubuntu. I just restarted my Laptop and I am getting the grub rescue> prompt.
+[23:12] <leeyaa> i have this weird problem with plymouth
+[23:12] <leeyaa> https://bpaste.net/show/f17a6ad3a094
+[23:12] <leeyaa> it happens on ubuntu 14.04 lts fresh installations
+[23:12] <leeyaa> it eventually boots and seems to be running fine
+[23:12] <xchatter> I am freaked out.  I copied back some data from a hard disk to make a backup on some other hard disk.
+[23:12] <leeyaa> but why is it taking so long ?
+[23:13] <daftykins> leeyaa: first google result - http://ubuntuforums.org/showthread.php?t=2218100
+[23:14] <leeyaa> daftykins, i saw these, they dont offer any real solution
+[23:14] <leeyaa> i checked first several pages
+[23:14] <leeyaa> nor they give any real reason
+[23:15] <leeyaa> i have this on all my 14.04 servers. vms and physical machines
+[23:18] <daftykins> all of them?
+[23:18] <daftykins> so ones without X? i wouldn't care then
+[23:20] <daswichtel> hi all
+[23:22] <ObrienDave> daswichtel, Greetings & Welcome
+[23:23] <daswichtel> does anyone want to help me with some soundproblems?
+[23:23] <SchrodingersScat> !ask
+[23:23] <ubottu> Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[23:23] <leeyaa> daftykins, yes no X
+[23:24] <leeyaa> but it takes ages to load because of this
+[23:25] <pachee> hi
+=== Metacity is now known as TotallyNotMetaci
+=== TotallyNotMetaci is now known as Metacity
+[23:27] <daswichtel> ok in short: 14.04, soundout stops working every time when i pause a youtubevid or it ends. any ideas? didnt find a way else then reboot to get it work again. im on a fresh (4days old) install.
+[23:29] <jlim> anybody know if getdeb.net is legit????
+[23:35] <daswichtel> sry have to reboot its to silent :-D back in a minute
+[23:36] <zlatanorei44> ciao
+[23:36] <zlatanorei44> !list
+[23:36] <ubottu> zlatanorei44: No warez here! This is not a file sharing channel (or network); read the channel topic. If you're looking for information about me, type « /msg ubottu !bot ». If you're looking for a channel, see « /msg ubottu !alis ».
+[23:37] <zlatanorei44> Quit
+[23:38] <daswichtel> re
+=== sherrardtr is now known as tws2172
+=== sherrardtr is now known as tws2172
+[23:41] <NinjaCowboy> I booted up my computer today, and now all of the Unity menus look like this. http://picpaste.com/Screenshot_from_2015-01-01_17_37_27-ts3yDyUh.png I tried rebooting, but it still persists. How do I fix it?
+[23:47] <Codmadnesspro> How would I get my banned.txt file from /home/playmcpe/server to goto /var/www/bans.domain.com/ every 10 minutes maybe?
+[23:47] <bubbasaures> NinjaCowboy, I don't use unity so missing the problem, however you can reset unity and compiz
+[23:48] <NinjaCowboy> How?
+[23:48] <bubbasaures> NinjaCowboy, Info on the web pr release, had you included the releases I would have a link, now it's up to you. ;)
+[23:48] <NinjaCowboy> I did try uninstalling and reinstalling the light-themes package, but it didn't fix it.
+[23:48] <bubbasaures> per*
+[23:48] <SchrodingersScat> Codmadnesspro: ln -s /home/playmcpe/server/banned.txt /var/www/bans.domain.com/banned.txt #?
+[23:49] <Codmadnesspro> <SchrodingersScat  I need it to update every 10 mins
+[23:50] <NinjaCowboy> Sorry, forgot to mention it. I'm using 12.04 x86.
+[23:50] <SchrodingersScat> Codmadnesspro: that keeps it updated, guess you could cron a cp
+[23:51] <Codmadnesspro> What's the interval on that schrodinger?
+[23:52] <SchrodingersScat> Codmadnesspro: ln should treat it like the same file, cron you can set by the minute
+=== rika is now known as rikaloo
+=== rikaloo is now known as rika
+=== Enissay_ is now known as Enissay

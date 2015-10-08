@@ -148,7 +148,7 @@ public class PredictionGUI {
 				e.printStackTrace();
 			}
 			
-			NGramModel ngramModel = new NGramModel(3);
+			NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 			for (List<Token> sentence : sentences) {
 				ngramModel.processTokens(sentence);
 			}
@@ -162,7 +162,9 @@ public class PredictionGUI {
 	}
 	
 	private void updateNextWordPredictions(String text) {
+		long start = System.currentTimeMillis();
 		List<String> proposals = wordPredictor.predictNextWord(text);
+		System.err.println("Predict time: " + (System.currentTimeMillis() - start) + "ms");
 		
 		StringBuilder sb = new StringBuilder("<html>");
 		
