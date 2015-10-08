@@ -24,6 +24,20 @@ public class WordPredictor {
 	}
 
 	/**
+	 * Uses only the most recent tokens
+	 * @param tokens The tokens
+	 */
+	public void useRecentTokens(List<Token> tokens) {
+		// Use the last words of the sentence if if it's longer than biggest n-gram
+		if (tokens.size() >= model.maxLength()) {
+			int diff = (tokens.size() + 1) - model.maxLength();
+			for (int i = 0; i < diff; i++) {
+				tokens.remove(0);
+			}
+		}
+	}
+	
+	/**
 	 * Predicting the next word given a input row.
 	 * 
 	 * @param input
@@ -36,15 +50,9 @@ public class WordPredictor {
 		// Remove the end of sentence from the tokens
 		tokens.remove(tokens.size() - 1);
 
-		// Use the last words of the sentence if if it's longer than biggest
-		// n-gram
-		if (tokens.size() >= model.maxLength()) {
-			int diff = (tokens.size() + 1) - model.maxLength();
-			for (int i = 0; i < diff; i++) {
-				tokens.remove(0);
-			}
-		}
-
+		// Use the last words of the sentence if if it's longer than biggest n-gram
+		this.useRecentTokens(tokens);
+		
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
 		List<NGramModel.Result> result = model.predictNext(ngram, numResults);
 		List<String> predictedWords = new ArrayList<String>();
@@ -56,30 +64,21 @@ public class WordPredictor {
 		}
 
 		return predictedWords;
-
 	}
 
 	/**
 	 * Predicting the next word given a input row.
-	 * 
-	 * @param input
-	 *            list of Tokens to predict next word from
+	 * @param input list of Tokens to predict next word from
 	 */
-	public List<String> predictNextWord(List<Token> tokens,
-			boolean removeLastToken) {
-
+	public List<String> predictNextWord(List<Token> tokens, boolean removeLastToken) {
 		// Remove the end of sentence from the tokens
 		if (removeLastToken) {
 			tokens.remove(tokens.size() - 1);
 		}
+		
 		// Use the last words of the sentence if if it's longer than biggest
 		// n-gram
-		if (tokens.size() >= model.maxLength()) {
-			int diff = (tokens.size() + 1) - model.maxLength();
-			for (int i = 0; i < diff; i++) {
-				tokens.remove(0);
-			}
-		}
+		this.useRecentTokens(tokens);
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
 		List<NGramModel.Result> result = model.predictNext(ngram, numResults);
@@ -93,5 +92,4 @@ public class WordPredictor {
 
 		return predictedWords;
 	}
-
 }
