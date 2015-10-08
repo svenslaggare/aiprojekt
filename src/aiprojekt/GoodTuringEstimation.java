@@ -1,5 +1,8 @@
 package aiprojekt;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -16,6 +19,8 @@ import org.apache.commons.math3.linear.RealVector;
  */
 public class GoodTuringEstimation {	
 	private final Map<Integer, Integer> frequencyOfFrequencies = new TreeMap<>();
+
+	private int total = 0;
 	
 	//The parameters in the log-linear fitting
 	private double a;
@@ -56,6 +61,11 @@ public class GoodTuringEstimation {
 	 */
 	public void fitToData() {
 		if (this.frequencyOfFrequencies.size() > 1) {
+			//Calculate N
+			for (Map.Entry<Integer, Integer> current : this.frequencyOfFrequencies.entrySet()) {
+				this.total += current.getKey() * current.getValue();
+			}
+			
 			//Calculate Z_r
 			Integer[] rs = this.frequencyOfFrequencies.keySet().toArray(new Integer[this.frequencyOfFrequencies.size()]);
 			Map<Integer, Double> zR = new TreeMap<>();
@@ -100,6 +110,36 @@ public class GoodTuringEstimation {
 			RealVector solution = solver.solve(rhs.getColumnVector(0));
 			this.a = solution.getEntry(0);
 			this.b = solution.getEntry(1);
+				
+//			System.err.println("a = " + this.a);
+//			System.err.println("b = " + this.b);
+//			
+//			try (BufferedWriter writer = new BufferedWriter(new FileWriter("goodturing.m"))) {
+//				StringBuilder xBuilder = new StringBuilder();
+//				StringBuilder yBuilder = new StringBuilder();
+//				
+//				xBuilder.append("r = [");
+//				yBuilder.append("Nr = [");
+//				
+//				for (int r = 0; r < rs[rs.length - 1]; r++) {
+//					if (r != 0) {
+//						xBuilder.append(" ");
+//						yBuilder.append(" ");
+//					}
+//					
+//					xBuilder.append(r);
+//					yBuilder.append(this.estimate(r));
+//				}
+//				
+//				xBuilder.append("];");
+//				yBuilder.append("];");
+//				
+//				writer.append(xBuilder.toString() + "\n");
+//				writer.append(yBuilder.toString() + "\n");
+//				writer.append("plot(r, Nr)");
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 		} else {
 			this.a = 0.0;
 			this.b = 0.0;
@@ -107,12 +147,23 @@ public class GoodTuringEstimation {
 	}
 	
 	/**
+	 * Returns the smoothed count for the given count
+	 * @param count The count
+	 */
+	private double calculateSmoothedCount(int count) {
+		return Math.pow(10, this.a + this.b * Math.log10(count));
+//		return this.a * Math.pow(count, b);
+	}
+	
+	/**
 	 * Returns the Good-Turing estimation of the given count
 	 * @param count The count
 	 */
 	public double estimate(int count) {
-		double smooted1 = Math.pow(10, this.a + this.b * Math.log10(count + 1));
-		double smooted2 = Math.pow(10, this.a + this.b * Math.log10(count));
-		return (count + 1) * smooted1 / smooted2;
+		if (count == 0) {
+			return this.calculateSmoothedCount(count + 1) / this.total;
+		} else {
+			return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
+		}
 	}
 }
