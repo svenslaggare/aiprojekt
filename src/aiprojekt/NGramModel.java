@@ -352,11 +352,11 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Returns the probability of observing the given n-gram
+	 * Returns the probability of observing the given unigram given the a n-gram
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
 	 */
-	private double getProbability(NGram ngram, NGram unigram) {		
+	public double getProbability(NGram ngram, NGram unigram) {		
 		if (this.probabilities.containsKey(unigram)) {
 			return this.probabilities.get(unigram);
 		}
@@ -420,6 +420,7 @@ public class NGramModel {
 	 * @param numResults The number of results
 	 */
 	public List<Result> predictNext(NGram ngram, int numResults) {
+		this.clearCache();
 		List<Result> results = new ArrayList<Result>();
 		
 		for (NGram unigram : this.getPossibleUnigrams(ngram, true)) {
