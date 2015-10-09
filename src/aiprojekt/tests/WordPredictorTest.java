@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -33,7 +34,7 @@ public class WordPredictorTest {
 			new Token("hello"),
 			new Token("bye"),
 			new Token(TokenType.END_OF_SENTENCE));
-	
+		
 	/**
 	 * Tests predicting the next word
 	 */
@@ -97,7 +98,7 @@ public class WordPredictorTest {
 		assertEquals(new Token("my"), tokens.get(0));
 		assertEquals(new Token("friend"), tokens.get(1));
 	}
-	
+		
 	/**
 	 * Tests learning from history
 	 */
@@ -115,6 +116,8 @@ public class WordPredictorTest {
 		
 		assertEquals(Arrays.asList("my", "bye"), predictor.predictNextWord("hello"));	
 		predictor.addHistory("hello bye");
-		assertEquals(Arrays.asList("bye", "my"), predictor.predictNextWord("hello"));
+		List<String> results = predictor.predictNextWord("hello");
+		Collections.sort(results);
+		assertEquals(Arrays.asList("bye", "my"), results);
 	}
 }

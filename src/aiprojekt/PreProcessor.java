@@ -29,7 +29,9 @@ public class PreProcessor {
 	private int processedSentences = 0;
 	private int processedTokens = 0;
 	
-	private NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
+	private final NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
+	private static final Token START_OF_SENTENCE_TOKEN = new Token(TokenType.START_OF_SENTENCE);
+	private static final Token END_OF_SENTENCE_TOKEN = new Token(TokenType.END_OF_SENTENCE);
 	
 	public static void main(String[] args) {
 		PreProcessor processor = new PreProcessor();
@@ -143,6 +145,20 @@ public class PreProcessor {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Indicates if the given tokens are an empty sentence
+	 * @param tokens The tokens
+	 */
+	private boolean isEmptySentence(List<Token> tokens) {
+		if (tokens.size() == 2
+			&& tokens.get(0).equals(START_OF_SENTENCE_TOKEN)
+			&& tokens.get(0).equals(END_OF_SENTENCE_TOKEN)) {
+			return true;
+		}
+		
+		return false;
+	}
 
 	/**
 	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
@@ -166,9 +182,12 @@ public class PreProcessor {
 					String sentence;
 					while ((sentence = br.readLine()) != null) {
 						List<Token> tokens = parser.tokenize(sentence);
-						this.ngramModel.processTokens(tokens);
-						this.processedSentences++;
-						this.processedTokens += tokens.size();
+						
+						if (!this.isEmptySentence(tokens)) {
+							this.ngramModel.processTokens(tokens);
+							this.processedSentences++;
+							this.processedTokens += tokens.size();
+						}
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

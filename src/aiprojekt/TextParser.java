@@ -50,6 +50,7 @@ public class TextParser {
 		}
 		
 		tokenList.add(new Token(TokenType.END_OF_SENTENCE));
+		
 		return tokenList;	
 	}
 	

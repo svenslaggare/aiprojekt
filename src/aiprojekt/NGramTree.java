@@ -94,6 +94,40 @@ public class NGramTree {
 		public String toString() {
 			return String.format("{ %s: %s }", this.ngram.toString(), this.getCount() + "");
 		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + count;
+			result = prime * result + ((ngram == null) ? 0 : ngram.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj) {
+				return true;
+			}
+			if (obj == null) {
+				return false;
+			}
+			if (!(obj instanceof Result)) {
+				return false;
+			}
+			Result other = (Result) obj;
+			if (count != other.count) {
+				return false;
+			}
+			if (ngram == null) {
+				if (other.ngram != null) {
+					return false;
+				}
+			} else if (!ngram.equals(other.ngram)) {
+				return false;
+			}
+			return true;
+		}
 	}
 	
 	/**
@@ -139,6 +173,69 @@ public class NGramTree {
 			}
 		}
 		
+		return results;
+	}
+	
+	/**
+	 * Action for n-gram
+	 */
+	public interface OnNgramAction {
+		/**
+		 * Executes the action on the given n-gram
+		 * @param ngram The n-gram
+		 * @param count The count
+		 */
+		void execute(NGram ngram, int count);
+	}
+	
+	/**
+	 * Finds all the n-grams of the given length
+	 * @param action The action to execute on all n-grams
+	 * @param startGram The start gram
+	 * @param length The length
+	 */
+	private void findNgrams(OnNgramAction action, NGram startGram, int length) {
+		if (length == 1) {
+			for (NGramTree tree : this.children.values()) {
+				if (tree.count > 0) {
+					action.execute(startGram.append(tree.current), tree.count);
+				}
+			}
+		} else {
+			for (NGramTree tree : this.children.values()) {
+				tree.findNgrams(action, startGram.append(tree.current), length - 1);
+			}
+		}
+	}
+	
+	/**
+	 * Returns all the n-grams of the given length
+	 * @param length The length
+	 */
+	public List<Result> findNgrams(int length) {
+		final List<Result> results = new ArrayList<>();
+		this.findNgrams(new OnNgramAction() {		
+			@Override
+			public void execute(NGram ngram, int count) {
+				results.add(new Result(ngram, count));
+			}
+		}, NGram.EMPTY_GRAM, length);
+		return results;
+	}
+	
+	/**
+	 * Returns the top ranked n-grams of the given length
+	 * @param length The length
+	 * @param count The count
+	 */
+	public TopList findTopNgrams(int length, int count) {
+		final TopList results = new TopList(count);
+		this.findNgrams(new OnNgramAction() {		
+			@Override
+			public void execute(NGram ngram, int count) {
+				results.add(ngram, count);
+			}
+		}, NGram.EMPTY_GRAM, length);
 		return results;
 	}
 	

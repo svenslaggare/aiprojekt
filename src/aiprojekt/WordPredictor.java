@@ -1,6 +1,7 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,7 +11,10 @@ public class WordPredictor {
 	private final NGramModel model;
 	private final int numResults;
 	private final TextParser parser = new TextParser();
-
+	private final double[] ngramAverages;
+	
+	private final int maxCountPerAverage = 3000;
+	
 	/**
 	 * Creates a new word predictor
 	 * @param model The n-gram model
@@ -19,6 +23,24 @@ public class WordPredictor {
 	public WordPredictor(NGramModel model, int numResults) {
 		this.model = model;
 		this.numResults = numResults;
+		this.ngramAverages = new double[model.maxLength()];
+		this.updateNGramsAverages();
+	}
+	
+	/**
+	 * Updates the n-gram averages
+	 */
+	private void updateNGramsAverages() {
+		for (int i = 1; i <= this.model.maxLength(); i++) {
+			double sum = 0.0;
+			int count = 0;
+			for (NGramTree.Result current : this.model.searchTree().findTopNgrams(i, maxCountPerAverage)) {
+				sum += current.getCount();
+				count++;
+			}
+			
+			this.ngramAverages[i - 1] = sum / count;
+		}
 	}
 	
 	/**
@@ -40,13 +62,14 @@ public class WordPredictor {
 	 * Adds the given tokens to the history (and model)
 	 * @param tokens The tokens
 	 */
-	public void addHistory(List<Token> tokens) {
+	public void addHistory(List<Token> tokens) {	
 		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
-			double ngramAverage = 
-				(double)this.model.totalCountForNGramLength(ngram.length())
-				/ this.model.numberOfNGramLength(ngram.length());
+//			double ngramAverage = 
+//				(double)this.model.totalCountForNGramLength(ngram.length())
+//				/ this.model.numberOfNGramLength(ngram.length());
+			double ngramAverage = this.ngramAverages[ngram.length() - 1];			
 			
-//			System.err.println(ngram + ": " + ngramAverage);
+			System.err.println(ngram + ": " + ngramAverage);
 			
 			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
 		}
@@ -82,7 +105,7 @@ public class WordPredictor {
 	 */
 	public List<String> predictNextWord(List<Token> tokens, boolean removeLastToken) {
 		// Remove the end of sentence from the tokens
-		if (removeLastToken) {
+		if (removeLastToken && tokens.size() > 0) {
 			tokens.remove(tokens.size() - 1);
 		}
 		
@@ -102,5 +125,4 @@ public class WordPredictor {
 
 		return predictedWords;
 	}
-
 }

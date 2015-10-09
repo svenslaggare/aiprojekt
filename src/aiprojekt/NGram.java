@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Represents a n-gram
  */
-public class NGram {
+public class NGram implements Comparable<NGram> {
 	private final Token[] tokens;
 	private final int start;
 	private final int length;
@@ -257,5 +257,10 @@ public class NGram {
 		str.append("]");
 		
 		return str.toString();
+	}
+
+	@Override
+	public int compareTo(NGram x) {
+		return this.toString().compareTo(x.toString());
 	}
 }

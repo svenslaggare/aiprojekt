@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+
 public class PredictionGUI {
 	private final WordPredictor wordPredictor;
 	
@@ -178,6 +179,10 @@ public class PredictionGUI {
 		}
 	}
 	
+	/**
+	 * Updates the next word predictions
+	 * @param text The text
+	 */
 	private void updateNextWordPredictions(String text) {
 		long start = System.currentTimeMillis();
 		List<String> proposals = wordPredictor.predictNextWord(text);
@@ -189,7 +194,7 @@ public class PredictionGUI {
 		for (String word : proposals) {
 			sb.append(place++ + ". " + word + "<br />");
 		}
-		
+				
 		sb.append("</html>");
 		nextWordProposals.setText(sb.toString());
 	}

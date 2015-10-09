@@ -138,4 +138,57 @@ public class NGramTreeTest {
 		assertEquals(NGram.fromWords("hello", "i"), results.get(0).getNgram());
 		assertEquals(NGram.fromWords("hello", "my"), results.get(1).getNgram());
 	}
-}
+	
+	/**
+	 * Sorts the results by n-gram
+	 * @param ngrams The n-grams
+	 */
+	private void sortByNGram(List<Result> ngrams) {
+		Collections.sort(ngrams, new Comparator<Result>() {
+			@Override
+			public int compare(Result x, Result y) {
+				return x.getNgram().compareTo(y.getNgram());
+			}
+		});
+	}
+	
+	/**
+	 * Tests finding n-grams of a given length
+	 */
+	@Test
+	public void testFindOfLength() {
+		NGramTree tree = NGramTree.rootTree();
+		tree.insert(NGram.fromWords("hello", "my"), 1);
+		tree.insert(NGram.fromWords("hello", "you"), 1);
+		tree.insert(NGram.fromWords("trolling", "you"), 1);
+		tree.insert(NGram.fromWords("hello", "you", "haha"), 1);
+		tree.insert(NGram.fromWords("lol", "you", "ee"), 1);
+		tree.insert(NGram.fromWords("my"), 3);
+		tree.insert(NGram.fromWords("name"), 2);
+		tree.insert(NGram.fromWords("is"), 1);
+		
+		assertEquals(3, tree.find(NGram.fromWords("my")));
+		
+		List<Result> unigrams = tree.findNgrams(1);
+		assertEquals(3, unigrams.size());
+		sortByNGram(unigrams);
+		assertEquals(new NGramTree.Result(NGram.fromWords("is"), 1), unigrams.get(0));
+		assertEquals(new NGramTree.Result(NGram.fromWords("my"), 3), unigrams.get(1));
+		assertEquals(new NGramTree.Result(NGram.fromWords("name"), 2), unigrams.get(2));
+		
+		List<Result> bigrams = tree.findNgrams(2);
+		assertEquals(3, bigrams.size());
+		sortByNGram(bigrams);
+		assertEquals(new NGramTree.Result(NGram.fromWords("hello", "my"), 1), bigrams.get(0));
+		assertEquals(new NGramTree.Result(NGram.fromWords("hello", "you"), 1), bigrams.get(1));
+		assertEquals(new NGramTree.Result(NGram.fromWords("trolling", "you"), 1), bigrams.get(2));
+		
+		List<Result> trigrams = tree.findNgrams(3);
+		assertEquals(2, trigrams.size());
+		sortByNGram(trigrams);
+		assertEquals(new NGramTree.Result(NGram.fromWords("hello", "you", "haha"), 1), trigrams.get(0));
+		assertEquals(new NGramTree.Result(NGram.fromWords("lol", "you", "ee"), 1), trigrams.get(1));
+		
+		assertEquals(0, tree.findNgrams(4).size());
+	}
+ }
