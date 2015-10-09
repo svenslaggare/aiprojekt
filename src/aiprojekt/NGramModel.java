@@ -307,8 +307,8 @@ public class NGramModel {
 		NGram predictedNgram = ngram.append(unigram);
 		
 		int count = getCount(predictedNgram);
-		double d = this.goodTuringEstimation.estimate(count) / count;
 		if (count > matchThreshold) {	
+			double d = this.goodTuringEstimation.estimate(count) / count;
 			return this.addProbability(predictedNgram, d * (double)count / getCount(ngram));
 		} else {
 			return this.addProbability(predictedNgram, getAlpha(ngram) * getProbability(ngram.rest(), unigram));

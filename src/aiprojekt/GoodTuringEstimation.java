@@ -26,7 +26,7 @@ public class GoodTuringEstimation {
 	private double a;
 	private double b;
 	
-	private boolean useSmoothing = false;
+	private boolean useSmoothing = true;
 	
 	/**
 	 * Creates a new Good-Turing smoothing
@@ -129,22 +129,27 @@ public class GoodTuringEstimation {
 				
 //			System.err.println("a = " + this.a);
 //			System.err.println("b = " + this.b);
-//			
+			
 //			try (BufferedWriter writer = new BufferedWriter(new FileWriter("goodturing.m"))) {
 //				StringBuilder xBuilder = new StringBuilder();
 //				StringBuilder yBuilder = new StringBuilder();
 //				
 //				xBuilder.append("r = [");
 //				yBuilder.append("Nr = [");
-//				
-//				for (int r = 0; r < rs[rs.length - 1]; r++) {
+//
+////				for (int r = 0; r < rs[rs.length - 1]; r++) {
+//				for (int r = 0; r < 50; r++) {
 //					if (r != 0) {
 //						xBuilder.append(" ");
 //						yBuilder.append(" ");
 //					}
 //					
 //					xBuilder.append(r);
-//					yBuilder.append(this.estimate(r));
+//					if (r > 0) {
+//						yBuilder.append(this.estimate(r) / r);
+//					} else {
+//						yBuilder.append(this.estimate(r));
+//					}
 //				}
 //				
 //				xBuilder.append("];");
