@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.*;
 
 public class PredictionGUI {
-	private WordPredictor wordPredictor;
+	private final WordPredictor wordPredictor;
 	
 	private final JTextField inputField;
 	private final JLabel nextWordProposals;
@@ -55,9 +55,11 @@ public class PredictionGUI {
 		sendButton.setMargin(new Insets(0, 0, 0, 0));
 		sendButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				chat.append("- " + inputField.getText() + "\n");
+				chat.append("user: " + inputField.getText() + "\n");
+				wordPredictor.addHistory(inputField.getText());
 				inputField.setText("");
 				inputField.requestFocusInWindow();
+				updateNextWordPredictions("");
 			}
 		});
 		frame.add(sendButton);

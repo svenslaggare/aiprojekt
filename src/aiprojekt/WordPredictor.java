@@ -9,6 +9,7 @@ import java.util.List;
 public class WordPredictor {
 	private final NGramModel model;
 	private final int numResults;
+	private final TextParser parser = new TextParser();
 
 	/**
 	 * Creates a new word predictor
@@ -18,6 +19,24 @@ public class WordPredictor {
 	public WordPredictor(NGramModel model, int numResults) {
 		this.model = model;
 		this.numResults = numResults;
+	}
+	
+	/**
+	 * Adds the given line to the history (and model)
+	 * @param line The line to add
+	 */
+	public void addHistory(String line) {
+		for (NGram ngram : NGramModel.getNgrams(this.parser.tokenize(line), this.model.maxLength())) {
+			double ngramAverage = 
+				(double)this.model.totalCountForNGramLength(ngram.length())
+				/ this.model.numberOfNGramLength(ngram.length());
+			
+//			System.err.println(ngram + ": " + ngramAverage);
+			
+			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
+		}
+		
+		this.model.clearCache();
 	}
 
 	/**
@@ -39,7 +58,6 @@ public class WordPredictor {
 	 * @param input Words to predict next word from
 	 */
 	public List<String> predictNextWord(String input) {
-		TextParser parser = new TextParser();
 		return this.predictNextWord(parser.tokenize(input), true);
 	}
 

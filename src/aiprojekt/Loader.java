@@ -18,7 +18,7 @@ public class Loader {
 		System.out.println("Total n-grams: " + ngrams.size());
 
 		for (int i = 1; i <= ngramModel.maxLength(); i++) {
-			System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
+			System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
 		}	
 	}
 

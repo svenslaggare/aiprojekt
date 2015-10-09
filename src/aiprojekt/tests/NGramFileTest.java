@@ -43,7 +43,7 @@ public class NGramFileTest {
 		}
 		
 		for (int i = 1; i <= actualModel.maxLength(); i++) {
-			assertEquals(loadedModel.countForNGram(i), actualModel.countForNGram(i));
+			assertEquals(loadedModel.numberOfNGramLength(i), actualModel.numberOfNGramLength(i));
 		}
 		
 		for (int i = 0; i < actualModel.topUnigrams().size(); i++) {

@@ -55,16 +55,17 @@ public class WordPredictorTest {
 	@Test
 	public void testPredictNextWord2() {
 		NGramModel model = new NGramModel(3);
+		for (int i = 0; i < 2; i++) {
+			model.processTokens(sentence1);
+			model.processTokens(sentence2);
+			model.processTokens(sentence3);
+		}
 		model.end();	
-		model.processTokens(sentence1);
-		model.processTokens(sentence2);
-		model.processTokens(sentence3);
 		
 		WordPredictor predictor = new WordPredictor(model, 2);
 		
 		List<String> results = predictor.predictNextWord("hello");
-		Collections.sort(results);
-		assertEquals(Arrays.asList("bye", "my"), results);
+		assertEquals(Arrays.asList("my", "bye"), results);
 	}
 	
 	/**
@@ -86,7 +87,6 @@ public class WordPredictorTest {
 	 */
 	@Test
 	public void testUseRecent() {
-		//TODO: Fix this test case
 		NGramModel model = new NGramModel(3);
 		model.processTokens(sentence1);
 		model.end();	
@@ -97,5 +97,25 @@ public class WordPredictorTest {
 		assertEquals(2, tokens.size());
 		assertEquals(new Token("my"), tokens.get(0));
 		assertEquals(new Token("friend"), tokens.get(1));
+	}
+	
+	/**
+	 * Tests learning from history
+	 */
+	@Test
+	public void testLearnFromHistory() {
+		NGramModel model = new NGramModel(3);
+		for (int i = 0; i < 2; i++) {
+			model.processTokens(sentence1);
+			model.processTokens(sentence2);
+			model.processTokens(sentence3);
+		}
+		model.end();
+		
+		WordPredictor predictor = new WordPredictor(model, 2);
+		
+		assertEquals(Arrays.asList("my", "bye"), predictor.predictNextWord("hello"));	
+		predictor.addHistory("hello bye");
+		assertEquals(Arrays.asList("bye", "my"), predictor.predictNextWord("hello"));
 	}
 }

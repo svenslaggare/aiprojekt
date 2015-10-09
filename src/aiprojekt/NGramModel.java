@@ -17,8 +17,8 @@ public class NGramModel {
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
 	private final List<NGram> topUnigrams = new ArrayList<NGram>();
-	private final int[] ngramCounts;
-	private int totalUnigramCount = 0;
+	private final int[] numNGrams;
+	private final int[] totalNGramCounts;
 	
 	private final int matchThreshold = 0;
 	private final int topUnigramsCount = 100;
@@ -26,7 +26,7 @@ public class NGramModel {
 	private final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
 	private final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
 	
-	//Cached values when executing the getProbability method. This might needed to be cleared if the model changes.
+	//Cached values when executing the getProbability method.
 	private final Map<NGram, Double> probabilities = new HashMap<>();
 	private final Map<NGram, Double> alphas = new HashMap<>();
 	
@@ -45,7 +45,8 @@ public class NGramModel {
 	 */
 	public NGramModel(int maxLength) {
 		this.maxLength = maxLength;
-		this.ngramCounts = new int[maxLength];
+		this.numNGrams = new int[maxLength];
+		this.totalNGramCounts = new int[maxLength];
 	}
 	
 	/**
@@ -77,13 +78,24 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Returns the count for the given n-gram length
+	 * Returns the number of n-gram of the given
 	 * @param n The n-gram length
-	 * @return
 	 */
-	public int countForNGram(int n) {
+	public int numberOfNGramLength(int n) {
 		if (n >= 1 && n <= this.maxLength) {
-			return this.ngramCounts[n - 1];
+			return this.numNGrams[n - 1];
+		} else {
+			return 0;
+		}
+	}
+	
+	/**
+	 * Returns the total count for the given n-gram length
+	 * @param n The n-gram length
+	 */
+	public int totalCountForNGramLength(int n) {
+		if (n >= 1 && n <= this.maxLength) {
+			return this.totalNGramCounts[n - 1];
 		} else {
 			return 0;
 		}
@@ -123,21 +135,18 @@ public class NGramModel {
  	 * @param ngram The n-gram
  	 * @param count The count
  	 */
- 	private void addNGram(NGram ngram, int count) {
+ 	public void addNGram(NGram ngram, int count) {
 		int currentCount = 0;
 		
 		if (this.ngrams.containsKey(ngram)) {
 			currentCount = this.ngrams.get(ngram);
 		} else {
-			this.ngramCounts[ngram.length() - 1]++;			
+			this.numNGrams[ngram.length() - 1]++;			
 		}
 		
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
-		
-		if (ngram.length() == 1) {
-			this.totalUnigramCount++;
-		}
+		this.totalNGramCounts[ngram.length() - 1]++;
  	}
  	
 	/**
@@ -174,7 +183,7 @@ public class NGramModel {
 			NGram ngram = current.getKey();
 			if (ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
-				this.ngramCounts[ngram.length() - 1]--;
+				this.numNGrams[ngram.length() - 1]--;
 			} else if (ngram.length() == 1) { // Adding all unigrams
 				if (!ngram.toString().equals(START_OF_SENTENCE_UNIGRAM)
 					&& !ngram.toString().equals(END_OF_SENTENCE_UNIGRAM)) {
@@ -259,6 +268,14 @@ public class NGramModel {
 			return "{ n-gram: " + this.nGram + ", p: " + this.probability + " }";
 		}
 	}
+	
+	/**
+	 * Cleares the caches
+	 */
+	public void clearCache() {
+		this.probabilities.clear();
+		this.alphas.clear();
+	}
 		
 	/**
 	 * Returns the possible unigrams for the given n-gram
@@ -301,7 +318,7 @@ public class NGramModel {
 		if (ngram.equals(NGram.EMPTY_GRAM)) {		
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
-			return this.addProbability(unigram, d * (double)getCount(unigram) / this.totalUnigramCount);
+			return this.addProbability(unigram, d * (double)getCount(unigram) / this.totalCountForNGramLength(1));
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
