@@ -2,6 +2,7 @@ package aiprojekt;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -20,6 +21,7 @@ public class TextParser {
 	private static final String MATCH_URL = "((https?|ftp|file|http):(//)+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
 	private static final String MATCH_URL2 = "www\\.[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*";
 	
+	private static final Pattern USERNAME_PATTERN = Pattern.compile(MATCH_USERNAME);
 	private static final Pattern REPLACE_ALL_PATTERN = Pattern.compile(MATCH_TIME_AND_USER + "|" + MATCH_URL + "|"+ MATCH_URL2 + "|"+ MATCH_UNWANTED_CHARS);
 	private static final Pattern WORD_PATTERN = Pattern.compile("\\s+");
 	private static final Pattern SYSTEM_MESSAGE_PATTERN = Pattern.compile("^(===).*");
@@ -49,5 +51,24 @@ public class TextParser {
 		
 		tokenList.add(new Token(TokenType.END_OF_SENTENCE));
 		return tokenList;	
+	}
+	
+	/**
+	 * Used for extracting the user name from the sentence.
+	 * A user is considered the first occurrence of <name>.
+	 * @param sentence The sentence from the chatlog
+	 * @return The extracted user name, or "" if not found.
+	 */
+	public String getUser(String sentence){
+		if (SYSTEM_MESSAGE_PATTERN.matcher(sentence).matches()) {
+			return "";
+		}
+		Matcher matcher = USERNAME_PATTERN.matcher(sentence);
+		if(matcher.find()){
+			
+			return matcher.group(0);
+		} else {
+			return "";
+		}
 	}
 }

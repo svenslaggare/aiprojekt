@@ -5,7 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * 1. Train model. Use training data to train the NGramModel.
@@ -24,17 +28,21 @@ import java.util.List;
  */
 public class Evaluator {
 
-	private NGramModel model;
 	private static final String EVALUATE_FILE = "res/evaluation/evaluate.txt";
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
+
+	private NGramModel model;
+	private Map<String, Integer> userCount;
 	private int[] countTopResultHit = new int[NUM_RESULTS];
 	private int[] countWordPositionHit = new int[MAX_SENTENCE_LENGTH];
 	private int testedWords = 0;
 
 	public static void main(String[] args) {
-		// this is not for user-learning,
-		// another method will be used for that case.
+		// Used for extracting most frequent users
+		// Evaluator userAdaptation = new Evaluator();
+		// userAdaptation.extractTopCommunicatingUsers(PreProcessor.BIG_DUMP_LOGS_PATH);	// path to all training data
+
 		Evaluator evaluator = new Evaluator();
 		evaluator.evaluate();
 
@@ -57,15 +65,13 @@ public class Evaluator {
 			// Always have to look at the n+1 word
 			int correctWordPosition = 1;
 			for (Token token : sentence) {
-				// we are done with this sentence if reaching the constant max
-				// sentence length
-				// or if reaching the limit size of this sentence* (* = subtract
-				// 1 from sentence, because of </s> tag).
+				// break if reaching the constant max sentence length or if
+				// reaching the limit size of this sentence* (* = subtract 1
+				// from sentence, because of </s> tag).
 				if ((correctWordPosition == MAX_SENTENCE_LENGTH + 1)
 						|| (correctWordPosition == sentence.size() - 1)) {
 					break;
 				}
-
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
 						.predictNextWord(sentenceBuilder, false);
@@ -73,11 +79,8 @@ public class Evaluator {
 						correctWordPosition);
 				correctWordPosition++;
 			}
-
 		}
-
 		processResults();
-
 	}
 
 	/**
@@ -110,6 +113,11 @@ public class Evaluator {
 
 	}
 
+	/**
+	 * Trains the model with preprocessor run method.
+	 * 
+	 * @return
+	 */
 	private NGramModel trainModel() {
 		PreProcessor processor = new PreProcessor();
 		processor.run();
@@ -147,7 +155,31 @@ public class Evaluator {
 	}
 
 	/**
-	 * Tokenizes and indexes the file @code{file}. If @code{file} is a
+	 * This method is used to extract top k commenting users in the given
+	 * file(s). This method works on the full 2.4Gb dump of chatlogs.
+	 * 
+	 * @param filename
+	 *            The file(s) to search for users
+	 */
+	private void extractTopCommunicatingUsers(String filename) {
+		// initial capacity of 1 000 000
+		userCount = new HashMap<String, Integer>();
+		File file = new File(filename);
+		int topK = 10;
+		populateUsersMap(file);
+		Map<String, Integer> sortedMap = sortByValue(userCount);
+		int i = 0;
+		for (Map.Entry<String, Integer> entry : sortedMap.entrySet()) {
+			if (i == topK) {
+				break;
+			}
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+			i++;
+		}
+	}
+
+	/**
+	 * Extracts tokenized sentences from @code{file}. If @code{file} is a
 	 * directory, all its files and subdirectories are recursively processed.
 	 */
 	private ArrayList<ArrayList<Token>> processFiles(File file) {
@@ -180,4 +212,83 @@ public class Evaluator {
 		return listOfSentences;
 	}
 
+	/**
+	 * Extracts all users from file and populates a map with <user,
+	 * #occurrences> If @code{file} is a directory, all its files and
+	 * subdirectories are recursively processed.
+	 * 
+	 * @param file
+	 */
+	private void populateUsersMap(File file) {
+		TextParser parser = new TextParser();
+
+		// do not try to tokenize fs that cannot be read
+		if (file.canRead()) {
+			if (file.isDirectory()) {
+				String[] fs = file.list();
+				// an IO error could occur
+				if (fs != null) {
+					for (int i = 0; i < fs.length; i++) {
+						populateUsersMap(new File(file, fs[i]));
+					}
+				}
+			} else {
+				try (BufferedReader br = new BufferedReader(
+						new FileReader(file))) {
+					String sentence;
+					while ((sentence = br.readLine()) != null) {
+						String user = parser.getUser(sentence);
+						if (!user.equals("")) {
+							Integer count = userCount.get(user);
+							if (count == null) {
+								userCount.put(user, 1);
+							} else {
+								userCount.put(user, count + 1);
+							}
+						}
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Method for sorting a <string, integer> map by the integers.
+	 * 
+	 * @param unsortedMap
+	 *            The unsorted map
+	 * @return Returns a sorted TreeMap
+	 */
+	private TreeMap<String, Integer> sortByValue(
+			Map<String, Integer> unsortedMap) {
+		ValueComparator vc = new ValueComparator(unsortedMap);
+		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(vc);
+		sortedMap.putAll(unsortedMap);
+		return sortedMap;
+	}
+
+}
+
+/**
+ * Comparator needed for sorting the map by value.
+ * 
+ */
+class ValueComparator implements Comparator<String> {
+	Map<String, Integer> base;
+
+	public ValueComparator(Map<String, Integer> base) {
+		this.base = base;
+	}
+
+	// Note: this comparator imposes orderings that are inconsistent with
+	// equals.
+	public int compare(String a, String b) {
+		if (base.get(a) >= base.get(b)) {
+			return -1;
+		} else {
+			return 1;
+		} // returning 0 would merge keys
+	}
 }

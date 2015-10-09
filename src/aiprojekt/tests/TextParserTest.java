@@ -101,4 +101,17 @@ public class TextParserTest {
 	public void testSystemMessage() {
 		assertTrue(parser.tokenize(sentence6).isEmpty());
 	}
+	
+	@Test
+	public void testGetUser(){
+		// test sentence without user
+		assertTrue(parser.getUser(sentence1).equals(""));
+		assertTrue(parser.getUser(sentence2).equals("<HedgeMage>"));
+		assertTrue(parser.getUser(sentence3).equals("<Ugglan>"));
+		assertTrue(parser.getUser(sentence4).equals("<svEnSlaGGare>"));
+		assertTrue(parser.getUser(sentence5).equals("<gantox>"));
+		// test system message
+		assertTrue(parser.getUser(sentence6).equals(""));
+		
+	}
 }

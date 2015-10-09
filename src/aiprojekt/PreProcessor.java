@@ -16,8 +16,8 @@ import java.util.Set;
  * The pre-processor process text files, generates a n-gram model and saves to file
  */
 public class PreProcessor {
-	private static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
-	private static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs";
+	public static final String BIG_DUMP_LOGS_PATH = "res/chatlogs/big_dump_logs/"; 
+	public static final String SMALL_DUMP_LOGS_PATH = "res/chatlogs/small_dump_logs";
 	public static final String WRITE_TO_PATH = "res/bin/";
 	public static final String FILE_NAME = "ngrams.bin";
 	public static final String FILE_PATH = WRITE_TO_PATH + FILE_NAME;
