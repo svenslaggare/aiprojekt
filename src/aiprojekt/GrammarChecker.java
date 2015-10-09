@@ -20,6 +20,7 @@ public class GrammarChecker {
 	private static final int NN = 8;
 	private static final int VBZ = 12;
 	private static final int VBD= 15;
+	private static final int RB= 17;
 	private static final int PRP = 19;
 
 	public GrammarChecker(){
@@ -41,9 +42,9 @@ public class GrammarChecker {
 		
 		
 		
-//		for(int i = 0; i<tagger.numTags(); i++){
-//			System.out.println(tagger.getTag(i) + " i:"+ i );
-//		}
+		for(int i = 0; i<tagger.numTags(); i++){
+			System.out.println(tagger.getTag(i) + " i:"+ i );
+		}
 		
 	}
 	
@@ -67,7 +68,6 @@ public class GrammarChecker {
 		if(arrayWritten[0].equals("<s>")) return true; 
 		
 		if(grammarRules.containsKey(lastWrittenWordTag)){
-			System.out.println("Contains key");
 			
 			int numIt = grammarRules.get(lastWrittenWordTag).size(); 
 			
@@ -80,7 +80,10 @@ public class GrammarChecker {
 				}
 			}
 		}
-		if(lastWrittenWordTag.equals(tagger.getTag(8))|| proposalWordTag.equals(tagger.getTag(8))){ // It is okey with two NN's in a row (Nouns)
+		if(lastWrittenWordTag.equals(tagger.getTag(NN))|| proposalWordTag.equals(tagger.getTag(NN))){ // It is okey with two NN's in a row (Nouns)
+			return true;
+		}
+		if(lastWrittenWordTag.equals(tagger.getTag(RB))|| proposalWordTag.equals(tagger.getTag(RB))){ // It is okey with two RB's in a row (Nouns)
 			return true;
 		}
 		if(lastWrittenWordTag.equals(proposalWordTag)){
