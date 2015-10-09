@@ -36,7 +36,7 @@ public class NGramFileTest {
 		
 		Loader loader = new Loader();
 		NGramModel loadedModel = loader.load(testFilePath);
-		assertEquals(loadedModel.getNgrams().size(), actualModel.getNgrams().size());
+		assertEquals(loadedModel.numNgrams(), actualModel.getNgrams().size());
 		
 		for (Map.Entry<NGram, Integer> current : actualModel.getNgrams().entrySet()) {
 			assertEquals((int)current.getValue(), loadedModel.getCount(current.getKey()));

@@ -33,21 +33,15 @@ public class WordPredictor {
 	 * @param line The line to add
 	 */
 	public void addHistory(String line) {
-		for (NGram ngram : NGramModel.getNgrams(this.parser.tokenize(line), this.model.maxLength())) {
-			double ngramAverage = 
-				(double)this.model.totalCountForNGramLength(ngram.length())
-				/ this.model.numberOfNGramLength(ngram.length());
-			
-			System.err.println(ngram + ": " + ngramAverage);
-			
-			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
-		}
-		
-		this.model.clearCache();
+		this.addHistory(this.parser.tokenize(line));
 	}
 	
-	public void addHistory(ArrayList<Token> sentence) {
-		for (NGram ngram : NGramModel.getNgrams(sentence, this.model.maxLength())) {
+	/**
+	 * Adds the given tokens to the history (and model)
+	 * @param tokens The tokens
+	 */
+	public void addHistory(List<Token> tokens) {
+		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
 			double ngramAverage = 
 				(double)this.model.totalCountForNGramLength(ngram.length())
 				/ this.model.numberOfNGramLength(ngram.length());
@@ -57,8 +51,7 @@ public class WordPredictor {
 			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
 		}
 		
-		this.model.clearCache();
-		
+		this.model.clearCache();	
 	}
 
 	/**

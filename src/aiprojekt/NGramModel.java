@@ -23,6 +23,8 @@ public class NGramModel {
 	private final int matchThreshold = 0;
 	private final int topUnigramsCount = 100;
 	
+	private final boolean isLoadMode;
+		
 	/**
 	 * The start of sentence unigram
 	 */
@@ -51,11 +53,21 @@ public class NGramModel {
 	/**
 	 * Creates a new N-gram model
 	 * @param maxLength The maximum length of a n-gram
+	 * @param isLoadMode Load mode means that the n-gram are loaded from a file
 	 */
-	public NGramModel(int maxLength) {
+	public NGramModel(int maxLength, boolean isLoadMode) {
 		this.maxLength = maxLength;
 		this.numNGrams = new int[maxLength];
 		this.totalNGramCounts = new int[maxLength];
+		this.isLoadMode = isLoadMode;
+	}
+	
+	/**
+	 * Creates a new N-gram model
+	 * @param maxLength The maximum length of a n-gram
+	 */
+	public NGramModel(int maxLength) {
+		this(maxLength, false);
 	}
 	
 	/**
@@ -111,6 +123,19 @@ public class NGramModel {
 	}
 	
 	/**
+	 * Returns the number of (unique) n-grams
+	 */
+	public int numNgrams() {
+		int total = 0;
+		
+		for (int count : this.numNGrams) {
+			total += count;
+		}
+		
+		return total;
+	}
+	
+	/**
 	 * Returns the search tree
 	 */
 	public NGramTree searchTree() {
@@ -153,7 +178,10 @@ public class NGramModel {
 			this.numNGrams[ngram.length() - 1]++;			
 		}
 		
-		this.ngrams.put(ngram, currentCount + count);
+		if (!this.isLoadMode) {
+			this.ngrams.put(ngram, currentCount + count);
+		}
+		
 		this.tree.insert(ngram, count);
 		this.totalNGramCounts[ngram.length() - 1] += count;
  	}
@@ -227,13 +255,13 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	public int getCount(NGram ngram) {
-//		return this.tree.find(ngram);
+		return this.tree.find(ngram);
 		
-		if (this.ngrams.containsKey(ngram)) {
-			return this.ngrams.get(ngram);
-		}
-		
-		return 0;
+//		if (this.ngrams.containsKey(ngram)) {
+//			return this.ngrams.get(ngram);
+//		}
+//		
+//		return 0;
 	}
 	
 	/**
@@ -289,17 +317,20 @@ public class NGramModel {
 	/**
 	 * Returns the possible unigrams for the given n-gram
 	 * @param ngram The n-gram
+	 * @param includeTopUnigrams Indicates if to include the top unigrams
 	 */
-	private Set<NGram> getPossibleUnigrams(NGram ngram) {
+	private Set<NGram> getPossibleUnigrams(NGram ngram, boolean includeTopUnigrams) {
 		NGram lastNgram = ngram.last();
 		
 		Set<NGram> possibleNGrams = new HashSet<>();
-		for (NGram unigram : this.topUnigrams) {
-			if (unigram.equals(lastNgram)) {
-				continue;
+		if (includeTopUnigrams) {
+			for (NGram unigram : this.topUnigrams) {
+				if (unigram.equals(lastNgram)) {
+					continue;
+				}
+				
+				possibleNGrams.add(unigram);
 			}
-			
-			possibleNGrams.add(unigram);
 		}
 		
 		for (NGramTree.Result result : this.tree.findResults(ngram)) {
@@ -333,7 +364,7 @@ public class NGramModel {
 		if (ngram.equals(NGram.EMPTY_GRAM)) {	
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
-			return this.addProbability(unigram, d * (double)getCount(unigram) / this.totalCountForNGramLength(1));
+			return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);
@@ -361,7 +392,7 @@ public class NGramModel {
 		double beta = 1.0;
 		double restSum = 0.0;
 		
-		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
+		for (NGram unigram : this.getPossibleUnigrams(ngram, true)) {
 			NGram predictedNgram = ngram.append(unigram);
 			
 			int count = getCount(predictedNgram);
@@ -373,7 +404,12 @@ public class NGramModel {
 			}
 		}
 					
-		double alpha = beta / restSum;		
+		double alpha = beta / restSum;	
+		
+		if (restSum == 0 || beta == 0.0) {
+			alpha = 1.0;
+		}
+		
 		this.alphas.put(ngram, alpha);
 		return alpha;
 	}
@@ -386,7 +422,7 @@ public class NGramModel {
 	public List<Result> predictNext(NGram ngram, int numResults) {
 		List<Result> results = new ArrayList<Result>();
 		
-		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
+		for (NGram unigram : this.getPossibleUnigrams(ngram, true)) {
 			if (unigram.equals(START_OF_SENTENCE_UNIGRAM) || unigram.equals(END_OF_SENTENCE_UNIGRAM)) {
 				continue;
 			}

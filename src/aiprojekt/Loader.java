@@ -11,11 +11,10 @@ public class Loader {
 		Loader loader = new Loader();
 		long start = System.currentTimeMillis();
 		NGramModel ngramModel = loader.load(PreProcessor.FILE_PATH);
-		Map<NGram, Integer> ngrams = ngramModel.getNgrams();
 
 		System.out.println("Loaded: " + (System.currentTimeMillis() - start) / 1000.0 + " s");
 		System.out.println("Memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
-		System.out.println("Total n-grams: " + ngrams.size());
+		System.out.println("Total n-grams: " + ngramModel.numNgrams());
 
 		for (int i = 1; i <= ngramModel.maxLength(); i++) {
 			System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
@@ -29,7 +28,7 @@ public class Loader {
 	 * @return The model or null if not loaded
 	 */
 	public NGramModel load(String path) {
-		NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
+		NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH, true);
 		File file = new File(path);
 		if (!file.exists()) {
 			// we have to create file
