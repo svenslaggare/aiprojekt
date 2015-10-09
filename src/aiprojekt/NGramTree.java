@@ -263,19 +263,19 @@ public class NGramTree {
 	}
 	
 	/**
-	 * Creates a root tree
-	 */
-	public static NGramTree rootTree() {
-		return new NGramTree(NGram.EMPTY_GRAM, 0);
-	}
-	
-	/**
 	 * Inserts the given n-gram into the tree
 	 * @param ngram The n-gram
 	 * @param count The count. If the n-gram already exists, the count is added.
 	 */
 	public void insert(NGram ngram, int count) {
 		insert(this, ngram, count);
+	}
+	
+	/**
+	 * Creates a root tree
+	 */
+	public static NGramTree createRootTree() {
+		return new NGramTree(NGram.EMPTY_GRAM, 0);
 	}
 	
 	/**
@@ -286,7 +286,7 @@ public class NGramTree {
 		List<Map.Entry<NGram, Integer>> ngrams = new ArrayList<>();
 		ngrams.addAll(model.getNgrams().entrySet());
 
-		NGramTree rootTree = rootTree();
+		NGramTree rootTree = createRootTree();
 		
 		//Insert each n-gram in the tree.
 		for (Map.Entry<NGram, Integer> current : ngrams) {

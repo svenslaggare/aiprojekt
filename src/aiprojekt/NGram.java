@@ -140,22 +140,19 @@ public class NGram implements Comparable<NGram> {
 	}
 	
 	/**
-	 * Returns a n-gram with the given length
+	 * Returns a subgram with the given length
 	 * @param length The length
-	 * @return The subgram
 	 */
 	public NGram subgram(int length) {
 		if (length > this.length()) {
 			throw new IllegalArgumentException("length > length of n-gram");
 		}
 		
-		Token[] tokens = new Token[length];
-		
-		for (int i = 0; i < length; i++) {
-			tokens[i] = this.at(i);
+		if (this.length() == 0) {
+			return EMPTY_GRAM;
 		}
 		
-		return new NGram(tokens, false);
+		return new NGram(this.tokens, this.start, length);
 	}
 	
 	/**
@@ -177,7 +174,7 @@ public class NGram implements Comparable<NGram> {
 			return EMPTY_GRAM;
 		}
 		
-		return new NGram(this.tokens, this.start + 1, this.length - 1);
+		return new NGram(this.tokens, this.start + 1, this.length() - 1);
 	}
 	
 	/**
