@@ -1,5 +1,6 @@
 package aiprojekt;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -404,7 +405,16 @@ public class NGramModel {
 
 		Collections.sort(results);
 		
+		// Removing results where nextWord-proposal is of same wordclass as last word of the written-words
+		GrammarChecker grammarChecker = new GrammarChecker(); 
+		for(int i = 0; i<numResults; i++){
+			if(!grammarChecker.hasCorrectGrammar(ngram.last(), results.get(i).getNGram())){
+				results.remove(i);
+				continue;
+			}
+		}
 		for (int i = results.size() - 1; i >= numResults; i--) {
+			
 			results.remove(results.size() - 1);
 		}
 		

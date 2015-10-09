@@ -83,9 +83,9 @@ public class WordPredictor {
 		this.useRecentTokens(tokens);
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
-		List<NGramModel.Result> result = model.predictNext(ngram, numResults);
+		List<NGramModel.Result> result = model.predictNext(ngram, numResults); 
 		List<String> predictedWords = new ArrayList<String>();
-
+	
 		for (int i = 0; i < result.size(); i++) {
 			NGram resultGram = result.get(i).getNGram();
 			int indexForLast = resultGram.length() - 1;
