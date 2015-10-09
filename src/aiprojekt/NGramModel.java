@@ -282,8 +282,14 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 */
 	private Set<NGram> getPossibleUnigrams(NGram ngram) {
+		NGram lastNgram = ngram.last();
+		
 		Set<NGram> possibleNGrams = new HashSet<>();
 		for (NGram unigram : this.topUnigrams) {
+			if (unigram.equals(lastNgram)) {
+				continue;
+			}
+			
 			possibleNGrams.add(unigram);
 		}
 		
@@ -315,7 +321,7 @@ public class NGramModel {
 			return this.probabilities.get(unigram);
 		}
 		
-		if (ngram.equals(NGram.EMPTY_GRAM)) {		
+		if (ngram.equals(NGram.EMPTY_GRAM)) {	
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
 			return this.addProbability(unigram, d * (double)getCount(unigram) / this.totalCountForNGramLength(1));
