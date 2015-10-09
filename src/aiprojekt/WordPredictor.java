@@ -38,7 +38,7 @@ public class WordPredictor {
 				(double)this.model.totalCountForNGramLength(ngram.length())
 				/ this.model.numberOfNGramLength(ngram.length());
 			
-//			System.err.println(ngram + ": " + ngramAverage);
+			System.err.println(ngram + ": " + ngramAverage);
 			
 			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
 		}

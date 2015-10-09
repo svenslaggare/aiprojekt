@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,6 +27,8 @@ public class PreProcessor {
 	private final boolean timer = true;
 	
 	private int processedSentences = 0;
+	private int processedTokens = 0;
+	
 	private NGramModel ngramModel = new NGramModel(NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 	
 	public static void main(String[] args) {
@@ -52,8 +55,8 @@ public class PreProcessor {
 		
 		if (timer) {
 			System.out.println("Elapsed time was " + (stopTime - startTime) / 1000.0 + " seconds.");
-			System.out.println("Processed "+ processedSentences +" sentences");
-			
+			System.out.println("Processed " + this.processedSentences + " sentences");
+			System.out.println("Processed " + this.processedTokens + " tokens");
 			System.out.println("Total n-grams: " + ngramModel.getNgrams().size());
 			for (int i = 1; i <= ngramModel.maxLength(); i++) {
 				System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
@@ -162,8 +165,10 @@ public class PreProcessor {
 				try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 					String sentence;
 					while ((sentence = br.readLine()) != null) {
-						this.ngramModel.processTokens(parser.tokenize(sentence));
-						processedSentences++;
+						List<Token> tokens = parser.tokenize(sentence);
+						this.ngramModel.processTokens(tokens);
+						this.processedSentences++;
+						this.processedTokens += tokens.size();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
