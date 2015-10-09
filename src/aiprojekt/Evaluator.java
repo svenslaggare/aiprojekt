@@ -250,6 +250,11 @@ public class Evaluator {
 		}
 	}
 
+	/**
+	 * Extracts tokenized sentences from given user in the given file. If @code{file} is a
+	 * directory, all its files and subdirectories are recursively processed.
+	 * @param user Extract sentences only from this user format: <user>
+	 */
 	private ArrayList<ArrayList<Token>> extractUserSentences(String user,
 			File file) {
 		TextParser parser = new TextParser();
