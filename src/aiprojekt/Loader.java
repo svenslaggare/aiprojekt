@@ -45,9 +45,9 @@ public class Loader {
 				for (int id = 0; id < numTokens; id++) {
 					String token = inputStream.readUTF();
 
-					if (token.equals("<s>")) {
+					if (token.equals(TokenType.START_OF_SENTENCE.toString())) {
 						idToToken.put(id, new Token(TokenType.START_OF_SENTENCE));
-					} else if (token.equals("</s>")) {
+					} else if (token.equals(TokenType.END_OF_SENTENCE.toString())) {
 						idToToken.put(id, new Token(TokenType.END_OF_SENTENCE));
 					} else {
 						idToToken.put(id, new Token(token));
