@@ -17,12 +17,12 @@ public class Loader {
 		System.out.println("Total n-grams: " + ngramModel.numNgrams());
 
 		for (int i = 1; i <= ngramModel.maxLength(); i++) {
-			System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
+			System.out.println("Number of " + i + "-grams: " + ngramModel.numberOfNGramLength(i));
 		}	
 	}
 
 	/**
-	 * Loads and returns NGram model from disc.
+	 * Loads and returns a n-gram model from disc.
 	 * 
 	 * @param path File path to file containing stored NGram model.
 	 * @return The model or null if not loaded
@@ -58,7 +58,7 @@ public class Loader {
 				double a = inputStream.readDouble();
 				double b = inputStream.readDouble();
 				ngramModel.getGoodTuringEstimation().setLogLinear(a, b);
-
+				
 				//The top ranked unigrams
 				int topUnigramsCount = inputStream.readInt();
 				for (int i = 0; i < topUnigramsCount; i++) {
@@ -68,8 +68,6 @@ public class Loader {
 				
 				//The n-grams
 				int count = inputStream.readInt();
-				Map<NGram, Integer> ngrams = new HashMap<>(count);
-
 				List<Token> tokenBuffer = new ArrayList<>();
 
 				for (int i = 0; i < count; i++) {
@@ -82,10 +80,8 @@ public class Loader {
 					}
 
 					int ngramCount = inputStream.readInt();
-					ngrams.put(NGram.fromList(tokenBuffer), ngramCount);
+					ngramModel.addNGram(NGram.fromList(tokenBuffer), ngramCount);
 				}
-
-				ngramModel.addNGrams(ngrams);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;

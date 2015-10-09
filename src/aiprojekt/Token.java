@@ -62,7 +62,7 @@ public class Token {
 			return false;
 		}
 		
-		Token other = (Token) obj;
+		Token other = (Token)obj;
 		if (type != other.type) {
 			return false;
 		}

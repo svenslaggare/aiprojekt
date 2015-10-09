@@ -81,7 +81,7 @@ public class GoodTuringEstimation {
 				this.total += current.getKey() * current.getValue();
 			}
 			
-			//Calculate Z_r
+			//Calculate Zr
 			Integer[] rs = this.frequencyOfFrequencies.keySet().toArray(new Integer[this.frequencyOfFrequencies.size()]);
 			Map<Integer, Double> zR = new TreeMap<>();
 					
@@ -105,7 +105,7 @@ public class GoodTuringEstimation {
 				zR.put(r, this.frequencyOfFrequencies.get(r) / (0.5 * (t - q)));
 			}
 			
-			//Do a least square fitting to log(Z_r)=a+b*log(r)
+			//Do a least square fitting to log(Zr)=a+b*log(r)
 			double[][] matrixA = new double[zR.size()][2];
 			double[] logZR = new double[zR.size()];
 			

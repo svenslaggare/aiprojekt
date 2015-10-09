@@ -46,7 +46,7 @@ public class NGramModel {
 	 */
 	public static final int DEFAULT_MAX_NGRAM_LENGTH = 3;
 	
-	private final NGramTree tree = NGramTree.rootTree();
+	private final NGramTree tree = NGramTree.createRootTree();
 	
 	private final GoodTuringEstimation goodTuringEstimation = new GoodTuringEstimation();
 	

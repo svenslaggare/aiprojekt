@@ -1,7 +1,6 @@
 package aiprojekt;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,8 +34,11 @@ public class WordPredictor {
 			double sum = 0.0;
 			int count = 0;
 			for (NGramTree.Result current : this.model.searchTree().findTopNgrams(i, maxCountPerAverage)) {
-				sum += current.getCount();
-				count++;
+				if (!(current.equals(NGramModel.START_OF_SENTENCE_UNIGRAM)
+					  || current.equals(NGramModel.END_OF_SENTENCE_UNIGRAM) )) {
+					sum += current.getCount();
+					count++;
+				}
 			}
 			
 			this.ngramAverages[i - 1] = sum / count;

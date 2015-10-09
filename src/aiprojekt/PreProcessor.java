@@ -61,7 +61,7 @@ public class PreProcessor {
 			System.out.println("Processed " + this.processedTokens + " tokens");
 			System.out.println("Total n-grams: " + ngramModel.getNgrams().size());
 			for (int i = 1; i <= ngramModel.maxLength(); i++) {
-				System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
+				System.out.println("Number of " + i + "-grams: " + ngramModel.numberOfNGramLength(i));
 			}	
 		}
 		

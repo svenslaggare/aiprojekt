@@ -22,7 +22,7 @@ public class NGramTreeTest {
 	@Test
 	public void testInsert() {
 		NGram ngram = NGram.fromWords("hello", "my", "name");
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		tree.insert(ngram, 2);
 		assertEquals(2, tree.find(ngram));
 		assertEquals(0, tree.find(NGram.fromWords("hello", "my")));
@@ -38,7 +38,7 @@ public class NGramTreeTest {
 		NGram ngram1 = NGram.fromWords("hello");
 		NGram ngram2 = NGram.fromWords("hello", "my");
 		NGram ngram3 = NGram.fromWords("hello", "my", "name");
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		
 		tree.insert(ngram1, 1);
 		tree.insert(ngram2, 1);
@@ -57,7 +57,7 @@ public class NGramTreeTest {
 	@Test
 	public void testInsertAlreadyExists() {
 		NGram ngram = NGram.fromWords("hello", "my", "name");
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		
 		tree.insert(ngram, 2);
 		assertEquals(2, tree.find(ngram));
@@ -78,7 +78,7 @@ public class NGramTreeTest {
 	@Test
 	public void testInsertAlreadyExists2() {
 		NGram ngram = NGram.fromWords("hello", "my", "name");
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		
 		tree.insert(ngram, 2);
 		assertEquals(2, tree.find(ngram));
@@ -109,7 +109,7 @@ public class NGramTreeTest {
 	 */
 	@Test
 	public void testGetUnigrams() {
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		tree.insert(NGram.fromWords("hello", "my"), 1);
 		tree.insert(NGram.fromWords("my"), 3);
 		tree.insert(NGram.fromWords("name"), 2);
@@ -128,7 +128,7 @@ public class NGramTreeTest {
 	 */
 	@Test
 	public void testFindResults() {
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		tree.insert(NGram.fromWords("hello", "my"), 1);
 		tree.insert(NGram.fromWords("hello", "i"), 3);
 		
@@ -157,7 +157,7 @@ public class NGramTreeTest {
 	 */
 	@Test
 	public void testFindOfLength() {
-		NGramTree tree = NGramTree.rootTree();
+		NGramTree tree = NGramTree.createRootTree();
 		tree.insert(NGram.fromWords("hello", "my"), 1);
 		tree.insert(NGram.fromWords("hello", "you"), 1);
 		tree.insert(NGram.fromWords("trolling", "you"), 1);
