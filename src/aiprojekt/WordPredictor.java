@@ -45,6 +45,21 @@ public class WordPredictor {
 		
 		this.model.clearCache();
 	}
+	
+	public void addHistory(ArrayList<Token> sentence) {
+		for (NGram ngram : NGramModel.getNgrams(sentence, this.model.maxLength())) {
+			double ngramAverage = 
+				(double)this.model.totalCountForNGramLength(ngram.length())
+				/ this.model.numberOfNGramLength(ngram.length());
+			
+//			System.err.println(ngram + ": " + ngramAverage);
+			
+			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
+		}
+		
+		this.model.clearCache();
+		
+	}
 
 	/**
 	 * Uses only the most recent tokens
@@ -94,4 +109,5 @@ public class WordPredictor {
 
 		return predictedWords;
 	}
+
 }

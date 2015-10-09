@@ -29,8 +29,8 @@ import java.util.TreeMap;
 public class Evaluator {
 
 	private static final String EVALUATE_FILE = "res/evaluation/evaluate.txt";
-	private static final String USER_TRAINING_PATH = "res/evaluation/user_input_training";
-	private static final String USER_TESTING_PATH = "res/evaluation/user_input_testing";
+	private static final String USER_TRAINING_PATH = "res/evaluation/user_input_training/";
+	private static final String USER_TESTING_PATH = "res/evaluation/user_input_testing/";
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
@@ -52,7 +52,11 @@ public class Evaluator {
 		// path to all (user training data) != training data
 
 		Evaluator evaluator = new Evaluator();
-		// evaluator.evaluate(null,EVALUATE_FILE);
+		
+		// evaluate model
+		// evaluator.evaluate();
+		
+		// evaluate user input learning (should loop over userCandidates)
 		evaluator.evaluateUserInput(userCandidates[0]);
 
 	}
@@ -71,6 +75,7 @@ public class Evaluator {
 		File trainingFile = new File(USER_TRAINING_PATH);
 		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
 				user, trainingFile);
+		System.out.println("trainingSentences.size() = "+trainingSentences.size());
 		// 2. train the model with the user input
 		for (ArrayList<Token> sentence : trainingSentences) {
 			predictor.addHistory(sentence);
@@ -79,6 +84,7 @@ public class Evaluator {
 		File testingFile = new File(USER_TESTING_PATH);
 		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
 				user, testingFile);
+		System.out.println("testingSentences.size() = "+testingSentences.size());
 		// 4. test the model with the user input
 		evaluate(predictor, testingSentences);
 
@@ -100,7 +106,7 @@ public class Evaluator {
 				// break if reaching the constant max sentence length or if
 				// reaching the limit size of this sentence* (* = subtract 1
 				// from sentence, because of </s> tag).
-				if ((correctWordPosition == MAX_SENTENCE_LENGTH + 1)
+				if ((correctWordPosition == MAX_SENTENCE_LENGTH)
 						|| (correctWordPosition == sentence.size() - 1)) {
 					break;
 				}
@@ -256,7 +262,7 @@ public class Evaluator {
 				// an IO error could occur
 				if (fs != null) {
 					for (int i = 0; i < fs.length; i++) {
-						processFiles(new File(file, fs[i]));
+						listOfSentences.addAll(extractUserSentences(user,new File(file, fs[i])));
 					}
 				}
 			} else {
@@ -264,7 +270,7 @@ public class Evaluator {
 						new FileReader(file))) {
 					String sentence;
 					while ((sentence = br.readLine()) != null) {
-						if (parser.getUser(sentence).equals(sentence)) {
+						if (parser.getUser(sentence).equals(user)) {
 							listOfSentences.add((ArrayList<Token>) parser
 									.tokenize(sentence));
 						}
@@ -292,7 +298,7 @@ public class Evaluator {
 				// an IO error could occur
 				if (fs != null) {
 					for (int i = 0; i < fs.length; i++) {
-						processFiles(new File(file, fs[i]));
+						listOfSentences.addAll(processFiles(new File(file, fs[i])));
 					}
 				}
 			} else {
