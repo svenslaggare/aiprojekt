@@ -34,6 +34,11 @@ public class Evaluator {
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
+	private static final String[] userCandidates = new String[] { "<jrib>",
+			"<LjL>", "<soundray>", "<bruenig>", "<bimberi>", "<gnomefreak>",
+			"<dabaR>", "<crimsum>", "<nolimitsoya>", "<Pelo>", "<kitche>",
+			"<ArrenLex>", "<defrysk>", "<Flannel>", "<apokryphos>" };
+
 	private NGramModel model;
 	private Map<String, Integer> userCount;
 	private int[] countTopResultHit = new int[NUM_RESULTS];
@@ -41,19 +46,80 @@ public class Evaluator {
 	private int testedWords = 0;
 
 	public static void main(String[] args) {
-		 //Used for extracting most frequent users
-//		 Evaluator userAdaptation = new Evaluator();
-//		 userAdaptation.extractTopCommunicatingUsers(USER_TRAINING_PATH);	// path to all (user training data) != training data
+		// Used for extracting most frequent users
+		// Evaluator userAdaptation = new Evaluator();
+		// userAdaptation.extractTopCommunicatingUsers(USER_TRAINING_PATH); //
+		// path to all (user training data) != training data
 
 		Evaluator evaluator = new Evaluator();
-		evaluator.evaluate();
+		// evaluator.evaluate(null,EVALUATE_FILE);
+		evaluator.evaluateUserInput(userCandidates[0]);
 
+	}
+
+	/**
+	 * Trains and evaluates the model using training data AND user input from
+	 * specified user.
+	 * 
+	 * @param user
+	 *            The user to evaluate
+	 */
+	private void evaluateUserInput(String user) {
+		model = trainModel();
+		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
+		// 1. extract the user's sentences from user_training_path
+		File trainingFile = new File(USER_TRAINING_PATH);
+		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
+				user, trainingFile);
+		// 2. train the model with the user input
+		for (ArrayList<Token> sentence : trainingSentences) {
+			predictor.addHistory(sentence);
+		}
+		// 3. extract the user's sentences from user_testing_path
+		File testingFile = new File(USER_TESTING_PATH);
+		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
+				user, testingFile);
+		// 4. test the model with the user input
+		evaluate(predictor, testingSentences);
+
+	}
+
+	/**
+	 * Evaluates the given predictor using the given sentences.
+	 */
+	public void evaluate(WordPredictor predictor, ArrayList<ArrayList<Token>> sentences) {
+		if (predictor == null) {
+			System.err.println("Error, predictor null");
+		}
+
+		for (ArrayList<Token> sentence : sentences) {
+			List<Token> sentenceBuilder = new ArrayList<Token>();
+			// Always have to look at the n+1 word
+			int correctWordPosition = 1;
+			for (Token token : sentence) {
+				// break if reaching the constant max sentence length or if
+				// reaching the limit size of this sentence* (* = subtract 1
+				// from sentence, because of </s> tag).
+				if ((correctWordPosition == MAX_SENTENCE_LENGTH + 1)
+						|| (correctWordPosition == sentence.size() - 1)) {
+					break;
+				}
+				sentenceBuilder.add(token);
+				ArrayList<String> predictedWords = (ArrayList<String>) predictor
+						.predictNextWord(sentenceBuilder, false);
+				predictionCorrectness(predictedWords, sentence,
+						correctWordPosition);
+				correctWordPosition++;
+			}
+		}
+		processResults();
 	}
 
 	/**
 	 * Evaluates the NGram model.
 	 */
 	public void evaluate() {
+
 		// train model
 		model = trainModel();
 		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
@@ -176,6 +242,39 @@ public class Evaluator {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 			i++;
 		}
+	}
+
+	private ArrayList<ArrayList<Token>> extractUserSentences(String user,
+			File file) {
+		TextParser parser = new TextParser();
+		ArrayList<ArrayList<Token>> listOfSentences = new ArrayList<ArrayList<Token>>();
+
+		// do not try to tokenize fs that cannot be read
+		if (file.canRead()) {
+			if (file.isDirectory()) {
+				String[] fs = file.list();
+				// an IO error could occur
+				if (fs != null) {
+					for (int i = 0; i < fs.length; i++) {
+						processFiles(new File(file, fs[i]));
+					}
+				}
+			} else {
+				try (BufferedReader br = new BufferedReader(
+						new FileReader(file))) {
+					String sentence;
+					while ((sentence = br.readLine()) != null) {
+						if (parser.getUser(sentence).equals(sentence)) {
+							listOfSentences.add((ArrayList<Token>) parser
+									.tokenize(sentence));
+						}
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return listOfSentences;
 	}
 
 	/**
