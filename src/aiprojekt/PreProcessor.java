@@ -109,7 +109,11 @@ public class PreProcessor {
 				tokenToId.put(token, id);
 				id++;
 			}
-
+			
+			//Then the Good-Turing parameters
+			outputStream.writeDouble(this.ngramModel.getGoodTuringEstimation().getA());
+			outputStream.writeDouble(this.ngramModel.getGoodTuringEstimation().getB());
+			
 			//Then the top ranked unigrams
 			outputStream.writeInt(this.ngramModel.topUnigrams().size());
 			for (NGram ngram : this.ngramModel.topUnigrams()) {

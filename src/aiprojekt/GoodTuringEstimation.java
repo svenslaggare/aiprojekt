@@ -34,6 +34,20 @@ public class GoodTuringEstimation {
 	}
 	
 	/**
+	 * Returns the constant factor
+	 */
+	public double getA() {
+		return this.a;
+	}
+	
+	/**
+	 * Returns the slope
+	 */
+	public double getB() {
+		return this.b;
+	}
+	
+	/**
 	 * Sets the log-linear parameters (a+b*log(r))
 	 * @param a The constant factor
 	 * @param b The slope
@@ -152,7 +166,6 @@ public class GoodTuringEstimation {
 	 */
 	private double calculateSmoothedCount(int count) {
 		return Math.pow(10, this.a + this.b * Math.log10(count));
-//		return this.a * Math.pow(count, b);
 	}
 	
 	/**

@@ -54,6 +54,11 @@ public class Loader {
 						idToToken.put(id, new Token(token));
 					}
 				}
+				
+				//Good-Turing parameters
+				double a = inputStream.readDouble();
+				double b = inputStream.readDouble();
+				ngramModel.getGoodTuringEstimation().setLogLinear(a, b);
 
 				//The top ranked unigrams
 				int topUnigramsCount = inputStream.readInt();

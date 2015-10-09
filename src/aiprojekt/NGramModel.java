@@ -16,7 +16,7 @@ public class NGramModel {
 	private final int maxLength;
 	
 	private final Map<NGram, Integer> ngrams = new HashMap<NGram, Integer>();
-	private final List<NGram> topUnigrams =  new ArrayList<NGram>();
+	private final List<NGram> topUnigrams = new ArrayList<NGram>();
 	private final int[] ngramCounts;
 	private int totalUnigramCount = 0;
 	
@@ -26,7 +26,7 @@ public class NGramModel {
 	private final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
 	private final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
 	
-	//Probabilities cache
+	//Cached values when executing the getProbability method. This might needed to be cleared if the model changes.
 	private final Map<NGram, Double> probabilities = new HashMap<>();
 	private final Map<NGram, Double> alphas = new HashMap<>();
 	
@@ -46,6 +46,13 @@ public class NGramModel {
 	public NGramModel(int maxLength) {
 		this.maxLength = maxLength;
 		this.ngramCounts = new int[maxLength];
+	}
+	
+	/**
+	 * Returns the Good-Turing estimator
+	 */
+	public GoodTuringEstimation getGoodTuringEstimation() {
+		return this.goodTuringEstimation;
 	}
 	
 	/**
@@ -345,8 +352,6 @@ public class NGramModel {
 	 * @param numResults The number of results
 	 */
 	public List<Result> predictNext(NGram ngram, int numResults) {
-		//TODO: Clear caches when adding Janssons learner.
-		
 		List<Result> results = new ArrayList<Result>();
 		
 		for (NGram unigram : this.getPossibleUnigrams(ngram)) {
