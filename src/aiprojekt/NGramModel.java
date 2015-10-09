@@ -356,12 +356,12 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
 	 */
-	public double getProbability(NGram ngram, NGram unigram) {		
-		if (this.probabilities.containsKey(unigram)) {
-			return this.probabilities.get(unigram);
-		}
-		
+	public double getProbability(NGram ngram, NGram unigram) {				
 		if (ngram.equals(NGram.EMPTY_GRAM)) {	
+			if (this.probabilities.containsKey(unigram)) {
+				return this.probabilities.get(unigram);
+			}
+			
 			int count = getCount(unigram);
 			double d = this.goodTuringEstimation.estimate(count) / count;			
 			return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
@@ -371,6 +371,10 @@ public class NGramModel {
 		
 		int count = getCount(predictedNgram);
 		if (count > matchThreshold) {	
+			if (this.probabilities.containsKey(predictedNgram)) {
+				return this.probabilities.get(predictedNgram);
+			}
+						
 			double d = this.goodTuringEstimation.estimate(count) / count;
 			return this.addProbability(predictedNgram, d * (double)count / getCount(ngram));
 		} else {
@@ -420,7 +424,7 @@ public class NGramModel {
 	 * @param numResults The number of results
 	 */
 	public List<Result> predictNext(NGram ngram, int numResults) {
-		this.clearCache();
+//		this.clearCache();
 		List<Result> results = new ArrayList<Result>();
 		
 		for (NGram unigram : this.getPossibleUnigrams(ngram, true)) {
