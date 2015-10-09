@@ -63,7 +63,7 @@ public class Evaluator {
 		// evaluator.evaluate(EVALUATE_FILE);
 
 		// evaluate user input learning (should loop over userCandidates)
-		for (int i = 7; i < userCandidates.length; i++) {
+		for (int i = 0; i < userCandidates.length; i++) {
 			String data = evaluator.evaluateUserInput(userCandidates[i]);
 			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
 			System.out.println("user " + userCandidates[i] + " written in " +OUTPUT_PATH + "user" + i + ".txt");
