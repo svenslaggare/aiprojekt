@@ -29,6 +29,8 @@ import java.util.TreeMap;
 public class Evaluator {
 
 	private static final String EVALUATE_FILE = "res/evaluation/evaluate.txt";
+	private static final String USER_TRAINING_PATH = "res/evaluation/user_input_training";
+	private static final String USER_TESTING_PATH = "res/evaluation/user_input_testing";
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
@@ -39,9 +41,9 @@ public class Evaluator {
 	private int testedWords = 0;
 
 	public static void main(String[] args) {
-		// Used for extracting most frequent users
-		// Evaluator userAdaptation = new Evaluator();
-		// userAdaptation.extractTopCommunicatingUsers(PreProcessor.BIG_DUMP_LOGS_PATH);	// path to all training data
+		 //Used for extracting most frequent users
+//		 Evaluator userAdaptation = new Evaluator();
+//		 userAdaptation.extractTopCommunicatingUsers(USER_TRAINING_PATH);	// path to all (user training data) != training data
 
 		Evaluator evaluator = new Evaluator();
 		evaluator.evaluate();
@@ -119,9 +121,8 @@ public class Evaluator {
 	 * @return
 	 */
 	private NGramModel trainModel() {
-		PreProcessor processor = new PreProcessor();
-		processor.run();
-		return processor.getNgramModel();
+		Loader loader = new Loader();
+		return loader.load(PreProcessor.FILE_PATH);
 
 	}
 
@@ -162,10 +163,9 @@ public class Evaluator {
 	 *            The file(s) to search for users
 	 */
 	private void extractTopCommunicatingUsers(String filename) {
-		// initial capacity of 1 000 000
 		userCount = new HashMap<String, Integer>();
 		File file = new File(filename);
-		int topK = 10;
+		int topK = 100;
 		populateUsersMap(file);
 		Map<String, Integer> sortedMap = sortByValue(userCount);
 		int i = 0;

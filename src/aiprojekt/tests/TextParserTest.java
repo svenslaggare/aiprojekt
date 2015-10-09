@@ -77,7 +77,11 @@ public class TextParserTest {
 	// system sentence
 	private final String sentence6 = "=== gantox is now known as noob";
 	// answer to sentence6 should be an empty list.
-
+	
+	// bot user
+	private final String sentence7 = "<ubotu> petro: The linux terminal or command-line interface is very powerful. Open a terminal ...";
+	private final String sentence8 = "<ubottu> petro: The linux terminal or command-line interface is very powerful. Open a terminal ...";
+	
 	TextParser parser = new TextParser();
 
 	@Test
@@ -112,6 +116,9 @@ public class TextParserTest {
 		assertTrue(parser.getUser(sentence5).equals("<gantox>"));
 		// test system message
 		assertTrue(parser.getUser(sentence6).equals(""));
+		// test bot user
+		assertTrue(parser.getUser(sentence7).equals(""));
+		assertTrue(parser.getUser(sentence8).equals(""));
 		
 	}
 }

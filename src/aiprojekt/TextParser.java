@@ -65,8 +65,11 @@ public class TextParser {
 		}
 		Matcher matcher = USERNAME_PATTERN.matcher(sentence);
 		if(matcher.find()){
-			
-			return matcher.group(0);
+			String user = matcher.group(0);
+			if(user.equals("<ubotu>") || user.equals("<ubottu>")){
+				return "";
+			}
+			return user;
 		} else {
 			return "";
 		}

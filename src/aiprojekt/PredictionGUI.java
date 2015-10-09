@@ -166,7 +166,7 @@ public class PredictionGUI {
 			new PredictionGUI(ngramModel);
 		} else {
 			Loader loader = new Loader();
-			new PredictionGUI(loader.load(LOAD_FILE));
+			new PredictionGUI(loader.load(PreProcessor.FILE_PATH));
 		}
 	}
 	
