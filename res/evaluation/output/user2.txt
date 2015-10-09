@@ -1,0 +1,93 @@
+Count of hits at specified position in top 10 predictions:
+position 1: 737
+position 2: 536
+position 3: 483
+position 4: 328
+position 5: 277
+position 6: 444
+position 7: 292
+position 8: 304
+position 9: 189
+position 10: 189
+
+Count of hits at specified position in the sentences:
+word 0 in the sentence: 0
+word 1 in the sentence: 4
+word 2 in the sentence: 291
+word 3 in the sentence: 320
+word 4 in the sentence: 397
+word 5 in the sentence: 366
+word 6 in the sentence: 307
+word 7 in the sentence: 267
+word 8 in the sentence: 252
+word 9 in the sentence: 223
+word 10 in the sentence: 193
+word 11 in the sentence: 174
+word 12 in the sentence: 154
+word 13 in the sentence: 138
+word 14 in the sentence: 120
+word 15 in the sentence: 92
+word 16 in the sentence: 90
+word 17 in the sentence: 71
+word 18 in the sentence: 53
+word 19 in the sentence: 52
+word 20 in the sentence: 40
+word 21 in the sentence: 37
+word 22 in the sentence: 38
+word 23 in the sentence: 23
+word 24 in the sentence: 17
+word 25 in the sentence: 18
+word 26 in the sentence: 12
+word 27 in the sentence: 11
+word 28 in the sentence: 12
+word 29 in the sentence: 7
+Total tested words: 14070
+Total successfully predicted words: 3779
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.2685856432125089
+NON-learned model for comparison:
+Count of hits at specified position in top 10 predictions:
+position 1: 718
+position 2: 519
+position 3: 484
+position 4: 329
+position 5: 275
+position 6: 275
+position 7: 408
+position 8: 288
+position 9: 246
+position 10: 189
+
+Count of hits at specified position in the sentences:
+word 0 in the sentence: 0
+word 1 in the sentence: 4
+word 2 in the sentence: 289
+word 3 in the sentence: 320
+word 4 in the sentence: 395
+word 5 in the sentence: 362
+word 6 in the sentence: 302
+word 7 in the sentence: 265
+word 8 in the sentence: 244
+word 9 in the sentence: 224
+word 10 in the sentence: 190
+word 11 in the sentence: 169
+word 12 in the sentence: 148
+word 13 in the sentence: 137
+word 14 in the sentence: 116
+word 15 in the sentence: 93
+word 16 in the sentence: 90
+word 17 in the sentence: 71
+word 18 in the sentence: 53
+word 19 in the sentence: 51
+word 20 in the sentence: 39
+word 21 in the sentence: 37
+word 22 in the sentence: 37
+word 23 in the sentence: 23
+word 24 in the sentence: 17
+word 25 in the sentence: 17
+word 26 in the sentence: 11
+word 27 in the sentence: 9
+word 28 in the sentence: 12
+word 29 in the sentence: 6
+Total tested words: 14070
+Total successfully predicted words: 3731
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.2651741293532338

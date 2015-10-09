@@ -1,9 +1,14 @@
 package aiprojekt;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -31,6 +36,7 @@ public class Evaluator {
 	private static final String EVALUATE_FILE = "res/evaluation/evaluate.txt";
 	private static final String USER_TRAINING_PATH = "res/evaluation/user_input_training/";
 	private static final String USER_TESTING_PATH = "res/evaluation/user_input_testing/";
+	private static final String OUTPUT_PATH = "res/evaluation/output/";
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
@@ -52,14 +58,21 @@ public class Evaluator {
 		// path to all (user training data) != training data
 
 		Evaluator evaluator = new Evaluator();
-		
+
 		// evaluate model
-		// evaluator.evaluate();
-		
+		// evaluator.evaluate(EVALUATE_FILE);
+
 		// evaluate user input learning (should loop over userCandidates)
-		evaluator.evaluateUserInput(userCandidates[0]);
+		for (int i = 0; i < userCandidates.length; i++) {
+			String data = evaluator.evaluateUserInput(userCandidates[i]);
+			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+			System.out.println("user " + userCandidates[i] + " written in " +OUTPUT_PATH + "user" + i + ".txt");
+
+		}
 
 	}
+
+	
 
 	/**
 	 * Trains and evaluates the model using training data AND user input from
@@ -68,14 +81,16 @@ public class Evaluator {
 	 * @param user
 	 *            The user to evaluate
 	 */
-	private void evaluateUserInput(String user) {
+	private String evaluateUserInput(String user) {
 		model = trainModel();
 		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
+		StringBuilder sb = new StringBuilder();
 		// 1. extract the user's sentences from user_training_path
 		File trainingFile = new File(USER_TRAINING_PATH);
 		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
 				user, trainingFile);
-		System.out.println("trainingSentences.size() = "+trainingSentences.size());
+		sb.append("trainingSentences.size() = "
+				+ trainingSentences.size());
 		// 2. train the model with the user input
 		for (ArrayList<Token> sentence : trainingSentences) {
 			predictor.addHistory(sentence);
@@ -84,16 +99,28 @@ public class Evaluator {
 		File testingFile = new File(USER_TESTING_PATH);
 		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
 				user, testingFile);
-		System.out.println("testingSentences.size() = "+testingSentences.size());
-		// 4. test the model with the user input
-		evaluate(predictor, testingSentences);
+		sb.append("testingSentences.size() = "
+				+ testingSentences.size());
+		// 4. test the learned model with the user input
+		
+		sb.append(evaluate(predictor, testingSentences));
+
+		// Compared to:
+		model = trainModel();
+		predictor = new WordPredictor(model, NUM_RESULTS);
+		// 5. test the non-learned model with the user input
+		sb.append(("NON-learned model for comparison:\n"));
+		sb.append(evaluate(predictor, testingSentences));
+
+		return sb.toString();
 
 	}
 
 	/**
 	 * Evaluates the given predictor using the given sentences.
 	 */
-	public void evaluate(WordPredictor predictor, ArrayList<ArrayList<Token>> sentences) {
+	public String evaluate(WordPredictor predictor,
+			ArrayList<ArrayList<Token>> sentences) {
 		if (predictor == null) {
 			System.err.println("Error, predictor null");
 		}
@@ -118,20 +145,20 @@ public class Evaluator {
 				correctWordPosition++;
 			}
 		}
-		processResults();
+		return processResults();
 	}
 
 	/**
 	 * Evaluates the NGram model.
 	 */
-	public void evaluate() {
+	public String evaluate(String filename) {
 
 		// train model
 		model = trainModel();
 		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
 
 		// extract testing sentences from test data != training data
-		File file = new File(EVALUATE_FILE);
+		File file = new File(filename);
 		ArrayList<ArrayList<Token>> sentences = processFiles(file);
 
 		for (ArrayList<Token> sentence : sentences) {
@@ -154,7 +181,7 @@ public class Evaluator {
 				correctWordPosition++;
 			}
 		}
-		processResults();
+		return processResults();
 	}
 
 	/**
@@ -201,29 +228,39 @@ public class Evaluator {
 	/**
 	 * Prints the results to System.out
 	 */
-	private void processResults() {
+	private String processResults() {
 		int totalCorrectPredicted = 0;
-		System.out.println("Count of hits at specified position in top "
-				+ NUM_RESULTS + " predictions:");
+		StringBuilder sb = new StringBuilder();
+		sb.append("Count of hits at specified position in top " + NUM_RESULTS
+				+ " predictions:\n");
 		for (int i = 0; i < NUM_RESULTS; i++) {
-			System.out.println("position " + (i + 1) + ": "
-					+ countTopResultHit[i]);
+			sb.append("position " + (i + 1) + ": " + countTopResultHit[i]
+					+ "\n");
 			totalCorrectPredicted += countTopResultHit[i];
 		}
 
-		System.out
-				.println("\nCount of hits at specified position in the sentences:");
+		sb.append("\nCount of hits at specified position in the sentences:\n");
 		for (int i = 0; i < MAX_SENTENCE_LENGTH; i++) {
-			System.out.println("word " + i + " in the sentence: "
-					+ countWordPositionHit[i]);
+			sb.append("word " + i + " in the sentence: "
+					+ countWordPositionHit[i] + "\n");
 		}
 
-		System.out.println("Total tested words: " + testedWords);
-		System.out.println("Total successfully predicted words: "
-				+ totalCorrectPredicted);
-		System.out
-				.println("Hitrate (totalCorrectPredicted/(double)testedWords): "
-						+ totalCorrectPredicted / (double) testedWords);
+		sb.append("Total tested words: " + testedWords + "\n");
+		sb.append("Total successfully predicted words: "
+				+ totalCorrectPredicted + "\n");
+		sb.append("Hitrate (totalCorrectPredicted/(double)testedWords): "
+				+ totalCorrectPredicted / (double) testedWords + "\n");
+		cleanUp();
+		return sb.toString();
+	}
+
+	private void cleanUp() {
+		model = null;
+		userCount = null;
+		countTopResultHit = new int[NUM_RESULTS];
+		countWordPositionHit = new int[MAX_SENTENCE_LENGTH];
+		testedWords = 0;
+		System.gc();
 
 	}
 
@@ -251,9 +288,13 @@ public class Evaluator {
 	}
 
 	/**
-	 * Extracts tokenized sentences from given user in the given file. If @code{file} is a
-	 * directory, all its files and subdirectories are recursively processed.
-	 * @param user Extract sentences only from this user format: <user>
+	 * Extracts tokenized sentences from given user in the given file. If
+	 * 
+	 * @code{file is a directory, all its files and subdirectories are
+	 *            recursively processed.
+	 * 
+	 * @param user
+	 *            Extract sentences only from this user format: <user>
 	 */
 	private ArrayList<ArrayList<Token>> extractUserSentences(String user,
 			File file) {
@@ -267,7 +308,8 @@ public class Evaluator {
 				// an IO error could occur
 				if (fs != null) {
 					for (int i = 0; i < fs.length; i++) {
-						listOfSentences.addAll(extractUserSentences(user,new File(file, fs[i])));
+						listOfSentences.addAll(extractUserSentences(user,
+								new File(file, fs[i])));
 					}
 				}
 			} else {
@@ -303,7 +345,8 @@ public class Evaluator {
 				// an IO error could occur
 				if (fs != null) {
 					for (int i = 0; i < fs.length; i++) {
-						listOfSentences.addAll(processFiles(new File(file, fs[i])));
+						listOfSentences.addAll(processFiles(new File(file,
+								fs[i])));
 					}
 				}
 			} else {
@@ -321,7 +364,23 @@ public class Evaluator {
 		}
 		return listOfSentences;
 	}
+	
+	/**
+	 * Writes the string data to the specified filepath.
+	 * @param data The string data to be written
+	 * @param filepath The filepath to write the file
+	 */
+	private static void writeToFile(String data, String filepath) {
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream(filepath), StandardCharsets.UTF_8))) {
+			writer.write(data);
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+	}
+	
 	/**
 	 * Extracts all users from file and populates a map with <user,
 	 * #occurrences> If @code{file} is a directory, all its files and
