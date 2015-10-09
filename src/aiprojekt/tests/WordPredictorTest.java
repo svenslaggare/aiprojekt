@@ -72,13 +72,13 @@ public class WordPredictorTest {
 	 */
 	@Test
 	public void testLongerThanMax() {
-		//TODO: Fix this test case
-//		NGramModel model = new NGramModel(3);
-//		model.processTokens(sentence1);
-//		model.end();	
-//	
-//		WordPredictor predictor = new WordPredictor(model, 1);
-//		assertEquals(Arrays.asList("name"), predictor.predictNextWord("hello my"));
+		NGramModel model = new NGramModel(3);
+		model.processTokens(sentence1);
+		model.processTokens(sentence1);
+		model.end();	
+	
+		WordPredictor predictor = new WordPredictor(model, 1);
+		assertEquals(Arrays.asList("name"), predictor.predictNextWord("hello my"));
 	}
 	
 	/**

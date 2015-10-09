@@ -222,7 +222,7 @@ public class NGramModelTest {
 		
 		NGram ngram = NGram.fromWords("hello");
 		List<NGramModel.Result> results = ngramModel.predictNext(ngram, 5);
-		assertEquals(NGram.fromWords("hello", "how"), results.get(0).getNGram());
+		assertEquals(NGram.fromWords("hello", "are"), results.get(0).getNGram());
 	}
 	
 	/**
