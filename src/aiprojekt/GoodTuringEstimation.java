@@ -14,8 +14,6 @@ import org.apache.commons.math3.linear.RealVector;
 
 /**
  * Represents a Good-Turing estimation
- * @author Anton Jansson
- *
  */
 public class GoodTuringEstimation {	
 	private final Map<Integer, Integer> frequencyOfFrequencies = new TreeMap<>();
@@ -27,6 +25,7 @@ public class GoodTuringEstimation {
 	private double b;
 	
 	private boolean useSmoothing = true;
+	private final boolean saveOutput = false;
 	
 	/**
 	 * Creates a new Good-Turing smoothing
@@ -129,38 +128,9 @@ public class GoodTuringEstimation {
 				
 //			System.err.println("a = " + this.a);
 //			System.err.println("b = " + this.b);
-			
-//			try (BufferedWriter writer = new BufferedWriter(new FileWriter("goodturing.m"))) {
-//				StringBuilder xBuilder = new StringBuilder();
-//				StringBuilder yBuilder = new StringBuilder();
-//				
-//				xBuilder.append("r = [");
-//				yBuilder.append("Nr = [");
-//
-////				for (int r = 0; r < rs[rs.length - 1]; r++) {
-//				for (int r = 0; r < 50; r++) {
-//					if (r != 0) {
-//						xBuilder.append(" ");
-//						yBuilder.append(" ");
-//					}
-//					
-//					xBuilder.append(r);
-//					if (r > 0) {
-//						yBuilder.append(this.estimate(r) / r);
-//					} else {
-//						yBuilder.append(this.estimate(r));
-//					}
-//				}
-//				
-//				xBuilder.append("];");
-//				yBuilder.append("];");
-//				
-//				writer.append(xBuilder.toString() + "\n");
-//				writer.append(yBuilder.toString() + "\n");
-//				writer.append("plot(r, Nr)");
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			if (this.saveOutput) {
+				this.saveData(rs);			
+			}
 			
 			//If b > -1, the smoothing won't work.
 			if (this.b > -1) {
@@ -169,6 +139,79 @@ public class GoodTuringEstimation {
 		} else {
 			this.a = 0.0;
 			this.b = 0.0;
+		}
+	}
+	
+	/**
+	 * Saves the data to a MATLAB file
+	 * @param rs The sorted counts
+	 */
+	private void saveData(Integer[] rs) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("goodturing.m"))) {
+			StringBuilder xBuilder = new StringBuilder();
+			StringBuilder yBuilder = new StringBuilder();
+			
+			writer.append("hold on\n");
+			
+			xBuilder.append("r = [");
+			yBuilder.append("Nr = [");
+
+//			for (int r = 0; r < rs[rs.length - 1]; r++) {
+			for (int r = 0; r < 2000; r++) {
+				if (r != 0) {
+					xBuilder.append(" ");
+					yBuilder.append(" ");
+				}
+				
+				xBuilder.append(r);
+				if (r > 0) {
+					yBuilder.append(this.estimate(r));
+				} else {
+					yBuilder.append(this.estimate(r));
+				}
+			}
+			
+			xBuilder.append("];");
+			yBuilder.append("];");
+			
+			writer.append(xBuilder.toString() + "\n");
+			writer.append(yBuilder.toString() + "\n");
+			writer.append("plot(r, Nr)");
+			
+			writer.append("\n\n");
+			
+			xBuilder = new StringBuilder();
+			yBuilder = new StringBuilder();
+			
+			xBuilder.append("rE = [");
+			yBuilder.append("NrE = [");
+
+			boolean isFirst = true;
+			for (int i = 0; i < rs.length; i++) {
+				int r = rs[i];
+				int j = i + 1;
+				
+				if (j < rs.length && rs[j] == r + 1) {
+					if (!isFirst) {
+						xBuilder.append(" ");
+						yBuilder.append(" ");
+					} else {
+						isFirst = false;
+					}
+					
+					xBuilder.append(r);
+					yBuilder.append((r + 1) * (double)this.frequencyOfFrequencies.get(r + 1) / this.frequencyOfFrequencies.get(r));
+				}
+			}
+			
+			xBuilder.append("];");
+			yBuilder.append("];");
+			
+			writer.append(xBuilder.toString() + "\n");
+			writer.append(yBuilder.toString() + "\n");
+			writer.append("plot(rE, NrE, '.red')");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
