@@ -21,8 +21,10 @@ public class PredictionGUI {
 	private static final String BACKSPACE_PRESSED = "backspacePressed";
 	
 	// Use pre-processed NGrams
-	private static final boolean USE_LOADER = false;
+	private static final boolean USE_LOADER = true;
 	private static final String LOAD_FILE = "res/bin/ngrams.bin";
+	
+	private static final boolean LEARN_FROM_HISTORY = true;
 	
 	public PredictionGUI(NGramModel ngramModel) {
 		final JFrame frame;
@@ -56,7 +58,11 @@ public class PredictionGUI {
 		sendButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				chat.append("user: " + inputField.getText() + "\n");
-				wordPredictor.addHistory(inputField.getText());
+				
+				if (LEARN_FROM_HISTORY) {
+					wordPredictor.addHistory(inputField.getText());
+				}
+				
 				inputField.setText("");
 				inputField.requestFocusInWindow();
 				updateNextWordPredictions("");
@@ -185,7 +191,6 @@ public class PredictionGUI {
 		}
 		
 		sb.append("</html>");
-		
 		nextWordProposals.setText(sb.toString());
 	}
 }

@@ -22,6 +22,13 @@ public class WordPredictor {
 	}
 	
 	/**
+	 * Returns the n-gram model
+	 */
+	public NGramModel getModel() {
+		return this.model;
+	}
+	
+	/**
 	 * Adds the given line to the history (and model)
 	 * @param line The line to add
 	 */

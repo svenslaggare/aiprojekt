@@ -23,8 +23,17 @@ public class NGramModel {
 	private final int matchThreshold = 0;
 	private final int topUnigramsCount = 100;
 	
-	private final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.START_OF_SENTENCE));
-	private final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(new Token(TokenType.END_OF_SENTENCE));
+	/**
+	 * The start of sentence unigram
+	 */
+	public final static NGram START_OF_SENTENCE_UNIGRAM = NGram.fromTokens(
+			new Token(TokenType.START_OF_SENTENCE));
+	
+	/**
+	 * The end of sentence unigram
+	 */
+	public final static NGram END_OF_SENTENCE_UNIGRAM = NGram.fromTokens(
+			new Token(TokenType.END_OF_SENTENCE));
 	
 	//Cached values when executing the getProbability method.
 	private final Map<NGram, Double> probabilities = new HashMap<>();
@@ -146,7 +155,7 @@ public class NGramModel {
 		
 		this.ngrams.put(ngram, currentCount + count);
 		this.tree.insert(ngram, count);
-		this.totalNGramCounts[ngram.length() - 1]++;
+		this.totalNGramCounts[ngram.length() - 1] += count;
  	}
  	
 	/**
