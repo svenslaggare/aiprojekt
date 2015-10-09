@@ -26,6 +26,8 @@ public class GoodTuringEstimation {
 	private double a;
 	private double b;
 	
+	private boolean useSmoothing = false;
+	
 	/**
 	 * Creates a new Good-Turing smoothing
 	 */
@@ -154,6 +156,11 @@ public class GoodTuringEstimation {
 //			} catch (IOException e) {
 //				e.printStackTrace();
 //			}
+			
+			//If b > -1, the smoothing won't work.
+			if (this.b > -1) {
+				this.useSmoothing = false;
+			}
 		} else {
 			this.a = 0.0;
 			this.b = 0.0;
@@ -173,10 +180,15 @@ public class GoodTuringEstimation {
 	 * @param count The count
 	 */
 	public double estimate(int count) {
-		if (count == 0) {
-			return this.calculateSmoothedCount(count + 1) / this.total;
+		if (this.useSmoothing) {
+			if (count == 0) {
+				return this.calculateSmoothedCount(count + 1) / this.total;
+			} else {
+				return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
+			}
 		} else {
-			return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
+			//Maybe do something better
+			return count;
 		}
 	}
 }
