@@ -18,7 +18,7 @@ public class Loader {
 		System.out.println("Total n-grams: " + ngrams.size());
 
 		for (int i = 1; i <= ngramModel.maxLength(); i++) {
-			System.out.println("Number of n-" + i + " grams: " + ngramModel.countForNGram(i));
+			System.out.println("Number of n-" + i + " grams: " + ngramModel.numberOfNGramLength(i));
 		}	
 	}
 
@@ -54,6 +54,11 @@ public class Loader {
 						idToToken.put(id, new Token(token));
 					}
 				}
+				
+				//Good-Turing parameters
+				double a = inputStream.readDouble();
+				double b = inputStream.readDouble();
+				ngramModel.getGoodTuringEstimation().setLogLinear(a, b);
 
 				//The top ranked unigrams
 				int topUnigramsCount = inputStream.readInt();

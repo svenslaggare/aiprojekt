@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.*;
 
 public class PredictionGUI {
-	private WordPredictor wordPredictor;
+	private final WordPredictor wordPredictor;
 	
 	private final JTextField inputField;
 	private final JLabel nextWordProposals;
@@ -21,8 +21,10 @@ public class PredictionGUI {
 	private static final String BACKSPACE_PRESSED = "backspacePressed";
 	
 	// Use pre-processed NGrams
-	private static final boolean USE_LOADER = false;
+	private static final boolean USE_LOADER = true;
 	private static final String LOAD_FILE = "res/bin/ngrams.bin";
+	
+	private static final boolean LEARN_FROM_HISTORY = true;
 	
 	public PredictionGUI(NGramModel ngramModel) {
 		final JFrame frame;
@@ -55,9 +57,15 @@ public class PredictionGUI {
 		sendButton.setMargin(new Insets(0, 0, 0, 0));
 		sendButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				chat.append("- " + inputField.getText() + "\n");
+				chat.append("user: " + inputField.getText() + "\n");
+				
+				if (LEARN_FROM_HISTORY) {
+					wordPredictor.addHistory(inputField.getText());
+				}
+				
 				inputField.setText("");
 				inputField.requestFocusInWindow();
+				updateNextWordPredictions("");
 			}
 		});
 		frame.add(sendButton);
@@ -183,7 +191,6 @@ public class PredictionGUI {
 		}
 		
 		sb.append("</html>");
-		
 		nextWordProposals.setText(sb.toString());
 	}
 }

@@ -43,11 +43,14 @@ public class NGramFileTest {
 		}
 		
 		for (int i = 1; i <= actualModel.maxLength(); i++) {
-			assertEquals(loadedModel.countForNGram(i), actualModel.countForNGram(i));
+			assertEquals(loadedModel.numberOfNGramLength(i), actualModel.numberOfNGramLength(i));
 		}
 		
 		for (int i = 0; i < actualModel.topUnigrams().size(); i++) {
 			assertEquals(loadedModel.topUnigrams().get(i), actualModel.topUnigrams().get(i));
 		}
+		
+		assertEquals(loadedModel.getGoodTuringEstimation().getA(), actualModel.getGoodTuringEstimation().getA(), 1E-6);
+		assertEquals(loadedModel.getGoodTuringEstimation().getB(), actualModel.getGoodTuringEstimation().getB(), 1E-6);
 	}
 }

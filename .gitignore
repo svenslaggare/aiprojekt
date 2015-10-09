@@ -16,3 +16,4 @@ bin/
 .settings
 
 res/chatlogs/ubuntu_small.txt
+*.m

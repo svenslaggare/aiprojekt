@@ -26,11 +26,27 @@ public class GoodTuringEstimation {
 	private double a;
 	private double b;
 	
+	private boolean useSmoothing = true;
+	
 	/**
 	 * Creates a new Good-Turing smoothing
 	 */
 	public GoodTuringEstimation() {
 		
+	}
+	
+	/**
+	 * Returns the constant factor
+	 */
+	public double getA() {
+		return this.a;
+	}
+	
+	/**
+	 * Returns the slope
+	 */
+	public double getB() {
+		return this.b;
 	}
 	
 	/**
@@ -113,22 +129,27 @@ public class GoodTuringEstimation {
 				
 //			System.err.println("a = " + this.a);
 //			System.err.println("b = " + this.b);
-//			
+			
 //			try (BufferedWriter writer = new BufferedWriter(new FileWriter("goodturing.m"))) {
 //				StringBuilder xBuilder = new StringBuilder();
 //				StringBuilder yBuilder = new StringBuilder();
 //				
 //				xBuilder.append("r = [");
 //				yBuilder.append("Nr = [");
-//				
-//				for (int r = 0; r < rs[rs.length - 1]; r++) {
+//
+////				for (int r = 0; r < rs[rs.length - 1]; r++) {
+//				for (int r = 0; r < 50; r++) {
 //					if (r != 0) {
 //						xBuilder.append(" ");
 //						yBuilder.append(" ");
 //					}
 //					
 //					xBuilder.append(r);
-//					yBuilder.append(this.estimate(r));
+//					if (r > 0) {
+//						yBuilder.append(this.estimate(r) / r);
+//					} else {
+//						yBuilder.append(this.estimate(r));
+//					}
 //				}
 //				
 //				xBuilder.append("];");
@@ -140,6 +161,11 @@ public class GoodTuringEstimation {
 //			} catch (IOException e) {
 //				e.printStackTrace();
 //			}
+			
+			//If b > -1, the smoothing won't work.
+			if (this.b > -1) {
+				this.useSmoothing = false;
+			}
 		} else {
 			this.a = 0.0;
 			this.b = 0.0;
@@ -152,7 +178,6 @@ public class GoodTuringEstimation {
 	 */
 	private double calculateSmoothedCount(int count) {
 		return Math.pow(10, this.a + this.b * Math.log10(count));
-//		return this.a * Math.pow(count, b);
 	}
 	
 	/**
@@ -160,10 +185,15 @@ public class GoodTuringEstimation {
 	 * @param count The count
 	 */
 	public double estimate(int count) {
-		if (count == 0) {
-			return this.calculateSmoothedCount(count + 1) / this.total;
+		if (this.useSmoothing) {
+			if (count == 0) {
+				return this.calculateSmoothedCount(count + 1) / this.total;
+			} else {
+				return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
+			}
 		} else {
-			return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
+			//Maybe do something better
+			return count;
 		}
 	}
 }
