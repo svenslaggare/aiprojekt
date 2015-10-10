@@ -55,8 +55,10 @@ public class Loader {
 				}
 				
 				//Good-Turing parameters
+				int total = inputStream.readInt();
 				double a = inputStream.readDouble();
 				double b = inputStream.readDouble();
+				ngramModel.getGoodTuringEstimation().setTotal(total);
 				ngramModel.getGoodTuringEstimation().setLogLinear(a, b);
 				
 				//The top ranked unigrams

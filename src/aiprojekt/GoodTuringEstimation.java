@@ -35,6 +35,13 @@ public class GoodTuringEstimation {
 	}
 	
 	/**
+	 * Returns the total number of seen words
+	 */
+	public int getTotal() {
+		return this.total;
+	}
+	
+	/**
 	 * Returns the constant factor
 	 */
 	public double getA() {
@@ -46,6 +53,14 @@ public class GoodTuringEstimation {
 	 */
 	public double getB() {
 		return this.b;
+	}
+	
+	/**
+	 * Sets the total
+	 * @param total The total
+	 */
+	public void setTotal(int total) {
+		this.total = total;
 	}
 
 	/**

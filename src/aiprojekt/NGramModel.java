@@ -350,7 +350,7 @@ public class NGramModel {
 	 * @return The probability
 	 */
 	private double addProbability(NGram ngram, double probability) {
-		this.probabilities.put(ngram, probability);
+		this.probabilities.put(ngram, probability);		
 		return probability;
 	}
 	
@@ -366,11 +366,19 @@ public class NGramModel {
 			}
 			
 			int count = getCount(unigram);
-			
+						
 			if (count > 0) {
-				double d = this.goodTuringEstimation.estimate(count) / count;			
+				double d = this.goodTuringEstimation.estimate(count) / count;	
+				if (Double.isInfinite(d * (double)count / this.totalCountForNGramLength(1))) {
+					System.err.println("dööö");
+				}
+				
 				return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
 			} else {
+				if (Double.isInfinite(this.goodTuringEstimation.estimate(0))) {
+					System.err.println("dööö");
+				}
+				
 				return this.addProbability(unigram, this.goodTuringEstimation.estimate(0));
 			}
 		}

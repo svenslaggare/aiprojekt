@@ -140,7 +140,7 @@ public class Evaluator {
 				}
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList(sentenceBuilder), false);
+						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
@@ -181,7 +181,7 @@ public class Evaluator {
 				}
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList(sentenceBuilder), false);
+						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
@@ -205,20 +205,35 @@ public class Evaluator {
 			unigram = new NGram(new Token[] { word });
 			// the if-else statements is to get the correct NGram from the generated ngrams list.
 			// for example P("friend" | "hello", "my")  shall have ngram <"hello my"> and unigram "friend"
-			if(numWords == 0){
-				perplexityPart *= model.getProbability(NGram.EMPTY_GRAM, unigram);
+			
+			double probability = 0.0;
+			NGram ngram = null;
+			
+			if (numWords == 0) {
+				ngram = NGram.EMPTY_GRAM;
+				probability = model.getProbability(ngram, unigram);
 			} else if(numWords == 1){
-				perplexityPart *= model.getProbability(ngrams.get(0), unigram);
+				ngram = ngrams.get(0);
+				probability = model.getProbability(ngram, unigram);
 			} else if (numWords == 2){
-				perplexityPart *= model.getProbability(ngrams.get(1), unigram);
+				ngram = ngrams.get(1);
+				probability = model.getProbability(ngram, unigram);
 				index = 1;	// dont mind this.
 			} else {
-				perplexityPart *= model.getProbability(ngrams.get(index), unigram);
-				
+				ngram = ngrams.get(index);
+				probability = model.getProbability(ngram, unigram);		
 			}
-			if(Double.isNaN(perplexityPart)){
+			
+			perplexityPart *= probability;
+			
+			if (Double.isNaN(perplexityPart)) {
 				System.out.println(word);
 			}
+			
+			if (Double.isInfinite(probability)) {
+				System.out.println(word);
+			}
+					
 			System.out.println(perplexityPart);
 			index += 3;	// to get the correct NGram from the generated ngrams list.
 			numWords++;

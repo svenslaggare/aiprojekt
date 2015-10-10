@@ -116,6 +116,7 @@ public class PreProcessor {
 			}
 			
 			//Then the Good-Turing parameters
+			outputStream.writeInt(this.ngramModel.getGoodTuringEstimation().getTotal());
 			outputStream.writeDouble(this.ngramModel.getGoodTuringEstimation().getA());
 			outputStream.writeDouble(this.ngramModel.getGoodTuringEstimation().getB());
 			

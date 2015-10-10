@@ -50,7 +50,16 @@ public class NGramFileTest {
 			assertEquals(loadedModel.topUnigrams().get(i), actualModel.topUnigrams().get(i));
 		}
 		
-		assertEquals(loadedModel.getGoodTuringEstimation().getA(), actualModel.getGoodTuringEstimation().getA(), 1E-6);
-		assertEquals(loadedModel.getGoodTuringEstimation().getB(), actualModel.getGoodTuringEstimation().getB(), 1E-6);
+		assertEquals(
+			loadedModel.getGoodTuringEstimation().getTotal(),
+			actualModel.getGoodTuringEstimation().getTotal());
+		
+		assertEquals(
+			loadedModel.getGoodTuringEstimation().getA(),
+			actualModel.getGoodTuringEstimation().getA(), 1E-6);
+		
+		assertEquals(
+			loadedModel.getGoodTuringEstimation().getB(),
+			actualModel.getGoodTuringEstimation().getB(), 1E-6);
 	}
 }
