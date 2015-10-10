@@ -63,16 +63,15 @@ public class Evaluator {
 		// evaluator.evaluate(EVALUATE_FILE);
 
 		// evaluate user input learning (should loop over userCandidates)
-		for (int i = 0; i < userCandidates.length; i++) {
+		for (int i = 7; i < userCandidates.length; i++) {
 			String data = evaluator.evaluateUserInput(userCandidates[i]);
 			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-			System.out.println("user " + userCandidates[i] + " written in " +OUTPUT_PATH + "user" + i + ".txt");
+			System.out.println("user " + userCandidates[i] + " written in "
+					+ OUTPUT_PATH + "user" + i + ".txt");
 
 		}
 
 	}
-
-	
 
 	/**
 	 * Trains and evaluates the model using training data AND user input from
@@ -89,8 +88,7 @@ public class Evaluator {
 		File trainingFile = new File(USER_TRAINING_PATH);
 		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
 				user, trainingFile);
-		sb.append("trainingSentences.size() = "
-				+ trainingSentences.size());
+		sb.append("trainingSentences.size() = " + trainingSentences.size());
 		// 2. train the model with the user input
 		for (ArrayList<Token> sentence : trainingSentences) {
 			predictor.addHistory(sentence);
@@ -99,10 +97,9 @@ public class Evaluator {
 		File testingFile = new File(USER_TESTING_PATH);
 		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
 				user, testingFile);
-		sb.append("testingSentences.size() = "
-				+ testingSentences.size());
+		sb.append("testingSentences.size() = " + testingSentences.size());
 		// 4. test the learned model with the user input
-		
+
 		sb.append(evaluate(predictor, testingSentences));
 
 		// Compared to:
@@ -134,16 +131,21 @@ public class Evaluator {
 				// reaching the limit size of this sentence* (* = subtract 1
 				// from sentence, because of </s> tag).
 				if ((correctWordPosition == MAX_SENTENCE_LENGTH)
-						|| (correctWordPosition == sentence.size() - 1)) {
+						|| (correctWordPosition == sentence.size() - 1)
+						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
+				}
+				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
+					continue;
 				}
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(sentenceBuilder, false);
+						.predictNextWord(new ArrayList(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
 			}
+			perplexity(model, sentenceBuilder);
 		}
 		return processResults();
 	}
@@ -170,18 +172,62 @@ public class Evaluator {
 				// reaching the limit size of this sentence* (* = subtract 1
 				// from sentence, because of </s> tag).
 				if ((correctWordPosition == MAX_SENTENCE_LENGTH + 1)
-						|| (correctWordPosition == sentence.size() - 1)) {
+						|| (correctWordPosition == sentence.size() - 1)
+						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
+				}
+				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
+					continue;
 				}
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(sentenceBuilder, false);
+						.predictNextWord(new ArrayList(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
+
 			}
+			perplexity(model, sentenceBuilder);
 		}
 		return processResults();
+	}
+
+	private void perplexity(NGramModel model, List<Token> sentence) {
+		
+		List<NGram> ngrams = NGramModel.getNgrams(sentence,
+				NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
+		NGram unigram;
+		double perplexityPart = 1.0; 
+		int numWords = 0;
+		int index = 0;
+		for (Token word : sentence) {
+			
+			unigram = new NGram(new Token[] { word });
+			// the if-else statements is to get the correct NGram from the generated ngrams list.
+			// for example P("friend" | "hello", "my")  shall have ngram <"hello my"> and unigram "friend"
+			if(numWords == 0){
+				perplexityPart *= model.getProbability(NGram.EMPTY_GRAM, unigram);
+			} else if(numWords == 1){
+				perplexityPart *= model.getProbability(ngrams.get(0), unigram);
+			} else if (numWords == 2){
+				perplexityPart *= model.getProbability(ngrams.get(1), unigram);
+				index = 1;	// dont mind this.
+			} else {
+				perplexityPart *= model.getProbability(ngrams.get(index), unigram);
+				
+			}
+			if(Double.isNaN(perplexityPart)){
+				System.out.println(word);
+			}
+			//System.out.println(perplexityPart);
+			index += 3;	// to get the correct NGram from the generated ngrams list.
+			numWords++;
+
+		}
+//		System.out.println(perplexityPart);
+//		double perplexity = Math.pow(1/perplexityPart, -numWords);
+//		System.out.println(perplexity);
+
 	}
 
 	/**
@@ -364,11 +410,14 @@ public class Evaluator {
 		}
 		return listOfSentences;
 	}
-	
+
 	/**
 	 * Writes the string data to the specified filepath.
-	 * @param data The string data to be written
-	 * @param filepath The filepath to write the file
+	 * 
+	 * @param data
+	 *            The string data to be written
+	 * @param filepath
+	 *            The filepath to write the file
 	 */
 	private static void writeToFile(String data, String filepath) {
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
@@ -380,7 +429,7 @@ public class Evaluator {
 		}
 
 	}
-	
+
 	/**
 	 * Extracts all users from file and populates a map with <user,
 	 * #occurrences> If @code{file} is a directory, all its files and
