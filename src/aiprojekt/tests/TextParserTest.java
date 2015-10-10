@@ -4,7 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import aiprojekt.TextParser;
@@ -107,18 +109,44 @@ public class TextParserTest {
 	}
 	
 	@Test
-	public void testGetUser(){
+	public void testGetUser() {
 		// test sentence without user
 		assertTrue(parser.getUser(sentence1).equals(""));
-		assertTrue(parser.getUser(sentence2).equals("<HedgeMage>"));
-		assertTrue(parser.getUser(sentence3).equals("<Ugglan>"));
-		assertTrue(parser.getUser(sentence4).equals("<svEnSlaGGare>"));
-		assertTrue(parser.getUser(sentence5).equals("<gantox>"));
+		assertTrue(parser.getUser(sentence2).equals("HedgeMage"));
+		assertTrue(parser.getUser(sentence3).equals("Ugglan"));
+		assertTrue(parser.getUser(sentence4).equals("svEnSlaGGare"));
+		assertTrue(parser.getUser(sentence5).equals("gantox"));
 		// test system message
 		assertTrue(parser.getUser(sentence6).equals(""));
 		// test bot user
 		assertTrue(parser.getUser(sentence7).equals(""));
-		assertTrue(parser.getUser(sentence8).equals(""));
+		assertTrue(parser.getUser(sentence8).equals(""));	
+	}
+	
+	@Test
+	public void testFilterUser() {
+		List<Token> answer = new ArrayList<Token>(Arrays.asList(
+				new Token(TokenType.START_OF_SENTENCE),
+				new Token("i"),
+				new Token("haven't"),
+				new Token("used"),
+				new Token("thin"),
+				new Token("clients"),
+				new Token("much"),
+				new Token("i'm"),
+				new Token("sorry"),
+				new Token("i"),
+				new Token("can"),
+				new Token("answer"),
+				new Token("general"),
+				new Token("questions"),
+				new Token("though"),
+				new Token(TokenType.END_OF_SENTENCE)));
 		
+		parser.tokenize("[21:56] <Deoovo>");
+		List<Token> tokens = parser.tokenize(
+				"[21:56] <HedgeMage> Deoovo: I haven't used thin clients much, I'm sorry.  I can answer general questions, though.");
+		
+		Assert.assertEquals(answer, tokens);
 	}
 }

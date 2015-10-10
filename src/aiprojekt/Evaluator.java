@@ -40,10 +40,10 @@ public class Evaluator {
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
-	private static final String[] userCandidates = new String[] { "<jrib>",
-			"<LjL>", "<soundray>", "<bruenig>", "<bimberi>", "<gnomefreak>",
-			"<dabaR>", "<crimsun>", "<nolimitsoya>", "<Pelo>", "<kitche>",
-			"<ArrenLex>", "<defrysk>", "<Flannel>", "<apokryphos>" };
+	private static final String[] userCandidates = new String[] { "jrib",
+			"LjL", "soundray", "bruenig", "bimberi", "gnomefreak",
+			"dabaR>", "crimsun>", "nolimitsoya", "Pelo", "kitche",
+			"ArrenLex", "defrysk", "Flannel", "apokryphos" };
 
 	private NGramModel model;
 	private Map<String, Integer> userCount;

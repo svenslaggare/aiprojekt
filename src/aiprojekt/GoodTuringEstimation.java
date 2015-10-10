@@ -145,7 +145,7 @@ public class GoodTuringEstimation {
 //			System.err.println("b = " + this.b);
 			
 			if (this.saveOutput) {
-//				this.saveData(rs);		
+				this.saveData(rs);		
 				this.saveDiscountingData(rs);
 			}
 			

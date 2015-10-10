@@ -1,7 +1,9 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,7 +15,7 @@ public class TextParser {
 	private static final String MATCH_TIMESTAMP = "^\\[[\\d]+:[\\d]+\\]";
 	
 	// matches the form <svenslaggare>
-	private static final String MATCH_USERNAME = "<[\\w]+>";
+	private static final String MATCH_USERNAME = "<([\\w]+)>";
 	private static final String MATCH_TIME_AND_USER = MATCH_TIMESTAMP + " " + MATCH_USERNAME + " ";
 	
 	// matches everything but letters a-z - ' (whitespace)
@@ -26,6 +28,8 @@ public class TextParser {
 	private static final Pattern WORD_PATTERN = Pattern.compile("\\s+");
 	private static final Pattern SYSTEM_MESSAGE_PATTERN = Pattern.compile("^(===).*");
 	
+	private final Set<String> userNames = new HashSet<>();
+	
 	/**
 	 * Tokenizes the given text
 	 * @param text The text
@@ -33,6 +37,11 @@ public class TextParser {
 	public List<Token> tokenize(String text) {
 		if (SYSTEM_MESSAGE_PATTERN.matcher(text).matches()) {
 			return new ArrayList<Token>();
+		}
+		
+		String userName = this.getUser(text);
+		if (userName != "") {
+			userNames.add(userName.toLowerCase());
 		}
 		
 		text = REPLACE_ALL_PATTERN.matcher(text).replaceAll("");
@@ -43,8 +52,11 @@ public class TextParser {
 		List<Token> tokenList = new ArrayList<Token>();
 		tokenList.add(new Token(TokenType.START_OF_SENTENCE));
 		
-		for (int i=0; i < tokens.length; i++) {
-			if (tokens[i] != null && !tokens[i].isEmpty()) {
+		for (int i = 0; i < tokens.length; i++) {
+			String token = tokens[i];
+			if (token != null
+				&& !token.isEmpty()
+				&& !this.userNames.contains(token)) {
 				tokenList.add(new Token(tokens[i]));
 			}
 		}
@@ -64,10 +76,11 @@ public class TextParser {
 		if (SYSTEM_MESSAGE_PATTERN.matcher(sentence).matches()) {
 			return "";
 		}
+		
 		Matcher matcher = USERNAME_PATTERN.matcher(sentence);
-		if(matcher.find()){
-			String user = matcher.group(0);
-			if(user.equals("<ubotu>") || user.equals("<ubottu>")){
+		if (matcher.find()) {
+			String user = matcher.group(1);
+			if(user.equals("ubotu") || user.equals("ubottu")){
 				return "";
 			}
 			return user;
