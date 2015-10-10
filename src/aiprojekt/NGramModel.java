@@ -360,9 +360,9 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Returns the probability of observing the given unigram given the a n-gram
+	 * Returns the probability of observing the given unigram given a n-gram
 	 * @param ngram The n-gram
-	 * @param count The count of the given n-gram
+	 * @param unigram The unigram
 	 */
 	public double getProbability(NGram ngram, NGram unigram) {		
 		if (ngram.equals(NGram.EMPTY_GRAM)) {	
