@@ -23,7 +23,7 @@ public class PreProcessor {
 	public static final String FILE_NAME = "ngrams.bin";
 	public static final String FILE_PATH = WRITE_TO_PATH + FILE_NAME;
 	
-	private final boolean sampleLogs = true;
+	private final boolean sampleLogs = false;
 	private final boolean timer = true;
 	
 	private int processedSentences = 0;
@@ -153,7 +153,7 @@ public class PreProcessor {
 	private boolean isEmptySentence(List<Token> tokens) {
 		if (tokens.size() == 2
 			&& tokens.get(0).equals(START_OF_SENTENCE_TOKEN)
-			&& tokens.get(0).equals(END_OF_SENTENCE_TOKEN)) {
+			&& tokens.get(1).equals(END_OF_SENTENCE_TOKEN)) {
 			return true;
 		}
 		

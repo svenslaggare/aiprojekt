@@ -19,7 +19,7 @@ public class TopList implements Iterable<NGramTree.Result> {
 	 */
 	public TopList(int size) {
 		this.maxSize = size;
-		this.container = new PriorityQueue<>(new Comparator<NGramTree.Result>() {
+		this.container = new PriorityQueue<>(7, new Comparator<NGramTree.Result>() {
 			@Override
 			public int compare(Result x, Result y) {
 				return x.getCount() - y.getCount();
