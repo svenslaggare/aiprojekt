@@ -126,8 +126,9 @@ public class GoodTuringEstimation {
 			this.a = solution.getEntry(0);
 			this.b = solution.getEntry(1);
 				
-			System.err.println("a = " + this.a);
-			System.err.println("b = " + this.b);
+//			System.err.println("a = " + this.a);
+//			System.err.println("b = " + this.b);
+			
 			if (this.saveOutput) {
 //				this.saveData(rs);		
 				this.saveDiscountingData(rs);
@@ -140,6 +141,7 @@ public class GoodTuringEstimation {
 		} else {
 			this.a = 0.0;
 			this.b = 0.0;
+			this.useSmoothing = false;
 		}
 	}
 	
@@ -201,7 +203,8 @@ public class GoodTuringEstimation {
 					}
 					
 					xBuilder.append(r);
-					yBuilder.append((r + 1) * (double)this.frequencyOfFrequencies.get(r + 1) / this.frequencyOfFrequencies.get(r));
+					yBuilder.append((r + 1) * (double)this.frequencyOfFrequencies.get(r + 1)
+							/ this.frequencyOfFrequencies.get(r));
 				}
 			}
 			

@@ -222,8 +222,8 @@ public class NGramModel {
 				toRemove.add(ngram);
 				this.numNGrams[ngram.length() - 1]--;
 			} else if (ngram.length() == 1) { // Adding all unigrams
-				if (!ngram.toString().equals(START_OF_SENTENCE_UNIGRAM)
-					&& !ngram.toString().equals(END_OF_SENTENCE_UNIGRAM)) {
+				if (!ngram.equals(START_OF_SENTENCE_UNIGRAM)
+					&& !ngram.equals(END_OF_SENTENCE_UNIGRAM)) {
 					this.topUnigrams.add(ngram);			
 				}
 				
@@ -246,7 +246,7 @@ public class NGramModel {
 		while (this.topUnigrams.size() > this.topUnigramsCount) {
 			this.topUnigrams.remove(topUnigrams.size() - 1);
 		}
-		
+				
 		this.goodTuringEstimation.fitToData();
 	}
 	
@@ -334,9 +334,12 @@ public class NGramModel {
 		}
 		
 		for (NGramTree.Result result : this.tree.findResults(ngram)) {
-			possibleNGrams.add(result.getNgram().last());
+			NGram word = result.getNgram().last();
+			if (!(word.equals(START_OF_SENTENCE_UNIGRAM) || word.equals(END_OF_SENTENCE_UNIGRAM))) {
+				possibleNGrams.add(word);
+			}
 		}
-		
+				
 		return possibleNGrams;
 	}
 	
@@ -356,7 +359,7 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
 	 */
-	public double getProbability(NGram ngram, NGram unigram) {				
+	public double getProbability(NGram ngram, NGram unigram) {
 		if (ngram.equals(NGram.EMPTY_GRAM)) {	
 			if (this.probabilities.containsKey(unigram)) {
 				return this.probabilities.get(unigram);
@@ -414,7 +417,12 @@ public class NGramModel {
 					
 		double alpha = beta / restSum;	
 		
-		if (restSum == 0 || beta == 0.0) {
+		//Current implementation is buggy
+		if (restSum == 0 || beta == 0.0 || alpha < 0) {
+			alpha = 1E-6;
+		}
+		
+		if (alpha > 1) {
 			alpha = 1.0;
 		}
 		
