@@ -219,7 +219,7 @@ public class Evaluator {
 			if(Double.isNaN(perplexityPart)){
 				System.out.println(word);
 			}
-			//System.out.println(perplexityPart);
+			System.out.println(perplexityPart);
 			index += 3;	// to get the correct NGram from the generated ngrams list.
 			numWords++;
 
