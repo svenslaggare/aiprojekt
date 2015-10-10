@@ -129,7 +129,8 @@ public class GoodTuringEstimation {
 			System.err.println("a = " + this.a);
 			System.err.println("b = " + this.b);
 			if (this.saveOutput) {
-				this.saveData(rs);			
+//				this.saveData(rs);		
+				this.saveDiscountingData(rs);
 			}
 			
 			//If b > -1, the smoothing won't work.
@@ -210,6 +211,45 @@ public class GoodTuringEstimation {
 			writer.append(xBuilder.toString() + "\n");
 			writer.append(yBuilder.toString() + "\n");
 			writer.append("plot(rE, NrE, '.red')");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Saves the discounting data to file
+	 * @param rs The sorted counts
+	 */
+	private void saveDiscountingData(Integer[] rs) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("discounting.m"))) {
+			StringBuilder xBuilder = new StringBuilder();
+			StringBuilder yBuilder = new StringBuilder();
+			
+			writer.append("hold on\n");
+			
+			xBuilder.append("r = [");
+			yBuilder.append("d = [");
+
+			for (int r = 0; r < 100; r++) {
+				if (r != 0) {
+					xBuilder.append(" ");
+					yBuilder.append(" ");
+				}
+				
+				xBuilder.append(r);
+				if (r > 0) {
+					yBuilder.append(this.estimate(r) / r);
+				} else {
+					yBuilder.append(this.estimate(r));
+				}
+			}
+			
+			xBuilder.append("];");
+			yBuilder.append("];");
+			
+			writer.append(xBuilder.toString() + "\n");
+			writer.append(yBuilder.toString() + "\n");
+			writer.append("plot(r, d)");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
