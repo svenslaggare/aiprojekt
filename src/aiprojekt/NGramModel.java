@@ -339,7 +339,8 @@ public class NGramModel {
 		
 		for (NGramTree.Result result : this.tree.findResults(ngram)) {
 			NGram word = result.getNgram().last();
-			if (!(word.equals(START_OF_SENTENCE_UNIGRAM) || word.equals(END_OF_SENTENCE_UNIGRAM))) {
+			if (!(word.equals(START_OF_SENTENCE_UNIGRAM)
+				  || word.equals(END_OF_SENTENCE_UNIGRAM))) {
 				possibleNGrams.add(word);
 			}
 		}
@@ -363,7 +364,7 @@ public class NGramModel {
 	 * @param ngram The n-gram
 	 * @param count The count of the given n-gram
 	 */
-	public double getProbability(NGram ngram, NGram unigram) {
+	public double getProbability(NGram ngram, NGram unigram) {		
 		if (ngram.equals(NGram.EMPTY_GRAM)) {	
 			if (this.probabilities.containsKey(unigram)) {
 				return this.probabilities.get(unigram);
@@ -372,7 +373,7 @@ public class NGramModel {
 			int count = getCount(unigram);
 						
 			if (count > 0) {
-				double d = this.goodTuringEstimation.estimate(count) / count;				
+				double d = this.goodTuringEstimation.estimate(count) / count;		
 				return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
 			} else {				
 				return this.addProbability(unigram, this.goodTuringEstimation.estimate(0));
@@ -385,13 +386,8 @@ public class NGramModel {
 		}
 		
 		int count = getCount(predictedNgram);
-		if (count > matchThreshold) {							
+		if (count > this.matchThreshold) {							
 			double d = this.goodTuringEstimation.estimate(count) / count;
-			
-			if (getCount(ngram) == 0) {
-				System.err.println("dö");
-			}
-			
 			return this.addProbability(predictedNgram, d * (double)count / getCount(ngram));
 		} else {			
 			return this.addProbability(predictedNgram, getAlpha(ngram) * getProbability(ngram.rest(), unigram));
@@ -416,7 +412,7 @@ public class NGramModel {
 			NGram predictedNgram = ngram.append(unigram);
 			
 			int count = getCount(predictedNgram);
-			if (count > matchThreshold) {
+			if (count > this.matchThreshold) {
 				double d = this.goodTuringEstimation.estimate(count) / count;
 				beta -= d * (double)count / ngramCount;
 			} else {
@@ -427,18 +423,14 @@ public class NGramModel {
 		double alpha = beta / restSum;	
 		
 		//Current implementation is buggy
-		if (restSum == 0 || beta == 0.0 || alpha < 0) {
+		if (restSum == 0 || beta == 0.0) {
 			alpha = 1E-6;
 		}
 		
 		if (alpha > 1) {
 			alpha = 1.0;
 		}
-		
-		if (Double.isInfinite(alpha)) {
-			System.err.println("döö2");
-		}
-		
+				
 		this.alphas.put(ngram, alpha);
 		return alpha;
 	}
@@ -459,7 +451,10 @@ public class NGramModel {
 			
 			double probability = this.getProbability(ngram, unigram);
 
-			if (probability < 0 || probability > 1 || Double.isNaN(probability)) {
+			if (probability < 0 
+				|| probability > 1
+				|| Double.isNaN(probability)
+				|| Double.isInfinite(probability)) {
 				System.err.println("Invalid probability: " + unigram + ": " + probability);
 			}
 						

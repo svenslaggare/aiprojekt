@@ -1,31 +1,31 @@
-trainingSentences.size() = 1482testingSentences.size() = 274Count of hits at specified position in top 10 predictions:
-position 1: 0
-position 2: 0
-position 3: 0
-position 4: 0
-position 5: 0
+trainingSentences.size() = 1042testingSentences.size() = 397Count of hits at specified position in top 10 predictions:
+position 1: 1
+position 2: 3
+position 3: 1
+position 4: 1
+position 5: 1
 position 6: 2
 position 7: 1
-position 8: 0
-position 9: 1
-position 10: 0
+position 8: 1
+position 9: 0
+position 10: 2
 
 Count of hits at specified position in the sentences:
 word 0 in the sentence: 0
 word 1 in the sentence: 1
 word 2 in the sentence: 0
 word 3 in the sentence: 0
-word 4 in the sentence: 1
-word 5 in the sentence: 1
-word 6 in the sentence: 0
+word 4 in the sentence: 3
+word 5 in the sentence: 3
+word 6 in the sentence: 1
 word 7 in the sentence: 0
 word 8 in the sentence: 0
-word 9 in the sentence: 0
+word 9 in the sentence: 1
 word 10 in the sentence: 1
-word 11 in the sentence: 0
+word 11 in the sentence: 1
 word 12 in the sentence: 0
 word 13 in the sentence: 0
-word 14 in the sentence: 0
+word 14 in the sentence: 1
 word 15 in the sentence: 0
 word 16 in the sentence: 0
 word 17 in the sentence: 0
@@ -40,41 +40,41 @@ word 25 in the sentence: 0
 word 26 in the sentence: 0
 word 27 in the sentence: 0
 word 28 in the sentence: 0
-word 29 in the sentence: 0
-Total tested words: 1900
-Total successfully predicted words: 4
-Hitrate (totalCorrectPredicted/(double)testedWords): 0.002105263157894737
+word 29 in the sentence: 1
+Total tested words: 2967
+Total successfully predicted words: 13
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.004381530165149983
 NON-learned model for comparison:
 Count of hits at specified position in top 10 predictions:
-position 1: 0
-position 2: 1
+position 1: 1
+position 2: 4
 position 3: 0
-position 4: 0
-position 5: 0
-position 6: 0
+position 4: 2
+position 5: 1
+position 6: 2
 position 7: 1
-position 8: 1
-position 9: 1
-position 10: 1
+position 8: 3
+position 9: 0
+position 10: 4
 
 Count of hits at specified position in the sentences:
 word 0 in the sentence: 0
-word 1 in the sentence: 1
+word 1 in the sentence: 2
 word 2 in the sentence: 0
-word 3 in the sentence: 0
-word 4 in the sentence: 1
-word 5 in the sentence: 2
-word 6 in the sentence: 0
+word 3 in the sentence: 1
+word 4 in the sentence: 5
+word 5 in the sentence: 3
+word 6 in the sentence: 1
 word 7 in the sentence: 0
 word 8 in the sentence: 0
-word 9 in the sentence: 0
+word 9 in the sentence: 1
 word 10 in the sentence: 1
-word 11 in the sentence: 0
+word 11 in the sentence: 1
 word 12 in the sentence: 0
 word 13 in the sentence: 0
-word 14 in the sentence: 0
+word 14 in the sentence: 1
 word 15 in the sentence: 0
-word 16 in the sentence: 0
+word 16 in the sentence: 1
 word 17 in the sentence: 0
 word 18 in the sentence: 0
 word 19 in the sentence: 0
@@ -87,7 +87,7 @@ word 25 in the sentence: 0
 word 26 in the sentence: 0
 word 27 in the sentence: 0
 word 28 in the sentence: 0
-word 29 in the sentence: 0
-Total tested words: 1900
-Total successfully predicted words: 5
-Hitrate (totalCorrectPredicted/(double)testedWords): 0.002631578947368421
+word 29 in the sentence: 1
+Total tested words: 2967
+Total successfully predicted words: 18
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.006066734074823054

@@ -68,9 +68,7 @@ public class Evaluator {
 			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
 			System.out.println("user " + userCandidates[i] + " written in "
 					+ OUTPUT_PATH + "user" + i + ".txt");
-
 		}
-
 	}
 
 	/**
@@ -89,28 +87,30 @@ public class Evaluator {
 		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
 				user, trainingFile);
 		sb.append("trainingSentences.size() = " + trainingSentences.size());
+		
 		// 2. train the model with the user input
 		for (ArrayList<Token> sentence : trainingSentences) {
 			predictor.addHistory(sentence);
 		}
+		
 		// 3. extract the user's sentences from user_testing_path
 		File testingFile = new File(USER_TESTING_PATH);
 		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
 				user, testingFile);
 		sb.append("testingSentences.size() = " + testingSentences.size());
+		
 		// 4. test the learned model with the user input
-
 		sb.append(evaluate(predictor, testingSentences));
 
 		// Compared to:
 		model = trainModel();
 		predictor = new WordPredictor(model, NUM_RESULTS);
+		
 		// 5. test the non-learned model with the user input
 		sb.append(("NON-learned model for comparison:\n"));
 		sb.append(evaluate(predictor, testingSentences));
 
 		return sb.toString();
-
 	}
 
 	/**
@@ -135,9 +135,11 @@ public class Evaluator {
 						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
 				}
+				
 				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
 					continue;
 				}
+				
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
 						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
@@ -147,6 +149,7 @@ public class Evaluator {
 			}
 //			perplexity(model, sentenceBuilder);
 		}
+		
 		return processResults();
 	}
 
@@ -154,7 +157,6 @@ public class Evaluator {
 	 * Evaluates the NGram model.
 	 */
 	public String evaluate(String filename) {
-
 		// train model
 		model = trainModel();
 		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
@@ -176,9 +178,11 @@ public class Evaluator {
 						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
 				}
+				
 				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
 					continue;
 				}
+				
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
 						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
@@ -189,6 +193,7 @@ public class Evaluator {
 			}
 //			perplexity(model, sentenceBuilder);
 		}
+		
 		return processResults();
 	}
 
@@ -272,7 +277,6 @@ public class Evaluator {
 				countWordPositionHit[correctWordPosition]++;
 			}
 		}
-
 	}
 
 	/**
@@ -283,7 +287,6 @@ public class Evaluator {
 	private NGramModel trainModel() {
 		Loader loader = new Loader();
 		return loader.load(PreProcessor.FILE_PATH);
-
 	}
 
 	/**

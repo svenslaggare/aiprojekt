@@ -288,7 +288,7 @@ public class GoodTuringEstimation {
 	public double estimate(int count) {
 		if (this.useSmoothing) {
 			if (count == 0) {
-				return this.calculateSmoothedCount(count + 1) / this.total;
+				return this.calculateSmoothedCount(1) / this.total;
 			} else {
 				return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
 			}
