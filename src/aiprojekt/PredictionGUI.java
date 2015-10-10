@@ -57,7 +57,7 @@ public class PredictionGUI {
 		sendButton.setMargin(new Insets(0, 0, 0, 0));
 		sendButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				chat.append("user: " + inputField.getText() + "\n");
+				chat.append("User: " + inputField.getText() + "\n");
 				
 				if (LEARN_FROM_HISTORY) {
 					wordPredictor.addHistory(inputField.getText());
