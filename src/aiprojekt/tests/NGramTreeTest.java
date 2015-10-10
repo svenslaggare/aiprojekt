@@ -52,6 +52,62 @@ public class NGramTreeTest {
 	}
 	
 	/**
+	 * Tests inserting a n-gram into the tree
+	 */
+	@Test
+	public void testInsert3() {
+		NGram ngram1 = NGram.fromWords("hello", "my");
+		NGram ngram2 = NGram.fromWords("hello", "my", "name");
+		NGramTree tree = NGramTree.createRootTree();
+		
+		tree.insert(ngram2, 1);
+		
+		assertEquals(0, tree.find(ngram1));
+		assertEquals(1, tree.find(ngram2));
+	}
+	
+	/**
+	 * Tests inserting a n-gram into the tree
+	 */
+	@Test
+	public void testInsert4() {
+		NGram ngram1 = NGram.fromWords("hello", "my");
+		NGram ngram2 = NGram.fromWords("hello", "my", "name");
+		NGramTree tree = NGramTree.createRootTree();
+		
+		tree.insert(ngram2, 1);
+		
+		assertEquals(0, tree.find(ngram1));
+		assertEquals(1, tree.find(ngram2));
+		
+		tree.insert(ngram1, 1);
+		
+		assertEquals(1, tree.find(ngram1));
+		assertEquals(1, tree.find(ngram2));
+	}
+	
+	/**
+	 * Tests inserting a n-gram into the tree
+	 */
+	@Test
+	public void testInsert5() {
+		NGram n1 = NGram.fromWords("1", "1");
+		NGram n2 = NGram.fromWords("1", "1", "3");
+		NGramTree tree = NGramTree.createRootTree();
+		
+		tree.insert(n2, 1);
+		tree.insert(n1, 1);
+		
+		assertEquals(1, tree.find(n1));
+		assertEquals(1, tree.find(n2));
+		
+		List<NGramTree.Result> result = tree.findResults(n1);
+		assertEquals(1, result.size());
+		assertEquals(n2, result.get(0).getNgram());
+		assertEquals(1, result.get(0).getCount());
+	}
+	
+	/**
 	 * Tests inserting a n-gram into the tree where the n-gram already exists
 	 */
 	@Test

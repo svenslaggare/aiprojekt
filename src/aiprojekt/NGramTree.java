@@ -43,9 +43,7 @@ public class NGramTree {
 	 * @param ngram The n-gram
 	 */
 	public int find(NGram ngram) {
-		if (this.current.equals(ngram)) {
-			return 0;
-		} else if (this.children.containsKey(ngram)) {
+		if (this.children.containsKey(ngram)) {
 			return this.children.get(ngram).count;
 		} else {
 			NGram first = ngram.first();
@@ -137,9 +135,7 @@ public class NGramTree {
 	 * @param ngram The n-gram
 	 */
 	private void findResults(List<Result> results, NGram startGram, NGram ngram) {
-		if (this.current.equals(ngram)) {
-			return;
-		} else if (this.children.containsKey(ngram)) {
+		if (this.children.containsKey(ngram)) {
 			for (NGramTree subTree : this.children.get(ngram).children.values()) {
 				if (subTree.count > 0) {
 					results.add(new Result(startGram.append(subTree.current), subTree.count));
@@ -296,5 +292,14 @@ public class NGramTree {
 		}
 		
 		return rootTree;
+	}
+	
+	@Override
+	public String toString() {
+		return 
+			"{ current: " + this.current + 
+			", count: " + this.count +
+			", children: " + this.children.values()
+			+ " }";
 	}
 }
