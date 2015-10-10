@@ -1,6 +1,5 @@
 package aiprojekt;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,9 +41,9 @@ public class GrammarChecker {
 		
 		
 		
-		for(int i = 0; i<tagger.numTags(); i++){
-			System.out.println(tagger.getTag(i) + " i:"+ i );
-		}
+//		for(int i = 0; i<tagger.numTags(); i++){
+//			System.out.println(tagger.getTag(i) + " i:"+ i );
+//		}
 		
 	}
 	
@@ -72,7 +71,6 @@ public class GrammarChecker {
 			int numIt = grammarRules.get(lastWrittenWordTag).size(); 
 			
 			for(int i = 0; i< numIt;i++){
-				System.out.println(grammarRules.get(lastWrittenWordTag).get(i));
 				
 				if(proposalWordTag.equals(grammarRules.get(lastWrittenWordTag).get(i))){
 					System.out.println(arrayWritten[0] + " " + lastWrittenWordTag + " " + array[0] + " " + proposalWordTag);
