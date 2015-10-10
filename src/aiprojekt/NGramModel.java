@@ -363,8 +363,13 @@ public class NGramModel {
 			}
 			
 			int count = getCount(unigram);
-			double d = this.goodTuringEstimation.estimate(count) / count;			
-			return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
+			
+			if (count > 0) {
+				double d = this.goodTuringEstimation.estimate(count) / count;			
+				return this.addProbability(unigram, d * (double)count / this.totalCountForNGramLength(1));
+			} else {
+				return this.addProbability(unigram, this.goodTuringEstimation.estimate(0));
+			}
 		}
 		
 		NGram predictedNgram = ngram.append(unigram);

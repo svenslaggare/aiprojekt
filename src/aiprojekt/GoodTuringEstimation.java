@@ -47,7 +47,7 @@ public class GoodTuringEstimation {
 	public double getB() {
 		return this.b;
 	}
-	
+
 	/**
 	 * Sets the log-linear parameters (a+b*log(r))
 	 * @param a The constant factor
@@ -230,7 +230,7 @@ public class GoodTuringEstimation {
 	public double estimate(int count) {
 		if (this.useSmoothing) {
 			if (count == 0) {
-				return this.calculateSmoothedCount(count + 1);
+				return this.calculateSmoothedCount(count + 1) / this.total;
 			} else {
 				return ((count + 1) * this.calculateSmoothedCount(count + 1)) / this.calculateSmoothedCount(count);
 			}
