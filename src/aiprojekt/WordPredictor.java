@@ -90,6 +90,7 @@ public class WordPredictor {
 		}
 		
 		this.timesUser++;
+		this.userModel.end();
 	}
 
 	/**
