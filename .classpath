@@ -8,5 +8,6 @@
 			<attribute name="javadoc_location" value="https://commons.apache.org/proper/commons-math/apidocs/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="libraries/stanford-postagger.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

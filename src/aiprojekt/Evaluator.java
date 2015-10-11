@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -50,6 +51,7 @@ public class Evaluator {
 	private int[] countTopResultHit = new int[NUM_RESULTS];
 	private int[] countWordPositionHit = new int[MAX_SENTENCE_LENGTH];
 	private int testedWords = 0;
+	private LinkedList<Double> perplexities = new LinkedList<Double>();
 
 	public static void main(String[] args) {
 		// Used for extracting most frequent users
@@ -147,7 +149,7 @@ public class Evaluator {
 						correctWordPosition);
 				correctWordPosition++;
 			}
-//			perplexity(model, sentenceBuilder);
+			perplexity(model, sentenceBuilder);
 		}
 		
 		return processResults();
@@ -191,7 +193,7 @@ public class Evaluator {
 				correctWordPosition++;
 
 			}
-//			perplexity(model, sentenceBuilder);
+			perplexity(model, sentenceBuilder);
 		}
 		
 		return processResults();
@@ -202,7 +204,7 @@ public class Evaluator {
 		List<NGram> ngrams = NGramModel.getNgrams(sentence,
 				NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 		NGram unigram;
-		double perplexityPart = 1.0; 
+		double probabilities = 1.0; 
 		int numWords = 0;
 		int index = 0;
 		for (Token word : sentence) {
@@ -229,9 +231,9 @@ public class Evaluator {
 				probability = model.getProbability(ngram, unigram);		
 			}
 			
-			perplexityPart *= probability;
+			probabilities *= probability;
 			
-			if (Double.isNaN(perplexityPart)) {
+			if (Double.isNaN(probabilities)) {
 				System.out.println(word);
 			}
 			
@@ -239,14 +241,18 @@ public class Evaluator {
 				System.out.println(word);
 			}
 					
-			System.out.println(perplexityPart);
+//			System.out.println(perplexityPart);
 			index += 3;	// to get the correct NGram from the generated ngrams list.
 			numWords++;
 
 		}
-//		System.out.println(perplexityPart);
+//		System.out.println(probabilities);
 //		double perplexity = Math.pow(1/perplexityPart, -numWords);
 //		System.out.println(perplexity);
+		// 2^ (-1.0/numWords * SUM(( Math.log(perplexityPart)/Math.log(2))))
+		perplexities.add(new Double(Math.pow(-1.0/numWords * Math.log(probabilities)/Math.log(2), 2.0)));
+//		System.out.println(perplexityPart);
+		// double perplexity = Math.pow(-1.0/numWords * perplexityPart, 2);
 
 	}
 
@@ -316,6 +322,21 @@ public class Evaluator {
 				+ totalCorrectPredicted + "\n");
 		sb.append("Hitrate (totalCorrectPredicted/(double)testedWords): "
 				+ totalCorrectPredicted / (double) testedWords + "\n");
+		double perplexitySum = 0;
+		int size = perplexities.size();
+		for(double perplexity : perplexities){
+//			System.out.println(perplexitySum);
+			if(Double.isNaN(perplexity)){
+//				System.out.println("PERPLEXITY IS NAN");
+				size--;
+				continue;
+			}
+			perplexitySum += perplexity;
+//			System.out.println(perplexity);
+		}
+//		System.out.println(perplexitySum);
+		double averagePerplexity = perplexitySum/perplexities.size();
+		sb.append("Perplexity = " + averagePerplexity);
 		cleanUp();
 		return sb.toString();
 	}
@@ -326,6 +347,7 @@ public class Evaluator {
 		countTopResultHit = new int[NUM_RESULTS];
 		countWordPositionHit = new int[MAX_SENTENCE_LENGTH];
 		testedWords = 0;
+		perplexities = new LinkedList<Double>();
 		System.gc();
 
 	}

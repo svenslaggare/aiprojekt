@@ -1,14 +1,14 @@
 trainingSentences.size() = 4849testingSentences.size() = 2019Count of hits at specified position in top 10 predictions:
-position 1: 3688
+position 1: 3687
 position 2: 1461
 position 3: 914
-position 4: 671
-position 5: 540
-position 6: 482
+position 4: 672
+position 5: 542
+position 6: 479
 position 7: 459
-position 8: 315
-position 9: 291
-position 10: 260
+position 8: 317
+position 9: 290
+position 10: 261
 
 Count of hits at specified position in the sentences:
 word 0 in the sentence: 0
@@ -25,7 +25,7 @@ word 10 in the sentence: 500
 word 11 in the sentence: 476
 word 12 in the sentence: 289
 word 13 in the sentence: 276
-word 14 in the sentence: 259
+word 14 in the sentence: 260
 word 15 in the sentence: 240
 word 16 in the sentence: 236
 word 17 in the sentence: 212
@@ -42,9 +42,9 @@ word 27 in the sentence: 93
 word 28 in the sentence: 92
 word 29 in the sentence: 74
 Total tested words: 23282
-Total successfully predicted words: 9081
-Hitrate (totalCorrectPredicted/(double)testedWords): 0.3900438106691865
-NON-learned model for comparison:
+Total successfully predicted words: 9082
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.3900867623056438
+Perplexity = NaNNON-learned model for comparison:
 Count of hits at specified position in top 10 predictions:
 position 1: 3631
 position 2: 1412
@@ -91,3 +91,4 @@ word 29 in the sentence: 68
 Total tested words: 23282
 Total successfully predicted words: 8980
 Hitrate (totalCorrectPredicted/(double)testedWords): 0.38570569538699423
+Perplexity = NaN
