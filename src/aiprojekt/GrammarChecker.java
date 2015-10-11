@@ -18,11 +18,11 @@ public class GrammarChecker {
 	private static final int DT = 7;
 	private static final int NN = 8;
 	private static final int VBZ = 12;
-	private static final int VBD= 15;
-	private static final int RB= 17;
+	private static final int VBD = 15;
+	private static final int RB = 17;
 	private static final int PRP = 19;
 
-	public GrammarChecker(){
+	public GrammarChecker() {
 		tagger = new MaxentTagger("libraries/taggers/english-left3words-distsim.tagger");
 	
 		List<String> temp = new ArrayList<String>(Arrays.asList(tagger.getTag(MD), tagger.getTag(VBD),tagger.getTag(VB)));
@@ -39,15 +39,12 @@ public class GrammarChecker {
 		grammarRules.put(tagger.getTag(MD), temp4 );
 		grammarRules.put(tagger.getTag(NN), temp5);
 		
-		
-		
-//		for(int i = 0; i<tagger.numTags(); i++){
+//		for (int i = 0; i<tagger.numTags(); i++) {
 //			System.out.println(tagger.getTag(i) + " i:"+ i );
-//		}
-		
+//		}	
 	}
 	
-	public boolean hasCorrectGrammar(NGram writtenGram, NGram proposalGram){
+	public boolean hasCorrectGrammar(NGram writtenGram, NGram proposalGram) {
 		String proposal = proposalGram.last().toString();
 		String writtenString = writtenGram.last().at(0).toString();
 		
@@ -64,27 +61,31 @@ public class GrammarChecker {
 		String lastWrittenWordTag = arrayWritten[arrayWritten.length-1];
 		String proposalWordTag = array[array.length-1];
 		
-		if(arrayWritten[0].equals("<s>")) return true; 
+		if (arrayWritten[0].equals("<s>")) {
+			return true; 
+		}
 		
-		if(grammarRules.containsKey(lastWrittenWordTag)){
-			
+		if (grammarRules.containsKey(lastWrittenWordTag)) {
 			int numIt = grammarRules.get(lastWrittenWordTag).size(); 
 			
-			for(int i = 0; i< numIt;i++){
-				
-				if(proposalWordTag.equals(grammarRules.get(lastWrittenWordTag).get(i))){
+			for (int i = 0; i< numIt; i++) {
+				if (proposalWordTag.equals(grammarRules.get(lastWrittenWordTag).get(i))) {
 					System.out.println(arrayWritten[0] + " " + lastWrittenWordTag + " " + array[0] + " " + proposalWordTag);
+					
 					return false;
 				}
 			}
 		}
-		if(lastWrittenWordTag.equals(tagger.getTag(NN))|| proposalWordTag.equals(tagger.getTag(NN))){ // It is okey with two NN's in a row (Nouns)
+		
+		if (lastWrittenWordTag.equals(tagger.getTag(NN)) || proposalWordTag.equals(tagger.getTag(NN))) { // It is ok with two NN's in a row (Nouns)
 			return true;
 		}
-		if(lastWrittenWordTag.equals(tagger.getTag(RB))|| proposalWordTag.equals(tagger.getTag(RB))){ // It is okey with two RB's in a row (Nouns)
+		
+		if (lastWrittenWordTag.equals(tagger.getTag(RB)) || proposalWordTag.equals(tagger.getTag(RB))) { // It is ok with two RB's in a row (Nouns)
 			return true;
 		}
-		if(lastWrittenWordTag.equals(proposalWordTag)){
+		
+		if (lastWrittenWordTag.equals(proposalWordTag)) {
 			System.out.println(arrayWritten[0] + " " + lastWrittenWordTag + " " + array[0] + " " + proposalWordTag);
 			return false;
 		}
