@@ -96,7 +96,7 @@ public class WordPredictor {
 	 * Uses only the most recent tokens
 	 * @param tokens The tokens
 	 */
-	public void useRecentTokens(List<Token> tokens) {
+	public List<Token> useRecentTokens(List<Token> tokens) {
 		// Use the last words of the sentence if if it's longer than biggest n-gram
 		if (tokens.size() >= model.maxLength()) {
 			int diff = (tokens.size() + 1) - model.maxLength();
@@ -104,6 +104,7 @@ public class WordPredictor {
 				tokens.remove(0);
 			}
 		}
+		return tokens;
 	}
 	
 	/**
@@ -150,7 +151,7 @@ public class WordPredictor {
 		
 		// Use the last words of the sentence if if it's longer than biggest
 		// n-gram
-		this.useRecentTokens(tokens);
+		tokens = this.useRecentTokens(tokens);
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
 		List<NGramModel.Result> results = null;

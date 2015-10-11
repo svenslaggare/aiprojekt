@@ -450,12 +450,13 @@ public class NGramModel {
 			}
 			
 			double probability = this.getProbability(ngram, unigram);
+			
 
 			if (probability < 0 
 				|| probability > 1
 				|| Double.isNaN(probability)
 				|| Double.isInfinite(probability)) {
-				System.err.println("Invalid probability: " + unigram + ": " + probability);
+				System.err.println("Invalid probability: " +ngram+" " + unigram + ": " + probability);
 			}
 						
 			if (probability > 0) {

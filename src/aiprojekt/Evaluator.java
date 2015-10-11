@@ -60,15 +60,15 @@ public class Evaluator {
 		Evaluator evaluator = new Evaluator();
 
 		// evaluate model
-		// evaluator.evaluate(EVALUATE_FILE);
+		 evaluator.evaluate(USER_TESTING_PATH);
 
 		// evaluate user input learning (should loop over userCandidates)
-		for (int i = 0; i < userCandidates.length; i++) {
-			String data = evaluator.evaluateUserInput(userCandidates[i]);
-			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-			System.out.println("user " + userCandidates[i] + " written in "
-					+ OUTPUT_PATH + "user" + i + ".txt");
-		}
+//		for (int i = 0; i < userCandidates.length; i++) {
+//			String data = evaluator.evaluateUserInput(userCandidates[i]);
+//			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+//			System.out.println("user " + userCandidates[i] + " written in "
+//					+ OUTPUT_PATH + "user" + i + ".txt");
+//		}
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class Evaluator {
 				// break if reaching the constant max sentence length or if
 				// reaching the limit size of this sentence* (* = subtract 1
 				// from sentence, because of </s> tag).
-				if ((correctWordPosition == MAX_SENTENCE_LENGTH + 1)
+				if ((correctWordPosition == MAX_SENTENCE_LENGTH)
 						|| (correctWordPosition == sentence.size() - 1)
 						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
@@ -185,7 +185,7 @@ public class Evaluator {
 				
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
+						.predictNextWord(new ArrayList<Token>(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
