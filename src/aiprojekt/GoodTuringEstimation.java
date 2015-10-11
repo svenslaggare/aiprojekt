@@ -24,7 +24,7 @@ public class GoodTuringEstimation {
 	private double a;
 	private double b;
 	
-	private boolean useSmoothing = true;
+	private boolean useSmoothing = false;
 	private final boolean saveOutput = true;
 	
 	/**
@@ -152,6 +152,8 @@ public class GoodTuringEstimation {
 			//If b > -1, the smoothing won't work.
 			if (this.b > -1) {
 				this.useSmoothing = false;
+			} else {
+				this.useSmoothing = true;
 			}
 		} else {
 			this.a = 0.0;
@@ -174,7 +176,6 @@ public class GoodTuringEstimation {
 			xBuilder.append("r = [");
 			yBuilder.append("Nr = [");
 
-//			for (int r = 0; r < rs[rs.length - 1]; r++) {
 			for (int r = 0; r < 2000; r++) {
 				if (r != 0) {
 					xBuilder.append(" ");
@@ -182,11 +183,7 @@ public class GoodTuringEstimation {
 				}
 				
 				xBuilder.append(r);
-				if (r > 0) {
-					yBuilder.append(this.estimate(r));
-				} else {
-					yBuilder.append(this.estimate(r));
-				}
+				yBuilder.append(this.estimate(r));
 			}
 			
 			xBuilder.append("];");
@@ -248,18 +245,14 @@ public class GoodTuringEstimation {
 			xBuilder.append("r = [");
 			yBuilder.append("d = [");
 
-			for (int r = 0; r < 100; r++) {
-				if (r != 0) {
+			for (int r = 1; r < 100; r++) {
+				if (r != 1) {
 					xBuilder.append(" ");
 					yBuilder.append(" ");
 				}
 				
 				xBuilder.append(r);
-				if (r > 0) {
-					yBuilder.append(this.estimate(r) / r);
-				} else {
-					yBuilder.append(this.estimate(r));
-				}
+				yBuilder.append(this.estimate(r) / r);
 			}
 			
 			xBuilder.append("];");

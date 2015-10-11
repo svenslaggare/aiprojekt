@@ -42,7 +42,7 @@ public class Evaluator {
 
 	private static final String[] userCandidates = new String[] { "jrib",
 			"LjL", "soundray", "bruenig", "bimberi", "gnomefreak",
-			"dabaR>", "crimsun>", "nolimitsoya", "Pelo", "kitche",
+			"dabaR", "crimsun", "nolimitsoya", "Pelo", "kitche",
 			"ArrenLex", "defrysk", "Flannel", "apokryphos" };
 
 	private NGramModel model;

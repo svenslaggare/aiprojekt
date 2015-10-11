@@ -1,7 +1,10 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a word predictor
@@ -14,6 +17,9 @@ public class WordPredictor {
 	
 	private final int maxCountPerAverage = 3000;
 	
+	private final NGramModel userModel;
+	private int timesUser = 0;
+	
 	/**
 	 * Creates a new word predictor
 	 * @param model The n-gram model
@@ -24,6 +30,7 @@ public class WordPredictor {
 		this.numResults = numResults;
 		this.ngramAverages = new double[model.maxLength()];
 		this.updateNGramsAverages();
+		this.userModel = new NGramModel(model.maxLength());
 	}
 	
 	/**
@@ -65,18 +72,24 @@ public class WordPredictor {
 	 * @param tokens The tokens
 	 */
 	public void addHistory(List<Token> tokens) {	
+//		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
+////			double ngramAverage = 
+////				(double)this.model.totalCountForNGramLength(ngram.length())
+////				/ this.model.numberOfNGramLength(ngram.length());
+//			double ngramAverage = this.ngramAverages[ngram.length() - 1];			
+//			
+////			System.err.println(ngram + ": " + ngramAverage);
+//			
+//			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
+//		}
+//		
+//		this.model.clearCache();
+		this.userModel.clearCache();
 		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
-//			double ngramAverage = 
-//				(double)this.model.totalCountForNGramLength(ngram.length())
-//				/ this.model.numberOfNGramLength(ngram.length());
-			double ngramAverage = this.ngramAverages[ngram.length() - 1];			
-			
-//			System.err.println(ngram + ": " + ngramAverage);
-			
-			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
+			this.userModel.addNGram(ngram, 1);
 		}
 		
-		this.model.clearCache();	
+		this.timesUser++;
 	}
 
 	/**
@@ -100,6 +113,30 @@ public class WordPredictor {
 	public List<String> predictNextWord(String input) {
 		return this.predictNextWord(parser.tokenize(input), true);
 	}
+	
+	/**
+	 * Combines the results with the given map
+	 * @param resultMap The map
+	 * @param results The results
+	 * @param weight The weight
+	 */
+	private void combineResults(
+			Map<NGram, NGramModel.Result> resultMap,
+			List<NGramModel.Result> results,
+			double weight) {
+		for (NGramModel.Result result : results) {
+			NGram ngram = result.getNGram();
+			double currentProbability = 0.0;
+			
+			if (resultMap.containsKey(ngram)) {
+				currentProbability = resultMap.get(ngram).getProbability();
+			}
+			
+			resultMap.put(
+				ngram,
+				new NGramModel.Result(ngram, currentProbability + weight * result.getProbability()));
+		}
+	}
 
 	/**
 	 * Predicting the next word given a input row.
@@ -116,11 +153,29 @@ public class WordPredictor {
 		this.useRecentTokens(tokens);
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
-		List<NGramModel.Result> result = model.predictNext(ngram, numResults);
+		List<NGramModel.Result> results = null;
+		
+		if (this.timesUser > 0) {
+			Map<NGram, NGramModel.Result> resultMap = new HashMap<>();
+			double a = 4.184704184704183e-05;
+			double b = 7.229437229437245e-04;
+			double c = 0.009235209235209;
+			double alpha = 1 - (a * this.timesUser * this.timesUser + b * this.timesUser + c);
+			this.combineResults(resultMap, this.model.predictNext(ngram, numResults), alpha);
+			this.combineResults(resultMap, this.userModel.predictNext(ngram, numResults), 1 - alpha);
+			results = new ArrayList<>(resultMap.values());	
+			Collections.sort(results);
+			for (int i = 0; i < results.size() - this.numResults; i++) {
+				results.remove(results.size() - 1);
+			}
+		} else {
+			results = this.model.predictNext(ngram, numResults);
+		}
+				
 		List<String> predictedWords = new ArrayList<String>();
 		
-		for (int i = 0; i < result.size(); i++) {
-			NGram resultGram = result.get(i).getNGram();
+		for (int i = 0; i < results.size(); i++) {
+			NGram resultGram = results.get(i).getNGram();
 			int indexForLast = resultGram.length() - 1;
 			predictedWords.add(resultGram.at(indexForLast).toString());
 		}

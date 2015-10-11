@@ -60,7 +60,7 @@ public class Loader {
 				double b = inputStream.readDouble();
 				ngramModel.getGoodTuringEstimation().setTotal(total);
 				ngramModel.getGoodTuringEstimation().setLogLinear(a, b);
-				
+								
 				//The top ranked unigrams
 				int topUnigramsCount = inputStream.readInt();
 				for (int i = 0; i < topUnigramsCount; i++) {
