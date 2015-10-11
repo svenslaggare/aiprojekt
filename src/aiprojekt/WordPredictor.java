@@ -91,7 +91,7 @@ public class WordPredictor {
 		}
 		
 		this.timesUser++;
-		this.userModel.end();
+		this.userModel.end(false);
 	}
 
 	/**
@@ -161,7 +161,8 @@ public class WordPredictor {
 		
 		if (this.timesUser > 0) {
 			Map<NGram, NGramModel.Result> resultMap = new HashMap<>();
-			//The values for a,b,c are the polynomial of degree 2 that fits: [(1, 0.01), (50, 0.15), (100, 0.5)] 
+			//The values for a, b, c is the polynomial of degree 2 that fits:
+			//[(1, 0.01), (50, 0.15), (100, 0.5)] 
 			double a = 4.184704184704183e-05;
 			double b = 7.229437229437245e-04;
 			double c = 0.009235209235209;
@@ -169,7 +170,7 @@ public class WordPredictor {
 			
 			this.combineResults(resultMap, this.model.predictNext(ngram, numResults), alpha);
 			this.combineResults(resultMap, this.userModel.predictNext(ngram, numResults), 1 - alpha);
-			
+						
 			results = new ArrayList<>(resultMap.values());	
 			Collections.sort(results);
 			int size = results.size();
