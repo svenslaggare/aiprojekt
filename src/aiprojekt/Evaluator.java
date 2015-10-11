@@ -62,15 +62,15 @@ public class Evaluator {
 		Evaluator evaluator = new Evaluator();
 
 		// evaluate model
-//		 System.out.println(evaluator.evaluate(EVALUATE_FILE));
+		 System.out.println(evaluator.evaluate(EVALUATE_FILE));
 
 		// evaluate user input learning (should loop over userCandidates)
-		for (int i = 0; i < userCandidates.length; i++) {
-			String data = evaluator.evaluateUserInput(userCandidates[i]);
-			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-			System.out.println("user " + userCandidates[i] + " written in "
-					+ OUTPUT_PATH + "user" + i + ".txt");
-		}
+//		for (int i = 0; i < userCandidates.length; i++) {
+//			String data = evaluator.evaluateUserInput(userCandidates[i]);
+//			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+//			System.out.println("user " + userCandidates[i] + " written in "
+//					+ OUTPUT_PATH + "user" + i + ".txt");
+//		}
 	}
 
 	/**

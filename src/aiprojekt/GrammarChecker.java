@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 import java.util.regex.Pattern;
 
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
@@ -23,7 +24,14 @@ public class GrammarChecker {
 	private static final int PRP = 19;
 
 	public GrammarChecker() {
-		tagger = new MaxentTagger("libraries/taggers/english-left3words-distsim.tagger");
+		Properties properties = new Properties();
+        
+        /*try {
+         properties.load(new FileInputStream("libraries/taggers/english-left3words-distsim.tagger.props"));
+         } catch (IOException e) {
+         e.printStackTrace();
+        }*/
+        tagger = new MaxentTagger("libraries/taggers/english-left3words-distsim.tagger", properties, false);
 	
 		List<String> temp = new ArrayList<String>(Arrays.asList(tagger.getTag(MD), tagger.getTag(VBD),tagger.getTag(VB)));
 		List<String> temp1 = new ArrayList<String>(Arrays.asList(tagger.getTag(VBZ), tagger.getTag(VBD), tagger.getTag(VB), tagger.getTag(PRP), tagger.getTag(MD)));
