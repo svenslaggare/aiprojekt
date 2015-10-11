@@ -13,7 +13,7 @@ import java.util.Set;
  * Represents n-gram model
  */
 public class NGramModel {
-	private static final boolean GRAMMAR_CHECK = false;
+	public static final boolean GRAMMAR_CHECK = false;
 	
 	private final int maxLength;
 	

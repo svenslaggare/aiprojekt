@@ -57,13 +57,15 @@ public class GrammarChecker {
 		String writtenString = writtenGram.last().at(0).toString();
 		
 		String[] arrayProposal = proposal.split("]"); // Get rid of "]"
-		String taggedWritten = tagger.tagString(writtenString);
+//		String taggedWritten = tagger.tagString(writtenString);
+		String taggedWritten = tagger.tagString(writtenString).trim();
 		String taggedProposal = tagger.tagString(arrayProposal[0]);
-		taggedProposal = REMOVE_PATTERN.matcher(taggedProposal).replaceAll("");
+//		taggedProposal = REMOVE_PATTERN.matcher(taggedProposal).replaceAll("");
+		taggedProposal = REMOVE_PATTERN.matcher(taggedProposal).replaceAll("").trim();
 		
-		taggedWritten = taggedWritten.replaceAll(" ", "");
+//		taggedWritten = taggedWritten.replaceAll(" ", "");
 		String[] arrayWritten = taggedWritten.split("_");
-		taggedProposal = taggedProposal.replaceAll(" ", "");
+//		taggedProposal = taggedProposal.replaceAll(" ", "");
 		String[] array = taggedProposal.split("_");
 
 		String lastWrittenWordTag = arrayWritten[arrayWritten.length-1];
@@ -74,15 +76,20 @@ public class GrammarChecker {
 		}
 		
 		if (grammarRules.containsKey(lastWrittenWordTag)) {
-			int numIt = grammarRules.get(lastWrittenWordTag).size(); 
-			
-			for (int i = 0; i< numIt; i++) {
-				if (proposalWordTag.equals(grammarRules.get(lastWrittenWordTag).get(i))) {
-//					System.out.println(arrayWritten[0] + " " + lastWrittenWordTag + " " + array[0] + " " + proposalWordTag);
-					
+//			int numIt = grammarRules.get(lastWrittenWordTag).size(); 
+			ArrayList<String> tags =  (ArrayList<String>) grammarRules.get(lastWrittenWordTag);
+			for(String tag : tags){
+				if(tag.equals(proposalWordTag)){
 					return false;
 				}
 			}
+//			for (int i = 0; i< numIt; i++) {
+//				if (proposalWordTag.equals(grammarRules.get(lastWrittenWordTag).get(i))) {
+////					System.out.println(arrayWritten[0] + " " + lastWrittenWordTag + " " + array[0] + " " + proposalWordTag);
+//					
+//					return false;
+//				}
+//			}
 		}
 		
 		if (lastWrittenWordTag.equals(tagger.getTag(NN)) || proposalWordTag.equals(tagger.getTag(NN))) { // It is ok with two NN's in a row (Nouns)

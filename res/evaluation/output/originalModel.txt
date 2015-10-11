@@ -1,0 +1,47 @@
+Count of hits at specified position in top 10 predictions:
+position 1: 18143
+position 2: 6224
+position 3: 4009
+position 4: 2968
+position 5: 2281
+position 6: 1798
+position 7: 1547
+position 8: 1421
+position 9: 1193
+position 10: 1009
+
+Count of hits at specified position in the sentences:
+word 0 in the sentence: 0
+word 1 in the sentence: 3770
+word 2 in the sentence: 4243
+word 3 in the sentence: 3773
+word 4 in the sentence: 3424
+word 5 in the sentence: 2947
+word 6 in the sentence: 2536
+word 7 in the sentence: 2233
+word 8 in the sentence: 2074
+word 9 in the sentence: 1881
+word 10 in the sentence: 1661
+word 11 in the sentence: 1385
+word 12 in the sentence: 1320
+word 13 in the sentence: 1138
+word 14 in the sentence: 991
+word 15 in the sentence: 909
+word 16 in the sentence: 827
+word 17 in the sentence: 702
+word 18 in the sentence: 695
+word 19 in the sentence: 627
+word 20 in the sentence: 540
+word 21 in the sentence: 497
+word 22 in the sentence: 403
+word 23 in the sentence: 383
+word 24 in the sentence: 360
+word 25 in the sentence: 317
+word 26 in the sentence: 286
+word 27 in the sentence: 244
+word 28 in the sentence: 222
+word 29 in the sentence: 205
+Total tested words: 90923
+Total successfully predicted words: 40593
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.4464546924320579
+Perplexity = 82.37212908966379

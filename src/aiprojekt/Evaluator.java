@@ -42,16 +42,18 @@ public class Evaluator {
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
 	private static final String[] userCandidates = new String[] { "jrib",
-			"LjL", "soundray", "bruenig", "bimberi", "gnomefreak",
-			"dabaR", "crimsun", "nolimitsoya", "Pelo", "kitche",
-			"ArrenLex", "defrysk", "Flannel", "apokryphos" };
+			"LjL", "soundray", "bruenig", "bimberi", "gnomefreak", "dabaR",
+			"crimsun", "nolimitsoya", "Pelo", "kitche", "ArrenLex", "defrysk",
+			"Flannel", "apokryphos" };
 
 	private NGramModel model;
 	private Map<String, Integer> userCount;
 	private int[] countTopResultHit = new int[NUM_RESULTS];
 	private int[] countWordPositionHit = new int[MAX_SENTENCE_LENGTH];
 	private int testedWords = 0;
+	private int testedSentences = 0;
 	private LinkedList<Double> perplexities = new LinkedList<Double>();
+	long startTime;
 
 	public static void main(String[] args) {
 		// Used for extracting most frequent users
@@ -62,15 +64,25 @@ public class Evaluator {
 		Evaluator evaluator = new Evaluator();
 
 		// evaluate model
-		 System.out.println(evaluator.evaluate(EVALUATE_FILE));
+		
+		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
+		if (NGramModel.GRAMMAR_CHECK) {
+			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
+			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
+					+ "withGrammar" + ".txt");
+		} else {
+			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
+			System.out.println("originalModel " + " written in " + OUTPUT_PATH
+					+ "originalModel" + ".txt");
+		}
 
 		// evaluate user input learning (should loop over userCandidates)
-//		for (int i = 0; i < userCandidates.length; i++) {
-//			String data = evaluator.evaluateUserInput(userCandidates[i]);
-//			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-//			System.out.println("user " + userCandidates[i] + " written in "
-//					+ OUTPUT_PATH + "user" + i + ".txt");
-//		}
+		// for (int i = 0; i < userCandidates.length; i++) {
+		// String data = evaluator.evaluateUserInput(userCandidates[i]);
+		// writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+		// System.out.println("user " + userCandidates[i] + " written in "
+		// + OUTPUT_PATH + "user" + i + ".txt");
+		// }
 	}
 
 	/**
@@ -89,25 +101,25 @@ public class Evaluator {
 		ArrayList<ArrayList<Token>> trainingSentences = extractUserSentences(
 				user, trainingFile);
 		sb.append("trainingSentences.size() = " + trainingSentences.size());
-		
+
 		// 2. train the model with the user input
 		for (ArrayList<Token> sentence : trainingSentences) {
 			predictor.addHistory(sentence);
 		}
-		
+
 		// 3. extract the user's sentences from user_testing_path
 		File testingFile = new File(USER_TESTING_PATH);
 		ArrayList<ArrayList<Token>> testingSentences = extractUserSentences(
 				user, testingFile);
 		sb.append("testingSentences.size() = " + testingSentences.size());
-		
+
 		// 4. test the learned model with the user input
 		sb.append(evaluate(predictor, testingSentences));
 
 		// Compared to:
 		model = trainModel();
 		predictor = new WordPredictor(model, NUM_RESULTS);
-		
+
 		// 5. test the non-learned model with the user input
 		sb.append(("NON-learned model for comparison:\n"));
 		sb.append(evaluate(predictor, testingSentences));
@@ -137,21 +149,22 @@ public class Evaluator {
 						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
 					break;
 				}
-				
+
 				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
 					continue;
 				}
-				
+
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList<Token>(sentenceBuilder), false);
+						.predictNextWord(new ArrayList<Token>(sentenceBuilder),
+								false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
 			}
 			perplexity(model, sentenceBuilder);
 		}
-		
+
 		return processResults();
 	}
 
@@ -160,98 +173,158 @@ public class Evaluator {
 	 */
 	public String evaluate(String filename) {
 		// train model
+		startTime = System.currentTimeMillis();
 		model = trainModel();
 		WordPredictor predictor = new WordPredictor(model, NUM_RESULTS);
 
 		// extract testing sentences from test data != training data
 		File file = new File(filename);
-		ArrayList<ArrayList<Token>> sentences = processFiles(file);
 
-		for (ArrayList<Token> sentence : sentences) {
-			List<Token> sentenceBuilder = new ArrayList<Token>();
-			// Always have to look at the n+1 word
-			int correctWordPosition = 1;
-			for (Token token : sentence) {
-				// break if reaching the constant max sentence length or if
-				// reaching the limit size of this sentence* (* = subtract 1
-				// from sentence, because of </s> tag).
-				if ((correctWordPosition == MAX_SENTENCE_LENGTH)
-						|| (correctWordPosition == sentence.size() - 1)
-						|| token.getType().equals(TokenType.END_OF_SENTENCE)) {
-					break;
-				}
-				
-				if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
-					continue;
-				}
-				
-				sentenceBuilder.add(token);
-				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList<Token>(sentenceBuilder), false);
-				predictionCorrectness(predictedWords, sentence,
-						correctWordPosition);
-				correctWordPosition++;
+		if (file.isDirectory()) {
+			String[] fs = file.list();
+			// an IO error could occur
+			if (fs != null) {
+				for (int i = 0; i < fs.length; i++) {
+					ArrayList<ArrayList<Token>> sentences = (processFiles(new File(
+							file, fs[i])));
+					for (ArrayList<Token> sentence : sentences) {
+						testedSentences++;
+						if(System.currentTimeMillis()-startTime > 10000){
+							System.out.println("evaluated sentences: "+testedSentences);
+							startTime = System.currentTimeMillis();
+						}
+						// Always have to look at the n+1 word
+						List<Token> sentenceBuilder = new ArrayList<Token>();
+						int correctWordPosition = 1;
+						for (Token token : sentence) {
+							// break if reaching the constant max sentence
+							// length or if
+							// reaching the limit size of this sentence* (* =
+							// subtract 1
+							// from sentence, because of </s> tag).
+							if ((correctWordPosition == MAX_SENTENCE_LENGTH)
+									|| (correctWordPosition == sentence.size() - 1)
+									|| token.getType().equals(
+											TokenType.END_OF_SENTENCE)) {
+								break;
+							}
 
+							if (token.getType().equals(
+									TokenType.START_OF_SENTENCE)) {
+								continue;
+							}
+
+							sentenceBuilder.add(token);
+							ArrayList<String> predictedWords = (ArrayList<String>) predictor
+									.predictNextWord(new ArrayList<Token>(
+											sentenceBuilder), false);
+							predictionCorrectness(predictedWords, sentence,
+									correctWordPosition);
+							correctWordPosition++;
+
+						}
+						perplexity(model, sentenceBuilder);
+					}
+					sentences = null;
+				}
 			}
-			perplexity(model, sentenceBuilder);
+		} else {
+
+			ArrayList<ArrayList<Token>> sentences = processFiles(file);
+
+			for (ArrayList<Token> sentence : sentences) {
+				List<Token> sentenceBuilder = new ArrayList<Token>();
+				// Always have to look at the n+1 word
+				int correctWordPosition = 1;
+				for (Token token : sentence) {
+					// break if reaching the constant max sentence length or if
+					// reaching the limit size of this sentence* (* = subtract 1
+					// from sentence, because of </s> tag).
+					if ((correctWordPosition == MAX_SENTENCE_LENGTH)
+							|| (correctWordPosition == sentence.size() - 1)
+							|| token.getType()
+									.equals(TokenType.END_OF_SENTENCE)) {
+						break;
+					}
+
+					if (token.getType().equals(TokenType.START_OF_SENTENCE)) {
+						continue;
+					}
+
+					sentenceBuilder.add(token);
+					ArrayList<String> predictedWords = (ArrayList<String>) predictor
+							.predictNextWord(new ArrayList<Token>(
+									sentenceBuilder), false);
+					predictionCorrectness(predictedWords, sentence,
+							correctWordPosition);
+					correctWordPosition++;
+
+				}
+				perplexity(model, sentenceBuilder);
+			}
+
 		}
-		
+
 		return processResults();
 	}
 
 	private void perplexity(NGramModel model, List<Token> sentence) {
-		
+
 		List<NGram> ngrams = NGramModel.getNgrams(sentence,
 				NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
 		NGram unigram;
-		double probabilities = 1.0; 
+		double probabilities = 1.0;
 		int numWords = 0;
 		int index = 0;
 		for (Token word : sentence) {
-			
+
 			unigram = new NGram(new Token[] { word });
-			// the if-else statements is to get the correct NGram from the generated ngrams list.
-			// for example P("friend" | "hello", "my")  shall have ngram <"hello my"> and unigram "friend"
-			
+			// the if-else statements is to get the correct NGram from the
+			// generated ngrams list.
+			// for example P("friend" | "hello", "my") shall have ngram
+			// <"hello my"> and unigram "friend"
+
 			double probability = 0.0;
 			NGram ngram = null;
-			
+
 			if (numWords == 0) {
 				ngram = NGram.EMPTY_GRAM;
 				probability = model.getProbability(ngram, unigram);
-			} else if(numWords == 1){
+			} else if (numWords == 1) {
 				ngram = ngrams.get(0);
 				probability = model.getProbability(ngram, unigram);
-			} else if (numWords == 2){
+			} else if (numWords == 2) {
 				ngram = ngrams.get(1);
 				probability = model.getProbability(ngram, unigram);
-				index = 1;	// dont mind this.
+				index = 1; // dont mind this.
 			} else {
 				ngram = ngrams.get(index);
-				probability = model.getProbability(ngram, unigram);		
+				probability = model.getProbability(ngram, unigram);
 			}
-			
+
 			probabilities *= probability;
-			
+
 			if (Double.isNaN(probabilities)) {
 				System.out.println(word);
 			}
-			
+
 			if (Double.isInfinite(probability)) {
 				System.out.println(word);
 			}
-					
-//			System.out.println(perplexityPart);
-			index += 3;	// to get the correct NGram from the generated ngrams list.
+
+			// System.out.println(perplexityPart);
+			index += 3; // to get the correct NGram from the generated ngrams
+						// list.
 			numWords++;
 
 		}
-//		System.out.println(probabilities);
-//		double perplexity = Math.pow(1/perplexityPart, -numWords);
-//		System.out.println(perplexity);
+		// System.out.println(probabilities);
+		// double perplexity = Math.pow(1/perplexityPart, -numWords);
+		// System.out.println(perplexity);
 		// 2^ (-1.0/numWords * SUM(( Math.log(perplexityPart)/Math.log(2))))
-		perplexities.add(new Double(Math.pow(-1.0/numWords * Math.log(probabilities)/Math.log(2), 2.0)));
-//		System.out.println(perplexityPart);
+		perplexities.add(new Double(Math.pow(
+				-1.0 / numWords * Math.log(probabilities) / Math.log(2), 2.0)));
+		// System.out.println(perplexityPart);
 		// double perplexity = Math.pow(-1.0/numWords * perplexityPart, 2);
 
 	}
@@ -272,9 +345,9 @@ public class Evaluator {
 	private void predictionCorrectness(ArrayList<String> predictedWords,
 			ArrayList<Token> sentence, int correctWordPosition) {
 		testedWords++;
-		String correctWord = sentence.get(correctWordPosition+1).toString();
+		String correctWord = sentence.get(correctWordPosition + 1).toString();
 		// System.out.println("correct word: " + correctWord);
-//		System.out.println("correct word: " + correctWord);
+		// System.out.println("correct word: " + correctWord);
 		for (int i = 0; i < predictedWords.size(); i++) {
 			// System.out.println("Predicted: " + predictedWords.get(i));
 			if (predictedWords.get(i).equals(correctWord)) {
@@ -283,7 +356,7 @@ public class Evaluator {
 				// increment count for match at word position.
 				countWordPositionHit[correctWordPosition]++;
 			}
-//			System.out.println("guessed word: " + predictedWords.get(i));
+			// System.out.println("guessed word: " + predictedWords.get(i));
 		}
 	}
 
@@ -324,18 +397,18 @@ public class Evaluator {
 				+ totalCorrectPredicted / (double) testedWords + "\n");
 		double perplexitySum = 0;
 		int size = perplexities.size();
-		for(double perplexity : perplexities){
-//			System.out.println(perplexitySum);
-			if(Double.isNaN(perplexity)){
-//				System.out.println("PERPLEXITY IS NAN");
+		for (double perplexity : perplexities) {
+			// System.out.println(perplexitySum);
+			if (Double.isNaN(perplexity)) {
+				// System.out.println("PERPLEXITY IS NAN");
 				size--;
 				continue;
 			}
 			perplexitySum += perplexity;
-//			System.out.println(perplexity);
+			// System.out.println(perplexity);
 		}
-//		System.out.println(perplexitySum);
-		double averagePerplexity = perplexitySum/perplexities.size();
+		// System.out.println(perplexitySum);
+		double averagePerplexity = perplexitySum / perplexities.size();
 		sb.append("Perplexity = " + averagePerplexity);
 		cleanUp();
 		return sb.toString();
