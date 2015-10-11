@@ -162,7 +162,7 @@ public class WordPredictor {
 			double a = 4.184704184704183e-05;
 			double b = 7.229437229437245e-04;
 			double c = 0.009235209235209;
-			double alpha = 1 - (a * this.timesUser * this.timesUser + b * this.timesUser + c);
+			double alpha = 1 - Math.min(0.5, (a * this.timesUser * this.timesUser + b * this.timesUser + c));
 			
 			this.combineResults(resultMap, this.model.predictNext(ngram, numResults), alpha);
 			this.combineResults(resultMap, this.userModel.predictNext(ngram, numResults), 1 - alpha);
