@@ -44,7 +44,7 @@ word 29 in the sentence: 74
 Total tested words: 23282
 Total successfully predicted words: 9082
 Hitrate (totalCorrectPredicted/(double)testedWords): 0.3900867623056438
-Perplexity = NaNNON-learned model for comparison:
+Perplexity = 99.50601310873787NON-learned model for comparison:
 Count of hits at specified position in top 10 predictions:
 position 1: 3631
 position 2: 1412
@@ -91,4 +91,4 @@ word 29 in the sentence: 68
 Total tested words: 23282
 Total successfully predicted words: 8980
 Hitrate (totalCorrectPredicted/(double)testedWords): 0.38570569538699423
-Perplexity = NaN
+Perplexity = 99.50601310873787
