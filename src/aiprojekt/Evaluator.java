@@ -65,24 +65,24 @@ public class Evaluator {
 
 		// evaluate model
 		
-		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
-		if (NGramModel.GRAMMAR_CHECK) {
-			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
-			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
-					+ "withGrammar" + ".txt");
-		} else {
-			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
-			System.out.println("originalModel " + " written in " + OUTPUT_PATH
-					+ "originalModel" + ".txt");
-		}
+//		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
+//		if (NGramModel.GRAMMAR_CHECK) {
+//			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
+//			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
+//					+ "withGrammar" + ".txt");
+//		} else {
+//			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
+//			System.out.println("originalModel " + " written in " + OUTPUT_PATH
+//					+ "originalModel" + ".txt");
+//		}
 
-		// evaluate user input learning (should loop over userCandidates)
-		// for (int i = 0; i < userCandidates.length; i++) {
-		// String data = evaluator.evaluateUserInput(userCandidates[i]);
-		// writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-		// System.out.println("user " + userCandidates[i] + " written in "
-		// + OUTPUT_PATH + "user" + i + ".txt");
-		// }
+		 //evaluate user input learning (should loop over userCandidates)
+		 for (int i = 0; i < userCandidates.length; i++) {
+		 String data = evaluator.evaluateUserInput(userCandidates[i]);
+		 writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+		 System.out.println("user " + userCandidates[i] + " written in "
+		 + OUTPUT_PATH + "user" + i + ".txt");
+		 }
 	}
 
 	/**

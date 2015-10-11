@@ -1,4 +1,19 @@
-
+[12:01] <JohnFlux> zeeble: libavahi-compat-libdnssd1
+[12:01] <burwaco> stefg: I don't have a server now, I just have a base system, I'd like a desktop manager and a thing like fluxbox but better...
+[12:01] <bimberi> zeeble: great :)
+[12:01] <whale> what is the ubotu command for nvidia drivers ?
+[12:01] <bimberi> !nvidia | whale
+[12:01] <JohnFlux> !nvidia
+[12:01] <ubotu> whale: To install the Ati/NVidia drivers for your video card, see https://help.ubuntu.com/community/BinaryDriverHowto
+[12:01] <ubotu> To install the Ati/NVidia drivers for your video card, see https://help.ubuntu.com/community/BinaryDriverHowto
+[12:01] <zeeble> JohnFlux: it was conflicting with something from bonjour. http://paste.ubuntu-nl.org/35030/  <-- here's the error
+[12:01] <whale> thank you
+[12:01] <JohnFlux> zeeble: hmm that's not good
+[12:02] <zeeble> JohnFlux: i know. removing bonjour helped. the rest of the kde install seems to be going good.
+[12:02] <JohnFlux> zeeble: I think I'll remove the avahi stuff from ksysguard
+[12:02] <Salah> any spanish people here?
+[12:02] <JohnFlux> zeeble: I don't think anyone uses it
+[12:02] <DavidW2> Hi.
 [12:02] <DavidW2> /usr/bin/ldd: line 171: /lib/ld-linux.so.2: No such file or directory
 [12:02] <DavidW2> ldd: /lib/ld-linux.so.2 exited with unknown exit code (127)
 [12:02] <zeeble> JohnFlux: ok
