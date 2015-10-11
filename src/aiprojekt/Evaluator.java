@@ -60,15 +60,15 @@ public class Evaluator {
 		Evaluator evaluator = new Evaluator();
 
 		// evaluate model
-		 evaluator.evaluate(USER_TESTING_PATH);
+//		 System.out.println(evaluator.evaluate(EVALUATE_FILE));
 
 		// evaluate user input learning (should loop over userCandidates)
-//		for (int i = 0; i < userCandidates.length; i++) {
-//			String data = evaluator.evaluateUserInput(userCandidates[i]);
-//			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-//			System.out.println("user " + userCandidates[i] + " written in "
-//					+ OUTPUT_PATH + "user" + i + ".txt");
-//		}
+		for (int i = 0; i < userCandidates.length; i++) {
+			String data = evaluator.evaluateUserInput(userCandidates[i]);
+			writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+			System.out.println("user " + userCandidates[i] + " written in "
+					+ OUTPUT_PATH + "user" + i + ".txt");
+		}
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Evaluator {
 				
 				sentenceBuilder.add(token);
 				ArrayList<String> predictedWords = (ArrayList<String>) predictor
-						.predictNextWord(new ArrayList<>(sentenceBuilder), false);
+						.predictNextWord(new ArrayList<Token>(sentenceBuilder), false);
 				predictionCorrectness(predictedWords, sentence,
 						correctWordPosition);
 				correctWordPosition++;
@@ -266,8 +266,9 @@ public class Evaluator {
 	private void predictionCorrectness(ArrayList<String> predictedWords,
 			ArrayList<Token> sentence, int correctWordPosition) {
 		testedWords++;
-		String correctWord = sentence.get(correctWordPosition).toString();
+		String correctWord = sentence.get(correctWordPosition+1).toString();
 		// System.out.println("correct word: " + correctWord);
+//		System.out.println("correct word: " + correctWord);
 		for (int i = 0; i < predictedWords.size(); i++) {
 			// System.out.println("Predicted: " + predictedWords.get(i));
 			if (predictedWords.get(i).equals(correctWord)) {
@@ -276,6 +277,7 @@ public class Evaluator {
 				// increment count for match at word position.
 				countWordPositionHit[correctWordPosition]++;
 			}
+//			System.out.println("guessed word: " + predictedWords.get(i));
 		}
 	}
 

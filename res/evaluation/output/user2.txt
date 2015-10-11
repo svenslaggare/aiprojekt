@@ -1,0 +1,93 @@
+trainingSentences.size() = 2344testingSentences.size() = 1403Count of hits at specified position in top 10 predictions:
+position 1: 2202
+position 2: 860
+position 3: 618
+position 4: 462
+position 5: 341
+position 6: 272
+position 7: 226
+position 8: 203
+position 9: 173
+position 10: 155
+
+Count of hits at specified position in the sentences:
+word 0 in the sentence: 0
+word 1 in the sentence: 300
+word 2 in the sentence: 557
+word 3 in the sentence: 619
+word 4 in the sentence: 565
+word 5 in the sentence: 473
+word 6 in the sentence: 406
+word 7 in the sentence: 353
+word 8 in the sentence: 329
+word 9 in the sentence: 269
+word 10 in the sentence: 252
+word 11 in the sentence: 212
+word 12 in the sentence: 185
+word 13 in the sentence: 164
+word 14 in the sentence: 133
+word 15 in the sentence: 131
+word 16 in the sentence: 95
+word 17 in the sentence: 70
+word 18 in the sentence: 76
+word 19 in the sentence: 50
+word 20 in the sentence: 56
+word 21 in the sentence: 44
+word 22 in the sentence: 34
+word 23 in the sentence: 28
+word 24 in the sentence: 24
+word 25 in the sentence: 26
+word 26 in the sentence: 25
+word 27 in the sentence: 17
+word 28 in the sentence: 12
+word 29 in the sentence: 7
+Total tested words: 14069
+Total successfully predicted words: 5512
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.39178335347217286
+NON-learned model for comparison:
+Count of hits at specified position in top 10 predictions:
+position 1: 2138
+position 2: 904
+position 3: 613
+position 4: 416
+position 5: 349
+position 6: 310
+position 7: 217
+position 8: 244
+position 9: 160
+position 10: 142
+
+Count of hits at specified position in the sentences:
+word 0 in the sentence: 0
+word 1 in the sentence: 291
+word 2 in the sentence: 519
+word 3 in the sentence: 624
+word 4 in the sentence: 560
+word 5 in the sentence: 462
+word 6 in the sentence: 400
+word 7 in the sentence: 348
+word 8 in the sentence: 333
+word 9 in the sentence: 278
+word 10 in the sentence: 248
+word 11 in the sentence: 209
+word 12 in the sentence: 187
+word 13 in the sentence: 168
+word 14 in the sentence: 138
+word 15 in the sentence: 138
+word 16 in the sentence: 102
+word 17 in the sentence: 74
+word 18 in the sentence: 78
+word 19 in the sentence: 52
+word 20 in the sentence: 56
+word 21 in the sentence: 52
+word 22 in the sentence: 35
+word 23 in the sentence: 29
+word 24 in the sentence: 25
+word 25 in the sentence: 27
+word 26 in the sentence: 22
+word 27 in the sentence: 16
+word 28 in the sentence: 14
+word 29 in the sentence: 8
+Total tested words: 14069
+Total successfully predicted words: 5493
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.3904328665861113

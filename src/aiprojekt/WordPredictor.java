@@ -1,6 +1,7 @@
 package aiprojekt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -153,6 +154,7 @@ public class WordPredictor {
 		// Use the last words of the sentence if if it's longer than biggest
 		// n-gram
 		tokens = this.useRecentTokens(tokens);
+//		System.out.println(Arrays.toString(tokens.toArray()));
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
 		List<NGramModel.Result> results = null;
@@ -170,7 +172,8 @@ public class WordPredictor {
 			
 			results = new ArrayList<>(resultMap.values());	
 			Collections.sort(results);
-			for (int i = 0; i < results.size() - this.numResults; i++) {
+			int size = results.size();
+			for (int i = 0; i < size - this.numResults; i++) {
 				results.remove(results.size() - 1);
 			}
 		} else {
