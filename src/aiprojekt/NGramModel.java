@@ -214,15 +214,17 @@ public class NGramModel {
 	
 	/**
 	 * Should be called after all tokens has been processed.
+	 * @param removeUnique Indicates if unique n-grams of length > 1 is removed
 	 */
-	public void end() {
+	public void end(boolean removeUnique) {
 		int threshold = 1;
+		this.topUnigrams.clear();
 		
 		List<NGram> toRemove = new ArrayList<NGram>();
 		
 		for (Map.Entry<NGram, Integer> current : this.ngrams.entrySet()) {
 			NGram ngram = current.getKey();
-			if (ngram.length() > 1 && current.getValue() <= threshold) {
+			if (removeUnique && ngram.length() > 1 && current.getValue() <= threshold) {
 				toRemove.add(ngram);
 				this.numNGrams[ngram.length() - 1]--;
 			} else if (ngram.length() == 1) { // Adding all unigrams
@@ -252,6 +254,13 @@ public class NGramModel {
 		}
 				
 		this.goodTuringEstimation.fitToData();
+	}
+	
+	/**
+	 * Should be called after all tokens has been processed.
+	 */
+	public void end() {
+		this.end(true);
 	}
 	
 	/**
@@ -311,7 +320,7 @@ public class NGramModel {
 	}
 	
 	/**
-	 * Cleares the caches
+	 * Clears the caches
 	 */
 	public void clearCache() {
 		this.probabilities.clear();

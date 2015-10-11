@@ -71,6 +71,7 @@ public class GoodTuringEstimation {
 	public void setLogLinear(double a, double b) {
 		this.a = a;
 		this.b = b;
+		this.useSmoothing = true;
 	}
 	
 	/**
