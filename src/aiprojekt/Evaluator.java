@@ -33,7 +33,6 @@ import java.util.TreeMap;
  * 
  */
 public class Evaluator {
-
 	private static final String EVALUATE_FILE = "res/evaluation/evaluate.txt";
 	private static final String USER_TRAINING_PATH = "res/evaluation/user_input_training/";
 	private static final String USER_TESTING_PATH = "res/evaluation/user_input_testing/";

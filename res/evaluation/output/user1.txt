@@ -1,94 +1,94 @@
 trainingSentences.size() = 4849testingSentences.size() = 2019Count of hits at specified position in top 10 predictions:
-position 1: 3687
-position 2: 1461
-position 3: 914
-position 4: 672
-position 5: 542
-position 6: 479
-position 7: 459
-position 8: 317
-position 9: 290
-position 10: 261
+position 1: 3725
+position 2: 1453
+position 3: 919
+position 4: 692
+position 5: 547
+position 6: 475
+position 7: 451
+position 8: 341
+position 9: 293
+position 10: 246
 
 Count of hits at specified position in the sentences:
 word 0 in the sentence: 0
-word 1 in the sentence: 476
-word 2 in the sentence: 629
-word 3 in the sentence: 700
-word 4 in the sentence: 601
-word 5 in the sentence: 509
-word 6 in the sentence: 463
-word 7 in the sentence: 592
+word 1 in the sentence: 475
+word 2 in the sentence: 630
+word 3 in the sentence: 697
+word 4 in the sentence: 600
+word 5 in the sentence: 514
+word 6 in the sentence: 473
+word 7 in the sentence: 595
 word 8 in the sentence: 571
-word 9 in the sentence: 501
+word 9 in the sentence: 507
 word 10 in the sentence: 500
-word 11 in the sentence: 476
+word 11 in the sentence: 474
 word 12 in the sentence: 289
-word 13 in the sentence: 276
-word 14 in the sentence: 260
-word 15 in the sentence: 240
-word 16 in the sentence: 236
-word 17 in the sentence: 212
-word 18 in the sentence: 192
-word 19 in the sentence: 193
-word 20 in the sentence: 159
-word 21 in the sentence: 156
+word 13 in the sentence: 280
+word 14 in the sentence: 268
+word 15 in the sentence: 248
+word 16 in the sentence: 237
+word 17 in the sentence: 223
+word 18 in the sentence: 194
+word 19 in the sentence: 197
+word 20 in the sentence: 165
+word 21 in the sentence: 157
 word 22 in the sentence: 134
 word 23 in the sentence: 130
-word 24 in the sentence: 121
-word 25 in the sentence: 113
-word 26 in the sentence: 94
-word 27 in the sentence: 93
-word 28 in the sentence: 92
-word 29 in the sentence: 74
+word 24 in the sentence: 123
+word 25 in the sentence: 112
+word 26 in the sentence: 93
+word 27 in the sentence: 92
+word 28 in the sentence: 91
+word 29 in the sentence: 73
 Total tested words: 23282
-Total successfully predicted words: 9082
-Hitrate (totalCorrectPredicted/(double)testedWords): 0.3900867623056438
-Perplexity = 99.50601310873787NON-learned model for comparison:
+Total successfully predicted words: 9142
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.39266386049308477
+Perplexity = 99.50601310873802NON-learned model for comparison:
 Count of hits at specified position in top 10 predictions:
-position 1: 3631
-position 2: 1412
-position 3: 902
-position 4: 654
-position 5: 561
-position 6: 491
-position 7: 415
-position 8: 370
-position 9: 253
-position 10: 291
+position 1: 3629
+position 2: 1413
+position 3: 912
+position 4: 646
+position 5: 545
+position 6: 510
+position 7: 410
+position 8: 367
+position 9: 272
+position 10: 284
 
 Count of hits at specified position in the sentences:
 word 0 in the sentence: 0
 word 1 in the sentence: 471
-word 2 in the sentence: 574
-word 3 in the sentence: 692
-word 4 in the sentence: 584
-word 5 in the sentence: 505
-word 6 in the sentence: 458
-word 7 in the sentence: 570
-word 8 in the sentence: 562
-word 9 in the sentence: 510
-word 10 in the sentence: 503
-word 11 in the sentence: 469
+word 2 in the sentence: 573
+word 3 in the sentence: 688
+word 4 in the sentence: 586
+word 5 in the sentence: 504
+word 6 in the sentence: 461
+word 7 in the sentence: 573
+word 8 in the sentence: 563
+word 9 in the sentence: 512
+word 10 in the sentence: 501
+word 11 in the sentence: 467
 word 12 in the sentence: 294
-word 13 in the sentence: 278
-word 14 in the sentence: 267
+word 13 in the sentence: 277
+word 14 in the sentence: 272
 word 15 in the sentence: 245
-word 16 in the sentence: 241
-word 17 in the sentence: 216
+word 16 in the sentence: 244
+word 17 in the sentence: 217
 word 18 in the sentence: 195
-word 19 in the sentence: 195
+word 19 in the sentence: 194
 word 20 in the sentence: 166
 word 21 in the sentence: 154
-word 22 in the sentence: 132
+word 22 in the sentence: 131
 word 23 in the sentence: 132
-word 24 in the sentence: 123
+word 24 in the sentence: 122
 word 25 in the sentence: 106
 word 26 in the sentence: 86
 word 27 in the sentence: 92
-word 28 in the sentence: 92
+word 28 in the sentence: 94
 word 29 in the sentence: 68
 Total tested words: 23282
-Total successfully predicted words: 8980
-Hitrate (totalCorrectPredicted/(double)testedWords): 0.38570569538699423
-Perplexity = 99.50601310873787
+Total successfully predicted words: 8988
+Hitrate (totalCorrectPredicted/(double)testedWords): 0.38604930847865304
+Perplexity = 99.50601310873802

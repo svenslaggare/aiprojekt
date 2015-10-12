@@ -153,7 +153,6 @@ public class WordPredictor {
 		// Use the last words of the sentence if if it's longer than biggest
 		// n-gram
 		tokens = this.useRecentTokens(tokens);
-//		System.out.println(Arrays.toString(tokens.toArray()));
 
 		NGram ngram = new NGram(tokens.toArray(new Token[tokens.size()]));
 		List<NGramModel.Result> results = null;
@@ -161,11 +160,12 @@ public class WordPredictor {
 		if (this.timesUser > 0) {
 			Map<NGram, NGramModel.Result> resultMap = new HashMap<>();
 			//The values for a, b, c is the polynomial of degree 2 that fits:
-			//[(1, 0.01), (50, 0.15), (100, 0.5)] 
-			double a = 4.184704184704183e-05;
-			double b = 7.229437229437245e-04;
-			double c = 0.009235209235209;
-			double alpha = 1 - Math.min(0.5, (a * this.timesUser * this.timesUser + b * this.timesUser + c));
+			//[(1, 0.01), (50, 0.05), (100, 0.2)] 
+			double a = 0.000022057307772;
+			double b = -0.000308596165739;
+			double c = 0.010286538857967;
+			
+			double alpha = 1 - Math.min(0.2, (a * this.timesUser * this.timesUser + b * this.timesUser + c));
 			
 			this.combineResults(resultMap, this.model.predictNext(ngram, numResults), alpha);
 			this.combineResults(resultMap, this.userModel.predictNext(ngram, numResults), 1 - alpha);
