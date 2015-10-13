@@ -40,8 +40,7 @@ public class Evaluator {
 	private static final int NUM_RESULTS = 10;
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
-	private static final String[] userCandidates = new String[] { "jrib",
-			"LjL" };
+	private static final String[] userCandidates = new String[] { "jrib", "LjL" };
 
 	private NGramModel model;
 	private Map<String, Integer> userCount;
@@ -50,36 +49,72 @@ public class Evaluator {
 	private int testedWords = 0;
 	private int testedSentences = 0;
 	private LinkedList<Double> perplexities = new LinkedList<Double>();
-	long startTime;
+	private long startTime;
 
+	private enum EvaluationType {
+		BIG_DUMP,
+		NO_GRAMMAR,
+		GRAMMAR,
+		USER_LEARNING
+	};
+		
 	public static void main(String[] args) {
-		// Used for extracting most frequent users
-		// Evaluator userAdaptation = new Evaluator();
-		// userAdaptation.extractTopCommunicatingUsers(USER_TRAINING_PATH); //
-		// path to all (user training data) != training data
-
+		EvaluationType evaluationType = EvaluationType.BIG_DUMP;
+		switch (args[0]) {
+		case "bigdump":
+			evaluationType = EvaluationType.BIG_DUMP;
+			break;
+		case "nogrammar":
+			evaluationType = EvaluationType.NO_GRAMMAR;
+			break;
+		case "grammar":
+			evaluationType = EvaluationType.GRAMMAR;
+			break;
+		case "userlearning":
+			evaluationType = EvaluationType.USER_LEARNING;
+			break;
+		}
+		
+		if (evaluationType == EvaluationType.BIG_DUMP) {
+			NGramModel.GRAMMAR_CHECK = false;
+		} else if (evaluationType == EvaluationType.NO_GRAMMAR) {
+			NGramModel.GRAMMAR_CHECK = false;
+		} else if (evaluationType == EvaluationType.GRAMMAR) {
+			NGramModel.GRAMMAR_CHECK = true;
+		} else if (evaluationType == EvaluationType.USER_LEARNING) {
+			NGramModel.GRAMMAR_CHECK = false;
+		}
+		
+//		// Used for extracting most frequent users
+//			Evaluator userAdaptation = new Evaluator();
+//			userAdaptation.extractTopCommunicatingUsers(USER_TRAINING_PATH); //
+//			// path to all (user training data) != training data
+		
 		Evaluator evaluator = new Evaluator();
 
 		// evaluate model
 		
-		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
-		if (NGramModel.GRAMMAR_CHECK) {
-			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
-			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
-					+ "withGrammar" + ".txt");
-		} else {
-			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
-			System.out.println("originalModel " + " written in " + OUTPUT_PATH
-					+ "originalModel" + ".txt");
+		if (evaluationType != EvaluationType.USER_LEARNING) {
+			String evaluation = evaluator.evaluate(USER_TESTING_PATH);
+			if (NGramModel.GRAMMAR_CHECK) {
+				writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
+				System.out.println("withGrammar " + " written in " + OUTPUT_PATH
+						+ "withGrammar" + ".txt");
+			} else {
+				writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
+				System.out.println("originalModel " + " written in " + OUTPUT_PATH
+						+ "originalModel" + ".txt");
+			}
 		}
-
-		 //evaluate user input learning (should loop over userCandidates)
-//		 for (int i = 0; i < 2; i++) {
-//		 String data = evaluator.evaluateUserInput(userCandidates[i]);
-//		 writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-//		 System.out.println("user " + userCandidates[i] + " written in "
-//		 + OUTPUT_PATH + "user" + i + ".txt");
-//		 }
+		
+		if (evaluationType == EvaluationType.USER_LEARNING) {
+			//evaluate user input learning (should loop over userCandidates)
+			for (int i = 0; i < 2; i++) {
+				String data = evaluator.evaluateUserInput(userCandidates[i]);
+				writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+				System.out.println("user " + userCandidates[i] + " written in " + OUTPUT_PATH + "user" + i + ".txt");
+			}
+		}
 	}
 
 	/**

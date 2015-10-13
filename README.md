@@ -13,5 +13,5 @@ Run "make init" command. This should take about 5 minutes.
 Run "make run". The program should take ~10 sec to start.
 
 ## Generate results
-Run "make results".
+Run "make eval". This takes about 1 hour to complete.
 

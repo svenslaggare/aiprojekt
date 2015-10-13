@@ -13,7 +13,10 @@ import java.util.Set;
  * Represents n-gram model
  */
 public class NGramModel {
-	public static final boolean GRAMMAR_CHECK = true;
+	/**
+	 * Indicates if grammar constraints are used
+	 */
+	public static boolean GRAMMAR_CHECK = false;
 	
 	private final int maxLength;
 	
