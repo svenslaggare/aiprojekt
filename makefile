@@ -27,6 +27,13 @@ clean-testing:
 
 eval-bigdump: clean-output clean-testing
 	cp "res/evaluation/2006-12-01-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-01-#ubuntu.txt"
+	cp "res/evaluation/2006-12-02-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-02-#ubuntu.txt"
+	cp "res/evaluation/2006-12-03-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-03-#ubuntu.txt"
+	cp "res/evaluation/2006-12-04-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-04-#ubuntu.txt"
+	cp "res/evaluation/2006-12-05-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-05-#ubuntu.txt"
+	cp "res/evaluation/2006-12-06-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-06-#ubuntu.txt"
+	cp "res/evaluation/2006-12-07-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-07-#ubuntu.txt"
+	cp "res/evaluation/2006-12-08-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-08-#ubuntu.txt"
 	cp "res/evaluation/2006-12-09-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-09-#ubuntu.txt"
 	$(EVALUATOR) bigdump
 	cp -avr "res/evaluation/output" "res/evaluation/bigdump-output"
@@ -43,6 +50,24 @@ eval-grammar: clean-output clean-testing
 
 eval-userlearning: clean-output clean-testing
 	cp "res/evaluation/2006-12-01-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-01-#ubuntu.txt"
+	cp "res/evaluation/2006-12-02-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-02-#ubuntu.txt"
+	cp "res/evaluation/2006-12-03-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-03-#ubuntu.txt"
+	cp "res/evaluation/2006-12-04-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-04-#ubuntu.txt"
+	cp "res/evaluation/2006-12-05-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-05-#ubuntu.txt"
+	cp "res/evaluation/2006-12-06-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-06-#ubuntu.txt"
+	cp "res/evaluation/2006-12-07-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-07-#ubuntu.txt"
+	cp "res/evaluation/2006-12-08-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-08-#ubuntu.txt"
+	cp "res/evaluation/2006-12-09-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-09-#ubuntu.txt"
+	cp "res/evaluation/2006-12-10-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-10-#ubuntu.txt"
+	cp "res/evaluation/2006-12-11-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-11-#ubuntu.txt"
+	cp "res/evaluation/2006-12-12-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-12-#ubuntu.txt"
+	cp "res/evaluation/2006-12-13-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-13-#ubuntu.txt"
+	cp "res/evaluation/2006-12-14-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-14-#ubuntu.txt"
+	cp "res/evaluation/2006-12-15-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-15-#ubuntu.txt"
+	cp "res/evaluation/2006-12-16-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-16-#ubuntu.txt"
+	cp "res/evaluation/2006-12-17-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-17-#ubuntu.txt"
+	cp "res/evaluation/2006-12-18-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-18-#ubuntu.txt"
+	cp "res/evaluation/2006-12-19-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-19-#ubuntu.txt"
 	cp "res/evaluation/2006-12-20-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-20-#ubuntu.txt"
 	$(EVALUATOR) userlearning
 	cp -avr "res/evaluation/output" "res/evaluation/userlearning-output"
