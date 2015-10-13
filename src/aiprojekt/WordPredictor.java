@@ -13,9 +13,6 @@ public class WordPredictor {
 	private final NGramModel model;
 	private final int numResults;
 	private final TextParser parser = new TextParser();
-	private final double[] ngramAverages;
-	
-	private final int maxCountPerAverage = 3000;
 	
 	private final NGramModel userModel;
 	private int timesUser = 0;
@@ -28,30 +25,9 @@ public class WordPredictor {
 	public WordPredictor(NGramModel model, int numResults) {
 		this.model = model;
 		this.numResults = numResults;
-		this.ngramAverages = new double[model.maxLength()];
-		this.updateNGramsAverages();
 		this.userModel = new NGramModel(model.maxLength());
 	}
-	
-	/**
-	 * Updates the n-gram averages
-	 */
-	private void updateNGramsAverages() {
-		for (int i = 1; i <= this.model.maxLength(); i++) {
-			double sum = 0.0;
-			int count = 0;
-			for (NGramTree.Result current : this.model.searchTree().findTopNgrams(i, maxCountPerAverage)) {
-				if (!(current.equals(NGramModel.START_OF_SENTENCE_UNIGRAM)
-					  || current.equals(NGramModel.END_OF_SENTENCE_UNIGRAM) )) {
-					sum += current.getCount();
-					count++;
-				}
-			}
-			
-			this.ngramAverages[i - 1] = sum / count;
-		}
-	}
-	
+		
 	/**
 	 * Returns the n-gram model
 	 */
@@ -72,18 +48,6 @@ public class WordPredictor {
 	 * @param tokens The tokens
 	 */
 	public void addHistory(List<Token> tokens) {	
-//		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
-////			double ngramAverage = 
-////				(double)this.model.totalCountForNGramLength(ngram.length())
-////				/ this.model.numberOfNGramLength(ngram.length());
-//			double ngramAverage = this.ngramAverages[ngram.length() - 1];			
-//			
-////			System.err.println(ngram + ": " + ngramAverage);
-//			
-//			this.model.addNGram(ngram, (int)Math.round(ngramAverage));
-//		}
-//		
-//		this.model.clearCache();
 		this.userModel.clearCache();
 		for (NGram ngram : NGramModel.getNgrams(tokens, this.model.maxLength())) {
 			this.userModel.addNGram(ngram, 1);
@@ -141,6 +105,35 @@ public class WordPredictor {
 	}
 
 	/**
+	 * Calculates the alpha value
+	 */
+	private double calculateAlpha() {
+		//The values for a, b, c is the polynomial of degree 2 that fits:
+		//[(1, 0.01), (50, 0.05), (100, 0.2)] 
+		double a = 0.000022057307772;
+		double b = -0.000308596165739;
+		double c = 0.010286538857967;
+		
+		return 1 - Math.min(0.2, (a * this.timesUser * this.timesUser + b * this.timesUser + c));
+	}
+	
+	/**
+	 * Returns the probability of observing the given unigram given a n-gram
+	 * @param ngram The n-gram
+	 * @param unigram The unigram
+	 */
+	public double getProbability(NGram ngram, NGram unigram) {
+		if (this.timesUser > 0) {
+			double alpha = this.calculateAlpha();
+			double userProb = this.userModel.getProbability(ngram, unigram);
+			double modelProb = this.model.getProbability(ngram, unigram);
+			return alpha * modelProb + (1 - alpha) * userProb;
+		} else {
+			return this.model.getProbability(ngram, unigram);
+		}
+	}
+	
+	/**
 	 * Predicting the next word given a input row.
 	 * @param input list of Tokens to predict next word from
 	 */
@@ -159,13 +152,7 @@ public class WordPredictor {
 		
 		if (this.timesUser > 0) {
 			Map<NGram, NGramModel.Result> resultMap = new HashMap<>();
-			//The values for a, b, c is the polynomial of degree 2 that fits:
-			//[(1, 0.01), (50, 0.05), (100, 0.2)] 
-			double a = 0.000022057307772;
-			double b = -0.000308596165739;
-			double c = 0.010286538857967;
-			
-			double alpha = 1 - Math.min(0.2, (a * this.timesUser * this.timesUser + b * this.timesUser + c));
+			double alpha = this.calculateAlpha();
 			
 			this.combineResults(resultMap, this.model.predictNext(ngram, numResults), alpha);
 			this.combineResults(resultMap, this.userModel.predictNext(ngram, numResults), 1 - alpha);
