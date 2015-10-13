@@ -10,7 +10,7 @@ build:
 	javac -classpath $(CLASSPATH) src/aiprojekt/*.java -d bin
 
 download-data:
-	wget https://dl.dropboxusercontent.com/u/4940720/big_dump_logs.zip
+	curl "https://dl.dropboxusercontent.com/u/4940720/big_dump_logs.zip" -o "big_dump_logs.zip"
 	unzip big_dump_logs.zip -d res/chatlogs
 
 preprocess-data:
