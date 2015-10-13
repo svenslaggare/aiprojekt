@@ -1,7 +1,7 @@
 # Instructions
 
 To be able to compile and run:
-* Java JDK 7+ (javac and java commands).
+* Java JDK 8 (javac and java commands).
 * make and curl commands.
 * Connected to the internet (to download the corpus)
 * Alot of RAM (~8 GB) to be able to preprocess the data.
