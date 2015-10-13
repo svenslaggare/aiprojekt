@@ -41,9 +41,7 @@ public class Evaluator {
 	private static final int MAX_SENTENCE_LENGTH = 30;
 
 	private static final String[] userCandidates = new String[] { "jrib",
-			"LjL", "soundray", "bruenig", "bimberi", "gnomefreak", "dabaR",
-			"crimsun", "nolimitsoya", "Pelo", "kitche", "ArrenLex", "defrysk",
-			"Flannel", "apokryphos" };
+			"LjL" };
 
 	private NGramModel model;
 	private Map<String, Integer> userCount;
@@ -64,24 +62,24 @@ public class Evaluator {
 
 		// evaluate model
 		
-//		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
-//		if (NGramModel.GRAMMAR_CHECK) {
-//			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
-//			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
-//					+ "withGrammar" + ".txt");
-//		} else {
-//			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
-//			System.out.println("originalModel " + " written in " + OUTPUT_PATH
-//					+ "originalModel" + ".txt");
-//		}
+		String evaluation = evaluator.evaluate(USER_TESTING_PATH);
+		if (NGramModel.GRAMMAR_CHECK) {
+			writeToFile(evaluation, OUTPUT_PATH + "withGrammar" + ".txt");
+			System.out.println("withGrammar " + " written in " + OUTPUT_PATH
+					+ "withGrammar" + ".txt");
+		} else {
+			writeToFile(evaluation, OUTPUT_PATH + "originalModel" + ".txt");
+			System.out.println("originalModel " + " written in " + OUTPUT_PATH
+					+ "originalModel" + ".txt");
+		}
 
 		 //evaluate user input learning (should loop over userCandidates)
-		 for (int i = 0; i < userCandidates.length; i++) {
-		 String data = evaluator.evaluateUserInput(userCandidates[i]);
-		 writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
-		 System.out.println("user " + userCandidates[i] + " written in "
-		 + OUTPUT_PATH + "user" + i + ".txt");
-		 }
+//		 for (int i = 0; i < 2; i++) {
+//		 String data = evaluator.evaluateUserInput(userCandidates[i]);
+//		 writeToFile(data, OUTPUT_PATH + "user" + i + ".txt");
+//		 System.out.println("user " + userCandidates[i] + " written in "
+//		 + OUTPUT_PATH + "user" + i + ".txt");
+//		 }
 	}
 
 	/**
@@ -161,7 +159,7 @@ public class Evaluator {
 						correctWordPosition);
 				correctWordPosition++;
 			}
-			perplexity(model, sentenceBuilder);
+			perplexity(predictor, sentenceBuilder);
 		}
 
 		return processResults();
@@ -222,7 +220,7 @@ public class Evaluator {
 							correctWordPosition++;
 
 						}
-						perplexity(model, sentenceBuilder);
+						perplexity(predictor, sentenceBuilder);
 					}
 					sentences = null;
 				}
@@ -259,7 +257,7 @@ public class Evaluator {
 					correctWordPosition++;
 
 				}
-				perplexity(model, sentenceBuilder);
+				perplexity(predictor, sentenceBuilder);
 			}
 
 		}
@@ -267,7 +265,7 @@ public class Evaluator {
 		return processResults();
 	}
 
-	private void perplexity(NGramModel model, List<Token> sentence) {
+	private void perplexity(WordPredictor predictor, List<Token> sentence) {
 
 		List<NGram> ngrams = NGramModel.getNgrams(sentence,
 				NGramModel.DEFAULT_MAX_NGRAM_LENGTH);
@@ -288,17 +286,17 @@ public class Evaluator {
 
 			if (numWords == 0) {
 				ngram = NGram.EMPTY_GRAM;
-				probability = model.getProbability(ngram, unigram);
+				probability = predictor.getProbability(ngram, unigram);
 			} else if (numWords == 1) {
 				ngram = ngrams.get(0);
-				probability = model.getProbability(ngram, unigram);
+				probability = predictor.getProbability(ngram, unigram);
 			} else if (numWords == 2) {
 				ngram = ngrams.get(1);
-				probability = model.getProbability(ngram, unigram);
+				probability = predictor.getProbability(ngram, unigram);
 				index = 1; // dont mind this.
 			} else {
 				ngram = ngrams.get(index);
-				probability = model.getProbability(ngram, unigram);
+				probability = predictor.getProbability(ngram, unigram);
 			}
 
 			probabilities *= probability;

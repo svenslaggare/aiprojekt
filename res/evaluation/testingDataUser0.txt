@@ -1,0 +1,2786 @@
+[11:58] <jrib> princemackenzie bash filesh
+[11:58] <jrib> sirfawnpug no they made binsh point to dash
+[11:58] <jrib> sirfawnpug not i but it's usually best to just ask your question
+[11:58] <jrib> tanubis sudo apt-get --purge remove vlc
+[11:58] <jrib> lullabud fmask is for files and dmask for directories
+[11:58] <jrib> lullabud it doesn't but if you are mounting ntfs it won't be writable so dmask gives you everywhere but because of ntfs you don't get the
+[11:58] <jrib> lullabud same reasoning the 's make it and the fact that you have ntfs changes the first number from a to a
+[11:58] <jrib> lullabud if you were mounting vfat you would end up with but ntfs is like doing a mask of again so the goes to
+[11:58] <jrib> lullabud no because with a umask a file taht is stays a file that is stays so it isn't the same as just chmodding to
+[11:58] <jrib> lullabud right ljl makes the important point that with a filesystem like ntfs the files don't have any permissions set on them so in this case yeah it is just like chmodding everything because all the files start out the same way the idea of a mask becomes noticeable when you start with different things it might help to think about masks as they are using in graphic programs like photoshop or gimp
+[11:58] <jrib> fishing zac jason
+[11:58] <jrib> spiceydog what happens
+[11:58] <jrib> spiceydog pastebin your etcaptsourceslist please
+[11:58] <jrib> spiceydog open etcaptsourceslist in a text editor then visit and copy and paste the contents then just give us the link
+[11:58] <jrib> spiceydog etcaptsourceslist is the location here's a shortcut in a terminal type gedit etcaptsourceslist
+[11:58] <jrib> spiceydog that's ok pastebin won't complain
+[11:58] <jrib> spiceydog its in the topic
+[11:58] <jrib> spiceydog try
+[11:58] <jrib> ljl it doesn't take weeks to load
+[11:58] <jrib> spiceydog ctrl-shift-c in the terminal because ctrl-c already means something else
+[11:58] <jrib> spiceydog ok you see those last two lines do you know anything about them
+[11:58] <jrib> spiceydog ok do this gksudo gedit etcaptsourceslist you don't need outside repositories so we'll delete them
+[11:58] <jrib> spiceydog good it was supposed to do that now delete the last two lines save and exit
+[11:58] <jrib> spiceydog great now type 'sudo apt-get update'
+[11:58] <jrib> fletch you try to avoid using rpm's what are you trying to install
+[11:58] <jrib> ryanakca works in epiphany
+[11:58] <jrib> fletch you can install limewire and i will send you instructions but i would recommend you use frostwire instead
+[11:58] <jrib> frostwire fletch
+[11:58] <jrib> fletch give it a try it's the same thing basically it's actually a fork i believe if you still want the limewire instructions though you can msg ubotu limewire and he should tell you
+[11:58] <jrib> fletch also after you install java and have downloaded the ubuntu deb you can just double click on the deb file to install no need to use the terminal
+[11:58] <jrib> spiceydog right it's just updating the package list to install wine 'sudo apt-get install wine'
+[11:58] <jrib> zarephath dpkg -l packagename should tell you where it installed files to
+[11:58] <jrib> zarephath are you on edgy i'll try to install here
+[11:58] <jrib> spiceydog nope you should have wine now
+[11:58] <jrib> spiceydog you know how to use it
+[11:58] <jrib> ubotu tell spiceydog about wine
+[11:58] <jrib> ubotu tell tritio about cli
+[11:58] <jrib> tritio did ubotu send you a private message with some useful info
+[11:58] <jrib> zarephath ok so now i have to open usrsharelingoteachdatacountriesxml in lingoteach right
+[11:58] <jrib> zarephath yeah seems to crash do you know what lesson files are supposed to be like
+[11:58] <jrib> superchode you're supposed to just ask it
+[11:58] <jrib> zarephath umm ok i got it to work i think
+[11:58] <jrib> zarephath none i imported and then started a new lesson
+[11:58] <jrib> zarephath i think open may be if you save your progress
+[11:58] <jrib> spiceydog system adminstration system monitor
+[11:58] <jrib> zarephath lingteach import usrsharelingoteachdatacountriesxml but i guess any xml file in there will do or you can do multiple ones
+[11:58] <jrib> fhs links
+[11:58] <jrib> chewy ghex
+[11:58] <jrib> zarephath start a new lesson
+[11:58] <jrib> enter links
+[11:58] <jrib> links pastebin the error please
+[11:58] <jrib> spiceydog yes you would need to properly add the repository that is in the wiki
+[11:58] <jrib> links apt-get said that what does 'apt-cache policy xchat' say please use pastebin don't paste here
+[11:58] <jrib> links it's in the topic
+[11:58] <jrib> dvd devc
+[11:58] <jrib> links ok 'sudo apt-get install xchat' is that what you tried before
+[11:58] <jrib> jaebird have you tried some random jpeg from google does that work
+[11:58] <jrib> jaebird oh i see wasn't sure from your description if this was a specific jpeg giving you problems but never mind then
+[11:58] <jrib> anniem what command are you using
+[11:58] <jrib> madpilot not much of a nano user but do you need to use -w to ensure it doesn't put in extra line breaks
+[11:58] <jrib> spiceydog tells you exactly deb edgy main if you are on edgy
+[11:58] <jrib> spiceydog do you see how the other lines in that file are structured they start with deb then a url then a repository then a component
+[11:58] <jrib> spiceydog if you are really interested in the structure
+[11:58] <jrib> spiceydog i told you exactly what to put in there and the wiki page does too
+[11:58] <jrib> spiceydog according to if you are on ubuntu edgy you add this line deb edgy main
+[11:58] <jrib> spiceydog i'll help you out in more detail just type this in your chat client join ubuntu-classroom
+[11:58] <jrib> andylinux yes go ahead and tell us what is happening try to keep it on one line and use pastebin if you have some long error output
+[11:58] <jrib> icecream maybe alt-click on it and drag
+[11:58] <jrib> icecream actually i guesss you could have just dragged too and made the window bigger
+[11:58] <jrib> anybody sam
+[11:58] <jrib> ich sometimes but it's a lot more limited
+[11:58] <jrib> ich there are more heat concerns for instance
+[11:58] <jrib> eltigre is libglitz installed ok
+[11:58] <jrib> eltigre are you using the repositories
+[11:58] <jrib> eltigre ok what does 'file usrliblibglitzso' say
+[11:58] <jrib> eltigre interesting i don't even have usrliblibcairoso
+[11:58] <jrib> eilker you shouldn't use the first one use 'sudo -i
+[11:58] <jrib> '
+[11:58] <jrib> eilker yes one runs su and the other runs su through sudo so the first would ask for your sudo password and the second would ask for your root password you don't have one set by default since ubuntu prefers sudo you really should do 'su -' instead since it resets env vars the equivalent to 'sudo su -' is 'sudo -i' this is preferred
+[11:58] <jrib> eltigre dpkg -s usrliblibcairoso
+[11:58] <jrib> ubotu tell eilker about sudo
+[11:58] <jrib> eilker like i said 'su' asks for your root password ubuntu doesn't use this by default
+[11:58] <jrib> eltigre apt-cache policy libglitz
+[11:58] <jrib> eilker does 'sudo -i' not give you a root prompt
+[11:58] <jrib> eltigre oops use pastebin in the future please
+[11:58] <jrib> eltigre file usrliblibcairoso
+[11:58] <jrib> eltigre how about apt-cache policy python-gtk
+[11:58] <jrib> nbs are they sites that use flash
+[11:58] <jrib> eltigre k i'm trying to figure out why it is looking for usrliblibcairoso at all
+[11:58] <jrib> rt g -o programname filecc where programname is the name you want it to have after being compiled and filecc is the name of the file with the c source code
+[11:58] <jrib> nbs try the workaround here
+[11:58] <jrib> eltigre was ubuntu-desktop installed when you upgraded does 'sudo apt-get dist-upgrade' ask you to do anything now
+[11:58] <jrib> manmadha if you google 'ip address php' 'host address php' 'useragent php' you'll probably get better explanations
+[11:58] <jrib> manmadha
+[11:58] <jrib> nbs did that work for you
+[11:58] <jrib> manmadha np
+[11:58] <jrib> helpme smithveg
+[11:58] <jrib> smithveg run 'gaim' from a terminal and see what it says when it crashes
+[11:58] <jrib> bjorn- use 'rename' do you know basic regexp
+[11:58] <jrib> jinxedd yes it is great for beginners and experts alike
+[11:58] <jrib> jinxedd there is a bit release but be warned that things like flash will be a hassle adobe doesn't have a bit player
+[11:58] <jrib> jinxedd if you want those things i would recommend using the bit version
+[11:58] <jrib> bjorn- easiest way may be to use it with 'find' maybe untested find -name 'yyy' -exec rename 'syyyxxx' ''
+[11:58] <jrib> martyskitch you can't do that afaik the file system only keeps track of ctime atime mtime change access modified man stat has the details if you are interested or just google for the three terms together the only think i can think of is that some files like ooo files may have metadata that stores the time of creation in that case i don't know how you would search for that
+[11:58] <jrib> borg as well
+[11:58] <jrib> borg just check the mdsum of your file with the one from the ubuntu site
+[11:58] <jrib> borg you should check the manually but that sounds good then
+[11:58] <jrib> carld it iswas plf stuff like wcodecs was available from plf
+[11:58] <jrib> carld
+[11:58] <jrib> kayiin you can rebind the keys in irssi help bind i think i'd prefer to edit - keyboard shortcuts in gnome-terminal
+[11:58] <jrib> barry how did you upgrade firefox
+[11:58] <jrib> icons shuan
+[11:58] <jrib> userek yes - - - direct upgrade is not supportedrecommended you are better off installing directly imo
+[11:58] <jrib> icons raavi
+[11:58] <jrib> seilo try mono on gimpnet
+[11:58] <jrib> seilo there's a mono on freenode too but the gimpnet is probably larger
+[11:58] <jrib> seilo for more details
+[11:58] <jrib> upgrade eroick
+[11:58] <jrib> fuffal is the only lts release so far
+[11:58] <jrib> omghackerz how about history -c
+[11:58] <jrib> craigbass right click on the ubuntu icon and edit menu
+[11:58] <jrib> tonyyarusso maybe try a live cd maybe other distros too to rule out software
+[11:58] <jrib> tonyyarusso not really sure what's going on maybe a modification to my previous suggestion would be to install another distro on some free space
+[11:58] <jrib> tonyyarusso don't know anything about that
+[11:58] <jrib> dougsko usually you can do configure --with-foolocationoffoo but i've never had to do that i would look into why it is doing that
+[11:58] <jrib> xgl bratdabalaia
+[11:58] <jrib> dougsko what are you installing and what is it saying you are missing
+[11:58] <jrib> donut prefix your message with their name your client is what makes them red for me they are yellow
+[11:58] <jrib> dougsko the gnucash in the repositories does not work for you
+[11:58] <jrib> dougsko i still don't understand why are you compiling is this not on ubuntu
+[11:58] <jrib> dougsko just asking because i was about to tell you to use some apt stuff yeah i'm pretty sure it should automatically use usrlocal but maybe you can modify cpath
+[11:58] <jrib> garry runlevel are all the same or something like that you are ok that is the correct behavior
+[11:58] <jrib> php-freak did your restart the application
+[11:58] <jrib> php-freak try fc-cache add -f if that doesn't work
+[11:58] <jrib> eneried install xscreensaver
+[11:58] <jrib> eneried it should replace gnome-screensaver i think
+[11:58] <jrib> eneried k well you should still be able to configure options you should have to screensaver links in your preferences dpkg -l xscreensaver grep bin may help you figure out the command line way
+[11:58] <jrib> eneried you probably want to remove gnome-screensaver too not sure how that works
+[11:58] <jrib> midge are you using kubuntu
+[11:58] <jrib> paste midge
+[11:58] <jrib> jughead what player are you using
+[11:58] <jrib> jughead mplayer should be working
+[11:58] <jrib> jughead pastebin the mplayer output
+[11:58] <jrib> jughead i think it's down see the topic
+[11:58] <jrib> aleka are you displaying as a list instead of icons option in the top right above where the files show up
+[11:58] <jrib> aleka ah that no there is probably a bug about it annoys me too
+[11:58] <jrib> offtopic grndslm
+[11:58] <jrib> devc
+[11:58] <jrib> devc there are applications in ubuntu written in c
+[11:58] <jrib> stormy apt-cache policy package
+[11:58] <jrib> skozy just use your favorite text editor
+[11:58] <jrib> lamp php-freak
+[11:58] <jrib> skozy i like vim but for a novice you may not like it it's very powerful but has a bit of a learning curve gedit should do fine
+[11:58] <jrib> php-freak that page tells you how to install it
+[11:58] <jrib> php-freak click on the link it has about installing software any method
+[11:58] <jrib> php-freak basically in the terminal you do sudo apt-get install nameofpackage
+[11:58] <jrib> php-freak it is a version of ubuntu edgy is the most recent dapper was the one before it
+[11:58] <jrib> ubotu tell php-freak about apt
+[11:58] <jrib> ubotu tell php-freak about cli
+[11:58] <jrib> php-freak nope a student
+[11:58] <jrib> devc it is available through the repositories don't install from the site
+[11:58] <jrib> devc i don't use mono but says bash sudo apt-get install mono mono-mcs libgtk-cil libgtksourceview-cil libgecko-cil monodevelop monodoc
+[11:58] <jrib> devc the most helpful information on there is probably the guides linked at the bottom
+[11:58] <jrib> uuid soulorb
+[11:58] <jrib> magicboat he backup
+[11:58] <jrib> firebird yes install the vlc package
+[11:58] <jrib> info vlc firebird
+[11:58] <jrib> xgl computermc
+[11:58] <jrib> mordof lspci lshw
+[11:58] <jrib> uuid klees
+[11:58] <jrib> klees no
+[11:58] <jrib> ask darked
+[11:58] <jrib> lamp tomiboi
+[11:58] <jrib> darked both are good choices if you want to not upgrade for a long time then you may want to use dapper since it will get security updates longer edgy has the advantage that the software is more recent
+[11:58] <jrib> wastrel mencoder
+[11:58] <jrib> wastrel mplayer has a video filter for rotating so i assume it would work
+[11:58] <jrib> john completion more globbing options are my favorite features
+[11:58] <jrib> php-freak sudo invoke-rcd apache restart
+[11:58] <jrib> php-freak what does that mean
+[11:58] <jrib> php-freak yes the command i gave you will restart apache
+[11:58] <jrib> php-freak basicallyit's the same as doing sudo etcinitdapache restart
+[11:58] <jrib> language queen
+[11:58] <jrib> php-freak i'm not really sure how i first learned about it typing 'man invoke-rcd' should help
+[11:58] <jrib> dobsonj no need to compile zsnes is in the repos
+[11:58] <jrib> info zsnes dobsonj
+[11:58] <jrib> ubotu tell dobsonj about multiverse
+[11:58] <jrib> yghome if it is installed you can use dpkg -s otherwise go to packagesubuntucom or use apt-file
+[11:58] <jrib> klp yes in multiverse there is mozilla-mplayer
+[11:58] <jrib> ubotu tell klp about multiverse
+[11:58] <jrib> heh
+[11:58] <jrib> corevette it is the latest version in the repositories
+[11:58] <jrib> ckarini please try to keep what you say on one line
+[11:58] <jrib> lnxempire ubuntu and kubuntu are the same except one uses kde and the other gnome by default the same packages are available
+[11:58] <jrib> stable corevette
+[11:58] <jrib> ubotu tell corevette about release
+[11:58] <jrib> corevette having said that there are backports made of programs you may wish to request a backport for your program or even learn and create one yourself to help others
+[11:58] <jrib> ubotu tell corevette about backports
+[11:58] <jrib> stormy can you pastebin your sourceslist
+[11:58] <jrib> stormy etcaptsourceslist the error would be helpful too as arrenlex said
+[11:58] <jrib> stormy that's bad are you sure you didn't make a typo
+[11:58] <jrib> stormy no that shouldn't do it what were you compiling
+[11:58] <jrib> stormy you know blender is in the repositories
+[11:58] <jrib> stormy does usrliblibpythonso exist
+[11:58] <jrib> moonglade not unless you tell it to
+[11:58] <jrib> upgrade moonglade
+[11:58] <jrib> jbinder that won't work and isn't recommended
+[11:58] <jrib> jbinder you edited your sourceslist no
+[11:58] <jrib> jbinder that's why but it still isn't recommended
+[11:58] <jrib> stormy no not really
+[11:58] <jrib> stormy what do you mean by manually exactly you compiled it
+[11:58] <jrib> stalefries alias is a builtin try help alias
+[11:58] <jrib> stalefries example alias la'ls -a'
+[11:58] <jrib> stormy have you tried uninstalling the python you compiled and then installing with apt
+[11:58] <jrib> stormy try make uninstall from the source directory
+[11:58] <jrib> stormy assuming you used make install to install it
+[11:58] <jrib> stalefries you'll need to source it in your current session since bashrc only gets sourced at the start try source bashaliases
+[11:58] <jrib> eroick maybe python might be a better place to ask
+[11:58] <jrib> stormy hmm have you considered just backing up your data and reinstalling i'm not really sure what is going on and that may be the easiest solution
+[11:58] <jrib> stormy well redownload the source and try configure on a fresh source
+[11:58] <jrib> ubotu tell meheren about xorg
+[11:58] <jrib> meheren ignore the bot wrong factoid here is how to reconfigure xserver-xorg sudo dpkg-reconfigure xserver-xorg
+[11:58] <jrib> stormy did you run configure with the same exact options as before and this is the same source version as before
+[11:58] <jrib> stormy sudo make uninstall
+[11:58] <jrib> stormy heh have fun then do you have backups
+[11:58] <jrib> stormy yes before we continue
+[11:58] <jrib> stormy ok what is in your usrlocal
+[11:58] <jrib> stormy it won't work because python probably got installed to usrlocal
+[11:58] <jrib> stormy yeah the stuff inside see any python
+[11:58] <jrib> stormy like usrlocallibpython maybe
+[11:58] <jrib> stormy ok now is there anything installed in usrlocal that you want it would be easiest to just delete everything
+[11:58] <jrib> stormy i don't know but that's ok just delete usrlocalbinpython usrlocalsharepython and usrlocallibpython
+[11:58] <jrib> stormy rm -rf foo deletes foo and everything in it
+[11:58] <jrib> stormy umm make sure you are deleting the stuff in usrlocal since this isn't reversible
+[11:58] <jrib> stormy ok what does this return find usrlocal -iname 'python'
+[11:58] <jrib> stormy ok delete that stuff
+[11:58] <jrib> stormy ok see if you still get errors
+[11:58] <jrib> stormy yep whatever wasn't working before
+[11:58] <jrib> stormy what do you mean
+[11:58] <jrib> stormy give it the full path usrlocalbinblender or whatever it is
+[11:58] <jrib> stormy what version of ubuntu is this
+[11:58] <jrib> stormy just type it like that instead of 'blender' put 'usrlocalbinblender'
+[11:58] <jrib> stormy 'which blender' tells you what it is doing
+[11:58] <jrib> stormy 'which blender' is a command
+[11:58] <jrib> stormy for your conflicing packages try removing them then reinstalling nothing seems essential anyway
+[11:58] <jrib> stormy just type 'homestormyblenderblender'
+[11:58] <jrib> stormy then that's not what you want
+[11:58] <jrib> stormy is there homestormyblenderblenderbinblender maybe
+[11:58] <jrib> stormy i would give up on your compiled version and instead see if the ubuntu version works
+[11:58] <jrib> stormy was that the original error you got as well before you started manually installing things
+[11:58] <jrib> stormy is that the complete error
+[11:58] <jrib> stormy is there any other non-error output
+[11:58] <jrib> stormy so useful ok are you using i or amd
+[11:58] <jrib> php-freak i use it sometimes
+[11:58] <jrib> stormy k have you installed the binary drivers for your video card
+[11:58] <jrib> stormy yes
+[11:58] <jrib> stormy k that may help what kind of card do you have
+[11:58] <jrib> nvidia stormy
+[11:58] <jrib> arash redirect it to devnull
+[11:58] <jrib> stormy ok hope it works i'm off to sleep
+[11:58] <jrib> battlesquid type 'apt-cache policy vim' to check the available versions
+[11:58] <jrib> repeat athum
+[11:58] <jrib> zoap you mean gconf-editor
+[11:58] <jrib> jjaua winehq may be abetter place but it's best to just ask your real question and see if anyone knows
+[11:58] <jrib> vinicri put in line where
+[11:58] <jrib> vinicri i don't know what put in line means
+[11:58] <jrib> felixfoertsch does say anything
+[11:58] <jrib> vinicri wget
+[11:58] <jrib> vinicri i see i don't know of any specifically made to do that with rapidshare then
+[11:58] <jrib> darked have you tried the alternate cd
+[11:58] <jrib> darked what version
+[11:58] <jrib> darked
+[11:58] <jrib> reolosi main advantage of security releases for longer with you'll need to upgrade sooner main advantage of more recent software
+[11:58] <jrib> reolosi try the live cd for each version and see what you prefer i don't find edgy buggy but i may just not use the features that have bugs i guess
+[11:58] <jrib> darked the livecd is usually a lot slower since it is running from the cd
+[11:58] <jrib> darked how slow
+[11:58] <jrib> darked you might want to try xubuntu it's meant for slower systems
+[11:58] <jrib> twen no alternate cd is just a different way to install it is text-based instead of loading you into the gui for the install and xubuntu is still ubunut it just uses xfce by default
+[11:58] <jrib> twen it's on the download page as other isntallation options you'll end up at a page like this one and it is on there just grep for alternate
+[11:58] <jrib> ringdonut lists their official ones
+[11:58] <jrib> davor chown -r
+[11:58] <jrib> skype boink
+[11:58] <jrib> dv scriptsnameofscript
+[11:58] <jrib> an that probably won't work as build-essential just pulls in other packages use the cd as someone suggested it is on there do you know how to add the cd to your repos
+[11:58] <jrib> an have you tried inserting the cd while using the desktop it usually prompts you to add itself to the repository list
+[11:58] <jrib> an if it doesn't work just go to system administration synaptic then edit add cdrom repository
+[11:58] <jrib> dagame amarok
+[11:58] <jrib> an yes
+[11:58] <jrib> as wel as ndiswrapper stuff
+[11:58] <jrib> devc nope
+[11:58] <jrib> jimmey mdsum fileiso
+[11:58] <jrib> princemackenzie might want firefox-bin
+[11:58] <jrib> noelferreira ps -ef grep firefox
+[11:58] <jrib> noelferreira mv mozilla mozillabackup firefox
+[11:58] <jrib> upgrade sasa
+[11:58] <jrib> sasa upgrade to and then to
+[11:58] <jrib> noelferreira readlink -f which firefox
+[11:58] <jrib> noelferreira hmm try 'firefox -g' then type 'run' and press enter
+[11:58] <jrib> msg sasa
+[11:58] <jrib> noelferreira don't paste that stuff here just see if it opens wait a minute
+[11:58] <jrib> sasa what gave you a black screen
+[11:58] <jrib> sasa do you want to do a fresh install or upgrade
+[11:58] <jrib> sasa you may want to try the alternate cd for installing edgy
+[11:58] <jrib> sasa strange what speed did you burn the iso at
+[11:58] <jrib> noelferreira anything happen
+[11:58] <jrib> noelferreira what is the last line you got from gdb
+[11:58] <jrib> noelferreira heh ok by sleep you mean the process just dies right and you get brough back to a terminal prompt
+[11:58] <jrib> noelferreira ok pastebin that bit and the lines around it please
+[11:58] <jrib> fishing doskey
+[11:58] <jrib> noelferreira use see the topic
+[11:58] <jrib> noelferreira i mean the line about shared libraries paste that and everything around it
+[11:58] <jrib> noelferreira i don't see the line about shared libraries that you mentioned where idd you see it
+[11:58] <jrib> noelferreira k can you pastebin that as well
+[11:58] <jrib> noelferreira oh i see hmm not really sure what is going on as we can't get any good info when you type 'firefox' normally does it return you to a new prompt or does it keep the terminal
+[11:58] <jrib> noelferreira how about 'firefox -safe-mode'
+[11:58] <jrib> noelferreira have you installed anything without using official ubuntu repositories or outside of apt
+[11:58] <jrib> noelferreira did firefox ever work
+[11:58] <jrib> noelferreira i don't know you can try 'sudo apt-get --reinstall install firefox'
+[11:58] <jrib> noelferreira no not if you already have
+[11:58] <jrib> noelferreira yep
+[11:58] <jrib> noelferreira well i guess so what made you think that i had thought that may have been the problem but wasn't sure how to test it are you running any fancy beryl or compiz stuff maybe
+[11:58] <jrib> repeat drkm
+[11:58] <jrib> drkm that gets you attention but the wrong kind
+[11:58] <jrib> noelferreira alright too bad we couldn't figure it out you could try the forums or mailing list too to get more eyes on the issue
+[11:58] <jrib> leafw
+[11:58] <jrib> leafw hmm can you right click in nautilus and select unmount
+[11:58] <jrib> leafw where do you see them
+[11:58] <jrib> leafw oh i see i don't know anything about that i don't even have that key here
+[11:58] <jrib> nothlit --
+[11:58] <jrib> root elda
+[11:58] <jrib> elda what web page are you reading
+[11:58] <jrib> gnsis add your user to the 'admin' group
+[11:58] <jrib> gnsis in recovery mode adduser yourusername admin
+[11:58] <jrib> gnsis actually i would file that as a bug the installer should check for that
+[11:58] <jrib> flash frantic
+[11:58] <jrib> frantic hmm actually ignore that yes it is probably some issue with the beta
+[11:58] <jrib> frantic what repository
+[11:58] <jrib> root desaparecidoo
+[11:58] <jrib> frantic what version of ubuntu are you using
+[11:58] <jrib> roughtrader mount them properly what filesystem
+[11:58] <jrib> roughtrader right but is that ext ntfs fat
+[11:58] <jrib> roughtrader then just use permissions as you normally would with any other file
+[11:58] <jrib> roughtrader sure here is how you let everyone read write and execute sudo chmod mountpoint i'll have the bot send you info on permissions
+[11:58] <jrib> permissions roughtrader
+[11:58] <jrib> roughtrader depending on your want to do you may want to change ownership of the mount point instead for that you would use 'chown'
+[11:58] <jrib> roughtrader just sudo chown roughtraderroughtrader pathtosomewhere will give you ownership and change the group too you are just editing the permissions on the mounted files basically
+[11:58] <jrib> txfirehawk is it listed if you type 'sudo fdisk -l'
+[11:58] <jrib> wcodecs ski-worklap
+[11:58] <jrib> ski-worklap seveas' repository has wcodecs
+[11:58] <jrib> seveas ski-worklap
+[11:58] <jrib> br claudio
+[11:58] <jrib> ski-worklap which sections
+[11:58] <jrib> ski-worklap np
+[11:58] <jrib> joec gtk-theme-switch is included with gtk-theme-switch
+[11:58] <jrib> gbv install xp first and leave unpartitioned space for ubuntu
+[11:58] <jrib> dualboot gbv
+[11:58] <jrib> gbv i would recommend ubuntu and windows but that is me p depends on how much you plan on using ubuntu and how much space you have
+[11:58] <jrib> gbv i use ubuntu for everything only thing i can think someone might need xp for is the latest games
+[11:58] <jrib> linuxnewb hi welcome
+[11:58] <jrib> gbv i like debian a lot but it is all preference i would try both out and see what you like more
+[11:58] <jrib> gbv heh this is again personal preference you should just try both kde gives you a lot more options some feel too much gnome likes to keep things simple some feel too much
+[11:58] <jrib> gbv gnome is probably more popular on ubuntu though since it is default
+[11:58] <jrib> gbv yes you can you could have both fedora and ubuntu on your system as far as having both gnome and kde on ubuntu you can just install kubuntu-desktop package after installing ubuntu then at the login screen the options button lets you switch
+[11:58] <jrib> txfirehawk what are you trying to launch
+[11:58] <jrib> enter txfirehawk
+[11:58] <jrib> txfirehawk you are using your user password
+[11:58] <jrib> txfirehawk does synaptic work
+[11:58] <jrib> txfirehawk ok we are talking about system administration remote desktop vino-preferences command
+[11:58] <jrib> sadministrationpreferences
+[11:58] <jrib> lamp bonggnu
+[11:58] <jrib> txfirehawk remote desktop is to configure your computer so others can connect to it
+[11:58] <jrib> uuid jorgp
+[11:58] <jrib> skozy vim or anjuta if you want an ide
+[11:58] <jrib> jorgp oh
+[11:58] <jrib> skozy vim definitely worth the time to learn it
+[11:58] <jrib> jorgp strange you shouldn't need sudo by the way
+[11:58] <jrib> txfirehawk are you in gnome
+[11:58] <jrib> txfirehawk the system preferences is in gnome
+[11:58] <jrib> txfirehawk maybe you can run 'vino-preferences' i'm not sure if xfce uses this search for 'vnc' on the wiki should turn up guides on using stuff other than vino though if you want
+[11:58] <jrib> txfirehawk sure that would work too install the 'ubuntu-desktop' package
+[11:58] <jrib> offtopic
+[11:58] <jrib> jorgp i don't know but it's something i'd like to know so i'll let you know if google tells me
+[11:58] <jrib> jorgp gparted seems to offer the option under device set disklabel but it prompted that it would need to erase all data
+[11:58] <jrib> jorgp cool thanks
+[11:58] <jrib> wireless cheesybobman
+[11:58] <jrib> mirceatm all i can suggest is trying the alternate install cd assuming you are trying to install
+[11:58] <jrib> i think tristanbob means a physical server
+[11:58] <jrib> tristanbob ob-just download and burnit
+[11:58] <jrib> tristanbob seem like nice people no experience though
+[11:58] <jrib> gleesond you probably want build-essential subversion for svn
+[11:58] <jrib> flash eyalw thunder
+[11:58] <jrib> eyalw thunder try using aoss as the restriced wiki explains
+[11:58] <jrib> eyalw are you using flash
+[11:58] <jrib> eyalw right and these questions will help me help you do that
+[11:58] <jrib> eyalw ok how did you install flash
+[11:58] <jrib> eyalw what version does it say you have
+[11:58] <jrib> fixres ernz
+[11:58] <jrib> eyalw strange what does aboutplugins say about flash
+[11:58] <jrib> eyalw ok close all your firefox window and run 'aoss firefox' visit do you hear an annoying song
+[11:58] <jrib> vinicri if you put the whole path in quotes it will work or program files
+[11:58] <jrib> panoramixmiracu is it listed when you type 'sudo fdisk -l'
+[11:58] <jrib> ntfs panoramixmiracu
+[11:58] <jrib> eyalw do you have anything else playing sound
+[11:58] <jrib> eyalw hmm idk you could try using flash beta
+[11:58] <jrib> eyalw yes it is
+[11:58] <jrib> eyalw you can try but doubtful
+[11:58] <jrib> lamp j-
+[11:58] <jrib> eyalw type 'alsamixer' and make sure nothing is muted
+[11:58] <jrib> eyalw master and pcm
+[11:58] <jrib> greenglyph what is it a run file for
+[11:58] <jrib> eyalw have you checked the obvious stuff like the connection to the speakers and their volume
+[11:58] <jrib> sound eyalw
+[11:58] <jrib> eyalw i don't know much about sound but maybe those links can help you find the problem
+[11:58] <jrib> helpme fer
+[11:58] <jrib> ati fer
+[11:58] <jrib> sudo fer
+[11:58] <jrib> ssh aeromix
+[11:58] <jrib> aeromix just install openssh-server
+[11:58] <jrib> lostinc xubuntu-desktop
+[11:58] <jrib> aeromix does 'ssh localhost' work
+[11:58] <jrib> aeromix then ssh is working maybe you have a firewall
+[11:58] <jrib> aeromix yeah port
+[11:58] <jrib> aeromix it's pretty straightforward just run firestarter and allow connections to port
+[11:58] <jrib> language teclomacosx
+[11:58] <jrib> stepanstas try the workaround here and see if you are experiencing the same thing
+[11:58] <jrib> stepanstas there are two solutions there one is to make sure you are using bit depth the other is to set some environment variable
+[11:58] <jrib> stepanstas let me know if you can't find it i'll take a look
+[11:58] <jrib> universe spx
+[11:58] <jrib> stepanstas try this first to see if it resolves the problem close all instances of firefox then in a terminal export xlibskipargbvisuals firefox
+[11:58] <jrib> fortis touch foo
+[11:58] <jrib> fortis nano foo vim foo gedit foo kate foo
+[11:58] <jrib> igge apt-file or use packagesubuntucom
+[11:58] <jrib> igge if you mean you want to see what package owns a file you have installed use dpkg -s or dlocate -s
+[11:58] <jrib> igge install it
+[11:58] <jrib> helpme spx
+[11:58] <jrib> stepansta sudo dpkg-reconfigure xserver-xorg will let you do that i believe did exporting the variable not work
+[11:58] <jrib> stepansta run this to see your current setting xdpyinfo grep -i 'depth of root'
+[11:58] <jrib> stepansta type in my last command with xdpyinfo first to check what it is
+[11:58] <jrib> stepansta yeah go ahead and run the first command then
+[11:58] <jrib> stepansta yes
+[11:58] <jrib> offtopic senator
+[11:58] <jrib> stepansta open etcxxorgconf in a text editor and see what you have now
+[11:58] <jrib> stepansta should be under section device
+[11:58] <jrib> unimatrix of course there are bugs
+[11:58] <jrib> stepansta it only writes the changes at the end
+[11:58] <jrib> stepansta you can try that if you feel comfortable doing so notice that is in the screen section be sure to make a backup if x does not start after your change do you know how to get to a tty and restore the backup
+[11:58] <jrib> stepansta if x does not start press ctrl-alt-f that gets you a terminal to make the backup sudo cp etcxxorgconf etcxxorgconfbackup
+[11:58] <jrib> stepanstas obviously make the backup now to restore would just be sudo cp etcxxorgconfbackup etcxxorgconf
+[11:58] <jrib> eneried what is what do you mean
+[11:58] <jrib> rtfm
+[11:58] <jrib> eneried mplayer xine-ui gxine totem-xine vlc are all good
+[11:58] <jrib> eneried mplayer is the best imo as well
+[11:58] <jrib> eneried of the ones i mentioned vlc and mplayer don't use xine
+[11:58] <jrib> eyalw does this work '
+[11:58] <jrib> eyalw does this work 'aplay usrsharesoundsstartupwav'
+[11:58] <jrib> eyalw then you have sound what isn't working exactly other than flash
+[11:58] <jrib> eyalw hmm that's really strange i think your best option is to try the flash beta as it uses alsa by default
+[11:58] <jrib> flash eyalw
+[11:58] <jrib> eyalw see what seveas said
+[11:58] <jrib> vinicri free -m
+[11:58] <jrib> gnsis kill pidofprocess
+[11:58] <jrib> gnsis yeah system adminstration system monitor may be easier as jesse said
+[11:58] <jrib> gnsis paste the exact error and what command tells you taht
+[11:58] <jrib> sain yes
+[11:58] <jrib> gnsis do you have synaptic open
+[11:58] <jrib> gnsis no another process is using the apt database not sudo
+[11:58] <jrib> graham sudo aptitude purge wine
+[11:58] <jrib> defaultapp eneried
+[11:58] <jrib> best wceoscar
+[11:58] <jrib> spx what is wrong
+[11:58] <jrib> eneried scroll up ubotu answered
+[11:58] <jrib> jkch i think it uses httpproxy but synaptic may have its own settins general proxy is in system preferences
+[11:58] <jrib> eneried in edgy multiverse
+[11:58] <jrib> multiverse eneried
+[11:58] <jrib> jkch settings preferences network is in synaptic as well
+[11:58] <jrib> graham don't you mean aptitude tells you that
+[11:58] <jrib> jkch echo httpproxy
+[11:58] <jrib> jkch well there you go
+[11:58] <jrib> jkch do you need to use a proxy try export httpproxy and then run aptitude again
+[11:58] <jrib> well jkch should find out how that got set since it will probably get reset when you reboot
+[11:58] <jrib> jkch what is the error
+[11:58] <jrib> jkch no you don't use with export
+[11:58] <jrib> jkch export httpproxy echo httpproxy this should work
+[11:58] <jrib> jkch great that's what we want right
+[11:58] <jrib> jkch are you doing 'sudo aptitude update' in the same terminal
+[11:58] <jrib> jkch right that variable was only reset in the terminal you issued that export command
+[11:58] <jrib> jkch ok because outside your terminal httpproxy is still set to localhost you have to find out what is setting it to that
+[11:58] <jrib> jkch sain ompaul seems familiar
+[11:58] <jrib> jku ubuntu-motu is better for packaging questions
+[11:58] <jrib> flash sara
+[11:58] <jrib> java sara
+[11:58] <jrib> sara have you been linked to the argb bug
+[11:58] <jrib> christian try killall gnome-panel
+[11:58] <jrib> sara this is about flash crashing firefox i haven't really followed everything you said there are workarounds in the comments
+[11:58] <jrib> firefly it doesn't usually happen i have no idea why
+[11:58] <jrib> utab have you installed openshh-server
+[11:58] <jrib> utab not sure
+[11:58] <jrib> sara did you read through the comments i'm a little busy atm but give me a few minutes and i can help you with more detail
+[11:58] <jrib> utab snot sureyes it is
+[11:58] <jrib> jkch they are open unless you closed them
+[11:58] <jrib> sindrum have you installed wcodecs
+[11:58] <jrib> jkch did you install firestarter
+[11:58] <jrib> firestarter
+[11:58] <jrib> jkch ok that will let give you a gui but it should be open afaik
+[11:58] <jrib> sara if you want to try the workarounds in the bug just say my name in ubuntu-classroom it's less crowded there
+[11:58] <jrib> jkch yes that is probably it
+[11:58] <jrib> dmglouis i believe that player has two modes you need to set it to the mode that lets it act as a storage device then just plug it in
+[11:58] <jrib> kandinski it has to be approved
+[11:58] <jrib> dmglouis
+[11:58] <jrib> christian install xchm and view it
+[11:58] <jrib> dmglouis not sure you should send an email to sandisk while you try to figure it out
+[11:58] <jrib> joshj ssharelib
+[11:58] <jrib> helpme xzk
+[11:58] <jrib> helpme xzk
+[11:58] <jrib> xzk try asking again every minutes new people with different knowledge show up all the time you can also try the mailing list and the forums if no one knows atm here
+[11:58] <jrib> sara what is the output of this command xdpyinfo grep -i 'depth of root'
+[11:58] <jrib> sara of course just enter it in a terminal and press enter
+[11:58] <jrib> sara hmm then it may not be the same problem do you get any terminal output when firefox crashes if you run firefox from the terminal
+[11:58] <jrib> sara make sure you close all firefox first
+[11:58] <jrib> sara did you make firefox crash
+[11:58] <jrib> sara please join me in ubuntu-classroom by typing join ubuntu-classroom there will be less traffic there
+[11:58] <jrib> sara join ubuntu-classroom
+[11:58] <jrib> sara that's a command you can type in your chat client in the same pleace where you write messages to me
+[11:58] <jrib> sara join ubuntu-classroom
+[11:58] <jrib> christian what are you trying to compile
+[11:58] <jrib> info tvtime christian
+[11:58] <jrib> christian no need to compile it is in universe however so that you know your error means you don't have a c compiler you can install build-essential to get one as well as other stuff for development
+[11:58] <jrib> christian np
+[11:58] <jrib> wastrel if it's a gnome-terminal shortcut get rid of it in the gnome-terminal preferences i don't know of a way to escape it
+[11:58] <jrib> christian nope
+[11:58] <jrib> ipv mark
+[11:58] <jrib> christian ubuntu's community just makes you want to help people
+[11:58] <jrib> ladoctor ubuntu uses gnome kubuntu uses kde edubuntu has school based stuff and uses gnome xubuntu uses xfce these are all just defaults you can use the same thing on any of the buntu's
+[11:58] <jrib> ladoctor install ubuntu and then install the 'kubuntu-desktop' package then you will have both ubuntu and kubuntu and can decide
+[11:58] <jrib> finalbeta that's not really true
+[11:58] <jrib> asc man nameofprogram you mean
+[11:58] <jrib> asc gconf-editor
+[11:58] <jrib> asc it candesktopgnomeinterfacegtktheme or appsmetacitygeneraltheme depending on what theme you are referring to
+[11:58] <jrib> con-man uninstall it through synaptic or apt-get
+[11:58] <jrib> rar tanlaan
+[11:58] <jrib> borfborf ctrl-alt-f login what does 'ls -l iceauthority xauthority' say
+[11:58] <jrib> borfborf oh ctrl-alt-f brings you back by the way
+[11:58] <jrib> borfborf ok you could use screen in a terminal to speak with us too
+[11:58] <jrib> sscreenirssi
+[11:58] <jrib> cas make sure ooo is using a language that has an abc checkmark next to it iirc
+[11:58] <jrib> borfborf you should try creating a new user and see if it happens with that user
+[11:58] <jrib> borfborf sudo adduser newusername
+[11:58] <jrib> borfborf i was just wondering if you were in irssi
+[11:58] <jrib> borfborf oh ok
+[11:58] <jrib> borfborf and the same thing happens you log into gnome and it exits immediately
+[11:58] <jrib> borfborf wait so what ahppens after that you can still use kde afterwards
+[11:58] <jrib> borfborf i see are you sure you just didn't make a typo or caps lock
+[11:58] <jrib> noodles maple runs on linux
+[11:58] <jrib> offtopic tigerstyle
+[11:58] <jrib> noodles hmm i doubt there is anything that uses the same exact syntax maybe you can ssh to a school computer and run it from the command line i don't mind running the file once on here if you put it up on pastebin
+[11:58] <jrib> degantyll thank you
+[11:58] <jrib> noodles university or high school
+[11:58] <jrib> noodles your math department probably has something setup just approach your professor about it
+[11:58] <jrib> this doesn't help you today of course
+[11:58] <jrib> bass file a bug i suppose
+[11:58] <jrib> bass bugs can be wishlist
+[11:58] <jrib> bass yes please help us squash that bug
+[11:58] <jrib> aboo
+[11:58] <jrib> aboo you could also use debuild if you wanted too but the command given there is just as fine for that
+[11:58] <jrib> aboo np if you care to learn more about packaging visit the motu page on ubuntu wiki
+[11:58] <jrib> noodles ok
+[11:58] <jrib> lovloss tried kino
+[11:58] <jrib> awosdev diff -r
+[11:58] <jrib> awosdev what is your question
+[11:58] <jrib> awosdev have you grepped the man page seems -q is what you want
+[11:58] <jrib> hello x-rt-x
+[11:58] <jrib> lamp burepe
+[11:58] <jrib> burepe have you installed libapache-mod-php and sudo aenmod php and restart apache
+[11:58] <jrib> burepe try clearing your browser's cache
+[11:58] <jrib> x-rt-x find or locate or whereis
+[11:58] <jrib> x-rt-x locate will work or find -name foo for example
+[11:58] <jrib> tryxter create a launcer of type file and give it the path to your directory
+[11:58] <jrib> x-rt-x what is -h suppose to do
+[11:58] <jrib> x-rt-x foo just means the thing you are searching for so find -name kxdockerconfxml but locate kxdockerconfxml will be a lot faster
+[11:58] <jrib> nothlit uses what you tell it to
+[11:58] <jrib> nothlit if you use -name it is globs if you use -regex it is regular expression
+[11:58] <jrib> ikurus install subversion
+[11:58] <jrib> mordof use nohup or screen or disown the job before closing your terminal
+[11:58] <jrib> kmaynard he will lose a lot of settings may be ebst to just rename them
+[11:58] <jrib> sain a better approach is to work on packages for inclusion into the official ones see motu
+[11:58] <jrib> rapha are you familiar with a binary search rename the folder see if it works then only rename half of the stuff inside see if it works etc
+[11:58] <jrib> mixo you can install any gui you want
+[11:58] <jrib> bmc are you familiar with synaptic
+[11:58] <jrib> bmc yes
+[11:58] <jrib> bmc that is the preferred way to install things you will want to learn how to add universe and multiverse repositories as well
+[11:58] <jrib> lordmaynoth what filesystem
+[11:58] <jrib> lordmaynoth is this a one time thing or you want it to always get mounted
+[11:58] <jrib> fstab lordmaynoth
+[11:58] <jrib> lordmaynoth let me know if the syntax isn't clear
+[11:58] <jrib> lordmaynoth ok do you know how to edit etcfstab with super user privileges
+[11:58] <jrib> automatix vigosandy
+[11:58] <jrib> erm
+[11:58] <jrib> lordmaynoth
+[11:58] <jrib> heh i'm on a mac where dark blue on black looks indistinguishable sorry d
+[11:58] <jrib> lordmaynoth right you want to add it to fstab what partition is it dev
+[11:58] <jrib> lordmaynoth try 'sudo fdisk -l' to get a list
+[11:58] <jrib> diskmounter lordmaynoth
+[11:58] <jrib> limpbizcuit can you give us a link
+[11:58] <jrib> limpbizcuit also just let us know what you were trying to do with automatix and we can help you with that too
+[11:58] <jrib> lordmaynoth it does ext as well i believe
+[11:58] <jrib> lordmaynoth ok first step is you have to create a mount point so sudo mkdir mediahda or whatever name you want
+[11:58] <jrib> lordmaynoth no hda was the example name
+[11:58] <jrib> lordmaynoth we will tell it in fstab
+[11:58] <jrib> lordmaynoth this is the line to add devhda mediahda ext defaults
+[11:58] <jrib> lordmaynoth yes perfect good catch
+[11:58] <jrib> upgrade limpbizcuit
+[11:58] <jrib> lordmaynoth no
+[11:58] <jrib> lordmaynoth no that is probably just wrapping done by your text editor and is actually the same line
+[11:58] <jrib> lordmaynoth try not to use enter so much run 'sudo mount -a'
+[11:58] <jrib> lordmaynoth pastebin 'sudo fdsik -l cat etcfstab'
+[11:58] <jrib> pastebin lordmaynoth
+[11:58] <jrib> lordmaynoth except i madea typo it should be fdisk not fdsik
+[11:58] <jrib> secleinteer 'sudo apt-get build-dep gaim'
+[11:58] <jrib> secleinteer apt-cache search lib xml perl parse will turn up the package you need but that command should give it to you as well as other stuff to compile gaim
+[11:58] <jrib> secleinteer you should imo but not really necessary
+[11:58] <jrib> lordmaynoth did you change line
+[11:58] <jrib> lordmaynoth on my system line reads devfd mediafloppy
+[11:58] <jrib> lordmaynoth comment the last line that you just added and try 'sudo mount -a' does it still complain
+[11:58] <jrib> lordmaynoth hmm ok try this sudo mount devhda mediabackup
+[11:58] <jrib> lordmaynoth hmm ok try this sudo mount -t ext devhda mediabackup
+[11:58] <jrib> lordmaynoth ok why do you believe this is ext
+[11:58] <jrib> lordmaynoth try using gparted on the livecd to format devhda
+[11:58] <jrib> lordmaynoth i'm not sure how maybe gparted will tell you
+[11:58] <jrib> davey don't install it unless you are helping to develop it
+[11:58] <jrib> in which case you probably wouldn't be asking p
+[11:58] <jrib> ezenu map them to gj and gk
+[11:58] <jrib> ezenu normal mode commands give them a try
+[11:58] <jrib> or command mode
+[11:58] <jrib> ezenu though in insert mode i guess you would have to bind them to escgji or maybe a at the end but you get the idea
+[11:58] <jrib> ezenu he gj for more info
+[11:58] <jrib> defaultapp yanger
+[11:58] <jrib> flash mordof
+[11:58] <jrib> mordof the restricted wiki explains how to make it use aoss
+[11:58] <jrib> wonderlt you probably want to do 'bash filesh' in a terminal in the right directory
+[11:58] <jrib> cyde it's the channel for help with the development release feisty fawn
+[11:58] <jrib> cli francis
+[11:58] <jrib> mordof did you try what the restricted wiki suggested about using aoss
+[11:58] <jrib> mordof hmm so is this system wide
+[11:58] <jrib> mordof what apps aren't working
+[11:58] <jrib> mordof try aoss just to rule that out
+[11:58] <jrib> mordof yeah i understand that page is pretty disorganized just ctrl-f and search for aoss it will take you to the right section
+[11:58] <jrib> bz this one
+[11:58] <jrib> smokeyyy have you mounted your regular linux partition
+[11:58] <jrib> yanger what player
+[11:58] <jrib> yanger does it work if you try a custom command
+[11:58] <jrib> yanger yeah sounded like a permission problem
+[11:58] <jrib> kervan are you familiar with compiling
+[11:58] <jrib> synaptic francis
+[11:58] <jrib> kervan man patch is pretty readable but in general patch -p num filepatch where num is explained better in man patch than i can do but basically strips 's from the paths in the diff so the directory structure matches up
+[11:58] <jrib> kervan if it is just one file you can omit -p just do patch filepatch you can read the filepatch in a text editor to see the file it is patching let me dig up a good link for you
+[11:58] <jrib> kervan
+[11:58] <jrib> kervan please don't paste here
+[11:58] <jrib> kervan yes gdevijsc is what you are patching
+[11:58] <jrib> kervan yep
+[11:58] <jrib> kervan np
+[11:58] <jrib> francis unrar x foorar
+[11:58] <jrib> treedreamer open office can export to pdf or use latex
+[11:58] <jrib> treedreamer it's used a lot by academic journals
+[11:58] <jrib> lovloss build-essential should give you that dev stuff
+[11:58] <jrib> someone mettallicat
+[11:58] <jrib> i won't be committing tonight have some hw
+[11:58] <jrib> upgrade jared
+[11:58] <jrib> francis does synaptic work
+[11:58] <jrib> francis system administration synaptic
+[11:58] <jrib> francis gdebi is different
+[11:58] <jrib> justin system preferences windows
+[11:58] <jrib> repeat fcuser
+[11:58] <jrib> nrdb build-essential will give you the package
+[11:58] <jrib> freenet no it uses deb
+[11:58] <jrib> root freenet
+[11:58] <jrib> randakar sudo -i for that
+[11:58] <jrib> alias s'sudo -i' is even less
+[11:58] <jrib> freenet synaptic adept addremove programs
+[11:58] <jrib> randakar me too i prefer using aptitude or apt-get
+[11:58] <jrib> info acroread umer
+[11:58] <jrib> thepianoguy join python
+[11:58] <jrib> register thepianoguy
+[11:58] <jrib> screen mordof
+[11:58] <jrib> mordof try just running 'screen' ctrl-a d will detach 'screen -r' will reattach that is the basics you should read those links and 'man screen' possibly for more stuff
+[11:58] <jrib> mordof eh what did you do
+[11:58] <jrib> firewall wccv
+[11:58] <jrib> zdzdead why not use the ubuntu fulxbox package it sets that up for you
+[11:58] <jrib> zdzdead you shouldn't have had to create the desktop pastebin 'cat usrbinstartfluxbox apt-cache policy fluxbox dpkg -s usrbinstartfluxbox' please
+[11:58] <jrib> i could be wrong i haven't used it on edgy
+[11:58] <jrib> zdzdead what did you mean by permissions are set to your user by the way on what file
+[11:58] <jrib> zdzdead weird i'd expect that to be owned by root
+[11:58] <jrib> slavik sudo aenmod and enable it maybe
+[11:58] <jrib> slavik restarted apache
+[11:58] <jrib> slavik are you using apache or apache
+[11:58] <jrib> slavik i don't really have much knowledge about perl mod but httpdconf looks like its for apache are you using it in etcapache instead of etcapache apache on ubuntu seems to prefer using etcapacheapacheconf by the way
+[11:58] <jrib> slavik apt-cache policy apache maybe to check if apache is installed
+[11:58] <jrib> thyrfingo it is already installed
+[11:58] <jrib> slavik maybe try apache
+[11:58] <jrib> thyrfingo the same as what
+[11:58] <jrib> thyrfingo in your menu applications internet firefox web browser should exist
+[11:58] <jrib> thyrfingo ok start a terminal what does this say apt-cache policy ubuntu-desktop grep -i installed
+[11:58] <jrib> skype adium
+[11:58] <jrib> thyrfingo applications accessories terminal
+[11:58] <jrib> thyrfingo ok start a terminal what does this say apt-cache policy ubuntu-desktop grep -i installed
+[11:58] <jrib> thyrfingo you made a typo
+[11:58] <jrib> zdzdead ls -l fluxboxstartup
+[11:58] <jrib> zdzdead should be onwed by your user is it
+[11:58] <jrib> zdzdead k pastebin xsession-errors and your desktop script you wrote
+[11:58] <jrib> zdzdead is fluxbox ok as well
+[11:58] <jrib> matiseijas lsbrelease -a
+[11:58] <jrib> zdzdead everywehre you see startfluxbox should be usrbinstartfluxbox
+[11:58] <jrib> zdzdead in your desktop
+[11:58] <jrib> icons adnarim
+[11:58] <jrib> adnarim well it's a setting so you can turn it off just like you turn it on
+[11:58] <jrib> rogue install openssh-server
+[11:58] <jrib> ssh rogue
+[11:58] <jrib> sol xchat
+[11:58] <jrib> themes valmarko
+[11:58] <jrib> user-land a hex editor is what you probably want try ghex
+[11:58] <jrib> myria what is the problem exactly
+[11:58] <jrib> myria it should unless you have a server install disk check that 'ubuntu-desktop' package got installed
+[11:58] <jrib> dvd corporaldirge
+[11:58] <jrib> myria yes
+[11:58] <jrib> corporaldirge please see the link ubotu mentioned
+[11:58] <jrib> myria should
+[11:58] <jrib> corporaldirge the second link
+[11:58] <jrib> xconfig danniel
+[11:58] <jrib> danniel in a terminal
+[11:58] <jrib> offtopic ax
+[11:58] <jrib> ax np just letting you know there is a -offtopic that you can talk about that stuff as well
+[11:58] <jrib> corporaldirge etcaptsourceslist
+[11:58] <jrib> skiline what are you trying to install
+[11:58] <jrib> nvidia skiline
+[11:58] <jrib> ubotu tell skiline about yourself
+[11:58] <jrib> hello lubix welcome
+[11:58] <jrib> myria np
+[11:58] <jrib> ckarini what are you trying to install
+[11:58] <jrib> patience ckarini
+[11:58] <jrib> christian what version of ubuntu
+[11:58] <jrib> christian k my next response would be to give you the link tonyyarusso gave you already
+[11:58] <jrib> upgrade christian
+[11:58] <jrib> ckarini if you join me in ubuntu-classroom i can try guiding you through the process for step mania just type this join ubuntu-classroom
+[11:58] <jrib> ubotu tell chewy about compiling
+[11:58] <jrib> chewy what program
+[11:58] <jrib> ckarini type ctrl-f in your browser and enter videoram
+[11:58] <jrib> necrodrako have you enabled multiverse
+[11:58] <jrib> info mythtv necrodrako
+[11:58] <jrib> multiverse necrodrako
+[11:58] <jrib> pydxpre join ubuntu-es
+[11:58] <jrib> icemanb type 'xkill' in a terminal then click on the vlc window
+[11:58] <jrib> register pydxpre
+[11:58] <jrib> icemanb ps -ef grep vlc
+[11:58] <jrib> tommyw loads fine here
+[11:58] <jrib> icemanb any output
+[11:58] <jrib> icemanb tell me the first one please
+[11:58] <jrib> icemanb 'killall wcvlc'
+[11:58] <jrib> icemanb np
+[11:58] <jrib> icemanb heh i actually made a typo in the command but i guess you caught it good job
+[11:58] <jrib> myria apt-get source package assuming you have the deb-src line in your sourceslist
+[11:58] <jrib> ajcates sudo apt-get install -f
+[11:58] <jrib> ajcates tries to fix
+[11:58] <jrib> jjones what speed are you burning at
+[11:58] <jrib> jvh lynx
+[11:58] <jrib> myria current working directory
+[11:58] <jrib> jvh yes
+[11:58] <jrib> djsmacedo yes
+[11:58] <jrib> djsmacedo vomos ao ubuntu-pt
+[11:58] <jrib> jvh no idea did you try
+[11:58] <jrib> jvh well you can always install x
+[11:58] <jrib> ckarini yes
+[11:58] <jrib> ckarini heh join me in ubuntu-classroom
+[11:58] <jrib> zainka sudo apt-get install build-essential should just install a package can you be more specific about what asked you for a destination pastebin the output please
+[11:58] <jrib> zainka by the way what program are you compiling
+[11:58] <jrib> dylan sudo apt-get install aoss
+[11:58] <jrib> info aoss
+[11:58] <jrib> dylan alsa-oss i mean
+[11:58] <jrib> keeganx which release are you referring to edgy
+[11:58] <jrib> brett system adminstration system monitor
+[11:58] <jrib> dredhammer patch -n num filepatch read patches manual page for an explanation of -p
+[11:58] <jrib> patch's even
+[11:58] <jrib> dredhammer oops yes i mean -p as david said
+[11:58] <jrib> dredhammer no how did you enter the command
+[11:58] <jrib> dredhammer you need an argument to -p and you need the patch reads from standard input
+[11:58] <jrib> repos timo
+[11:58] <jrib> it krnx
+[11:58] <jrib> es fernanda
+[11:58] <jrib> anyone david
+[11:58] <jrib> ubotu tell david about yourself
+[11:58] <jrib> ops
+[11:58] <jrib> crimsun we can't convince fernanda caroo to speak spanish in ubuntu-es only
+[11:58] <jrib> rar valmarko
+[11:58] <jrib> at least it's english now i guess
+[11:58] <jrib> crimsun thank you
+[11:58] <jrib> darkguy ask your real question please
+[11:58] <jrib> david ask your real question please
+[11:58] <jrib> david the answer to your question is yes or no do either of those help you in any way
+[11:58] <jrib> valmarko downloaded did you install it with the package manager
+[11:58] <jrib> valmarko you can just double click on your file now or use the command line 'unrar x filerar' if you prefer
+[11:58] <jrib> polysics is it the same as modem monitor applet that you can add to gnome-panel
+[11:58] <jrib> polysics the description for gnome-applets seems to indicate it comes with modemlights it seems to be the same
+[11:58] <jrib> b-e cyber
+[11:58] <jrib> cyber install build-essential see the link from ubotu
+[11:58] <jrib> polysics man modemlightsapplet
+[11:58] <jrib> info pure-ftpd cyber
+[11:58] <jrib> cyber pure-ftpd is in the repositories no need to run an executable you download just install using synaptic or apt-get
+[11:58] <jrib> cyber right no need to do that
+[11:58] <jrib> cyber idk i've never used telnet to ftp
+[11:58] <jrib> enter
+[11:58] <jrib> cyber np glad it works but in the future i would recommend installing packages fromt he repositories instead of compiling
+[11:58] <jrib> asdf what does this command return xdpyinfo grep 'depth of root'
+[11:58] <jrib> cyber you could learn to recompile the ubuntu source package too giving ideas
+[11:58] <jrib> asdf you may be bitten by this bug please try one of the workarounds listed in the comments
+[11:58] <jrib> constrictor take a look at etcsshsshdconfig
+[11:58] <jrib> asdf hmm mayb be different then but try closing all firefox and starting it as xlibskipargbvisuals firefox
+[11:58] <jrib> asdf you would enter that in a terminal
+[11:58] <jrib> asdf i'm not too familiar with thin clients so if i say doesn't make sense let me know
+[11:58] <jrib> asdf what about firefoxdspnone firefox
+[11:58] <jrib> paste asdf
+[11:58] <jrib> asdf ok my only other suggestion would be to try flash beta
+[11:58] <jrib> cyber what file from where to where
+[11:58] <jrib> cyber varwww is owned by root you need to use sudo
+[11:58] <jrib> cyber gksudo nautilus but i'd recommend not using it often maybe you should setup a group with varwww
+[11:58] <jrib> cyber yeah 'www-data' is the usual one i think just change group ownership to www-data and allow the group to read write and execute
+[11:58] <jrib> david wikiubuntucom
+[11:58] <jrib> manmadha applications sound and video movie player
+[11:58] <jrib> david community docs
+[11:58] <jrib> flash asdf
+[11:58] <jrib> manmadha try kino
+[11:58] <jrib> multijava plsdaemon
+[11:58] <jrib> asdf just use backports to get flash beta
+[11:58] <jrib> asdf i see i'm out of ideas then concerning the link you gave me isn't that how you installed flash already
+[11:58] <jrib> asdf how did you install it
+[11:58] <jrib> anyone kudzubane
+[11:58] <jrib> asdf apt-get is just the command line way of doing the same thing as the package manager
+[11:58] <jrib> kudzubane you run python to use python python should still point to python
+[11:58] <jrib> kudzubane you would make the usrbinpython link point to python i guess
+[11:58] <jrib> kudzubane i wouldn't recommend making python default it doesn't seem to use alternatives but you can add it if you want
+[11:58] <jrib> plsdaemon how are you installing java
+[11:58] <jrib> plsdaemon why not use the ubuntu packages then alternatives will get setup for you
+[11:58] <jrib> java plsdaemon
+[11:58] <jrib> mp olds
+[11:58] <jrib> an what is the contents of etchostname and etchosts
+[11:58] <jrib> an find out
+[11:58] <jrib> an are you in windows now
+[11:58] <jrib> ext an
+[11:58] <jrib> an yes
+[11:58] <jrib> an the reason you can't use sudo is in those two files we can fix that from windows if you install fs-driver and get you back in shape
+[11:58] <jrib> david that is what 'sudo -i' is for
+[11:58] <jrib> david that is fine
+[11:58] <jrib> david yes i understand and i think you should use whatever you prefer in ubuntu however the sudo model is preferred so we tend to recommend that to users usually we just link to the sudo wiki page to let users make up their own minds and avoid this discussion every time
+[11:58] <jrib> an did you understand what i said about why sudo wasn't working for you
+[11:58] <jrib> an ok you have an error in either etchostname or etchosts so to fix this you can install fs-driver on windows that way you can edit the files on your linux partition just pastebin the contents of etchostname and etchosts
+[11:58] <jrib> icons paradox
+[11:58] <jrib> deathwolf weird what shell is the user's default
+[11:58] <jrib> an no we just need access to
+[11:58] <jrib> jamclx wine fileexe
+[11:58] <jrib> deathwolf the title seems promisong though i have not read it
+[11:58] <jrib> an pastebin both of the files
+[11:58] <jrib> pastebin an
+[11:58] <jrib> an ok and the other file
+[11:58] <jrib> an link
+[11:58] <jrib> an ok first i thought it would be ok to write to the files but only if you have an editor that will format the files correctly vim so i'd recommend you just reboot to ubuntu but select recovery mode from the grub menu then edit the files with this command 'nano etchosts' and 'nano etchostname' in nano to save and exit you press ctrl-o ctrl-x
+[11:58] <jrib> an you want to pick a hostname for example ubuntu make your etchostname file contain only that ubuntu in your etchosts change the first line to localhostlocaldomain localhost ubuntu no quotes in the files of course
+[11:58] <jrib> an etchostname stores your hostname sudo uses etchosts to make sure your hostname points back to
+[11:58] <jrib> an yes if you change ubuntu to an in what i said you become root with the sudo command
+[11:58] <jrib> sudo an
+[11:58] <jrib> compengi use bash instead of sh
+[11:58] <jrib> frostwire compengi
+[11:58] <jrib> an as long as an is your first user he should be in the admin group so he should be able to use sudo why would you want to login as root
+[11:58] <jrib> an no you can do everything with sudo as an that you could do if you logged in as root
+[11:58] <jrib> an no they don't have the same home directory
+[11:58] <jrib> compengi try 'bash runlimesh' i would recommend frostwire instead though
+[11:58] <jrib> manmadha is ffmpeg package installed
+[11:58] <jrib> an that's really not a good idea you should fix sudo regardless
+[11:58] <jrib> manmadha you need to install it to get a man page for it
+[11:58] <jrib> and to have it
+[11:58] <jrib> wizo you hope that there is a 'make uninstall' otherwise you have to rm manually you should consider using checkinstall isntead of make install
+[11:58] <jrib> checkinstall wizo
+[11:58] <jrib> wizo you can reinstall it with checkinstall and then remove it too
+[11:58] <jrib> wizo i think it will just overwrite the files that you already have so it should work
+[11:58] <jrib> compengi dash is default for binsh on edgy
+[11:58] <jrib> compengi no why are you running that
+[11:58] <jrib> compengi no limewire shouldn't have binsh if it isn't posix compliant which it appears not to be it should say binbash instead
+[11:58] <jrib> compengi what command
+[11:58] <jrib> compengi i don't think it will work can you explain what exactly the problem is what error are you getting and with what command
+[11:58] <jrib> compengi it won't break anything go ahead but it would be better if you edited the limewire files to use bash instead of sh imo
+[11:58] <jrib> compengi i can tell you if you apstebin it
+[11:58] <jrib> compengi change line to bash runlimesh
+[11:58] <jrib> compengi if it doesn't work pastebin optlimewirerunlimesh
+[11:58] <jrib> compengi did you use the write capitalization as in your script limewire
+[11:58] <jrib> compengi runlimesh
+[11:58] <jrib> captial l
+[11:58] <jrib> compengi so where is limewire installed
+[11:58] <jrib> compengi dpkg -l nameofthepackage on pastebin please
+[11:58] <jrib> kernel vcef
+[11:58] <jrib> vcef that may be too much but it should tell you what you want
+[11:58] <jrib> compengi dpkg -l nameofthepackage should list files
+[11:58] <jrib> compengi what did you type
+[11:58] <jrib> compengi dpkg -l 'lime'
+[11:58] <jrib> fixres jamclx
+[11:58] <jrib> allans no probably no one knows the answer
+[11:58] <jrib> compengi dpkg -l limewire-pro
+[11:58] <jrib> compengi ok type 'limewire' you get a syntax error pastebin usrbinlimewire and usrliblimewirerunlimesh
+[11:58] <jrib> compengi change sh runlimesh to bash runlimesh
+[11:58] <jrib> compengi great
+[11:58] <jrib> compengi np
+[11:58] <jrib> xzk use
+[11:58] <jrib> upgrade anurag devnull
+[11:58] <jrib> devnull yes
+[11:58] <jrib> devnull why
+[11:58] <jrib> devnull how much space do you have left
+[11:58] <jrib> harri update-manager
+[11:58] <jrib> ljl i think is for the cups web interface
+[11:58] <jrib> harri i don't see why not no i don't think there is a kde version but i don't use kde
+[11:58] <jrib> nluh you could use the alternate cd
+[11:58] <jrib> nluh it is on the download page let me know if you can't find it
+[11:58] <jrib> paste wyld
+[11:58] <jrib> netman pastebin the result of this
+[11:58] <jrib> netman pastebin the result of this ls etcrcgdm
+[11:58] <jrib> netman hmm it should start where do you end up exactly in a terminal to log in or do you get errors
+[11:58] <jrib> megaqwerty yes export beagleexercisethedog and then run beagled
+[11:58] <jrib> megaqwerty yes you may have to kill him
+[11:58] <jrib> megaqwerty how did you try
+[11:58] <jrib> megaqwerty you are supposed to do 'beagle-shutdown' don't murder him
+[11:58] <jrib> megaqwerty how do i force beagle to index faster
+[11:58] <jrib> megaqwerty try without sudo
+[11:58] <jrib> jkc nope
+[11:58] <jrib> rpm jeeva
+[11:58] <jrib> jeeva are you trying to install a particular program
+[11:58] <jrib> megaqwerty ps -ef grep beagle
+[11:58] <jrib> megaqwerty try killing th helper first then beagled
+[11:58] <jrib> jeeva i would compile it
+[11:58] <jrib> ubotu tell jeeva about compiling
+[11:58] <jrib> compiling jeeva
+[11:58] <jrib> megaqwerty can you shutdown now i having two beagled is probably not good
+[11:58] <jrib> megaqwerty beagle-shutdown i mean
+[11:58] <jrib> megaqwerty you could kill - but i don't know how well beagle will handle that ie if it will get ocnfused when it starts up again
+[11:58] <jrib> megaqwerty what do you mean pull what off
+[11:58] <jrib> jeeva yes
+[11:58] <jrib> jeeva anywhere you have write access will do
+[11:58] <jrib> megaqwerty not that i know of only way i know is to start it with that variable set
+[11:58] <jrib> megaqwerty it murders the process it makes it shutdown right away killall - beagled
+[11:58] <jrib> offtopic
+[11:58] <jrib> megaqwerty ok it should be doing its thing now
+[11:58] <jrib> megaqwerty when you run 'beagles-status' and wait like seconds it does no show you any information
+[11:58] <jrib> megaqwerty beagle-info --status
+[11:58] <jrib> megaqwerty try shutting down beagle deleteing beagle and starting over
+[11:58] <jrib> megaqwerty yes the latter
+[11:58] <jrib> shayan what kind
+[11:58] <jrib> jeeva install build-essential this is on the wiki page
+[11:58] <jrib> meisterzopf i don't think you need to kill gaim but glad you got it to work
+[11:58] <jrib> groklem pastebin your sourceslist please
+[11:58] <jrib> effward kubuntu uses kde by default ubuntu uses gnome by default
+[11:58] <jrib> groklem link
+[11:58] <jrib> groklem what does 'apt-cache policy trac' say
+[11:58] <jrib> valkarin you are in the right place
+[11:58] <jrib> groklem 'sudo apt-get update' complete ok
+[11:58] <jrib> groklem yeah get rid of testing
+[11:58] <jrib> groklem np
+[11:58] <jrib> groklem well testing doesn't exist so it was looking for something that doesn't exist
+[11:58] <jrib> repos groklem
+[11:58] <jrib> ubun try the 'w' command
+[11:58] <jrib> ryanakca seen
+[11:58] <jrib> ryanakca yes though it just went away for the initial reporter it seems without any real solution
+[11:58] <jrib> ryanakca i've only used pbuilder for doing that but i suppose you can setup a chroot yourself
+[11:58] <jrib> ryanakca
+[11:58] <jrib> upgrade vgambit
+[11:58] <jrib> x-rt-x hello
+[11:58] <jrib> wmv kleftisx
+[11:58] <jrib> dimensions think of it like a black hole
+[11:58] <jrib> dylan you need multiverse iirc
+[11:58] <jrib> info make-jpkg
+[11:58] <jrib> info java-package
+[11:58] <jrib> ok there we go
+[11:58] <jrib> multiiverse dylan
+[11:58] <jrib> multiverse dylan
+[11:58] <jrib> dylan please see the private message from ubotu
+[11:58] <jrib> fromvega does squid normally start automatically on boot
+[11:58] <jrib> fromvega what do you do to get that error
+[11:58] <jrib> ipod ubun
+[11:58] <jrib> fromvega dpkg -l squid squid-common grep etcinitd
+[11:58] <jrib> fromvega first part lists files that got installed and the second part looks for anything in etcinitd i'm trying to see if there is a squid script there that gets called when you boot that way we can run it now and see if we can get any errors
+[11:58] <jrib> fromvega ok now try sudo etcinitdsquid start
+[11:58] <jrib> ubun you can use amarok in gnome
+[11:58] <jrib> info gtkpod
+[11:58] <jrib> info banshee
+[11:58] <jrib> ubun you need to enable universe for banshee and gtkpod
+[11:58] <jrib> ubun the things in universe are free they just don't have gauranteed security updates from the main ubuntu team
+[11:58] <jrib> fromvega what was the output
+[11:58] <jrib> universe ubun
+[11:58] <jrib> fromvega does your failed command from before still fail
+[11:58] <jrib> fromvega oh ok then it must be something with squid internals and i don't know anything about it gl
+[11:58] <jrib> solem helpubuntucom has a guide
+[11:58] <jrib> solem for what you ask you need to understand how debs work
+[11:58] <jrib> solem maybe checkinstall this will not do what you asked however
+[11:58] <jrib> fromvega me yes what's up
+[11:58] <jrib> fromvega nope that means 'grep squid' is runnning
+[11:58] <jrib> fromvega you need to remove it with the --purge option sudo apt-get --purge remove squid and you probably also need to remove the dependencies like squid-common
+[11:58] <jrib> cydeweys what is jdb
+[11:58] <jrib> frostwire aguz
+[11:58] <jrib> fromvega try to read the docs to see if it has logs somewhere
+[11:58] <jrib> walterwoj do you plan on using it as a server or desktop p
+[11:58] <jrib> frederick in keyboard preferences you have to setup a dead key
+[11:58] <jrib> frederick it's called compose key in the preferences
+[11:58] <jrib> dgital why on earth would you sudo wine
+[11:58] <jrib> bakefy don't use sudo when using wine just do 'wine fileexe' in a terminal
+[11:58] <jrib> ubotu tell bakefy about wine
+[11:58] <jrib> dima reboot and choose recovery mode from the grub menu then type 'getent passwd '
+[11:58] <jrib> dima that should tell you the username
+[11:58] <jrib> dima do you remember the password
+[11:58] <jrib> dima ok no it does not tell you the password
+[11:58] <jrib> dima if you want to know what it does it scans the etcpasswd file for the user with uid which is the first user
+[11:58] <jrib> chable echo display
+[11:58] <jrib> cubed how are you installing
+[11:58] <jrib> antivirus raven
+[11:58] <jrib> trainstroker the desktop cd is both the installer and the live cd
+[11:58] <jrib> dima install it using synaptic
+[11:58] <jrib> cubed i believe ndiswrapper is in the repositories so you don't need to download a package but i will have the bot tell you how to do taht too in case you ever need it i recommend you read the first link though
+[11:58] <jrib> ubotu tell cubed about ndiswrapper
+[11:58] <jrib> ubotu tell cubed about deb
+[11:58] <jrib> terminal cubed
+[11:58] <jrib> apt-get dima
+[11:58] <jrib> citek umm what do you mean
+[11:58] <jrib> citek rot is when you add to each letter so a becomes n i think etc
+[11:58] <jrib> chable it is default in edgy
+[11:58] <jrib> alecjw pastebin the result of this command ls usrlibfirefoxplugins
+[11:58] <jrib> chable dapper is version there is also edgy which is
+[11:58] <jrib> alecjw which flash package do you have installed at the moment
+[11:58] <jrib> nolimitsoya i like mplayer plugin it's called mozilla-mplayer i believe
+[11:58] <jrib> alecjw well what does 'dpkg -l flashplayer-mozilla' say what version of ubuntu by the way
+[11:58] <jrib> alecjw how about dpkg -l flashplayer-mozilla grep 'so'
+[11:58] <jrib> alecjw erm i mean 'so'
+[11:58] <jrib> alecjw ok tell me those please or just pastebin
+[11:58] <jrib> jflash is sysstat installed
+[11:58] <jrib> jflash sudo apt-get install sysstat
+[11:58] <jrib> alecjw interesting i guess it doesn't install to firefox you can try using flashplugin-nonfree then
+[11:58] <jrib> jflash iostat is in the sysstat package
+[11:58] <jrib> rukuartic try sudo apt-get install -f
+[11:58] <jrib> rukuartic what does your etcaptsourceslist look like
+[11:58] <jrib> ubun somewhere in the output of 'xdpyinfo'
+[11:58] <jrib> an i recall that the wikipedia article on mac addresses tells you how
+[11:58] <jrib> alecjw what version of ubuntu did you say this was
+[11:58] <jrib> alecjw meh ok adobe is always messign with stuff you have options just symlink to the libflashplayerso you have now use flash beta in backports
+[11:58] <jrib> rukuartic sudo apt-get install build-essential what does this say
+[11:58] <jrib> rukuartic join me in ubuntu-classroom please
+[11:58] <jrib> citek sticky notes and tomboy
+[11:58] <jrib> citek both of those are panel applets just right click add to panel but you may need to install tomboy first
+[11:58] <jrib> triggerhappy set what you want in system preferences keyboard shortcuts
+[11:58] <jrib> lixun ubuntu
+[11:58] <jrib> bratboy what filesystem
+[11:58] <jrib> ntfs bratboy
+[11:58] <jrib> bratboy you should see infromation on setting up the proper umask in fstab on that wiki page let me know if it isn't clear after reading the page
+[11:58] <jrib> bratboy hmm can you be more specific
+[11:58] <jrib> bratboy you made a typo
+[11:58] <jrib> bratboy wait why are you touching etcsudoers though
+[11:58] <jrib> bratboy does etcsudoers exist what does 'file etcsudoers' say
+[11:58] <jrib> bratboy erm that's a problem
+[11:58] <jrib> bratboy has sudo ever worked
+[11:58] <jrib> bratboy did you have any problems with the install
+[11:58] <jrib> bratboy can you su to root
+[11:58] <jrib> anyone yasha
+[11:58] <jrib> bratboy how did you set that up
+[11:58] <jrib> bratboy so this isn't a normal desktop install
+[11:58] <jrib> version reddragon
+[11:58] <jrib> mipstien maybe you can do 'gksudo programcommand' or to answer what you asked use 'disown' on the job before closing your terminal
+[11:58] <jrib> mipstien do you know about 'jobs' and 'fg' and 'bg' and all that fun stuff
+[11:58] <jrib> mipstien alright you know 'gedit ' puts gedit in the background so run that now afterwards type 'jobs'
+[11:58] <jrib> mipstien well now you can run 'disown ' and close your terminal if gedit was actual job you would use of course
+[11:58] <jrib> deb administrator
+[11:58] <jrib> oh he said uninstall x
+[11:58] <jrib> mipstien
+[11:58] <jrib> mipstien np
+[11:58] <jrib> anarch maybe usrsharedocaptitude
+[11:58] <jrib> anarch
+[11:58] <jrib> icons yakumo
+[11:58] <jrib> upgrade pil
+[11:58] <jrib> anarch that's the same as usrsharedocaptitude i believe
+[11:58] <jrib> anarch the page i linked to explains the a at the top
+[11:58] <jrib> anarch np
+[11:58] <jrib> kitche what was the aptitude docs are in usrsharedocaptitude if that's what you mean
+[11:58] <jrib> ops
+[11:58] <jrib> nikin recording video streams or do you mean something else
+[11:58] <jrib> well some are bots
+[11:58] <jrib> h what did you install server
+[11:58] <jrib> gotit sudo lshw or maybe lspci
+[11:58] <jrib> h if this is a fresh install why not just install dapper or edgy
+[11:58] <jrib> h ok well the ndiswrapper stuff is on the cd the wiki page ubotu gave you should have more detailed instructions
+[11:58] <jrib> gpfreitas sudo update-alternatives --config usplash-artworkso iirc you will need to 'sudo update-initramfs -u' also from memory
+[11:58] <jrib> derv install openssh-server package
+[11:58] <jrib> ubotu tell klingn about yourself
+[11:58] <jrib> whatspy not sure exactly what you want can you give an example input and output
+[11:58] <jrib> do you want foopy to become foo
+[11:58] <jrib> whatspy ls sed 's' there are better ways
+[11:58] <jrib> diiba maybe 'sudo apt-get clean' will give you enough space to login
+[11:58] <jrib> jonah jokosher
+[11:58] <jrib> jonah nope
+[11:58] <jrib> jonah i never tried it but yes i think it is gnome oriented
+[11:58] <jrib> jonah if you are running edgy it is in the repositories
+[11:58] <jrib> philo winedrivec
+[11:58] <jrib> language allz
+[11:58] <jrib> root warty
+[11:58] <jrib> warty no sudo uses your user password
+[11:58] <jrib> warty then sudo won't even ask for a password
+[11:58] <jrib> warty try 'sudo echo hi'
+[11:58] <jrib> warty and if you want a root prompt 'sudo -i'
+[11:58] <jrib> weiers sudo update-alternatives --config x-www-browser or something similar
+[11:58] <jrib> dave no what kind of trouble are you having
+[11:58] <jrib> julianx right
+[11:58] <jrib> dave i lied it used to work for me i swear but now it doesn't p anyway here's a promising bug report
+[11:58] <jrib> dave no
+[11:58] <jrib> dave
+[11:58] <jrib> dave ah but you are using blackdown and i am using sun java
+[11:58] <jrib> dave i'm going through these bugs and seeing if there is a solution
+[11:58] <jrib> oops
+[11:58] <jrib> dave i renamed azureus and it works now
+[11:58] <jrib> dave what did you mean by sun-java in the repoisitory the same
+[11:58] <jrib> cephei put them in fstab
+[11:58] <jrib> ntfs cephei
+[11:58] <jrib> dave ok but yes sun java is in the repos
+[11:58] <jrib> cephei read the link ubotu gave you let me know if anything isn't clear in that link and i will try to explain
+[11:58] <jrib> cephei why
+[11:58] <jrib> cephei oh ok
+[11:58] <jrib> brussel gnome-vim or vim-gnome i forget which one
+[11:58] <jrib> gtk would work too
+[11:58] <jrib> math you may use gnome-splashscreen-manager if you prefer as well
+[11:58] <jrib> msg jammie
+[11:58] <jrib> jammie what version of ubuntu please pastebin etcaptsourceslist
+[11:58] <jrib> nicola it is probably still indexing
+[11:58] <jrib> nicola no idea
+[11:58] <jrib> nicola try 'beagle-status' in a terminal to see what it is doing
+[11:58] <jrib> sportsfan sudo invoke-rcd ssh restart
+[11:58] <jrib> nicola there is a way to force it to index and hog up your cpu but i would recommend just letting it do its thing and doing something else in the meantime
+[11:58] <jrib> x-rt-x hello
+[11:58] <jrib> dogmeat install ubuntu-desktop to get what you get with ubuntu
+[11:58] <jrib> ntfs hexoag
+[11:58] <jrib> hexoag set the proper options in fstab
+[11:58] <jrib> repeat mattheww
+[11:58] <jrib> fluxar looks like a bug in the package please pastebin 'apt-cache policy kd' have you searched bugsubuntucom
+[11:58] <jrib> hexoag i'd prefer ext with the fs-driver on windows
+[11:58] <jrib> ext hexoag
+[11:58] <jrib> fluxar we can probably just edit the preremoval script and fix the bug it's a typo
+[11:58] <jrib> fluxar can you pastebin 'apt-cache policy kd' please
+[11:58] <jrib> necrodrako type 'whatis rm' in a terminal
+[11:58] <jrib> fluxar pastebin varlibdpkginfokdpostinst
+[11:58] <jrib> orion thanks fluxar did you look over that thread would save some time
+[11:58] <jrib> fluxar my suggestion was going to be to edit varlibdpkgstatus and fix the error
+[11:58] <jrib> fluxar someone wrote python-versions and it should be python-version without the 's'
+[11:58] <jrib> fluxar make a backup before editing that file
+[11:58] <jrib> vonderer varcacheaptarchives
+[11:58] <jrib> fluxar great how did you end up doing it
+[11:58] <jrib> ubun i disabled the shortcuts in gnome-terminal's prefs
+[11:58] <jrib> hexoag how did you try
+[11:58] <jrib> worldjam reinstall
+[11:58] <jrib> hexoag join me in ubuntu-classroom please join ubuntu-classroom
+[11:58] <jrib> ubun weird
+[11:58] <jrib> valmarko did you install the plugin for firefox what package did you install
+[11:58] <jrib> valmarko install mozilla-mplayer
+[11:58] <jrib> rar davidriep
+[11:58] <jrib> davidriep use unrar-nonfree unrar-free won't open much
+[11:58] <jrib> can the automatix discussion be moved to ubuntu-offtopic please
+[11:58] <jrib> lubix because ubuntu is for support
+[11:58] <jrib> wmv davidriep
+[11:58] <jrib>
+[11:58] <jrib> wcodecs valmarko
+[11:58] <jrib> agent type 'mount'
+[11:58] <jrib> someone umgan
+[11:58] <jrib> genben all the libs what libs
+[11:58] <jrib> umgan describe the problem in one line
+[11:58] <jrib> genben no but why would you want them on a server with no x you can install x later if you want then you would get them
+[11:58] <jrib> genben what apps
+[11:58] <jrib> genben well when you install with apt it will pull in whatever you need
+[11:58] <jrib> language php-freak
+[11:58] <jrib> samba kishan
+[11:58] <jrib> genben well whatever is available to the desktop is available to the server they use the same repository
+[11:58] <jrib> kash most people probably won't need headers
+[11:58] <jrib> kash not sure why but feel free to continue the discussion in ubuntu-offtopic ubuntu we keep for support issues
+[11:58] <jrib> mumbles it's on the official mysql site in their documentation iirc
+[11:58] <jrib> lovloss did he leave where is he
+[11:58] <jrib> jackbear no maintainer
+[11:58] <jrib> jackbear yes for the program that is what i have heard
+[11:58] <jrib> gumby blkid
+[11:58] <jrib> econobeing that should work try restarting your program
+[11:58] <jrib> ubotu test
+[11:58] <jrib> emosamurai you can read the windows drive
+[11:58] <jrib> ntfs
+[11:58] <jrib> emosamurai see what ubotwo said above
+[11:58] <jrib> compiz schisms
+[11:58] <jrib> kapilgit you need sub-java-plugin
+[11:58] <jrib> kapilgit i mean sun not sub
+[11:58] <jrib> gumby pysdm
+[11:58] <jrib> toma- gedit for you
+[11:58] <jrib> schisms you mean gconf-editor
+[11:58] <jrib> icons erisco
+[11:58] <jrib> erisco it's just unchecking a box in gconf-editor
+[11:58] <jrib> dabar heh
+[11:58] <jrib> nolimitsoya easier to use aptitude search see usrsharedocaptitude the page on search options
+[11:58] <jrib> erisco ah then an easy way is to tell nautilus to not handle the desktop
+[11:58] <jrib> erisco you will see the background nautilus just handles the icons
+[11:58] <jrib> erisco appsnautiluspreferencesshowdesktop in gconf-editor try it
+[11:58] <jrib> citek install build-essential
+[11:58] <jrib> erisco start nautilus
+[11:58] <jrib> es leandro-
+[11:58] <jrib> it's ok
+[11:58] <jrib> bcstv ubuntu for feisty please
+[11:58] <jrib> manc volumes visible
+[11:58] <jrib> manc it's ok
+[11:58] <jrib> phuzion nautilus pathtowhereever
+[11:58] <jrib> ops
+[11:58] <jrib> gnomefreak flash is in dapper-backports
+[11:58] <jrib> gnomefreak yep ubotu claims so and it is in the packagesgz for dapper-backports multiverse
+[11:58] <jrib> gnomefreak
+[11:58] <jrib> gnomefreak yeah strange i put in dapper-backports and it says it searched edgy
+[11:58] <jrib> nolimitsoya you know that you don't need firestarter on for the firewall to work firestarter just lets you configure settings
+[11:58] <jrib> nolimitsoya
+[11:58] <jrib> nolimitsoya that's what that bug report explains in the comments
+[11:58] <jrib> nolimitsoya grep for admin all and continue reading all the comments after that i linked you to the bug because the usualy answer to your question is add the app to sudoers but firestarter needs more
+[11:58] <jrib> cmweb sudo addgroup cmweb www-data
+[11:58] <jrib> cmweb erm i mean adduser don't do addgroup
+[11:58] <jrib> cmweb ls -ld varwww
+[11:58] <jrib> cmweb ok see the beginning d means directory rwx is for the owner r-x is for the group and the last r-x is for others you group odes no have write permissions
+[11:58] <jrib> ubotu tell cmweb about permissions
+[11:58] <jrib> cmweb yes
+[11:58] <jrib> unimatrix in the repositories use synaptic or apt-get or addremove
+[11:58] <jrib> ubotu tell unimatrix about synaptic
+[11:58] <jrib> cmweb ok
+[11:58] <jrib> defaultapp epod
+[11:58] <jrib> frandavid what packages exactly
+[11:58] <jrib> frandavid if you don't need them you can remove them it will tell you if anything else depends on it
+[11:58] <jrib> is there a way to make synaptic do something similar to 'apt-get autoremove'
+[11:58] <jrib> nicola sudo mount -a
+[11:58] <jrib> xinerama bagpuss
+[11:58] <jrib> b-e nicola
+[11:58] <jrib> nicola install the build-essential package
+[11:58] <jrib> jerp what do you mean by popups
+[11:58] <jrib> nicola what are you compiling
+[11:58] <jrib> info xfmedia
+[11:58] <jrib> nicola it is in universe no need to compile
+[11:58] <jrib> nicola sudo apt-get build-dep xfmedia
+[11:58] <jrib> nicola installs necesary packages to compile xfmedia
+[11:58] <jrib> reaperman
+[11:58] <jrib> crescendo vim
+[11:58] <jrib> crescendo gvim
+[11:58] <jrib> crescendo yep
+[11:58] <jrib> crescendo what do you mean does nothing what are you trying to do and how
+[11:58] <jrib> crescendo hmm don't know how nautilus handles it try 'gvim '
+[11:58] <jrib> ich ubuntu
+[11:58] <jrib> ich what tonyyarusso said
+[11:58] <jrib> stengah you can't write to ntfs you need to use fuse which i know nothing about
+[11:58] <jrib> fuse stengah
+[11:58] <jrib> ntfs steven
+[11:58] <jrib> hailspacecake ext file system does not keep track of creation time
+[11:58] <jrib> hailspacecake ctime is not creation time
+[11:58] <jrib> hailspacecake change time
+[11:58] <jrib> hailspacecake idk what windows does with that see
+[11:58] <jrib> hailspacecake try find -searchforwhatever -exec rm ''
+[11:58] <jrib> izverg don't shoot your screen try print screen button on your keyboard
+[11:58] <jrib> izverg also applications - accessories - take screenshot
+[11:58] <jrib> cornelius have you tried wine's app database
+[11:58] <jrib> cornelius i meant for you to see if wine's appdb had an entry for office here it is but it does not seem very helpful
+[11:58] <jrib> deadmeat ps -ef grep foo is what i do
+[11:58] <jrib> waerner you can pass your own arguments to ps
+[11:58] <jrib> cornelius maybe can help it doesn't mention your error but it does mention copying some system files you may also want to take a look at crossover office
+[11:58] <jrib> babar yes with the alternate cd
+[11:58] <jrib> alternate babar
+[11:58] <jrib> briaros do you know that unrar-free won't open most rar files
+[11:58] <jrib> briaros unrar-nonfree
+[11:58] <jrib> mypapit yeah unrar-free doesn't handle whatever their latest version is so it's pretty useless
+[11:58] <jrib> briaros you'll need multiverse
+[11:58] <jrib> info unrar briaros
+[11:58] <jrib> multiverse briaros
+[11:58] <jrib> ntfs exeakiel
+[11:58] <jrib> an cp
+[11:58] <jrib> ubotu tell an about cli
+[11:58] <jrib> colonelzarkawi i assume paste means copy and paste
+[11:58] <jrib> an yes use the cp command cp oldpathtofile newpathtofile
+[11:58] <jrib> colonelzarkawi right
+[11:58] <jrib> an what options are missing from vlc
+[11:58] <jrib> an that's shuffle and repeat is also in the playlist option
+[11:58] <jrib> codecs orly
+[11:58] <jrib> ubotu tell javajake about yourself
+[11:58] <jrib> echosystm are you using metacity in gnome
+[11:58] <jrib> echosystm blackbox man page points to sessionopaquemove
+[11:58] <jrib> aventiskhan i think it detects them during install and adds them to etcfstab appropriately but if it didn't you can add it yourself and they will automatically get automounted when you boot
+[11:58] <jrib> ntfs aventiskhan
+[11:58] <jrib> anybody hjmills
+[11:58] <jrib> hjmills you can detach screens with screen -d screenidthingy
+[11:58] <jrib> hjmills why do you want to detach the remote screen by the way
+[11:58] <jrib> hjmills i usually just use screen -x to open the session in more than one place and don't close any
+[11:58] <jrib> hjmills no
+[11:58] <jrib> hjmills well by close i assume you mean detach
+[11:58] <jrib> hjmills ok whatever works
+[11:58] <jrib> kyle did you get xchat-gnome instead of xchat
+[11:58] <jrib> kyle that's why
+[11:58] <jrib> info xchat kyle
+[11:58] <jrib> kyle have you enabled universe
+[11:58] <jrib> ubotu tell kyle about universe
+[11:58] <jrib> icons wceoscar
+[11:58] <jrib> wceoscar see what ubotu said
+[11:58] <jrib> wceoscar what do you mean did you start gconf-editor in a terminal
+[11:58] <jrib> wceoscar type 'gconf-editor' in a terminal press enter go to the key that ubotu mentioned appsnautilus and uncheck volumesvisible
+[11:58] <jrib> ask jengcil
+[11:58] <jrib> jengcil use
+[11:58] <jrib> jengcil why are you compiling libpcap
+[11:58] <jrib> jengcil snort is in the repositories
+[11:58] <jrib> info snort jengcil
+[11:58] <jrib> jengcil ok well libpcap is in the repositories
+[11:58] <jrib> jengcil is there a reason you need the latest version what more does it do
+[11:58] <jrib> jengcil anyway try 'sudo apt-get install build-essential sudo apt-get build-dep snort' and then try to compile snort i doubt you need to compile libpcap
+[11:58] <jrib> jengcil the command i gave you will install it but if you want to search for the package it would be 'apt-cache search -n libpcap'
+[11:58] <jrib> ubotu tell jengcil about compiling
+[11:58] <jrib> jengcil great
+[11:58] <jrib> ubuntu-desktop neildarlow
+[11:58] <jrib> neildarlow you can touch the so files for the plugin and firefox will prefer those
+[11:58] <jrib> skyrunner have you been messing with permissions recursively
+[11:58] <jrib> skyrunner what command did you do exactly
+[11:58] <jrib> neildarlow yeah you could set that up
+[11:58] <jrib> skyrunner well what are you going to do when you reinstall and want to do the same thing that caused you to do this
+[11:58] <jrib> ubotu tell elfreakz about java
+[11:58] <jrib> elfreakz did you receive a private message from ubotu
+[11:58] <jrib> elfreakz it tells you how to install java
+[11:58] <jrib> elfreakz what client do you use for irc
+[11:58] <jrib> elfreakz probably irc check preferences i don't know xchat that well so i'm not sure
+[11:58] <jrib> elfreakz irssi
+[11:58] <jrib> elfreakz what architecture are you using
+[11:58] <jrib> elfreakz i amd ppc
+[11:58] <jrib> elfreakz do you have multiverse
+[11:58] <jrib> ubotu tell elfreakz about multiverse
+[11:58] <jrib> przemcio f-spot
+[11:58] <jrib> sloptop to
+[11:58] <jrib> sloptop use sudo
+[11:58] <jrib> ubotu tell sloptop about sudo
+[11:58] <jrib> sloptop well chmod somefile will give everyone read write and execute permissions don't use this command on system files and directories you will break your system if you wanted the command to affect a directory and everything in it you would want it to be recursive like so chmod -r pathtodir
+[11:58] <jrib> ubotu tell sloptop about permissions
+[11:58] <jrib> sloptop no what program is he using
+[11:58] <jrib> sloptop that sounds like a firefox's ftp behavior
+[11:58] <jrib> sloptop ask him to try a different client and see if it still happens
+[11:58] <jrib> language haux
+[11:58] <jrib> lumaqq try asking a more specific question suppose someone does have a system computer what would you then ask
+[11:58] <jrib> lumaqq no but i can say they seem very friendly as far as customer support on the forums goes
+[11:58] <jrib> offtopic j
+[11:58] <jrib> lumaqq i don't know anything about it sorry
+[11:58] <jrib> rxdx you could use mencoder
+[11:58] <jrib> towel that's not normal vi behavior
+[11:58] <jrib> svivim
+[11:58] <jrib> towel oh did you install vi then
+[11:58] <jrib> towel sudo update-alternatives --config vi see what you are using
+[11:58] <jrib> towel yeah might want to install vim-full though my vimtiny doesn't do that arrow key weirdness you mentioned
+[11:58] <jrib> ubuguy you are stock
+[11:58] <jrib> livingdaylight how did you try to copy and paste
+[11:58] <jrib> ubuguy what do you mean
+[11:58] <jrib> livingdaylight did you copy after highlighting
+[11:58] <jrib> livingdaylight try highlighting and then middle clicking to paste does that work
+[11:58] <jrib> es ubuguy
+[11:58] <jrib> livingdaylight in your edit menu
+[11:58] <jrib> livingdaylight yes
+[11:58] <jrib> pantalaimon you can
+[11:58] <jrib> pantalaimon press ctrl-z and then type 'bg'
+[11:58] <jrib> pantalaimon is that what you meant
+[11:58] <jrib> pantalaimon yep
+[11:58] <jrib> pantalaimon no i'm not sure
+[11:58] <jrib> pantalaimon mplayer might know
+[11:58] <jrib> because they don't fix their routers
+[11:58] <jrib> pantalaimon yes there might be some switches you cna pass mplayer that might help too most probably use mencoder for scripts
+[11:58] <jrib> ubotu tell vmt about root
+[11:58] <jrib> pantalaimon found the answer we should have looked here first
+[11:58] <jrib> pantalaimon yeah
+[11:58] <jrib> pantalaimon i did mplayer file devnull devnull
+[11:58] <jrib> pantalaimon erm with an at the end
+[11:58] <jrib> offtopic ringdonut
+[11:58] <jrib> pantalaimon yes so it doesn't spit out the messages
+[11:58] <jrib> pantalaimon i guess what was happening is it was waiting for standard in since you can use the keyboard to control it
+[11:58] <jrib> pantalaimon cool thanks i saw in mplayer
+[11:58] <jrib> jaak totem-xine is gxine uses gtk and there is also xine-ui
+[11:58] <jrib> cosmonaut system preferences sound system beep might help too
+[11:58] <jrib> ubotu tell jevangelo about avi
+[11:58] <jrib> lts jcore
+[11:58] <jrib> nolimitsoya anyone can add but it gets sent for approval
+[11:58] <jrib> ubotu tell nolimitsoya about yourself
+[11:58] <jrib> skwid what version of ubuntu are you using and what do your etcaptsourceslist look like
+[11:58] <jrib> skwid what does apt-cache policy libxss-dev libxss return
+[11:58] <jrib> skwid how did that version of libxss get installed
+[11:58] <jrib> skwid but your version is higher than the version in the repository according to that command
+[11:58] <jrib> skwid it would have to be one that isn't in your current sourceslist assuming it is 'apt-get update'd
+[11:58] <jrib> skwid looks the same
+[11:58] <jrib> skwid you can 'sudo apt-get install libxss-ubuntu' but now knowing where the new version came from i don't really know if that will break other things for you i think apt-get would warn you though
+[11:58] <jrib> skwid great
+[11:58] <jrib> ubotu tell xzk about quicktime
+[11:58] <jrib> ubotu system preferences screen resolution
+[11:58] <jrib> ubun system preferences screen resolution
+[11:58] <jrib> admiralchicago right click on the panel applet preferences
+[11:58] <jrib> heathendan change your user's password they are the same
+[11:58] <jrib> xzk they are different programs
+[11:58] <jrib> xzk try both of them that's the best way
+[11:58] <jrib> heathendan system preferences about me top right corner
+[11:58] <jrib> zober was your first question maybe lshw for your second one
+[11:58] <jrib> briguyd you'd probably have to use evdev is that a logitech
+[11:58] <jrib> zober be careful though lshw reports the incorrect amount on my card it says i have but i only have
+[11:58] <jrib> briguyd the idea will probably be similar there is a logitech guide on the forums and i know there is a guide for the mx on the wiki as well you may want to read those and translate the instructions
+[11:58] <jrib> nikom you could use ext and the fs-driver for windows that will let you use ext on windows
+[11:58] <jrib> gentoon ubuntu-offtopic
+[11:58] <jrib> nikom when you reboot any modifications you made won't be there and it will be faster too
+[11:58] <jrib> nikom it depends on how much you install currently my is using about gb and home will vary depending on what you do but ubuntu starts with gb i believe after that it is entirely dependent on how you want to use it
+[11:58] <jrib> edgy
+[11:58] <jrib> nikom my swap is gb and i barely ever use any of it i have mb of ram as well
+[11:58] <jrib> funnyman diff -nurp you only need the -r but you'll like the rest
+[11:58] <jrib> fixres turner
+[11:58] <jrib> amaranth kel
+[11:58] <jrib> pwagland bugsubuntucom
+[11:58] <jrib> pwagland what do you mean you can report the bug on that package on launchpad can you link to your previous bug report
+[11:58] <jrib> ask cardanto
+[11:58] <jrib> cardanto press ctrl-l if you don't want it to be permanent
+[11:58] <jrib> or taht button yeah
+[11:58] <jrib> cardanto what version of ubuntu
+[11:58] <jrib> is that dapper
+[11:58] <jrib> cardanto ok so i can't guide you because there may have been some changes but there is a gconf setting type 'gconf-editor' in a terminal while i find the key
+[11:58] <jrib> cardanto appsnautiluspreferencesalwaysuselocationentry do you have this entry
+[11:58] <jrib> cardanto ok check that and it should do what you want
+[11:58] <jrib> cardanto personally i prefer to just press ctrl-l and type when i need to
+[11:58] <jrib> cardanto magic of gconf
+[11:58] <jrib> cardanto do you mean you want an icon you can click on or you want a keyboard shortcut
+[11:58] <jrib> cardanto system preferences keyboard shortcuts has that option
+[11:58] <jrib> damagedone that's xgl related try googling for shift backspace disable xgl
+[11:58] <jrib> j why do you need to change permissions of var
+[11:58] <jrib> j you should change varwww then
+[11:58] <jrib> j chmod varwww i would recommend setting up a group instead of giving everyone writable permissions
+[11:58] <jrib> j is what you want right
+[11:58] <jrib> dualboot nai
+[11:58] <jrib> j qwertym just told you p
+[11:58] <jrib> except it's chmod -r permissions direcnam
+[11:58] <jrib> paradizelost sudo update-alternatives --config java
+[11:58] <jrib> wildchild it is installed
+[11:58] <jrib> multijava paradizelost
+[11:58] <jrib> paradizelost there's that one too i think it updates all the java stuff
+[11:58] <jrib> wildchild why were you looking for python what do you want to do
+[11:58] <jrib> wildchild oh ok
+[11:58] <jrib> wildchild nope
+[11:58] <jrib> molly are you behind a router or have a firewall up
+[11:58] <jrib> molly it might idk
+[11:58] <jrib> molly well 'sudo iptables -l' will list the rules you currently have but i'm not really familiar with iptables
+[11:58] <jrib> it is
+[11:58] <jrib> molly does that say port is open
+[11:58] <jrib> wizcraker yes openssh-server is not installed by default
+[11:58] <jrib> molly sure you do lynx
+[11:58] <jrib> gpled use the command lsbrelease -a
+[11:58] <jrib> spaghettiknife run 'frostwire' in a terminal and pastebin the output
+[11:58] <jrib> pastebin spaghettiknife
+[11:58] <jrib> terminal spaghettiknife
+[11:58] <jrib> ubotu tell spaghettiknife about java
+[11:58] <jrib> es pepe
+[11:58] <jrib> edinny dapper or edgy would be good choices
+[11:58] <jrib> pepe stop
+[11:58] <jrib> ops
+[11:58] <jrib> semboy mencoder is in the multiverse repository no need to download
+[11:58] <jrib> molly you can install a desktop just install the ubuntu-desktop package
+[11:58] <jrib> molly it's on the desktop cd add it as a repository
+[11:58] <jrib> semboy what are you tryingt o do install mencoder
+[11:58] <jrib> semboy are you using ubuntu at the moment
+[11:58] <jrib> semboy that page says for macosx
+[11:58] <jrib> molly no you can install apache mysql php after installation though
+[11:58] <jrib> ubotu tell semboy about multimedia
+[11:58] <jrib> spaghettiknife the java in mutliverse will let you use frostwire just fine
+[11:58] <jrib> info sun-java-bin spaghettiknife
+[11:58] <jrib> ubotu tell spaghettiknife about multiverse
+[11:58] <jrib> raul open office can export to pdf
+[11:58] <jrib> ubotu tell spaghettiknife about java
+[11:58] <jrib> spaghettiknife type this in a terminal please apt-cache policy sun-java-bin
+[11:58] <jrib> spaghettiknife pastebin the output
+[11:58] <jrib> spaghettiknife highlight it with your mouse then press middle click to paste in your browser
+[11:58] <jrib> spaghettiknife you can press both buttons at the same time probably or use ctrl-shift-c to copy what you selected and then paste as usual
+[11:58] <jrib> spaghettiknife you have it installed already what does this command output sudo update-alternatives --config java
+[11:58] <jrib> spaghettiknife ok when you run taht command press and then enter
+[11:58] <jrib> spaghettiknife give it a try might give you a different error now
+[11:58] <jrib> spaghettiknife it's not the latest like you said there is now
+[11:58] <jrib> spaghettiknife why do you need that one
+[11:58] <jrib> root mkaster
+[11:58] <jrib> flankk i read your previous message no one probably knows how to help i suggest trying the forums and mailing list if you haven't already
+[11:58] <jrib> angryelf
+[11:58] <jrib> ubotu tell levander about pinning
+[11:58] <jrib> levander also man aptpreferences or you could just install what you want and then disable backports
+[11:58] <jrib> levander more reading pleasure
+[11:58] <jrib> jroes nv is open source nvidia isn't
+[11:58] <jrib> psychobudgie hmm
+[11:58] <jrib> assarix vim
+[11:58] <jrib> assarix yep install vim-gnome and run gvim
+[11:58] <jrib> assarix or just vim-gtk if you aren't in gnome i guess
+[11:58] <jrib> wuming what do you mean
+[11:58] <jrib> rewtaxs is your user part of the cdrom group
+[11:58] <jrib> rewtaxs type 'groups'
+[11:58] <jrib> rewtaxs pastebin the mplayer output maybe someone can figure out what is happening
+[11:58] <jrib> ubun you need to source the file or start bash again
+[11:58] <jrib> ubun source pathtowhateverfileyouhaveyouraliasinwowthatwaslong
+[11:58] <jrib> zeroice you can ask here as well both places are ok
+[11:58] <jrib> rohall install to usrlocal and use checkinstall
+[11:58] <jrib> ubotu tell rohall about checkinstall
+[11:58] <jrib> ubotu tell dm about compiling
+[11:58] <jrib> dm what plugin
+[11:58] <jrib> j gftp
+[11:58] <jrib> info gaim-extendedprefs dm
+[11:58] <jrib> dm no need to compile that one just make sure you have enabled universe
+[11:58] <jrib> ubotu tell dm about universe
+[11:58] <jrib> dm that wiki page should explain it if you have any more questions ask the room leaving
+[11:58] <jrib> anyone puru
+[11:58] <jrib> puru what happens when you try at what step does it fail
+[11:58] <jrib> puru pastebin your xorgconf
+[11:58] <jrib> puru and do you get errors then if so pastebin varlogxorglog
+[11:58] <jrib> puru sure
+[11:58] <jrib> puru ok let's take a look
+[11:58] <jrib> puru sure but you need to pastebin your files so everyone here can see them
+[11:58] <jrib> puru if you want sudo dpkg-reconfigure xserver-xorg use vesa that should get you into x and then you can pastebin the logs and such
+[11:58] <jrib> puru ok
+[11:58] <jrib> puru please check if xserver-xorg-driver-nv is installed
+[11:58] <jrib> puru oops i mean xserver-xorg-video-nv
+[11:58] <jrib> enter yoshig
+[11:58] <jrib> puru only if you edit the file by hand just leave the defaults
+[11:58] <jrib> puru you should be fine with the default options it chooses
+[11:58] <jrib> puru check that the package i mentioned is installed
+[11:58] <jrib> puru apt-cache policy xserver-xorg-video-nv
+[11:58] <jrib> puru please join me in ubuntu-classroom
+[11:58] <jrib> fsrxc no
+[11:58] <jrib> how can i disable all menu accelerators in gnome
+[11:58] <jrib> karthik are you comfortable on the command line without x
+[11:58] <jrib> vaskecar q
+[11:58] <jrib> info trac robdeman
+[11:58] <jrib> repeat carzzz
+[11:58] <jrib> vaskecar w but you should read help
+[11:58] <jrib> vaskecar or at least run 'vimtutor'
+[11:58] <jrib> vaskecar i don't understand what you mean
+[11:58] <jrib> vaskecar esc w
+[11:58] <jrib> vaskecar not at the same time one followed by the next
+[11:58] <jrib> vaskecar q
+[11:58] <jrib> vaskecar you can use wq too to save and exit
+[11:58] <jrib> vaskecar yes
+[11:58] <jrib> vaskecar apt-get update updates the package list apt-get upgrade upgrades packages to the latest version in the repositories
+[11:58] <jrib> violot man apt-get explains the differences
+[11:58] <jrib> violot what version are you using now
+[11:58] <jrib> violot breezy came before dapper so your only option is to go to edgy if you want to upgrade
+[11:58] <jrib> yoshig did you ask nicely we need more info
+[11:58] <jrib> robdeman you don't
+[11:58] <jrib> fixres arastoo
+[11:58] <jrib> francois use sed
+[11:58] <jrib> xipietotec that's because the server is getting hammered
+[11:58] <jrib> francois paste the command
+[11:58] <jrib> xipietotec it worked anyway for me i just trusted the unsigned packages
+[11:58] <jrib> francois then keep trying
+[11:58] <jrib> xipietotec the keep trying
+[11:58] <jrib> francois what kind of quotes are those use ''
+[11:58] <jrib> francois heh np
+[11:58] <jrib> vaskecar pastebin the output from 'sudo apt-get install mozilla-mplayer'
+[11:58] <jrib> danl grep -r
+[11:58] <jrib> vaskecar pastebin etcaptsourceslist please
+[11:58] <jrib> gotit does system preferences screen resolution not list what you want
+[11:58] <jrib> fixres gotit
+[11:58] <jrib> gotit what is that
+[11:58] <jrib> vaskecar remove the unofficial stuff you have
+[11:58] <jrib> vaskecar ie
+[11:58] <jrib> kitche xchm
+[11:58] <jrib> karthik install xchm
+[11:58] <jrib> gotit that page lists several methods iirc what exactly did you try
+[11:58] <jrib> gotit i meant for you to read the wiki page
+[11:58] <jrib> gotit some advice don't execute any commands if you don't know what they do exactly feel free to ask but ubotu does say to restart x and later says to fix screen resolution still i understand the confusion the best method on that page is what you are doing now with dpkg-reconfigure
+[11:58] <jrib> vaskecar what codec does the video use
+[11:58] <jrib> vaskecar have you installed wcodecs
+[11:58] <jrib> ubotu tell vaskecar about wcodecs
+[11:58] <jrib> joeshmo change their permissions using chmod andor chown
+[11:58] <jrib> ubotu tell joeshmo about permissions
+[11:58] <jrib> vaskecar pastebin the page that you get when you go to 'aboutplugins' in your address bar
+[11:58] <jrib> vaskecar close all instances of firefox 'sudo touch usrlibfirefoxpluginsmplayer' start firefox try again
+[11:58] <jrib> vaskecar firefox was still using totem you could have also just removed totem
+[11:58] <jrib> yoshig pastebin your xorgconf
+[11:58] <jrib> enter yoshig
+[11:58] <jrib> yoshig i fixed the same issue with borders yesterday
+[11:58] <jrib> yoshig i need to see your xorgconf
+[11:58] <jrib> yoshig what version of beryl
+[11:58] <jrib> yoshig beryl --version
+[11:58] <jrib> yoshig ok you already have the option that i had to add in addition to that i had to right click on the emerald advanced options and disable gl yield
+[11:58] <jrib> yoshig you don't have an emerald icon in the notification area
+[11:58] <jrib> yoshig how do you run beryl
+[11:58] <jrib> yoshig run beryl-manager
+[11:58] <jrib> jerp thanks
+[11:58] <jrib> yoshig did you get window decorations with that
+[11:58] <jrib> yoshig yeah that's what i meant ok go wobble windows now
+[11:58] <jrib> yoshig well you can go inside the cube
+[11:58] <jrib> yoshig what kind of card do you have
+[11:58] <jrib> yoshig idk since i have a crappier card you could try asking in beryl or ubuntu-xgl to see if people with similar cards also have the same experience
+[11:58] <jrib> yoshig yes
+[11:58] <jrib> yoshig i expected to though it's a yr old laptop
+[11:58] <jrib> someone paradx
+[11:58] <jrib> root monoxide
+[11:58] <jrib> monoxide what are you trying to install
+[11:58] <jrib> ubox tell monoxide about compiling
+[11:58] <jrib> thegilmanator yes probably a few people
+[11:58] <jrib> ubox gkismet isn't in the repos
+[11:58] <jrib> thegilmanator try ubuntu-xgl
+[11:58] <jrib> monoxide yes see the link from ubotu i sent you
+[11:58] <jrib> monoxide the one after
+[11:58] <jrib> monoxide actually not to confuse you i sent you info about compiling gkismet because it isn't packaged for ubuntu but usually you use synaptic that ubox told you about
+[11:58] <jrib> compiling monoxide
+[11:58] <jrib> synaptic monoxide
+[11:58] <jrib> ubox i don't know anything about it
+[11:58] <jrib> ubox mine too but he wants gkismet
+[11:58] <jrib> yep ubox is right
+[11:58] <jrib> monoxide you'll have to enable universe repository afterwards you can use synaptic to install it
+[11:58] <jrib> ubox tell monoxide about universe
+[11:58] <jrib> cientificoloco adobe does not provide a shockwave plugin for linux your only chance is a firefox installed in wine
+[11:58] <jrib> ubox no i'm not sure
+[11:58] <jrib> joeshmo did you read about linux permissions
+[11:58] <jrib> joeshmo join me in ubuntu-classroom
+[11:58] <jrib> joepits kind of
+[11:58] <jrib> joepits ok join ubuntu-classroom please
+[11:58] <jrib> thegilmanator ssh will give you openssh-server
+[11:58] <jrib> rec dependencies aren't optional they exist for a reason usually because the program needs them to work
+[11:58] <jrib> vandame install ubuntu-desktop
+[11:58] <jrib> rec use equivs
+[11:58] <jrib> rec apt-cache show equivs
+[11:58] <jrib> vandame oh sorry i misread no that won't work
+[11:58] <jrib> dredhammer might want to try mplayer
+[11:58] <jrib> zaggynl
+[11:58] <jrib> zaggynl did you ever create one
+[11:58] <jrib> tonyyarusso for mysql
+[11:58] <jrib> zaggynl type mysql -u root can you login
+[11:58] <jrib> zaggynl then that means you logged in root doesn't have a password you should probably set one like the guide urges you to
+[11:58] <jrib> tonyyarusso yeah it's just the root user in mysql
+[11:58] <jrib> tonyyarusso so i don't come over your house type mysql -u root and destroy your mysql database
+[11:58] <jrib> tonyyarusso i'm no mysql expert but continuing to guess maybe an application could try to login as root
+[11:58] <jrib> tonyyarusso nope unrelated
+[11:58] <jrib> zaggynl under mysql setup the first command is mysql -u root then the following three commands to mysql sets the password in the exampole they give you set the password to 'xxxxxxx'
+[11:58] <jrib> zaggynl if you did all three commands quit mysql and try to log back in with root without providing a password
+[11:58] <jrib> pinchartl what is in debian unstable the package probably hasn't been updated in feisty yet
+[11:58] <jrib> gumby system administration log window
+[11:58] <jrib> login
+[11:58] <jrib> sphir sudo dpkg-reconfigure fontconfig iirc
+[11:58] <jrib> ubotu tell pinchartl about backports
+[11:58] <jrib> pinchartl you can't request a backport if it isn't in feisty by the way since there isn't anything to backport
+[11:58] <jrib> pinchartl i see ok
+[11:58] <jrib> michaelpo mplayer can play them i'm pretty sure vlc can too
+[11:58] <jrib> ubotu tell czcniry about mysql
+[11:58] <jrib> crimsun it seems to play an flv file i have here
+[11:58] <jrib> crimsun oh ok
+[11:58] <jrib> pitchdown is this a regular install
+[11:58] <jrib> pitchdown you are on a different computer now and can enter commands into ubuntu or do you need to reboot to do so
+[11:58] <jrib> yeah i was just going to suggest what ljl said
+[11:58] <jrib> pitchdown you already installed just try what ljl said
+[11:58] <jrib> cyberjunkie because the desktop cd is a live cd and the installer
+[11:58] <jrib> enter vixus
+[11:58] <jrib> molly what directories
+[11:58] <jrib> no it's root by default
+[11:58] <jrib> ljl i found out recently that you shouldn't give ownership to www-data that's what apache runs as
+[11:58] <jrib> ljl huibertgill you could set the group and have read only group permssions but the owner that has write access should not be www-data
+[11:58] <jrib> ljl yeah i'm not sure i seem to remember mine being rootroot at one point though we need a fresh user
+[11:58] <jrib> gumby configautostart
+[11:58] <jrib> gumby checked gnomesession
+[11:58] <jrib> apz what is it an rpm for
+[11:58] <jrib> rpm apz
+[11:58] <jrib> salambander no it would depend on how the software is provided
+[11:58] <jrib> matt edgy ipmidevintfko ipmimsghandlerko ipmipoweroffko ipmisiko ipmiwatchdogko
+[11:58] <jrib> gunsmoke tar xf filetar
+[11:58] <jrib> gunsmoke chable's prints out what it is doing
+[11:58] <jrib> gunsmoke v verbose
+[11:58] <jrib> ubotu tell lckdwn about sudo
+[11:58] <jrib> ubotu tell chable about java
+[11:58] <jrib> ubotu tell salah about mouse
+[11:58] <jrib> yeah ssh installs the client and server
+[11:58] <jrib> boink it might be
+[11:58] <jrib> chable you need to enable multiverse
+[11:58] <jrib> chable please pastebin your etcaptsourceslist
+[11:58] <jrib> chable use pastebin
+[11:58] <jrib> ubotu tell chable about multiverse
+[11:58] <jrib> chable add multiverse to the end of those lines with universe basically but there are also security repos you may want
+[11:58] <jrib> es manatux
+[11:58] <jrib> too slow
+[11:58] <jrib> mx- greets
+[11:58] <jrib> ubuntu-desktop trurl
+[11:58] <jrib> humblerodent mpegenc good enough
+[11:58] <jrib> psykovsky yes
+[11:58] <jrib> psykovsky try sed but there are more ways
+[11:58] <jrib> ubotu tell cirkit about synaptic
+[11:58] <jrib> ubotu tell cirkit about apt-get
+[11:58] <jrib> multijava crescendo
+[11:58] <jrib> chrisjw use the python in the repositories
+[11:58] <jrib> chrisjw isn't in the repositories
+[11:58] <jrib> repeat gk
+[11:58] <jrib> chrisjw what is the security issue exactly
+[11:58] <jrib> chrisjw what is it
+[11:58] <jrib> chrisjw uninstall
+[11:58] <jrib> chrisjw i'm reading about the advisory it was issued in october before edgy release so i would expect a fix to be implemented but this is speculation i am looking for a way to verify this
+[11:58] <jrib> chrisjw are you able to uninstall it
+[11:58] <jrib> chrisjw where did you install it to python on edgy seems to be rc by the way
+[11:58] <jrib> chrisjw join me in ubuntu-classroom please
+[11:58] <jrib> jobe check out wine's appdb
+[11:58] <jrib> jobe on wine's web site
+[11:58] <jrib> shinobi don't put him in the admin group
+[11:58] <jrib> shinobi system administration uses and groups will let you choose whether or not the user has adminstrative privileges
+[11:58] <jrib> shinobi yep 'groups' would also work or you can look at etcgroup
+[11:58] <jrib> rpm catsy
+[11:58] <jrib> kelvie you need firefox-dbg for symbols
+[11:58] <jrib> cratel msttcorefonts
+[11:58] <jrib> beryl alexc
+[11:58] <jrib> beryl alexc
+[11:58] <jrib> scttrbrain cacaview in caca-utils
+[11:58] <jrib> nvidia helpmeee
+[11:58] <jrib> nou no only menebers of the qa team can
+[11:58] <jrib> nou smenebersmembers
+[11:58] <jrib> de
+[11:58] <jrib> gumby tried sudo aenmod php
+[11:58] <jrib> emax try apt-cache show ubuntu-minimal to get some info
+[11:58] <jrib> gumby libapache-mod-php is installed
+[11:58] <jrib> emax what are you telling him to do
+[11:58] <jrib> gumby does usrlibapachemoduleslibphpso exist
+[11:58] <jrib> gumby strange
+[11:58] <jrib> gumby oh ok
+[11:58] <jrib> dialup ootput
+[11:58] <jrib> ootput helpubuntucom has the manual that is in ubuntu's system - help but that wiki page is probably fresher or they may be the same may want to check both out
+[11:58] <jrib> ootput np
+[11:58] <jrib> scttrbrain msg ubotu seen seveas
+[11:58] <jrib> he's on irc right now
+[11:58] <jrib> wizo what browser
+[11:58] <jrib> wizo is there a reason you aren't just using the flashplugin-nonfree package
+[11:58] <jrib> wizo you need to enable the multiverse repository
+[11:58] <jrib> wizo do you know how or would instructions be helpful
+[11:58] <jrib> yakumo in totem edit take screenshot
+[11:58] <jrib> yuv the gui editor for gconf you mean gconf-editor in a terminal
+[11:58] <jrib> mp mrlinux
+[11:58] <jrib> greenearz dmes perhaps
+[11:58] <jrib> archonkog do you have snyaptic open what are you trying to do
+[11:58] <jrib> fr new
+[11:58] <jrib> archonkog how are you trying to update
+[11:58] <jrib> fonts chrisjw
+[11:58] <jrib> archonkog that error means there is another apt program working already maybe update-manager another apt-get dpkg
+[11:58] <jrib> chrisjw that wiki page tells you fonts
+[11:58] <jrib> archonkog did you ever kill one before it finished on its own
+[11:58] <jrib> paste darkcookie
+[11:58] <jrib> archonkog and you've rebooted and it still happens or you haven't had to reboot yet
+[11:58] <jrib> archonkog oh i see now the file was deleted somehow usually the error just says resouce unavailable let me see if there are any special requirements for creating it again
+[11:58] <jrib> chrisjw locate 'ttf'
+[11:58] <jrib> archonkog usually the user deletes it but if you are asking i guess that is not the case and then idk
+[11:58] <jrib> archonkog yes like i said let me make sure there isn't a special way to create it
+[11:58] <jrib> darkcookie no it doesn't
+[11:58] <jrib> ubotu tell darkcookie about compiling
+[11:58] <jrib> archonkog ok seems fine to just create it with touch do this command sudo touch varlibdpkglock
+[11:58] <jrib> archonkog also on my machine it has permissions
+[11:58] <jrib> archonkog ls -ld varlibdpkg
+[11:58] <jrib> archonkog hmmm wow that's bad ok hold on
+[11:58] <jrib> paste fbis
+[11:58] <jrib> tundejeg system administration users and groups
+[11:58] <jrib> ubotu tell fbis about mount
+[11:58] <jrib> ubotu tell fbis about ntfs
+[11:58] <jrib> fbis that last message from ubotu is the one you want
+[11:58] <jrib> archonkog i am looking at at the moment
+[11:58] <jrib> salambander hi
+[11:58] <jrib> archonkog ok this post here seems to have a lot of information take a look
+[11:58] <jrib> archonkog that gives you some options i have to go now but give those a try
+[11:58] <jrib> ubun what does the script do
+[11:58] <jrib> ubun can i download it and try myself
+[11:58] <jrib> kasper yes with cups-pdf
+[11:58] <jrib> darkcookie do not paste here
+[11:58] <jrib> pike i think he means without x is that right ollekalle
+[11:58] <jrib> br nathalia
+[11:58] <jrib> catshrimp something is probably changing your background afterwards you don't need to keep fbsetbg running afaik
+[11:58] <jrib> chable is in edgy
+[11:58] <jrib> ubun don't worry i haven't forgotten
+[11:58] <jrib> catshrimp use sessionscreenrootcommand fbsetbg -l in your fluxboxinit
+[11:58] <jrib> catshrimp -l just uses whatever was last
+[11:58] <jrib> ubun i was trying to avoid installing it did you just install the deb
+[11:58] <jrib> ubun heh easy enough ok
+[11:58] <jrib> ubun right i was going to suggest doing a cd into that directory and then executing jools
+[11:58] <jrib> ubun in your launcher
+[11:58] <jrib> cd foobar python jools maybe
+[11:58] <jrib> ubun write a small shell script then
+[11:58] <jrib> ubun sh -c cd homejasonrtempjools-jools python jools modify that approriately as your command
+[11:58] <jrib> ubun hmm let me try with alacarte i was just adding a launcher to panel
+[11:58] <jrib> ubun seems to just work here
+[11:58] <jrib> ubun what version of alacarte
+[11:58] <jrib> ubun hmm i have are you in dapper
+[11:58] <jrib> ubun take a look at the desktop file it created localshareapplicationswhateveryounameditdesktop
+[11:58] <jrib> ubun is mine
+[11:58] <jrib> ubun make sure your sh command works in a terminal
+[11:58] <jrib> ubun i mean whatever you have in the exec line
+[11:58] <jrib> ubun paste your command here
+[11:58] <jrib> ubun change it to sh -c cd homemarkpythonjools-jools python jools'
+[11:58] <jrib> ubun remember it's jools-joolsjools where the file is located
+[11:58] <jrib> ubun also you need to use the same kind of quotes either both single or both double
+[11:58] <jrib> byan manpages-dev
+[11:58] <jrib> ubun np
+[11:58] <jrib> jokoon
+[11:58] <jrib> beta
+[11:58] <jrib> jokoon
+[11:58] <jrib> jokoon nope
+[11:58] <jrib> jokoon try the beta
+[11:58] <jrib> ubun tell jokoon about flash
+[11:58] <jrib> thevault you're in the right place just ask your questions
+[11:58] <jrib> ubotu tell jokoon about flash
+[11:58] <jrib> sorry
+[11:58] <jrib> thevault how are you updating
+[11:58] <jrib> thevault ok is that program open now not the icon the actual program
+[11:58] <jrib> thevault i was going to tell you to close it if it was
+[11:58] <jrib> hehe
+[11:58] <jrib> thevault join me in ubuntu-classroom
+[11:58] <jrib> thevault easy way just type join ubuntu-classroom
+[11:58] <jrib> ubun yeah seems to have been fixed though
+[11:58] <jrib> njero add one to the admin group and remove the first one from the admin group in that order
+[11:58] <jrib> mrbrown yes but you may have better luck in bash
+[11:58] <jrib> fsck unimatrix
+[11:58] <jrib> bae aptitude
+[11:58] <jrib> upgrade timtrimble
+[11:58] <jrib> hey
+[11:58] <jrib> jokoon use screen or exec in irssi might work depends on what you want to do
+[11:58] <jrib> enter crowley holyduck
+[11:58] <jrib> genben aptitude search 'smultiverse' is that what you are looing for
+[11:58] <jrib> genben i believe there is some way to use synaptic too
+[11:58] <jrib> genben by the way so you don't think i just picked it out of thin air
+[11:58] <jrib> magilla why
+[11:58] <jrib> magilla best way is to create a group for web editing add yourself to that group and change varwww to be owned by that group
+[11:58] <jrib> vspike vim but this is a question for ubuntu-offtopic
+[11:58] <jrib> magilla no it should work fine
+[11:58] <jrib> kaptengu ooqstart-gnome package i've never tried it
+[11:58] <jrib> patbam usrlocal is stuff you installed without using the package manager
+[11:58] <jrib> patbam no but your system will still prefer the one in usrlocal since usrlocal comes first in your path
+[11:58] <jrib> iltomee how did you try to install it
+[11:58] <jrib> patbam i would remove the usrlocal installation and use the repositories myself np
+[11:58] <jrib> iltomee pastebin the output of 'sudo apt-get install build-essential'
+[11:58] <jrib> patbam i know it is in edgy don't know about dapper
+[11:58] <jrib> patbam heh
+[11:58] <jrib> iltomee pastebinning etcaptsourceslist too would probably help
+[11:58] <jrib> upgrade patbam
+[11:58] <jrib> pastebin iltomee
+[11:58] <jrib> iltomee use for your etcaptsourceslist
+[11:58] <jrib> iltomee what version of ubuntu are you using
+[11:58] <jrib> iltomee apt-cache policy build-essential libc-dev libc-dev g on pastebin please
+[11:58] <jrib> patbam no you can just use gksu no sudo
+[11:58] <jrib> iltomee have you used any other repositories or installed from deb packages ever
+[11:58] <jrib> automatix talk somewhere else please
+[11:58] <jrib> iltomee ok lets see if we can get to the root of the problem join me in ubuntu-classroom and we'll try a few commands
+[11:58] <jrib> xconfig tohellwithga
+[11:58] <jrib> astroman what do you mean
+[11:58] <jrib> astroman ok i'm not familiar enough with awk to understand the question maybe someone else can help
+[11:58] <jrib> ageracer press ootabtab
+[11:58] <jrib> cdavis sshknownhosts i believe is where it is saved to
+[11:58] <jrib> it shoudl start after being installed
+[11:58] <jrib> cdavis not sure
+[11:58] <jrib> cdavis man sshd has info on the format
+[11:58] <jrib> archonkog probably about the same
+[11:58] <jrib> jacquesmerde the permissions won't be there next time you mount
+[11:58] <jrib> jacquesmerde what does that mean exactly what permissions
+[11:58] <jrib> jacquesmerde what are the native fat attributes you are talking about
+[11:58] <jrib> navyseal kino is one
+[11:58] <jrib> navyseal apt-cache search video editor
+[11:58] <jrib> paste erchache
+[11:58] <jrib> language pelo
+[11:58] <jrib> pelo what command
+[11:58] <jrib> pelo i have nothing with the word model in the office menu in alacarte
+[11:58] <jrib> es garoto
+[11:58] <jrib> pelo oofromtemplate u is the command
+[11:58] <jrib> evan mozilla-mplayer with wcodecs plays everything for me
+[11:58] <jrib> evan try to prefix your messages with my name or i may not notice them pastebin what this command returns 'apt-cache policy mozilla-mplayer' please
+[11:58] <jrib> paste evan
+[11:58] <jrib> evan ok pastebin what you get when you type 'aboutplugins' in the address bar of your browser also pastebin the result of this command 'ls -l usrlibfirefoxplugins'
+[11:58] <jrib> es leandro
+[11:58] <jrib> leandro watch your language please
+[11:58] <jrib> evan ok uninstall the vlc plugin
+[11:58] <jrib> evan now close and start firefox again and test your player here
+[11:58] <jrib> linuturk
+[11:58] <jrib> linuturk the search patterns page
+[11:58] <jrib> nothlit bookmark
+[11:58] <jrib> jfrench those versions don't exist but try ubuntu-xgl for help with beryl
+[11:58] <jrib> jfrench join ubuntu-xgl i'm there as well
+[11:58] <jrib> evan yeah
+[11:58] <jrib> crazylnk use adduser not useradd
+[11:58] <jrib> crazylnk that's not the correct syntax just do adduser teamspeak
+[11:58] <jrib> crazylnk sudo adduser teamspeak
+[11:58] <jrib> crazylnk why not use system administration users and groups
+[11:58] <jrib> crazylnk what page
+[11:58] <jrib> crazylnk ok did that adduser command work
+[11:58] <jrib> ubotu tell crazylnk about sudo
+[11:58] <jrib> nothlit why not
+[11:58] <jrib> nothlit i guess that's a godo point
+[11:58] <jrib> crazylnk just ask the channel i'll help if i can
+[11:58] <jrib> crazylnk pastebin the output
+[11:58] <jrib> pastebin crazylnk
+[11:58] <jrib> crazylnk copy the command you entered as well as the output then go to and paste it in the form there submit it then give us the url
+[11:58] <jrib> crazylnk paste the command then
+[11:58] <jrib> crazylnk you can do most of that stuff with the gui the wget command just downloads a file the tar -xjf thing just extracts it
+[11:58] <jrib> crazylnk graphical user interface
+[11:58] <jrib> crazylnk what step are you on
+[11:58] <jrib> crazylnk right click on the tarbz you downloaded and extract it
+[11:58] <jrib> crazylnk now you can do the remaining steps in your terminal
+[11:58] <jrib> crazylnk in order to start the server change into the 'tssrc' this one
+[11:58] <jrib> crazylnk no
+[11:58] <jrib> crazylnk what you just did and that tar command are the same thing
+[11:58] <jrib> crazylnk nope
+[11:58] <jrib> stephenl some programs end up taking ownership of xauthority and then people can't log in
+[11:58] <jrib> stephenl i haven't either and i think it's really a bug with the program i know kb used to do this and many people would sudo because they didn't have proper permissions on their cd drive but that has since been fixed
+[11:58] <jrib> dsnyders or find -exec
+[11:58] <jrib> khaled umount mountpoint
+[11:58] <jrib> brussel join ubuntu-offtopic
+[11:58] <jrib> mouse orangekid
+[11:58] <jrib> edd did you install aoss
+[11:58] <jrib> edd close all firefox then run 'aoss firefox' does it work now
+[11:58] <jrib> edd ok does sound work on other things
+[11:58] <jrib> edd is anything playing sound right now
+[11:58] <jrib> edd weird what version of flash
+[11:58] <jrib> edd did play sound
+[11:58] <jrib> monkey-ubuntu beta
+[11:58] <jrib> edd maybe a bug with then
+[11:58] <jrib> edd is supposed to use alsa anyway so aoss shouldn't be needed
+[11:58] <jrib> magicninja login shell you mean
+[11:58] <jrib> lufis look it up on google
+[11:58] <jrib> magicninja chsh
+[11:58] <jrib> magicninja note taht the default is already bash
+[11:58] <jrib> lufis use 'sudo lshw' to get a model number of some kind for it then use google
+[11:58] <jrib> vlt runlevel is default in ubuntu
+[11:58] <jrib> thomasevensen gtk theme metacity theme icon theme
+[11:58] <jrib> thomasevensen it's stored in gconf keys desktopgnomeinterfacegtktheme for the gtk theme and appsmetacitygeneraltheme for the metacity theme you can use gconftool- to edit gconf keys
+[11:58] <jrib> wyld chown
+[11:58] <jrib> support sam
+[11:58] <jrib> wyld you need a command cp pathtoafile pathtosomewhere
+[11:58] <jrib> cli wyld
+[11:58] <jrib> itsmabus gnome-system-monitor is the package do a google image search for gnome system monitor the thing for logs is different which did you mean
+[11:58] <jrib> itsmabus package gnome-utils contains usrbingnome-system-log do a google image search for gnome system log
+[11:58] <jrib> theme eviltwin
+[11:58] <jrib> eviltwin system administration login window
+[11:58] <jrib> splash eviltwin
+[11:58] <jrib> eviltwin i think that covers everything
+[11:58] <jrib> globe start it in a subshell cd foo command that's what comes to mind anyway
+[11:58] <jrib> pervoroffe in jeopardy you give the answer and we ask the question
+[11:58] <jrib> alaway eggdrop is in universe you don't need to compile it
+[11:58] <jrib> mokshu that's what is in edgy
+[11:58] <jrib> mokshu october th it seems
+[11:58] <jrib> mokshu the vlc site has packages for ubuntu
+[11:58] <jrib> mokshu hmm maybe not their link tricked me
+[11:58] <jrib> protocol whatever you like
+[11:58] <jrib> protocol no
+[11:58] <jrib> laparca yes i believe so
+[11:58] <jrib> ask bilbomba
+[11:58] <jrib> arida any text editor
+[11:58] <jrib> arida although you can use any text editor you may want to checkout kile i know vim will highlight your text with latex syntax i don't know if gedit it will
+[11:58] <jrib> bilbomba is this the livecd or after an install
+[11:58] <jrib> arida i just tried gedit with latex it will highlight as well
+[11:58] <jrib> bilbomba is that the entire line
+[11:58] <jrib> cpk what state are you in now
+[11:58] <jrib> aiglx promind
+[11:58] <jrib> cpk what happens when you try
+[11:58] <jrib> bilbomba paste the whole line so we can google for it
+[11:58] <jrib> promind join ubuntu-xgl
+[11:58] <jrib> cpk yeah frogzoo might be on the right track then
+[11:58] <jrib> promind if you join ubuntu-xgl there are people there who can tell you all about aiglx do you know how to get there
+[11:58] <jrib> bilbomba hmm i have no clue sometimes people pass acpioff and get ubuntu to boot when it refuses to you can give that a try but if no one here knows at the moment you might want to try the forums or the mailing list
+[11:58] <jrib> obstfliege what does that say in english
+[11:58] <jrib> wheels the server appears to be down use a mirror or disable that repository temporarily
+[11:58] <jrib> repos wheels
+[11:58] <jrib> obstfliege have you tried ubuntu-de maybe they can understand the error better
+[11:58] <jrib> wheels yep if you want to edit manually you can also use the gui
+[11:58] <jrib> wheels q
+[11:58] <jrib> cli alaway
+[11:58] <jrib> robdeman do you want to change the hostname
+[11:58] <jrib> robdeman no i don't think so do you have gnome on it
+[11:58] <jrib> robdeman system administration networking general
+[11:58] <jrib> dreamer yeah flash is buggy that happens to me too
+[11:58] <jrib> partisan try ubuntu-offtopic
+[11:58] <jrib> xfugazix how did you install it
+[11:58] <jrib> xfugazix you have to extract the contents in there
+[11:58] <jrib> xfugazix what does 'ls usrlibcodecs' say now
+[11:58] <jrib> flavioribeiro sudo invoke-rcd gdm stop
+[11:58] <jrib> brohken both are probably the same in that regard try both and see which one you like better
+[11:58] <jrib> slart no not that i know of
+[11:58] <jrib> xfugazix ok what are you trying to do now that isn't working
+[11:58] <jrib> brohken no it doesn't
+[11:58] <jrib> xfugazix with
+[11:58] <jrib> xfugazix oh i may know why where did you install mplayer from
+[11:58] <jrib> alaway what are you trying to delete
+[11:58] <jrib> alaway rmdir pathtodir if it is empty otherwise rm -r
+[11:58] <jrib> xfugazix if you are using mplayer from the repositories that codec package is incomplete
+[11:58] <jrib> alaway dpkg -l eggdrop
+[11:58] <jrib> no
+[11:58] <jrib> matt anywhere you want mediafoobar seems to be the usual place
+[11:58] <jrib> online
+[11:58] <jrib> enter alaway
+[11:58] <jrib> alaway i've never used eggdrop so i don't know how to use it
+[11:58] <jrib> minerale ps -ef
+[11:58] <jrib> matt what filesystem does it use
+[11:58] <jrib> matt chown it to your user
+[11:58] <jrib> sudo ubuntu
+[11:58] <jrib> msg the bot ubuntu
+[11:58] <jrib> ubuntu no
+[11:58] <jrib> ubuntu read the link ubotu gave you please
+[11:58] <jrib> mysql ldz
+[11:58] <jrib> minerale i see your point i don't know how to do that but i'm curious too
+[11:58] <jrib> flavioribeiro install build-essential it will give you that
+[11:58] <jrib> hidden matt maybe this will do what you want yes it works in nautilus too
+[11:58] <jrib> matt i've never used it but the bottom of the page says it works in nautilus it also says it's only for but give it a try
+[11:58] <jrib> matt
+[11:58] <jrib> matt yes
+[11:58] <jrib> matt i just tried the hidden thing and it works fine here you can try thunar but i think nautilus is probably the best for gnome yes this is an opinion
+[11:58] <jrib> mythtv eps
+[11:58] <jrib> matt create a hidden file in data and put the name of the directory in there
+[11:58] <jrib> matt yes
+[11:58] <jrib> defaultapp xvh
+[11:58] <jrib> matt ctrl-h or show hidden files
+[11:58] <jrib> matt magic
+[11:58] <jrib> enter matt
+[11:58] <jrib> brohken yes
+[11:58] <jrib> brohken well the mutlimedia keys don't work out of the box inspiron
+[11:58] <jrib> brohken there is a page on the wiki for multimedia keys
+[11:58] <jrib> it mio
+[11:58] <jrib> fsck x-rt-x
+[11:58] <jrib> ubuntu hey ask a question and we'll try to help
+[11:58] <jrib> enter ubuntu
+[11:58] <jrib> drkm sharutils
+[11:58] <jrib> ubuntu what directory are you trying to open and what are you trying to do
+[11:58] <jrib> drkm what are you installing by the way
+[11:58] <jrib> ubuntu try to prefix what you say with my name so my client can highlight it for me how did you install it
+[11:58] <jrib> sudo ubuntu
+[11:58] <jrib> ubuntu read over that page to understand how sudo works in ubuntu
+[11:58] <jrib> fernandocordes suppose someone says yes now what
+[11:58] <jrib> tuna-fish-
+[11:58] <jrib> tuna-fish- seems to be up for me
+[11:58] <jrib> fernandocordes ah great
+[11:58] <jrib> tuna-fish- loads fine here
+[11:58] <jrib> xgl ox
+[11:58] <jrib> renihs dfcarney it may make sense to make the installationnetboot a link though
+[11:58] <jrib> abarbaccia pipe to sudo tee
+[11:58] <jrib> pons it's not stable
+[11:58] <jrib> pons feisty questions should go to ubuntu though
+[11:58] <jrib> pons yes
+[11:58] <jrib> tabber what i can tell you is beryl is not stable i just returned from a reboot after x locking up
+[11:58] <jrib> tabber nvidia
+[11:58] <jrib> eps the wiki page claims you should use nvidia-xconfig in edgy
+[11:58] <jrib> eps yep 'nvidia-xconfig' is the whole command
+[11:58] <jrib> nolimitsoya dangerous
+[11:58] <jrib> nolimitsoya so it's not dangerous if you use it correctly
+[11:58] <jrib> ulixes
+[11:58] <jrib> ailean edit bootgrubmenulst with your favorite text editor
+[11:58] <jrib> ailean no read the comments about default
+[11:58] <jrib> alternate drkwol
+[11:58] <jrib> startswithz what folder
+[11:58] <jrib> startswithz chmod things outside your home is a way to end up reinstalling
+[11:58] <jrib> startswithz ok
+[11:58] <jrib> samba valmarko
+[11:58] <jrib> fenrig no buy it if you want to use it
+[11:58] <jrib> startswithz why not just try and if it deosn't work then use
+[11:58] <jrib> intangir because they are in your etcaptsourceslist
+[11:58] <jrib> drcode dpkg -l pzip grep bin
+[11:58] <jrib> drcode yes that command will tell you what commands you have
+[11:58] <jrib> drcode it seems to install zr and pzip as commands you can run
+[11:58] <jrib> drcode i don't know what xarchive is
+[11:58] <jrib> tohellwithga -r
+[11:58] <jrib> sudo rob
+[11:58] <jrib> krystyna what program and what are the warnings
+[11:58] <jrib> krystyna you need to provide more information
+[11:58] <jrib> krystyna why not just say it here
+[11:58] <jrib> helpme crouic
+[11:58] <jrib> krystyna what language do you prefer
+[11:58] <jrib> lamp ubunturob
+[11:58] <jrib> fuse phiqtion
+[11:58] <jrib> krystyna ok join me in ubuntu-classroom there won't be as much traffic there
+[11:58] <jrib> rob have you read the page on sudo that ubotu told you about
+[11:58] <jrib> rob no
+[11:58] <jrib> rob read the page ubotu told you about
+[11:58] <jrib> sudo rob
+[11:58] <jrib> enter fenrig
+[11:58] <jrib> fenrig please don't use enter as punctuation
+[11:58] <jrib> rob i don't understand why you don't just read that page and solve your problem
+[11:58] <jrib> rob does the page mention that anywhere
+[11:58] <jrib> ops
+[11:58] <jrib> infeliz please don't write those commands here
+[11:58] <jrib> psyke system preferences session startup
+[11:58] <jrib> genben do you have multiverse
+[11:58] <jrib> genben pastebin your sourceslist please
+[11:58] <jrib> genben k
+[11:58] <jrib> genben not for me
+[11:58] <jrib> genben exactly
+[11:58] <jrib> mzanfardino why would you delete it
+[11:58] <jrib> lamp cmweb
+[11:58] <jrib> cmweb does that page help you
+[11:58] <jrib> cmweb but it tells you how to setup php with apache what step doesn't work
+[11:58] <jrib> cmweb
+[11:58] <jrib> mzanfardino personally i would remove the local installation of java you have install from the repositories and then use alternatives to point to that one
+[11:58] <jrib> a ndy with the rename command do you know regex
+[11:58] <jrib> mzanfardino ok check for me if you have any packaged java installed already
+[11:58] <jrib> a ndy rename -n 'smpmp' -- try this it won't do anything unless you remove the -n
+[11:58] <jrib> a ndy maybe this is a little better rename -n 'smpmp' mp
+[11:58] <jrib> a ndy yes that command should work did you try it
+[11:58] <jrib> mzanfardino ok so we need to install that remove the installation you have in usrlocal
+[11:58] <jrib> mzanfardino yep
+[11:58] <jrib> a ndy use find
+[11:58] <jrib> a ndy or zsh
+[11:58] <jrib> mzanfardino what version of ubuntu
+[11:58] <jrib> a ndy it should you need to get rid of -n or else it won't actually change the name
+[11:58] <jrib> a ndy oops no that won't work use xargs rename
+[11:58] <jrib> mzanfardino ok install sun-java-plugin
+[11:58] <jrib> mzanfardino pastebin your etcaptsourceslist please
+[11:58] <jrib> a ndy do any files have spaces
+[11:58] <jrib> a ndy what does the -r do and you have to get rid of the -n
+[11:58] <jrib> a ndy find mediausbdiskmp -iname 'mp' -print xargs - rename 'smpmp'
+[11:58] <jrib> mzanfardino you don't have edgy multiverse
+[11:58] <jrib> only backprots
+[11:58] <jrib> mzanfardino add multiverse to the end of every line with universe in it but no multiverse lines and
+[11:58] <jrib> a ndy self explanatory though right
+[11:58] <jrib> fozzie don't ask for help just repeat your question once in a while
+[11:58] <jrib> mzanfardino sudo apt-get update
+[11:58] <jrib> a ndy and both files don't exist filomenamp and filomenamp
+[11:58] <jrib> a ndy hmm weird
+[11:58] <jrib> mzanfardino it will get installed automatically
+[11:58] <jrib> valmarko adobe's site
+[11:58] <jrib> mzanfardino no you'll have to take care of that
+[11:58] <jrib> mzanfardino yeah i guess do a 'dpkg -s whateverfile' first that will tell you if it belongs to any package
+[11:58] <jrib> a ndy what if you issue the rename command directly on the file
+[11:58] <jrib> mzanfardino leave those
+[11:58] <jrib> mzanfardino wait
+[11:58] <jrib> mzanfardino make sure you get rid of that java link that doesn't point to alternatives then do this command sudo update-alternatives --config firefox-javapluginso
+[11:58] <jrib> valmarko where did you install it to
+[11:58] <jrib> valmarko you need to be more specific for me to help you
+[11:58] <jrib> mzanfardino right you want
+[11:58] <jrib> mzanfardino close all firefox and start it again now to test
+[11:58] <jrib> mzanfardino pastebin what 'ls -l usrlibfirefoxplugins' looks like now pastebin the page 'aboutplugins' displays in firefox too
+[11:58] <jrib> mzanfardino you have two of them i don't know if this would cause it to not work but we should fix that i don't think firefox-javapluginso belongs use dpkg -s and see
+[11:58] <jrib> mzanfardino after you take care of that what does this return readlink -f which firefox
+[11:58] <jrib> mzanfardino dpkg -s capital and give the full path
+[11:58] <jrib> mzanfardino ok delete it that's the one you put back probably
+[11:58] <jrib> mzanfardino does that tell you anything
+[11:58] <jrib> mzanfardino yeah you are using your own private installation of firefox edgy has firefox so i would just get rid of your private one do this to test things out close firefox then run 'usrbinfirefox' in a terminal
+[11:58] <jrib> daniminas it has a compiler not sure about cvs install build-essential from the cd to get basic development stuff
+[11:58] <jrib> daniminas is this computer without internet access
+[11:58] <jrib> mzanfardino ok don't run firefox as root pastebin the aboutplugins from the new firefox
+[11:58] <jrib> vfat hoornet
+[11:58] <jrib> fixres esaym
+[11:58] <jrib> drkm maybe with a theme not sure
+[11:58] <jrib> hndaracer what file
+[11:58] <jrib> esaym you selected that when you ran dpkg-reconfigure
+[11:58] <jrib> esaym did you chec system preferences screen resolution now
+[11:58] <jrib> mzanfardino ha no i think i know what happened you have usrbinfirefox diverted so it points to that one
+[11:58] <jrib> mzanfardino close firefox again and run usrlibfirefoxfirefox
+[11:58] <jrib> gnomefreak no i just live with it
+[11:58] <jrib> gnomefreak it seems to be a bug in the nvidia driver
+[11:58] <jrib> hndaracer what do you mean
+[11:58] <jrib> mzanfardino ah is java working now
+[11:58] <jrib> hndaracer join ubuntu-classroom and i'll walk you through it
+[11:58] <jrib> mzanfardino dpkg-divert --list 'firefox' turn anything up
+[11:58] <jrib> hndaracer yep
+[11:58] <jrib> mzanfardino follow the removal instructions here you only need to restore symbolic links don't worry about profile and yes you can delete optfirefox
+[11:58] <jrib> mzanfardino direct link
+[11:58] <jrib> cmweb i think it won't be setup to use php with phtml files see if it works if you rename it to php or is it already named that
+[11:58] <jrib> anyone aeromix
+[11:58] <jrib> drkm bunzip filebz
+[11:58] <jrib> cmweb did you restart apache
+[11:58] <jrib> cmweb do you have apache installed as well as apache
+[11:58] <jrib> cmweb the servers start on their own
+[11:58] <jrib> cmweb clear your browser cache or try a different one
+[11:58] <jrib> kuto gets set in etcenvironment i believe
+[11:58] <jrib> anyone ady
+[11:58] <jrib> ljl great now everyone knows p
+[11:58] <jrib> computermc mysql-admin is in the universe repository
+[11:58] <jrib> caljohn does it work after you do 'xrdb -merge xdefaults'
+[11:58] <jrib> caljohn also what is the for i've never used that
+[11:58] <jrib> caljohn comments use a in those files
+[11:58] <jrib> caljohn maybe that was the problem
+[11:58] <jrib> caljohn is mine and it seems to work can you try that file
+[11:58] <jrib> caljohn weird i change font size and it doens't seem to affect it the other stuff seems to work though i changed the height to rows
+[11:58] <jrib> caljohn do other settings work for you
+[11:58] <jrib> caljohn what if you specify it with a switch to urxvt itself
+[11:58] <jrib> kuto have you install openssh-server
+[11:58] <jrib> kuto well you need the server to connect to
+[11:58] <jrib> kuto system administration networking to change it
+[11:58] <jrib> kuto the relevant files are etchostname and etchosts if you decide to edit these by hand for some reason make sure they agree
+[11:58] <jrib> caljohn when in doubt head to bug tracker
+[11:58] <jrib> kuto system administration networking hit the general tab
+[11:58] <jrib> kuto that is the gnome equivalent do you not have the administration menu
+[11:58] <jrib> fernandocordes rm -r directory
+[11:58] <jrib> kuto oh well you need them to change the hostname can you switch to the user that does have admin privs
+[11:58] <jrib> kuto how
+[11:58] <jrib> caljohn yeah i had always used it with capital letters too
+[11:58] <jrib> untony hello
+[11:58] <jrib> caljohn did you merge
+[11:58] <jrib> geoffrey ctrl-alt-f
+[11:58] <jrib> caljohn well the size was changing but the font wasn't it used to work fine on previous versions of ubuntu
+[11:58] <jrib> untony hit the general tab
+[11:58] <jrib> untony ok
+[11:58] <jrib> geoffrey turn off your computer what do you mean exactly
+[11:58] <jrib> untony etchosts but if you edit the one for you ahve to update etchostname
+[11:58] <jrib> untony you only have to ask your question once
+[11:58] <jrib> geoffrey
+[11:58] <jrib> geoffrey
+[11:58] <jrib> untony
+[11:58] <jrib> untony do this in ubuntu-offtopic not here
+[11:58] <jrib> generic ski-worklap
+[11:58] <jrib> drcode why do you need z and za specifically pzip gives you usrbinzr and usrbinpzip
+[11:58] <jrib> drcode i'm going to install xarchive to see one sec
+[11:58] <jrib> drcode by the way do you know that file-roller the default archive manager will be able to use pzip too
+[11:58] <jrib> diskmounter matt
+[11:58] <jrib> matt maybe consider pysdm too
+[11:58] <jrib> pzip drcode
+[11:58] <jrib> dumb bot
+[11:58] <jrib> z drcode
+[11:58] <jrib> drcode oh well i'm not sure file-roller is really gnome-specific
+[11:58] <jrib> drcode found it you need to install pzip-full
+[11:58] <jrib> cdavis apt-cache policy packagename
+[11:58] <jrib> cdavis dpkg -l or aptitude search 'i'
+[11:58] <jrib> ox ubuntu-xgl
+[11:58] <jrib> flasher use purge not remove
+[11:58] <jrib> flasher install p
+[11:58] <jrib> flasher yes i don't know of another way
+[11:58] <jrib> red-sox -suggestion- pastebin your sourceslist
+[11:58] <jrib> red-sox are you using dapper or edgy
+[11:58] <jrib> red-sox are you aware that your sourceslist is a mess of dapper and edgy
+[11:58] <jrib> red-sox yes
+[11:58] <jrib> red-sox mine is a mess too just use source-o-matic
+[11:58] <jrib> red-sox ok one second
+[11:58] <jrib> red-sox
+[11:58] <jrib> nothlit google for unable to open files list file for package i'm doing the same
+[11:58] <jrib> multimedia varanger
+[11:58] <jrib> backports blue
+[11:58] <jrib> shiner why not
+[11:58] <jrib> shiner pastebin the output as well as your etcaptsourceslist please
+[11:58] <jrib> pastebin shiner
+[11:58] <jrib> shredder not here
+[11:58] <jrib> nothlit what happened to that list file you couldn't read
+[11:58] <jrib> nothlit i don't really know waht to do with filesystem errors like that other than fsck
+[11:58] <jrib> shredder use please
+[11:58] <jrib> shiner use please
+[11:58] <jrib> nothlit
+[11:58] <jrib> shiner what's the url and paste the error too please
+[11:58] <jrib> walter applicatiosn sound and video sound juicer
+[11:58] <jrib> walter i thought you meant extract the tracks did you mean actually copying a cd to another cd
+[11:58] <jrib> nothlit no
+[11:58] <jrib> walter have you tried gnomebacker graveman or kb
+[11:58] <jrib> walter gnomebaker
+[11:58] <jrib> shiner maybe add your beryl repo too
+[11:58] <jrib> shiner wait are you not using edgy
+[11:58] <jrib> newrhyme install build-essential
+[11:58] <jrib> shiner are you actually using edgy
+[11:58] <jrib> shiner yes now sudo apt-get update
+[11:58] <jrib> newrhyme it should be do you not have internet access
+[11:58] <jrib> shiner did you get rid of the line numbers
+[11:58] <jrib> newrhyme want to tell us the error message
+[11:58] <jrib> tjb you need a mount point
+[11:58] <jrib> shiner oh by the way those were canadian mirrors so if you don't live near canada you may want to change that
+[11:58] <jrib> kde knight
+[11:58] <jrib> newrhyme the command is 'sudo apt-get install build-essential'
+[11:58] <jrib> shiner no is edgy
+[11:58] <jrib> newrhyme the apt-get part is important
+[11:58] <jrib> superlag no either use aptitude to install and remove or try apt-get autoremove
+[11:58] <jrib> synaptic newrhyme
+[11:58] <jrib> apt newrhyme
+[11:58] <jrib> newrhyme take a look at the faq linked in the topic
+[11:58] <jrib> newrhyme how did you use su
+[11:58] <jrib> knight what theme
+[11:58] <jrib> mgcrux what package what problem
+[11:58] <jrib> newrhyme try to use my name or what you say might get lost in the scrollback you aren't using su correctly
+[11:58] <jrib> newrhyme su foo means switch to user foo
+[11:58] <jrib> knight what theme do you have a link to it
+[11:58] <jrib> mgcrux put your error output from apt-get on and give us the url
+[11:58] <jrib> beryl shiner
+[11:58] <jrib> shiner pastebin your new sourceslist
+[11:58] <jrib> knight what theme do you have a link to it
+[11:58] <jrib> mgcrux it's a bug in the package what do you need this for
+[11:58] <jrib> knight link me to it so i can try it it usually means it was improperly formatted by the uploaded but you can still install it
+[11:58] <jrib> mgcrux pastebin the output from this command grep -a python-httplib varlibdpkgstatus
+[11:58] <jrib> knight it's not a dos prompt it's a bash prompt probably so everything is working for you now
+[11:58] <jrib> mgcrux ok varlibdpkginfopython-httplibprerm pastebin that
+[11:58] <jrib> mgcrux ok here's the problem if you look at the prerm script it's using pycentral pycentral requires you to have a python-version in the package's control file this package doesn't do that since you want to remove the package and it didn't use pycentral when it installed since it errored there too i would just get rid of that in the prerm script make it go to the else clause
+[11:58] <jrib> mgcrux the easiest way to do that would be to put false in front of which python in the test that if does
+[11:58] <jrib> alarm how did you install
+[11:58] <jrib> alarm no idea where that goes use the package in multiverse
+[11:58] <jrib> java alarm
+[11:58] <jrib> alarm you said you didn't install it through the package manager
+[11:58] <jrib> seveas wfm too
+[11:58] <jrib> seveas and at the same time we recommend gui apps be run with gksudo
+[11:58] <jrib> alarm i understand that i am suggesting you use the packaged java to fix your problem
+[11:58] <jrib> capslock libc is what you are looking for actually you probably just want to install build-essential
+[11:58] <jrib> capslock default is bash
+[11:58] <jrib> capslock as you login shell if that is what you are asking
+[11:58] <jrib> capslock i said it was your default login shell that's not the same as what binsh points to sudo dpkg-reconfigure dash if you want to use bash all the time instead of dash
+[11:58] <jrib> capslock why not ask cedega for support
+[11:58] <jrib> jhasse rapidsvn
+[11:58] <jrib> moosejaw printscreen
+[11:58] <jrib> cursr use mplayer's filters maybe rotate and flip
+[11:58] <jrib> cursr mirror
+[11:58] <jrib> cursr conveniently that was right above rotate in the docs
+[11:58] <jrib> blanky df -h if you want to read it
+[11:58] <jrib> goldbond disable the cd-rom repository
+[11:58] <jrib> packagedeliverer for
+[11:58] <jrib> packagedeliverer not sure have you checked man syslogd and taken a look at etcsyslogconf
+[11:58] <jrib> packagedeliverer man syslogconf looks full of information too
+[11:58] <jrib> cursr what is ftgl
+[11:58] <jrib> cursr ftgl-dev is in the repos is that the same
+[11:58] <jrib> anyone tur
+[11:58] <jrib> ezerhoden have you tried searching packagesubuntucom
+[11:58] <jrib> ezerhoden xproto-core-dev is what you want i think
+[11:58] <jrib> darkness this one
+[11:58] <jrib> patience darkness
+[11:58] <jrib> hmm that isn't what i meant
+[11:58] <jrib> darkness sometimes people don't know the answer just wait a bit and repeat maybe every minutes so new people can see your question
+[11:58] <jrib> darkness yes it's an easy installation
+[11:58] <jrib> mikebot helpubuntucom bugsubuntucom ubuntuforumsorg are good starts followed by
+[11:58] <jrib> advcomp yes
+[11:58] <jrib> ubut what filesystem
+[11:58] <jrib> ubut sudo mkdir mediawindows sudo mount -t ntfs -o umask devhda mediawindows i think
+[11:58] <jrib> mastertux if it's ntfs he shouldn't chmod after mounting he should just mount with a proper umask
+[11:58] <jrib> mastertux how you have to chmod everytime then if you stick the umask in your fstab then you don't worry about it
+[11:58] <jrib> mastertux right
+[11:58] <jrib> mp ubut
+[11:58] <jrib> red-sox don't install into usr
+[11:58] <jrib> compile red-sox
+[11:58] <jrib> kohr have you installed the wcodecs
+[11:58] <jrib> wcodecs kohr
+[11:58] <jrib> kohr no not in default repositories the restricted formats page tells you
+[11:58] <jrib> info mpblaster ubut
+[11:58] <jrib> universe ubut
+[11:58] <jrib> red-sox you probably don't have the dependencies you need look for a readme or install file
+[11:58] <jrib> red-sox or read the errors from configure
+[11:58] <jrib> levander type 'groups' in a terminal and tell us the output
+[11:58] <jrib> ubut are you using edgy
+[11:58] <jrib> ubut then don't use edgy sourceslist
+[11:58] <jrib> levander you aren't in the admin group
+[11:58] <jrib> levander i don't know just add yourself back
+[11:58] <jrib> levander yes admin is not the same as adm
+[11:58] <jrib> levander i never used warty but as far as i can remember hoary it has been admin
+[11:58] <jrib> multiverse hemanth
+[11:58] <jrib> levander yes
+[11:58] <jrib> levander what does your etcsudoers look like
+[11:58] <jrib> levander adm is for reading stuff in varlog
+[11:58] <jrib> levander ok then i guess that isn't the issue
+[11:58] <jrib> levander yes i do
+[11:58] <jrib> players dark-shadow
+[11:58] <jrib> dark-shadow i don't think there really is one use one of the audio players to keep a music library and use a video player to play your videos
+[11:58] <jrib> saturnus-irc ps gets set in bashrc that's what you want to edit google for bash prompt customization maybe
+[11:58] <jrib> ken right click on the ubuntu icon in the menu edit menu
+[11:58] <jrib> duesentrieb change the underscores to dashes
+[11:58] <jrib> compile ken
+[11:58] <jrib> duesentrieb linux-image--- owns that file for me for that kernel
+[11:58] <jrib> anyone rmyou
+[11:58] <jrib> duesentrieb linux-image---generic libmodules--generickernelsoundpcihdasnd-hda-intelko too
+[11:58] <jrib> duesentrieb dpkg -l linux-image---generic grep snd-hda-intel
+[11:58] <jrib> duesentrieb yeah
+[11:58] <jrib> minimec usually you will want to use the version in the repositories
+[11:58] <jrib> minimec unless sine you are on the beryl site you intend on installing beryl are you
+[11:58] <jrib> minimec you don't install nvidia drivers for ati cards i'm not really sure what you need for ati check with the people at ubuntu-xgl
+[11:58] <jrib> minimec i think you confused me are you talking about two different systems one that has an ati card and one that has an nvidia one
+[11:58] <jrib> es mmholguin
+[11:58] <jrib> brasileiro what lib are you talking about it could be harmless it could make programs not work
+[11:58] <jrib> paste ken
+[11:58] <jrib> minimec ah ok yeah the driver they link on the beryl wiki is the beta driver and it provides those patches you were describing but remember it is still beta
+[11:58] <jrib> ken have you read the wiki page on compiling
+[11:58] <jrib> ken you need the qt dev packages
+[11:58] <jrib> minimec well the nvidia driver will give you a lot better performance i use it
+[11:58] <jrib> ken install did you install qt dev packages
+[11:58] <jrib> minimec yes that's what i would do but keep in mind it's beta i've had some lockups
+[11:58] <jrib> ken how about libqt-dev
+[11:58] <jrib> upgrade cactuswizard
+[11:58] <jrib> eia how is it broken
+[11:58] <jrib> eia check if wxmaxima has a bug report as well
+[11:58] <jrib> kde paranoia
+[11:58] <jrib> apokryphos i think i'm going to start using that too
+[11:58] <jrib> tuqann this
+[11:58] <jrib> webcam benjamin
+[11:58] <jrib> james have you checked your permissions on stuff in home
+[11:58] <jrib> james what did you check
+[11:58] <jrib> james stuff inside home
+[11:58] <jrib> james run this command find -user user
+[11:58] <jrib> james no probably not
+[11:58] <jrib> james you don't even know if it was automatix yet
+[11:58] <jrib> james no run my command please
+[11:58] <jrib> james what did it say
+[11:58] <jrib> james not here
+[11:58] <jrib> james ls -ld homejamesconfigautostart please
+[11:58] <jrib> james that's your permission problem
+[11:58] <jrib> james since you have a bunch of stuff that is root owned in your home directory i would recommend sudo chown -r useruser
+[11:58] <jrib> james now try to add stuff to startup
+[11:58] <jrib> james of course don't run programs with sudo unless you need to
+[11:58] <jrib> bruenig x-www-browser may be what you want
+[11:58] <jrib> hoxzer probably you have version and the site wants a newer one
+[11:58] <jrib> eddie maybe try suse
+[11:58] <jrib> nvidia semboy
+[11:58] <jrib> anyone bookwom
+[11:58] <jrib> bookwom yes what is your next question
+[11:58] <jrib> ndiy you can pass a regex to locate
+[11:58] <jrib> automatix semboy
+[11:58] <jrib> ndiy man locate should say i don't remember the exact switch
+[11:58] <jrib> defaultapp astronouth
+[11:58] <jrib> ndiy heh well it will give you better info than me let me know if it isn't clear
+[11:58] <jrib> hoxzer idk what site
+[11:58] <jrib> bookwom did you save
+[11:58] <jrib> hoxzer what site isn't working
+[11:58] <jrib> bookwom that should work what path did you use
+[11:58] <jrib> cchristiantpclon hi
+[11:58] <jrib> hoxzer what version does this site say you have
+[11:58] <jrib> bookwom try autologpath irclogstaglog that's what i have that we we can see if that is the issue
+[11:58] <jrib> hoxzer weird that link you gave me works here
+[11:58] <jrib> hoxzer you have any extensions
+[11:58] <jrib> bookwom what is your autologlevel
+[11:58] <jrib> bookwom autologlevel all -crap -clientcrap -ctcps
+[11:58] <jrib> hoxzer try without extensions create a new firefox profile what is the exact error string you get on the site
+[11:58] <jrib> cchristiantpclon sudo gedit bootgrubmenulst is that what you mean and please don't use caps
+[11:58] <jrib> ndiy i would just do locate xastir grep bin
+[11:58] <jrib> bookwom pastebin all the stuff you get when you do set log
+[11:58] <jrib> bookwom yes it should be
+[11:58] <jrib> caps cchristiantpclon
+[11:58] <jrib> cchristiantpclon state your question with all relevant information in one line
+[11:58] <jrib> bookwom if you edited config while irssi is running it may save the values it had when it exits
+[11:58] <jrib> bytecolor i don't think it's different
+[11:58] <jrib> bookwom
+[11:58] <jrib> firewall miniman
+[11:58] <jrib> bookwom i don't think it's case-sensitive
+[11:58] <jrib> enter joakim
+[11:58] <jrib> bookwom just do set autlog on followed by save
+[11:58] <jrib> bookwom but spell autolog right
+[11:58] <jrib> lamp lepousson
+[11:58] <jrib> ndiy du -sh
+[11:58] <jrib> ndiy or right click properties
+[11:58] <jrib> ndiy look at the contents field
+[11:58] <jrib> bookwom great
+[11:58] <jrib> reinh edgy
+[11:58] <jrib> reinh it was released in october
+[11:58] <jrib> aquarius try launchpad maybe
+[11:58] <jrib> joakim what window manager are you using
+[11:58] <jrib> offtopic shaman
+[11:58] <jrib> seveas ping what is that
+[11:58] <jrib> restricted valmarko
+[11:58] <jrib> fixres boglizk
+[11:58] <jrib> boglizk check system preferences screen resolution first
+[11:58] <jrib> boglizk k then that wiki page should help
+[11:58] <jrib> rance yes install bsdmainutils
+[11:58] <jrib> rance you can use packagesubuntucom to search for stuff instide packages
+[11:58] <jrib> meetagee no codecs
+[11:58] <jrib> justnew
+[11:58] <jrib> justnew even better
+[11:58] <jrib> nvidia ht
+[11:58] <jrib> fr please post your etcaptsourceslist on and give us a url please
+[11:58] <jrib> fr also what pacakge are you trying to install
+[11:58] <jrib> fr you don't have edgy multiverse you only have edgy-backports multiverse
+[11:58] <jrib> gunsandroses please don't type with all those
+[11:58] <jrib> fr add multiverse to the end of lines and
+[11:58] <jrib> marmer cron
+[11:58] <jrib> cron marmer
+[11:58] <jrib> chimai it's not but this isn't the right channel for that
+[11:58] <jrib> repeat con-man
+[11:58] <jrib> con-man please don't repeat
+[11:58] <jrib> con-man don't do that the bot is clearly not working
+[11:58] <jrib> scott beryl is a fork of compiz it's less stable but has more features
+[11:58] <jrib> nzhomie apt-cache search lib xml parser perl
+[11:58] <jrib> apt nzhomie
+[11:58] <jrib> nzhomie apt-cache search lib xml parser perl
+[11:58] <jrib> nzhomie if you add a -n you'll get only the result you want -n makes it search pacakge names only
+[11:58] <jrib> nzhomie apt-get and apt-cache are just comamnd line ways of doing what synaptic does
+[11:58] <jrib> crimson there has been for a while
+[11:58] <jrib> limewire crimson
+[11:58] <jrib> crimson i'd recommend frostwire
+[11:58] <jrib> or gtk-gnutella that's good too
+[11:58] <jrib> anyone rck
+[11:58] <jrib> rck what guide did you install java from the repositories
+[11:58] <jrib> frostwire
+[11:58] <jrib> rck don't paste here
+[11:58] <jrib> multijava rck
+[11:58] <jrib> indygunfreak you'd have to edit your icon theme afaik
+[11:58] <jrib> indygunfreak it's easy if you are using one in icons just navigate to that directory and replace the appropriate icons
+[11:58] <jrib> indygunfreak then you are using something in usrshareicons i would copy the theme to icons give it a new name there might be some config file and then edit the theme to whatever you want
+[11:58] <jrib> nevron glxinfo grep direct
+[11:58] <jrib> wall search amazon for official ubuntu book if you want something on paper but those online goods are very good
+[11:58] <jrib> method files won't get deleted if they are being used even if they aren't visible isn't visible
+[11:58] <jrib> nevron you should get direct rendering enabled first what card
+[11:58] <jrib> nevron i don't know about ati cards have you been linked to the wiki
+[11:58] <jrib> enter saharaab
+[11:58] <jrib> saharaab do you have a support question
+[11:58] <jrib> lamp menasim
+[11:58] <jrib> rwberry run them in a terminal and see if you get information
+[11:58] <jrib> sudo gosha
+[11:58] <jrib> gosha sedra the wiki page should answer your questions if after reading it something still isn't clear just ask
+[11:58] <jrib> realplayer sedra
+[11:58] <jrib> sedra
+[11:58] <jrib> version wizcraker
+[11:58] <jrib> shadowhywind yep
+[11:58] <jrib> max pastebin the full error including your command
+[11:58] <jrib> pastebin max
+[11:58] <jrib> fifafrazer what are you installing
+[11:58] <jrib> fifafrazer gpsim is in the repositories no need to compile
+[11:58] <jrib> info gpsim fifafrazer
+[11:58] <jrib> realplayer bigtoe
+[11:58] <jrib> fifafrazer ktechlab is in the repos as well
+[11:58] <jrib> bigtoe sudo update-alternatives --config x-www-browser
+[11:58] <jrib> fifafrazer they have ubuntu packages on the ktechlab site
+[11:58] <jrib> fifafrazer pastebin your command and its output though if you want to troubleshoot the problem
+[11:58] <jrib> ljl no idea but man fsck explains - file system errors corrected
+[11:58] <jrib> ljl raising skinny elephants is utterly boring
+[11:58] <jrib> nevron why that usually doesn't resolve anything but it is 'sudo aptitude reinstall packagename'
+[11:58] <jrib> riyonuk with vmware
+[11:58] <jrib> superkirbyartist msg nickserv help set password
+[11:58] <jrib> naylor what have you tried do you have any unoffical repo
+[11:58] <jrib> fangorious are you using beryl
+[11:58] <jrib> fangorious yeah bug
+[11:58] <jrib> fangorious it happens randomly for me try beryl or ubuntu-xgl
+[11:58] <jrib> saxin what language
+[11:58] <jrib> saxin i would recommend python check out docspythonorg tutorial as well as diveintopythonorg
+[11:58] <jrib> saxin because it's my favorite and really easy to learn the basics
+[11:58] <jrib> theresalinx amsn is in the repositories
+[11:58] <jrib> info amsn theresalinx
+[11:58] <jrib> theresalinx do you know about synaptic
+[11:58] <jrib> theresalinx system administration synaptic
+[11:58] <jrib> theresalinx if you ahve enabled the universe repository you can install amsn using synaptic
+[11:58] <jrib> sudo error
+[11:58] <jrib> factboy no but i am going to try now please don't paste here
+[11:58] <jrib> factboy meld opens fine here what version of ubuntu are you using and how do you run meld
+[11:58] <jrib> factboy meld opens fine here what version of ubuntu are you using and how do you run meld
+[11:58] <jrib> factboy do you just execute meld
+[11:58] <jrib> factboy see if meld old new works for you
+[11:58] <jrib> factboy same error output
+[11:58] <jrib> factboy use vimdiff umm pastebin the files you are trying so i can try here
+[11:58] <jrib> factboy what does this return mdsum usrlibmeldfilediffpy
+[11:58] <jrib> factboy do usrlibmeldmeldapppy as well
+[11:58] <jrib> factboy can you start a python shell and import bonoboui without error
+[11:58] <jrib> factboy have you used any unofficial repositories or packages
+[11:58] <jrib> factboy i mean other than meld in general
+[11:58] <jrib> factboy what's in your usrlocal
+[11:58] <jrib> kde lewisrj
+[11:58] <jrib> factboy ok what about ls -r usrlocallibpython
+[11:58] <jrib> factboy ok how about ls -r usrlocallibshare
+[11:58] <jrib> dm you usually just run it what are you trying to run
+[11:58] <jrib> factboy lol
+[11:58] <jrib> factboy you must have a lot of stuff in usrlocal
+[11:58] <jrib> factboy what's ls usrlocallib
+[11:58] <jrib> factboy trying to figure out what is responsible for typelib
+[11:58] <jrib> factboy pastebin python -c import sys print syspath
+[11:58] <jrib> sapo consider reinstalling mysql-common
+[11:58] <jrib> zoss can you be more vague
+[11:58] <jrib> factboy i'm not really sure what is responsible for typelib check that all of your packages with orbit or bonobo in the name are ok
+[11:58] <jrib> factboy all i get on google is old bugs about a missing file in the bonobo packages
+[11:58] <jrib> factboy yeah
+[11:58] <jrib> factboy suggestions for obtaining such a list
+[11:58] <jrib> factboy do you have python-gnome-extras
+[11:58] <jrib> factboy see if running orbitloadtypelib'bonobo'
+[11:58] <jrib> factboy in python gives you better info
+[11:58] <jrib> factboy you need to import orbit first
+[11:58] <jrib> factboy these are the packages i have installed with the word bonobo in them libbonobo- libbonobo-common libbonobo-dev libbonoboui- libbonoboui-common libbonoboui-dev liblpint-bonobo-dev liblpint-bonobo yes import orbit
+[11:58] <jrib> factboy we have to learn more about typelib then see if you can find anything
+[11:58] <jrib> factboy ls usrliborbit-
+[11:58] <jrib> ntfs shaezsche
+[11:58] <jrib> aarn ffs
+[11:58] <jrib> cafuego didn't know about the first one but i was wondering what the reason for it was
+[11:58] <jrib> anyone shan
+[11:58] <jrib> factboy poke
+[11:58] <jrib> hndaracer try python docspythonorg tutorial and diveintopythonorg are a good start
+[11:58] <jrib> factboy hi
+[11:58] <jrib> zoss when you start your computer is it jsut going straight to windows now
+[11:58] <jrib> factboy ls usrliborbit-
+[11:58] <jrib> factboy ah ha you are missing bonobomoduleso
+[11:58] <jrib> factboy sudo aptitude reinstall libbonobo-common
+[11:58] <jrib> printing cablguy
+[11:58] <jrib> cablguy those middle links should have info for you
+[11:58] <jrib> factboy np give vimdiff a try if you like vim it's pretty similar
+[11:58] <jrib> mariano what version
+[11:58] <jrib> mariano strange do you have anything else playing sound before you start it
+[11:58] <jrib> wccv it's org it will redirect to whatever the new site is
+[11:58] <jrib> arrenlex ldd
+[11:58] <jrib> apt nevron
+[11:58] <jrib> rtex for upgrading from to yes
+[11:58] <jrib> nevron all this stuff it's usually one command for one thing you want to do people usually make aliases there are some recommendations on the wiki page
+[11:58] <jrib> nevron k then you can write that if you want but how often are you really going to be doing that
+[11:58] <jrib> nevron well a script to automate the process won't help pastebin your errors
+[11:58] <jrib> nevron use aptitude purge blah
+[11:58] <jrib> or that
+[11:58] <jrib> nevron sure that will work
+[11:58] <jrib> easysource nevron
+[11:58] <jrib> nevron make a dapper one and change all the dapper to edgy
+[11:58] <jrib> nevron probably hasn't gotten a chance to
+[11:58] <jrib> nevron yep
+[11:58] <jrib> nevron i don't kow anything about dual head have you read the xinerama wiki page
+[11:58] <jrib> paste ozfrog
+[11:58] <jrib> ozfrog quit and rejoin
+[11:58] <jrib> momal libmad-dev
+[11:58] <jrib> mattfletcher what styles are missing just name a few it's latex by the way
+[11:58] <jrib> mattfletcher check if tetex-extra is installed
+[11:58] <jrib> version mattfletcher
+[11:58] <jrib> mattfletcher try to get your friend to ask for help himself it's a lot easier that way
+[11:58] <jrib> de flitzekacke
+[11:58] <jrib> i think that's german
+[11:58] <jrib> ops
+[11:58] <jrib> mattfletcher irc is not a difficult thing check his sourceslist
+[11:58] <jrib> it sanacore
+[11:58] <jrib> x-rt-x hi
+[11:58] <jrib> mattfletcher no you don't need a freenode account to speak all he has to do is connect with gaim or xchat i don't know about gaim but if he installs xchat he should be able to just open the program and be brought ehre automatically
+[11:58] <jrib> mattfletcher xchat used to be installed by default now gaim seems to have taken that role he can use gaim i've just never seen how gaim is setup by default now he can use the forums or mailing lists too and remember everyone is a volunteer
+[11:58] <jrib> support mattfletcher
+[11:58] <jrib> mattfletcher k
+[11:58] <jrib> mattfletcher i think the expecation is that system help doucmentation will tell you how to get here
+[11:58] <jrib> mattfletcher i think removing xchat was the wrong decision as well
+[11:58] <jrib> mattfletcher we should take this to -offtopic now though
+[11:58] <jrib> patience robin
+[11:58] <jrib> enter robin
+[11:58] <jrib> seveas robin
+[11:58] <jrib> robin seveas' repositories has debs for libdvdcss use them instead
+[11:58] <jrib> invisible vi pathtofile run 'vimtutor' for a quick tutorial
+[11:58] <jrib> invisible if you are just interested in editing a file and don't want to learn to use vi use nano
+[11:58] <jrib> paste wooksta
+[11:58] <jrib> wooksta what version of ubuntu are you using
+[11:58] <jrib> wooksta do you have the linux restricted modules for your kernel
+[11:58] <jrib> feisty radaralt
+[11:58] <jrib> wooksta what does uname -r say
+[11:58] <jrib> wooksta i think the command is just 'nvidia xconfig' now
+[11:58] <jrib> wooksta i think the command is just 'nvidia-xconfig' now
+[11:58] <jrib> suckamc gnash
+[11:58] <jrib> wooksta np may want to file a bug on those docs if there isn't one already
+[11:58] <jrib> leobloom what version of ubuntu what are you trying to install pastebin your etcaptsourceslist please
+[11:58] <jrib> leobloom type 'gedit etcaptsourceslist' in a terminal then copy and paste into then give us a url
+[11:58] <jrib> minnmass pastebin your errors and your etcaptsourceslist
+[11:58] <jrib> fixres aanhorn
+[11:58] <jrib> leobloom no you made a typo
+[11:58] <jrib> wooksta join automatix for help with automatix
+[11:58] <jrib> leobloom space after gedit
+[11:58] <jrib> minnmass is this a botched upgrade from dapper
+[11:58] <jrib> minnmass apt-cache policy coreutils
+[11:58] <jrib> leobloom apt-cache policy cinepaint
+[11:58] <jrib> leobloom yes then pastebin the output
+[11:58] <jrib> minnmass you have the dapper version of that package
+[11:58] <jrib> minnmass sudo apt-get install coreutils to pastebin this way we can concentrate on that
+[11:58] <jrib> leobloom try to put my name in your replies or i'll miss them
+[11:58] <jrib> leobloom sudo apt-get update sudo apt-get install cinepaint
+[11:58] <jrib> pl archi
+[11:58] <jrib> minnmass searching see if you can spot anythign on google with that error about binls
+[11:58] <jrib> leobloom see
+[11:58] <jrib> minnmass what's this command
+[11:58] <jrib> leobloom find out if cinepaint really needs that dependency if it doesn't then i would download the source pacakge remove the deb and rebuild it
+[11:58] <jrib> leobloom i'll walk you through it's simple but find out if it really requires that dependency first
+[11:58] <jrib> leobloom here's a better bug report
+[11:58] <jrib> leobloom that one is fix released
+[11:58] <jrib> cotroer you have the cdrom repository in your sourceslist disable it
+[11:58] <jrib> cotroer you can use the edit menu in system administration synaptic to edit your sourceslist by the way
+[11:58] <jrib> dooglus etcmodprobedblacklist
+[11:58] <jrib> ignite system administration language
+[11:58] <jrib> ignite maybe edit etcenvironment i thought there was some gui way
+[11:58] <jrib> nael you have to go through all the upgrades in between it would probably be faster to just install a fresh dapper
+[11:58] <jrib> braindeadmoron use equivs
+[11:58] <jrib> braindeadmoron yes that's what i am implying
+[11:58] <jrib> braindeadmoron i guess your other option is to rebuild the package without the dependency
+[11:58] <jrib> braindeadmoron i don't know of a way to make it ignore the dep other than those two ways
+[11:58] <jrib> braindeadmoron apt-get has an ignore-missing switch you can use to get equiv i think
+[11:58] <jrib> defaultapp spacingguild
+[11:58] <jrib> es pintao
+[11:58] <jrib> pintao join ubuntu-es
+[11:58] <jrib> ro
+[11:58] <jrib> ja try gnomebaker
+[11:58] <jrib> everflex df -h if you want nice numbers
+[11:58] <jrib> cli bayle
+[11:58] <jrib> es lioono
+[11:58] <jrib> lioono join ubuntu-es
+[11:58] <jrib> jussi what did you do
+[11:58] <jrib> jussi what command did you use
+[11:58] <jrib> jussi so just uncheck what you checked
+[11:58] <jrib> paranoia usrsharepixmaps
+[11:58] <jrib> x-rt-x are you sure it isn't installed already
+[11:58] <jrib> x-rt-x try 'sudo aenmod'
+[11:58] <jrib> thepub aenmod automates that for you now
+[11:58] <jrib> msgthebot rogue
+[11:58] <jrib> paranoia try this command to see where all of the files go dpkg -l neverball
+[11:58] <jrib> rogue i was trying to let you know that you could msg him didn't really want to threaten you with angry ops
+[11:58] <jrib> steven an empty one
+[11:58] <jrib> steven yeah use an empty partition
+[11:58] <jrib> steven use gparted to format it
+[11:58] <jrib> steven parted then
+[11:58] <jrib> i have no idea how to use it
+[11:58] <jrib> rance show us the contents of etchostname and etchosts
+[11:58] <jrib> steven like i said i have no idea how to use it sorry
+[11:58] <jrib> steven you might be able to just use the mkfs command too these are things i'm just suggesting so you can find some info about them
+[11:58] <jrib> fr darkiler
+[11:58] <jrib> stephan try windows
+[11:58] <jrib> stephan windows is a channel on freenode for windows support just type this in your client to join join windows
+[11:58] <jrib> bulio why not go with ext
+[11:58] <jrib> ext bulio yes
+[11:58] <jrib> ext bulio yes
+[11:58] <jrib> quiksilver flash beta is in dapper and edgy backports
+[11:58] <jrib> quiksilver well no usually people use deb to refer to a single debian package
+[11:58] <jrib> es cabello
+[11:58] <jrib> cabello for help in spanish join the spanish channel by typing this join ubuntu-es
+[11:58] <jrib> mystamax id
+[11:58] <jrib> deep use dosunix on the file
+[11:58] <jrib> deep yep the file was probably saved on windows or mac and they format new lines differently dosunix in the tofrodos package will convert it
+[11:58] <jrib> deep no need to google just install that package using synaptic or apt-get
+[11:58] <jrib> info tofrodos
+[11:58] <jrib> deep what version of ubuntu
+[11:58] <jrib> deep pastebin your etcaptsourceslist
+[11:58] <jrib> deep well it's there if you have the main repository enabled
+[11:58] <jrib> deep did you 'sudo apt-get update'
+[11:58] <jrib> paste william
+[11:58] <jrib> codecs william
+[11:58] <jrib> deep what package are you looking for
+[11:58] <jrib> deep tofrodos is the package name dosunix is the command
+[11:58] <jrib> william those pages that ubotu linked you to tell you what you need
+[11:58] <jrib> universe william
+[11:58] <jrib> william you need to enable the universe repository
+[11:58] <jrib> william there is no wget you install packages through apt-get please read the documentation it is there to help you
+[11:58] <jrib> william i did see the pages ubotu gave you
+[11:58] <jrib> william if you have questions about the documentation feel free to ask but i am not going to read to you what is written in the documentation here it is again enable universe and then install what you need and
+[11:58] <jrib> linuxeatswindows how are you trying and what errors do you get
+[11:58] <jrib> cdavis mtime is modification time
+[11:58] <jrib> cdavis sort of there is some quirk that you should read about in find's man page just type 'man find' then hit -atimeenter and read the description
+[11:58] <jrib> cdavis hit n after enter since it's the second search result
+[11:58] <jrib> linuxeatswindows install either totem-xine gxine or xine-ui
+[11:58] <jrib> faerynatsuki what features are you looking for that amarok doesn't have
+[11:58] <jrib> players faerynatsuki
+[11:58] <jrib> faerynatsuki start installing and trying those
+[11:58] <jrib> trixsey if you don't put the the script won't continue until that command finishes
+[11:58] <jrib> mathew yes
+[11:58] <jrib> hi i have gdm start servers by having this in my gdmconf servers nstandardnstandard n isn't really there i can no longer switch to a gdm login screen by pressing ctrl-alt-f it is just a black screen this used to work any ideas on debugging
+[11:58] <jrib> lupine sure it can
+[11:58] <jrib> lupine sudo -i
+[11:58] <jrib> lupine sudo -i is equivalent to su - su - isn't the same as su sudo -i will reset your environment variables
+[11:58] <jrib> pordo what is this
+[11:58] <jrib> pordo heh ok i have no clue on that one
+[11:58] <jrib> sedra ask a question
+[11:58] <jrib> sedra ask it one line and then wait patiently
+[11:58] <jrib> version dax
+[11:58] <jrib> paste justnew
+[11:58] <jrib> stefg it's a postinst script for volumeid
+[11:58] <jrib> stefg use blkid to get the uuid's and put them into your fstab
+[11:58] <jrib> stefg well you could read varlibdpkginfovolumeidpostinst and pick out the part you want i don't know of any automated way other than that script
+[11:58] <jrib> hexidigital sudo dpkg-reconfigure gdm should do it
+[11:58] <jrib> dwightintx do you know to use apt-get or aptitude or synaptic to install packages
+[11:58] <jrib> nevropus what are you trying to install
+[11:58] <jrib> info acroread
+[11:58] <jrib> nevropus it's in multiverse but there are also plenty of other free programs to view pdf files
+[11:58] <jrib> nevropus do you know about apt
+[11:58] <jrib> synaptic nevropus
+[11:58] <jrib> repos nevropus
+[11:58] <jrib> nevropus take some time to go through the documentation in system help also available online at helpubuntucom
+[11:58] <jrib> ramvi how did you try to make it work
+[11:58] <jrib> ramvi where is it not working
+[11:58] <jrib> ramvi a gnome-session in xgl
+[11:58] <jrib> ramvi pastebin your script
+[11:58] <jrib> ramvi do the commands work ok if you enter them in your terminal yourself after starting xgl
+[11:58] <jrib> ramvi does it just drop you at a new prompt
+[11:58] <jrib> ramvi yeah
+[11:58] <jrib> ramvi not really it seems like it would be an xgl issue but i can't find anything about it
+[11:58] <jrib> joebaker configautostart
+[11:58] <jrib> hmm he left
+[11:58] <jrib> knapp use find with -exec
+[11:58] <jrib> rapid mozillaplugins for user plugins
+[11:58] <jrib> edd why aren't you using the packages
+[11:58] <jrib> edd what error
+[11:58] <jrib> edd use pastebin
+[11:58] <jrib> edd pastebin the actual error
+[11:58] <jrib> edd run it in a terminal
+[11:58] <jrib> edd why are you running it through wine
+[11:58] <jrib> limewire edd
+[11:58] <jrib> edd i would recommend frostwire over limewire too
+[11:58] <jrib> cymuhep what are you trying to do
+[11:58] <jrib> cymuhep be more specific
+[11:58] <jrib> cymuhep what does it say
+[11:58] <jrib> cymuhep what does this say 'ls optlampphtdocsindexhtml'
+[11:58] <jrib> repeat cymuhep
+[11:58] <jrib> webcam tdog
+[11:58] <jrib> btiffin ubuntu-offtopic for that type of question please
+[11:58] <jrib> btiffin oh you can usually assume people are using bash since it's default anyone who switches would probably know of any differences that's how i think about it
+[11:58] <jrib> cymuhep people already suggested that you use cedega
+[11:58] <jrib> virtual-voicu i'm not sure but the 'w' command tells you i think
+[11:58] <jrib> root cymuhep
+[11:58] <jrib> fonts nevron
+[11:58] <jrib> nevron that page explaisn taht you need to copy your fonts to fonts
+[11:58] <jrib> nevron what command are you doing
+[11:58] <jrib> cge that is a lot of slashes
+[11:58] <jrib> nevron why are you doing that can you see the fonts now
+[11:58] <jrib> nevron join me in ubuntu-classroom i'll walk you through it
+[11:58] <jrib> cge lol
+[11:58] <jrib> cge at least use something other than a to delimit the substitute expression
+[11:58] <jrib> cge yep you can doo sfoobar for example
+[11:58] <jrib> edd pastebin the error you get
+[11:58] <jrib> edd run 'frostwire' in a terminal and apstebin the output does the window open
+[11:58] <jrib> edd pastebin 'sudo update-alternatives --config java'
+[11:58] <jrib> multijava edd
+[11:58] <jrib> edd that command will update the other java related stuff too
+[11:58] <jrib> zip smoothop
+[11:58] <jrib> rprp donwload the exe
+[11:58] <jrib> rprp double click on it in windows
+[11:58] <jrib> muffywt windows
+[11:58] <jrib> rprp why do you want winscp that's for windows afaik
+[11:58] <jrib> edd are you using aiglx or xgl
+[11:58] <jrib> rprp from the site winscp is an open source sftp client for windows
+[11:58] <jrib> rprp probably not use nautilus or gftp
+[11:58] <jrib> aggravd install vim-full and use that
+[11:58] <jrib> aggravd ubuntu ships with vim-tiny by default which is a bit limited i think that's what you are noticing
+[11:58] <jrib> info vim-full
+[11:58] <jrib> aggravd you'll need universe it seems
+[11:58] <jrib> universe aggravd
+[11:58] <jrib> aggravd probably means you haven't enabled universe
+[11:58] <jrib> gouki no
+[11:58] <jrib> gouki
+[11:58] <jrib> info mozilla-thunderbird math
+[11:58] <jrib> math it's in the main repository
+[11:58] <jrib> jhaitas ubuntu
+[11:58] <jrib> math pastebin your sourceslist if it doesn't work
+[11:58] <jrib> pastebin math

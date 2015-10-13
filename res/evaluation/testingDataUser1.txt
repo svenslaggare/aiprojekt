@@ -1,0 +1,2019 @@
+[11:58] <LjL> jughead fairly but resizing partitions is never quite a safe operation
+[11:58] <LjL> jughead you definitely should have a backup of data you care about
+[11:58] <LjL> ntfs-g whale
+[11:58] <LjL> whale no
+[11:58] <LjL> ubotu tell whale about schedule whale see the private message from ubotu
+[11:58] <LjL> feisty
+[11:58] <LjL> bot
+[11:58] <LjL> burwaco sudo dpkg-reconfigure xserver-xorg
+[11:58] <LjL> ubotu tell lllloo about ntfs lllloo see the private message from ubotu
+[11:58] <LjL> cli junkey
+[11:58] <LjL> anyone eilker
+[11:58] <LjL> ubotu tell skozy about ipod skozy see the private message from ubotu
+[11:58] <LjL> eilker i don't know about that error couldn't you use vmware player from the repositories
+[11:58] <LjL> eilker yeah i saw that
+[11:58] <LjL> eilker bad choice interrupting it i'm afraid you can try deleting the stuff manually but well
+[11:58] <LjL> ubotu tell burnhamd about nvidia burnhamd see the private message from ubotu
+[11:58] <LjL> burnhamd no it isn't is there a specific reason why you aren't using the packaged drivers though
+[11:58] <LjL> angela i don't see one either
+[11:58] <LjL> burnhamd and you think installing a driver using a run file is a better idea well your decision chmod x filename filename when you're in the right directory of course
+[11:58] <LjL> burnhamd look carefully - there were two commands in what i said
+[11:58] <LjL> one was chmod x filename
+[11:58] <LjL> the other was filename
+[11:58] <LjL> gumpish i only see ones for qtkde
+[11:58] <LjL> whale yes but they'll install the kde andor qt libraries
+[11:58] <LjL> info klibido
+[11:58] <LjL> info nzb
+[11:58] <LjL> sakobatoneko pastebin your etcaptsourceslist
+[11:58] <LjL> ubotu tell sakobatoneko about pastebin sakobatoneko see the private message from ubotu
+[11:58] <LjL> sakobatoneko use gedit etcaptsourceslist to open it and paste it there
+[11:58] <LjL> players ramin
+[11:58] <LjL> sakobatoneko it actually starts with the word restricted
+[11:58] <LjL> sakobatoneko post the entire file to the pastebin please i'm guessing there's more wrong than just that line
+[11:58] <LjL> it isn't out since two months
+[11:58] <LjL> setuid you have multiverse but not universe weird choice o
+[11:58] <LjL> setuid that should be fine what's less fine is that you don't seem to have multiverse enabled for edgy-security nor universe enabled for edgy-updates
+[11:58] <LjL> sakobatoneko try that's usually slow though
+[11:58] <LjL> info minicom whiterabit this might help
+[11:58] <LjL> setuid well try changing mirrors then but even if archiveubuntucom were downnot up-to-date right now it certainly hasn't been for a month
+[11:58] <LjL> setuid i've probably had many fewer than
+[11:58] <LjL> sakobatoneko leave it to none
+[11:58] <LjL> hgmn that's correct - setuid
+[11:58] <LjL> ubotu tell setuid about components setuid see the private message from ubotu
+[11:58] <LjL> setuid it'd definitely not going to be like debian testingunstable
+[11:58] <LjL> p-smurf dapper intel card
+[11:58] <LjL> sakobatoneko i need the url
+[11:58] <LjL> p-smurf well this could be relevant -
+[11:58] <LjL> tanubis
+[11:58] <LjL> tanubis jrib yeah that's how you remove a package's global configuration files - but it won't work for the vlc config files that are stored in your home
+[11:58] <LjL> p-smurf well skimming through the report i don't seem to be seeing a workaround proposed - but at least you know the bug is confirmed
+[11:58] <LjL> p-smurf maybe you can help adding some information to it as well
+[11:58] <LjL> ubotu tell lullabud about windowsdrives lullabud see the private message from ubotu
+[11:58] <LjL> lullabud i think that's explained on there
+[11:58] <LjL> lullabud the options should be the same just use mount blablah whatever -o options - separated by commas
+[11:58] <LjL> sakobatoneko gksudo gedit etcaptsourceslist and change it so that it looks like this instead -- note that i've added universe and multiverse for you they were only partially enabled in your original file then type sudo apt-get update and see if it succeeds
+[11:58] <LjL> wastrel hit yourself
+[11:58] <LjL> ubotu tell spiceydog about wine spiceydog see the private message from ubotu
+[11:58] <LjL> lullabud that's octal notation for you a file can be executable writable and readable the sum of the three makes up one digit so is writablereadableexecutable the mask is something that says which permissions should not be given to file - so a mask of is saying i'm fine with leaving all permissions on thus
+[11:58] <LjL> uuid kishan
+[11:58] <LjL> kishan check that the uuid for your swap partition actually matches what's in your fstab
+[11:58] <LjL> lullabud it affects it in that it decides which permissions should not be given to files in that mount the rest is decided by the filesystem specifics -- so in the case of ntfs you get all permissions on all files i don't believe the ntfs driver actually looks for the real ntfs permissions except for write permissions since the ntfs driver doesn't know how to write yet - jrib correct me if i'm wrong
+[11:58] <LjL> kishan then change it in fstab
+[11:58] <LjL> zention the gpl definitely doesn't take copyright away for you
+[11:58] <LjL> kishan i don't think just try swapon -a again
+[11:58] <LjL> shuan lsbrelease -a
+[11:58] <LjL> kishan with sudo sudo swapon -a
+[11:58] <LjL> gaiax why when the lsbrelease command is specifically made for that
+[11:58] <LjL> kishan i haven't a clue would also depend on how you installed beryl i suppose though i can't imagine a connection with swap
+[11:58] <LjL> eilker on the vmware site i guess but iirc vmware workstation don't know about server comes with those tools included - in the help it's explained how to get them to install
+[11:58] <LjL> gaiax so shuan had asked how to know his ubuntu version and i gave him the correct answer if you didn't know about lsbrelease before then i guess you just learned something - where's the problem
+[11:58] <LjL> dvdrip solidliq
+[11:58] <LjL> drip solidliq
+[11:58] <LjL> fastly the keyboard seems broken too for setting a password for samba see man smbpasswd
+[11:58] <LjL> solidliq not a clue
+[11:58] <LjL> eilker just delete the files
+[11:58] <LjL> fastly see for the keyboard problem
+[11:58] <LjL> kishan well i suppose you installed nfs i don't know
+[11:58] <LjL> gaiax no you never gave it to him you gave it to me - gaiax cat etcissue
+[11:58] <LjL> kishan apt-cache policy nfs-user-server and apt-cache policy nfs-kernel-server -- see if one of these shows as installed
+[11:58] <LjL> gaiax i'm not sure which point but anyway
+[11:58] <LjL> eilker you need to remove all the files that make up the virtual machine - there are a few with extensions such as vmx vmdk or something one or several is the virtual hd
+[11:58] <LjL> fesity rogue
+[11:58] <LjL> eeh whatever
+[11:58] <LjL> gaiax sure there are but i don't see where i ever said anything to the contrary
+[11:58] <LjL> spiceydog pastebin's down
+[11:58] <LjL> eilker hm i think it's more likely that the directory you're looking for is in your home
+[11:58] <LjL> spiceydog you can try ubuntupastebincom - that's slow though
+[11:58] <LjL> gaiax then why did you address it to me instead of him just to gratuitously tell me about a command i didn't need
+[11:58] <LjL> jrib is that better than pastebincom
+[11:58] <LjL> nfs kishan
+[11:58] <LjL> kishan as for why it's installed i don't know
+[11:58] <LjL> gaiax alright then that was the entire point of my argument - it simply seemed like you were correcting me rather than giving an answer to him
+[11:58] <LjL> kishan it is used for file sharing on a network
+[11:58] <LjL> kishan try typing sudo apt-get remove nfs-kernel-server - but don't choose yes interrupt it just after it tells you which packages it's going to remove and tell me what those packages are
+[11:58] <LjL> kishan the others are the one it lists as not needed anymore
+[11:58] <LjL> kishan well then it should be safe to just remove nfs-kernel-server i wonder how it got installed though did you recall ever installing it explicitely seems like a strange package to stumble upon by mistake
+[11:58] <LjL> ubotu tell wccv about paste wccv see the private message from ubotu
+[11:58] <LjL> kishan ah could be
+[11:58] <LjL> paste
+[11:58] <LjL> bruenig it does say also see the channel topic -p
+[11:58] <LjL> kishan hm well i'd say not generally speaking you're probably better off using samba which is a network filesystem that's compatible with the standard windows one over nfs your mileage may vary though
+[11:58] <LjL> ubotu tell kishan about samba kishan see the private message from ubotu
+[11:58] <LjL> kishan no i'm saying that it uses the protocol that windows uses by default so with samba you won't need to install anything on your windows machines
+[11:58] <LjL> logically it shouldwww
+[11:58] <LjL> ubotu tell spiceydog about repositories spiceydog see the private message from ubotu
+[11:58] <LjL> automatix
+[11:58] <LjL> kishan yeah an nfs service
+[11:58] <LjL> kishan but look at the other suggestions as well - i don't use gnome myself but it seems that for simple setups some right clicking will just do the trick
+[11:58] <LjL> kishan no
+[11:58] <LjL> kishan not really i did publish one or two mostly-non-working little programs on sourceforge but that's about it and this is offtopic here anyway
+[11:58] <LjL> kishan you're quite welcome
+[11:58] <LjL> links - see if you're very lucky you can open a console and type wine desktopsomeprogramexe assuming the exe file is on your desktop and note that case matters but wine doesn't always work
+[11:58] <LjL> links it should end up in the applications menu i think
+[11:58] <LjL> links then altf and type xchat you can add it manually to the menu by using the menu editor
+[11:58] <LjL> links sometimes however i've noticed that new programs are only added to the menu after a reboot or x restart your mileage may vary
+[11:58] <LjL> links i think it involves right clicking on the applications menu and invoking the menu editor but i'm not a gnome user myself
+[11:58] <LjL> ryanakca that won't work the second part unless varwwwhtdocs is writable by the user not just by root that's because the '' redirect will be done by the shell which is not running as root
+[11:58] <LjL> ryanakca what you need in those cases is sudo sh -c echo whatever somefile
+[11:58] <LjL> offtopic homer
+[11:58] <LjL> mikael you can try etcacpihibernatesh - but i don't think that's the same script that gnome called i don't know what exactly gnome does to invoke hibernation
+[11:58] <LjL> p-smurf dual video cards it should definitely support but i've never tried that
+[11:58] <LjL> ask superchode
+[11:58] <LjL> p-smurf well problem is if i'm interpreting the bug report correctly it's a bit messy the kernel is panicing before it even loads x if this is the case you'd have to find a way to make the kernel completely ignore your card - and i'd have no idea how
+[11:58] <LjL> p-smurf can't you perhaps just set the internal card as opposed to the card in the agp slot as the primary card in your bios settings
+[11:58] <LjL> links type which xchat
+[11:58] <LjL> links as for the format well i can tell you it's going to be elf -bit or -bit depending on your system but typing file filename will tell you better
+[11:58] <LjL> links like file usrbinxchat
+[11:58] <LjL> raiderx
+[11:58] <LjL> dinmo
+[11:58] <LjL> dinmo dinmo fap till dawn
+[11:58] <LjL> language highneko
+[11:58] <LjL> caps dinmo
+[11:58] <LjL> dinmo can you explain please
+[11:58] <LjL> dinmo well do it in a channel that's more on topic for it please
+[11:58] <LjL> ubotu tell devc about universe devc see the private message from ubotu
+[11:58] <LjL> zac you were told repeatedly to not play with the bot and you were pointed at the relevant usage information as you're showing
+[11:58] <LjL> unban
+[11:58] <LjL> it does not get full we just clean our bans periodically
+[11:58] <LjL> ubotu tell vspike about apt-file vspike see the private message from ubotu
+[11:58] <LjL> uuid kaptengu
+[11:58] <LjL> blacklist neemz
+[11:58] <LjL> osfameron bad idea at least unless you define really long as anything above one or two lines
+[11:58] <LjL> rt all i can do is point you to
+[11:58] <LjL> xaralx shriphani
+[11:58] <LjL> info xaralx dapper
+[11:58] <LjL> msg the bot shriphani
+[11:58] <LjL> shriphani will probably be better for searching anyway
+[11:58] <LjL> shriphani vector graphics programs i know of are inkscape sodipodi gnome karbon kde
+[11:58] <LjL> shriphani never used it
+[11:58] <LjL> gs-gpl solidliq
+[11:58] <LjL> automatix kenny
+[11:58] <LjL> pm navyseal
+[11:58] <LjL> offtopic navyseal
+[11:58] <LjL> english normally uses an s for plurals
+[11:58] <LjL> rt and you already wasted by using enter in the place of punctuation
+[11:58] <LjL> enter
+[11:58] <LjL>
+[11:58] <LjL> slop lshw
+[11:58] <LjL> sain aptitude is also a frontend to dpkgapt it's just that it also does some backend-like stuff of its own
+[11:58] <LjL> sain i was just saying
+[11:58] <LjL> sain also btw on edgy apt-get adds an unused-dependencies-auto-removal feature of its own myself i've switched back to apt-get though there are still some features that can be handy in aptitude but i guess i never used them much
+[11:58] <LjL> sain well perhaps the auto-removal feature will be backported to debian as well who knows well perhaps somebody does just not me
+[11:58] <LjL> es s
+[11:58] <LjL> ubotu tell christian about restricted christian see the private message from ubotu
+[11:58] <LjL> l
+[11:58] <LjL> es sebaji
+[11:58] <LjL> x-rt-x bring this kind of issues to ubuntu-ops please not for here
+[11:58] <LjL> x-rt-x i prefer beer too but then wine does have sound
+[11:58] <LjL> x-rt-x if you type winecfg you'll see you can configure the sound perhaps this may help sillygirl as well
+[11:58] <LjL> x-rt-x you can use xp themes
+[11:58] <LjL> x-rt-x yes those i tried mostly kde-lookalike themes to make windows programs look less out of place worked very slowly but perhaps a standard xp theme will do ok
+[11:58] <LjL> nothlit indeed those i've tried at least
+[11:58] <LjL> but if nothing else you can change the colors to fit with the rest of your desktop that's already something
+[11:58] <LjL> oh and now that i think of that actually edgy's kde don't know about gnome has a built-in control panel applet for doing exactly that - matching wine's colors and fonts to kde's
+[11:58] <LjL> es miguel
+[11:58] <LjL> ubotu tell mark about bot mark see the private message from ubotu
+[11:58] <LjL> x-rt-x mb is fine the memory usage you see from top free etc means nothing -- the memory's just being used by the kernel for caching files it'll free it when applications need it
+[11:58] <LjL> automatix xen
+[11:58] <LjL> drnic go to ubuntu-xgl
+[11:58] <LjL> bot ali
+[11:58] <LjL> steve don't shout
+[11:58] <LjL> ubotu tell blakkinferno about sudo blakkinferno see the private message from ubotu
+[11:58] <LjL> gksudo gedit etcaptsourceslist actually
+[11:58] <LjL> blakkinferno read the page ubotu gave you - it explains it
+[11:58] <LjL> windy yes sudo doesn't always work with gui programs
+[11:58] <LjL> windy because they're set up so that they're started using gksudo by default most often
+[11:58] <LjL> info vdr-dev
+[11:58] <LjL> wilderson enable universe and sudo apt-get install vdr-dev
+[11:58] <LjL> wilderson synaptic synaptics is a kind of touchpad anyway yeah you can use whatever
+[11:58] <LjL> indygunfreak it is pretty easy with cards that have drivers
+[11:58] <LjL> indygunfreak no it just tells you that people fiddle with ndiswrapper because they own cards that don't have linux drivers
+[11:58] <LjL> see
+[11:58] <LjL> mattheww i don't know about your issue but you should probably leave breezy behind anyway it's old in a couple of months it won't be supported anymore
+[11:58] <LjL> anyone
+[11:58] <LjL> mattheww given it's just the live cd why don't you reboot
+[11:58] <LjL> mattheww well i don't really remember what the breezy cd was like in dapper the username is ubuntu and the password is blank though it doesn't ask for the username by default in gdm
+[11:58] <LjL> mattheww i haven't a clue tbh
+[11:58] <LjL> mg of ram that's pretty impressive
+[11:58] <LjL> asc gedit
+[11:58] <LjL> ask jordie
+[11:58] <LjL> jordie i heard some mirror was down perhaps it's that
+[11:58] <LjL> ubotu tell tachoh about mirrors tachoh see the private message from ubotu
+[11:58] <LjL> tachoh anyway yeah caarchiveubuntucom
+[11:58] <LjL> and they don't even seem to be down
+[11:58] <LjL> zid dpkg -s filename
+[11:58] <LjL> comrades perhaps it just doesn't look anything like a gnome program
+[11:58] <LjL> nvidia angasule
+[11:58] <LjL> tonybehar yes
+[11:58] <LjL> loki well you'll have to upgrade to edgy first and then to feisty you won't just be able to do it in a single pass
+[11:58] <LjL> loki because jumpy upgrades aren't supported
+[11:58] <LjL> ubotu tell loki about upgrade loki see the private message from ubotu
+[11:58] <LjL> lts
+[11:58] <LjL> dapper
+[11:58] <LjL> well if i make my sums right
+[11:58] <LjL> loki perhaps you had unofficial repositories enabled or something anyway if the process goes as it should you aren't supposed to lose anything
+[11:58] <LjL> loki those people are probably talking about doing a fresh feisty install in april i don't see how these people can look into the future and say that feisty will be more stable than edgy or whatever anyway -
+[11:58] <LjL> bow is that russian
+[11:58] <LjL> ru bow
+[11:58] <LjL> bow ubotu is a bot
+[11:58] <LjL> bow it's pointing you to the ubuntu-ru channel but if you don't use utf- as your encoding for russian you won't be able to read that
+[11:58] <LjL> just as i'm unable to read what you're typing since it's not in utf-
+[11:58] <LjL> bow italy
+[11:58] <LjL> bow i don't understand russian and even if i understood it i wouldn't read that you're typing because you're using koi- and i'm on utf-
+[11:58] <LjL> darkguy it sure does etc -- utf- is just an encoding for the unicode character set which has all that and more
+[11:58] <LjL> darkguy
+[11:58] <LjL> darkguy i don't know about eterm but ubuntu is normally set to use utf- for everything by default
+[11:58] <LjL> darkguy type locale in a shell does it mention utf- in all variables
+[11:58] <LjL> fr zorze
+[11:58] <LjL> darkguy that should be fine i have lcall set to nothing too well don't know about eterm can you use non-ascii characters in other programs like on irc can you see latin accents greek cyrillic see the bot above etc
+[11:58] <LjL> huibert where do you see games
+[11:58] <LjL> darkguy ok i'm installing eterm and seeing
+[11:58] <LjL> huibert that's your problem - or your client's problem we run utf- here if you're running something else fix that
+[11:58] <LjL> darkguy confirmed eterm doesn't play well with utf- here either
+[11:58] <LjL> huibert have you seen darkguy speaking trying to get help in other languages
+[11:58] <LjL> darkguy dunno google isn't encouraging
+[11:58] <LjL> huibert they're redirected because they're asking for help in other languages than english not because they're having problems with utf- on ubuntu
+[11:58] <LjL> darkguy lists unicode support though
+[11:58] <LjL> sain to announce an ignore is very what not something i want to hear again i think
+[11:58] <LjL> uuid commander-crowe
+[11:58] <LjL> commander-crowe check that the real uuid matches what's in your etcfstab
+[11:58] <LjL> offtopic sain darkguy
+[11:58] <LjL> orospakr you should find a unicode fonts that has them i guess otherwise perhaps try typing apt-cache show texlive-latex-extra grep aborig
+[11:58] <LjL> ubotu tell orospakr about fonts orospakr see the private message from ubotu
+[11:58] <LjL> info texlive-latex-extra orospakr
+[11:58] <LjL> newbuntu no
+[11:58] <LjL> orospakr no i guess it just provides fonts for tex
+[11:58] <LjL> orospakr then try tonyyarusso's suggestion
+[11:58] <LjL> commander-crowe shouldn't matter i think
+[11:58] <LjL> newbuntu peer to peer systems in general connect an ip address to another ip address directly but direct connect is also the name of a specific pp system
+[11:58] <LjL> newbuntu depends on the client
+[11:58] <LjL> kooldock x-rt-x
+[11:58] <LjL> x-rt-x kxdocker is broken in edgy
+[11:58] <LjL> x-rt-x sudo apt-get remove kxdocker
+[11:58] <LjL> x-rt-x
+[11:58] <LjL> czer anyone have experience with setting up a cyrix mediagx chip with audio i think it's using some xpressaudio crap which i think is using kahlua as the driver anyone
+[11:58] <LjL> mario hello i am trying to dual-boot slackware and ubuntu i have ubuntu on sda and i setup a linux swap and another patition on sdb i installed slackware on the sdb but it didn't use the linux swap partition and grub doesn't recognize that it is there any tips
+[11:58] <LjL> rprp well if i burn a img file on a dvd it works normal when i put the disk in my dvd player p
+[11:58] <LjL> mount
+[11:58] <LjL> x-rt-x i'm here now
+[11:58] <LjL> x-rt-x no i use kde
+[11:58] <LjL> x-rt-x by the way you realize that you can private message the bot
+[11:58] <LjL> x-rt-x yes ubotu type query ubotu - and type bot there
+[11:58] <LjL> nette shasum filename
+[11:58] <LjL> anyone
+[11:58] <LjL> x-rt-x after it is installed run applications-system tools-firestarter to configure your firewall the firewall will now start in the background when your computer starts from - so it seems it should do it by default
+[11:58] <LjL> beerockxs for suspend to ram no idea except try tinkering around with etcdefaultacpi-support for question you could try sudo dpkg-reconfigure xserver-xorg and when asked whether you want to use framebuffer switching change the default answer if it's yes say no if it's no say yes
+[11:58] <LjL> beerockxs for those running the fglrx driver you need uncomment the line in etcdefaultfglrx so it reads as fglrxacpiswitchpowerstatestrue from
+[11:58] <LjL> anyone
+[11:58] <LjL> beerockxs well those instructions say they're for dapper if you're on edgy it might be different also did you install the fglrx driver from the repositories
+[11:58] <LjL> fr jahman
+[11:58] <LjL> english here please
+[11:58] <LjL> jahman because ubuntu releases are feature-frozen
+[11:58] <LjL> jahman you only get security updates and fixes to very serious bugs no new versions of things except from backports but that's limited
+[11:58] <LjL> hajiki did you verify the cd beforehand
+[11:58] <LjL> ubotu tell svip about mpe svip see the private message from ubotu
+[11:58] <LjL> cmsg ubotu tell svip about mp
+[11:58] <LjL> verify hajiki
+[11:58] <LjL> md hajiki
+[11:58] <LjL> automatix jonasalves svip
+[11:58] <LjL> odiin if that package is required by another package that you need to install you don't do that
+[11:58] <LjL> hajiki unless it's something fishier yes
+[11:58] <LjL> hajiki do verify your current cd first to make sure
+[11:58] <LjL> odiin then don't install ubuntu-desktop andor kubuntu-desktop and ubotu is a bot
+[11:58] <LjL> ubuntu-desktop odiin
+[11:58] <LjL> ubotu tell carlfk about nvidia carlfk see the private message from ubotu
+[11:58] <LjL> gnomefreak why not
+[11:58] <LjL> gnomefreak why can't split it in a couple of days
+[11:58] <LjL> gnomefreak yeah well on an update-manager preferably although i never used update-manager
+[11:58] <LjL> gnomefreak hm don't get you of course you wouldn't be installing the packages you'd just be downloading them
+[11:58] <LjL> lifepositive well actually why not if you can download the files you can download the cd
+[11:58] <LjL> lifepositive i think so but then downloading the cd shouldn't be any harder i'd still go with the files though apt-get update apt-get --download-only dist-upgrade and then use update-manager
+[11:58] <LjL> lifepositive it probably will but then downloading the files will take just as long probably
+[11:58] <LjL> carlfk no but are you sure you want to be using a kernel
+[11:58] <LjL> generic carlfk
+[11:58] <LjL> lifepositive with wget
+[11:58] <LjL> lifepositive but really i would download the files and let apt check the checksums and all rather than spend a month downloading a cd image which might turn out to be corrupted
+[11:58] <LjL> carlfk it shouldn't do that i have it installed the amaranth one i pointed you to and i still have my standard generic kernel
+[11:58] <LjL> lifepositive i told you - sudo apt-get update sudo apt-get --download-only dist-upgrade and then when it's finished downloading all of it you can interrupt it whenever you like however many times as you want then use the standard upgrading process ie update-manager which shouldn't download much if anything anymore
+[11:58] <LjL> upgrade lifepositive
+[11:58] <LjL> carlfk here package linux-restricted-modules---' is not installed
+[11:58] <LjL> gnomefreak they're still called amaranth though i guess
+[11:58] <LjL> lifepositive i don't really know well of course it also depends on which packages you have installed on a vanilla installation yeah i guess something less not by much than the size of the alternate cd so mb to mb
+[11:58] <LjL> lifepositive can't you just get some friend who's got a faster connection to burn a cd for you
+[11:58] <LjL> lifepositive probably not
+[11:58] <LjL> lifepositive what makes you think you do
+[11:58] <LjL> lifepositive security
+[11:58] <LjL> lifepositive wouldn't see why
+[11:58] <LjL> carlfk well then what if you just try removing the - package
+[11:58] <LjL> lifepositive dapper is supported for longer than edgy so it'll still be getting security updates when edgy won't anymore
+[11:58] <LjL> lts lifepositive
+[11:58] <LjL> lifepositive if it ain't broke don't fix it
+[11:58] <LjL> lifepositive that's what i do
+[11:58] <LjL> lifepositive but then if you have the automatic update notifier enabled you shouldn't need that
+[11:58] <LjL> lifepositive yes you can or sudo apt-get update sudo apt-get dist-upgrade
+[11:58] <LjL> lifepositive or open up your bashrc and add alias upgradesudo aptitude update sudo aptitude dist-upgrade sudo aptitude search n -
+[11:58] <LjL> ubotu tell lifepositive about aptitude lifepositive see the private message from ubotu
+[11:58] <LjL> lifepositive since you're on dapper you might find aptitude handy over apt-get edgy has that feature built in right in apt-get
+[11:58] <LjL> lam find xargs mdsum
+[11:58] <LjL> lam or something
+[11:58] <LjL> lifepositive man apt-get
+[11:58] <LjL> lam lamego's sounds much better my xargs command would have required a -print option to find and also an -n or somethign option to xargs
+[11:58] <LjL> lifepositive it can remove things just fine but it won't remove the dependencies of those things
+[11:58] <LjL> lifepositive you see when you install most programs you'll see apt-get or aptitude or whatever telling you ok i'll install x but note that x also requires y and z so i'll install those too that's fine and it's handy but if you decide to remove x later y and z won't be removed hey they might still be used by other packages after all
+[11:58] <LjL> lifepositive with aptitude or edgy's apt-get y and z will be removed after checking that no other package requires them
+[11:58] <LjL> ubotu tell maggotin about paste maggotin see the private message from ubotu
+[11:58] <LjL> idleone only if you used aptitude to install the stuff in the first place aptitude has its internal database of dependencies that were installed automatically -- it doesn't know anything about those installed by apt-get so won't help with them
+[11:58] <LjL> offtopic ski-worklap
+[11:58] <LjL> ski-worklap that's offtopic and trolling stop
+[11:58] <LjL> ski-worklap official ubuntu support channel you ask support questions period no trolling
+[11:58] <LjL> ubotu tell ski-worklap about openweek ski-worklap see the private message from ubotu
+[11:58] <LjL> ski-worklap read the ask mark transcript if you want to know more about what you asked and if you want to discuss it ubuntu-offtopic
+[11:58] <LjL> idleone help alias
+[11:58] <LjL> idleone i used to have alias upgradesudo aptitude update sudo aptitude dist-upgrade sudo aptitude search n
+[11:58] <LjL> idleone you need to put that in your bashrc to make it stick
+[11:58] <LjL> gnomefreak shows new packages ie packages that were not there had a different version since the last time you typed sudo aptitude forget-new though the sudo there is completely gratuitous admittedly idleone note this
+[11:58] <LjL> lifepositive yes
+[11:58] <LjL> lifepositive packages such as deborphan or debfoster can help you a bit with finding them and getting rid of them but you have to spend time on that in particular debfoster can be sort of dangerous if you're not sure what you're doing
+[11:58] <LjL> lifepositive well it doesn't really matter that much with updates it matters when you install new packages but yeah i used to use aptitude for upgrades as well
+[11:58] <LjL> lifepositive no it won't stuff like deborphan is the only option
+[11:58] <LjL> lifepositive well short of manually going through all packages
+[11:58] <LjL> lifepositive well deborphan that's the package the command you probably want to run is orphaner will be handy though i think it only looks for unused libraries so there's not too much danger of removing packages that you actually want it will miss some on the other hand but
+[11:58] <LjL> sysrage nice one
+[11:58] <LjL> mc in edgy we were talking about dapper
+[11:58] <LjL> ubotu tell lefungus about boot lefungus see the private message from ubotu
+[11:58] <LjL> hmm sorry lefungus gave you the wrong factoid one second
+[11:58] <LjL> lefungus if your bios doesn't support that i guess you just can't do it but the page i gave you the second one the first was wrong gives you other possible methods for booting the cd like using a floppy disk or a usb key
+[11:58] <LjL> oofix zch
+[11:58] <LjL> lifepositive those give you mp in gnome if i'm not mistaken so probably not
+[11:58] <LjL> gnomefreak what's that repository out of curiosity
+[11:58] <LjL> hello limpbizcuit
+[11:58] <LjL> gnomefreak oh debug i knew of the repo zch asked about because it's got a proposed ooo fix in there
+[11:58] <LjL> anyone
+[11:58] <LjL> ubotu tell dsquare about gparted dsquare see the private message from ubotu
+[11:58] <LjL> software bmc
+[11:58] <LjL> dan it should work smoothly i'm guessing that for some reason some permissions aren't set correctly in your firefox directory perhaps try chown -r yourusernameyourusername firefox
+[11:58] <LjL> limpbizcuit that's not the ubuntu wiki
+[11:58] <LjL> ubotu tell limpbizcuit about repositories limpbizcuit see the private message from ubotu
+[11:58] <LjL> limpbizcuit this is the ubuntu wiki
+[11:58] <LjL> limpbizcuit and are the supported places to look at
+[11:58] <LjL> limpbizcuit precisely well the ubuntu wiki is also community-created but it's got some supervision from ubuntu members
+[11:58] <LjL> limpbizcuit in particular what's at is community mantained while itself is the official ubuntu guide
+[11:58] <LjL> opteek you could try asking in easyubuntu
+[11:58] <LjL> enter lordmaynoth
+[11:58] <LjL> ubotu tell wiseguy about build-essential wiseguy see the private message from ubotu
+[11:58] <LjL> away backpackeraway
+[11:58] <LjL> repeat royito
+[11:58] <LjL> royito you erase a file by clicking on it and then hitting del or right-clicking and selecting the appropriate option if that does not work perhaps you should explain better what isn't working
+[11:58] <LjL> mirak yeah i did it by adding this line to my etcinittab trespawnsbingetty -l ttys vt
+[11:58] <LjL> mirak though edgy doesn't have etcinittab that could be an issue - you'd have to read about upstart i suppose
+[11:58] <LjL> ubotu tell arquebus about ati arquebus see the private message from ubotu
+[11:58] <LjL> es
+[11:58] <LjL> ubotu tell francis about bot francis see the private message from ubotu
+[11:58] <LjL> gerasn don't spam please
+[11:58] <LjL> kervan none it's disabled
+[11:58] <LjL> kervan not very comprehensive
+[11:58] <LjL> basti don't think you can use sudo dpkg-reconfigure xserver-xorg
+[11:58] <LjL> ubotu tell francis about adduser francis see the private message from ubotu
+[11:58] <LjL> feisty davey
+[11:58] <LjL> anyone
+[11:58] <LjL> helpme
+[11:58] <LjL> i still can't see the statement of a concrete problem
+[11:58] <LjL> yashiro glxgears is not a benchmark and i believe you need xgl to run beryl on ati
+[11:58] <LjL> yashiro does cat etcxxorgconf grep fgl show anything at all
+[11:58] <LjL> yashiro ok
+[11:58] <LjL> yashiro don't see anything obviously wrong in there anyway for the record my glxgears rates about fps nvidia so your doesn't look that terrible to me again glxgears is far from a benchmark it can just sometimes quickly tell you whether you have d acceleration enabled or not i'd say you do
+[11:58] <LjL> yashiro and you're sure that's not a problem or lack of performance whatever you want to call it with the card
+[11:58] <LjL> x-rt-x
+[11:58] <LjL> x-rt-x are you ever going to learn or what
+[11:58] <LjL> besides perhaps just perhaps you shouldn't be giving us your password
+[11:58] <LjL> not my problem
+[11:58] <LjL> kitche don't bother - it's not like he wasn't pointed to the right pastebin a number of times
+[11:58] <LjL> x-rt-x the stuff you pasted doesn't look like the stuff the site says to me
+[11:58] <LjL> glibc zac
+[11:58] <LjL> zac well anyway glibc is libc which is an implementation of the standard c library what do you need to know about it
+[11:58] <LjL> x-rt-x yes follow the instructions on that page
+[11:58] <LjL> backup orestyle
+[11:58] <LjL> msg the bot
+[11:58] <LjL> remove aiglx
+[11:58] <LjL> find aiglx
+[11:58] <LjL> so how'd you remove it
+[11:58] <LjL> pinning
+[11:58] <LjL> no it's a frontend to the apt system just like apt-get is
+[11:58] <LjL> repeat kishan
+[11:58] <LjL> francis from a command line type file desktopmsgrusexe what's the output
+[11:58] <LjL> software then this would be of help
+[11:58] <LjL> francis press ctrlc and try again without the quotation marks
+[11:58] <LjL> xgl
+[11:58] <LjL> francis type exactly the following file desktopmsgrusexe
+[11:58] <LjL> ubotu tell eclypse about easysource eclypse see the private message from ubotu
+[11:58] <LjL> ubotu tell eclypse about automatix eclypse see the private message from ubotu
+[11:58] <LjL> ubotu tell kevin about bot kevin see the private message from ubotu
+[11:58] <LjL> as long as people are addicted to making questions that can be answered by it
+[11:58] <LjL> kevin i'd say no not with gnome anyway
+[11:58] <LjL> bet it's a pain
+[11:58] <LjL> ubotu tell asgilder about firefox asgilder see the private message from ubotu
+[11:58] <LjL> wheels etcapt
+[11:58] <LjL> info bitchx
+[11:58] <LjL> ubotu tell none about software none see the private message from ubotu
+[11:58] <LjL> x-rt-x do it in a private query
+[11:58] <LjL> query ubotu
+[11:58] <LjL> nolimitsoya i'd look at gift gtk frontend is giftoxic and mldonkey gtk frontend is mldonkey-gui
+[11:58] <LjL> can anyone tell me why my irc client can't read people's minds
+[11:58] <LjL> slavik i can only guess libapache-mod-perl
+[11:58] <LjL> info dcgui dreamer if that's what you're looking for
+[11:58] <LjL> technikal cat varlogauthlog
+[11:58] <LjL> technikal hm
+[11:58] <LjL> technikal i'm not sure what you mean with manage user logins
+[11:58] <LjL> can you describe exactly what you want to do
+[11:58] <LjL> fireflame
+[11:58] <LjL> feisty
+[11:58] <LjL> repeat morphex
+[11:58] <LjL> technikal uhm ok what's missing from varlogauthlog
+[11:58] <LjL> technikal login like what vt gdm
+[11:58] <LjL> technikal it most definitely should be logged for an ssh login i get dec ljlhead sshd accepted keyboard-interactivepam for from port ssh dec ljlhead sshd pamunix session opened for user by uid
+[11:58] <LjL> technikal i think it should does grep ssh varlogauthlog not show anything
+[11:58] <LjL> language fireflame
+[11:58] <LjL> caps fireflame
+[11:58] <LjL> paste technikal
+[11:58] <LjL> technikal ok let me try it on ubuntu i only have sshd running on debian
+[11:58] <LjL> bot technikal
+[11:58] <LjL> technikal dec localhost sshd server listening on port dec localhost sshd accepted password for from port ssh dec localhost sshd pamunix session opened for user by uid
+[11:58] <LjL> technikal so it works this is on edgy but i doubt on dapper it'd be supposed to be different anyway
+[11:58] <LjL> technikal try grep syslog etcsshsshdconfig
+[11:58] <LjL> automatix enselic valmarko
+[11:58] <LjL> egg
+[11:58] <LjL> cat i suggest that you just use the documentation if you really want automation though i'd try easyubuntu over automatix
+[11:58] <LjL> software valmarko
+[11:58] <LjL> info avidemux alynx
+[11:58] <LjL> bot abuse zspada
+[11:58] <LjL> lee not on the ubuntu site that i know of
+[11:58] <LjL> kaew actually it uses just that resolutions as a default on my compuyter
+[11:58] <LjL> ubotu tell kaew about fixres kaew see the private message from ubotu
+[11:58] <LjL> valmarko yes they do
+[11:58] <LjL> mcphail nice about the -f option anyway i was looking for that some time ago you sure it's there in ubuntu though it's not in the manpage
+[11:58] <LjL> eeeh not right now sorry p
+[11:58] <LjL> mcphail uh is that the manpage i don't have it i'm on edgy though
+[11:58] <LjL> phuzion not with ubuntu on it
+[11:58] <LjL> mcphail would that only force an fsck on the root partition or all mounted partitions or what
+[11:58] <LjL> mcphail alright i'll trust you unmount home and try it i'll beat you if it fscks home though -p when i'm back which won't be too soon in that case
+[11:58] <LjL> gcj onofrio
+[11:58] <LjL> mcphail that option might have been removed from the manpage for a reason since it doesn't appear to work here it doesn't cause a shutdown and i have some rc process killed message on the log terminal
+[11:58] <LjL> mcphail though perhaps it might be because i am executing it with my own sudo'ed user since i don't have root while home is unmounted
+[11:58] <LjL> why the manpage regression from dapper though seems weird
+[11:58] <LjL> i'll try that
+[11:58] <LjL> mcphail bimberi alright worked although cron was so very nice to decide to start updatedb a second before i typed umount home
+[11:58] <LjL> actually
+[11:58] <LjL> helpme
+[11:58] <LjL> openssh-server homecable
+[11:58] <LjL> botabuse nofearrr
+[11:58] <LjL> automatix
+[11:58] <LjL> houton that is intended to remove unused dependencies i don't think you should add a package name just apt-get autoremove
+[11:58] <LjL> though i haven't tried with a package name might work as well
+[11:58] <LjL> houton right it works with a package name too
+[11:58] <LjL> houton it's most defitely supposed to behave like that
+[11:58] <LjL> cmweb you could always message the bot in private
+[11:58] <LjL> etcapt
+[11:58] <LjL> the answer maybe sorry i don't know anything about i doubt it
+[11:58] <LjL> anyway etcaptsourceslist
+[11:58] <LjL> software
+[11:58] <LjL> cmweb because it's etcaptsourceslist and not etcaptsourceslist
+[11:58] <LjL> gnochm
+[11:58] <LjL> kchmviewer
+[11:58] <LjL> blekos gnomebaker is the closest gnome equivalent i suppose
+[11:58] <LjL> burn
+[11:58] <LjL> hi
+[11:58] <LjL> best
+[11:58] <LjL> msg the bot meshyf
+[11:58] <LjL> offtopic jeeva
+[11:58] <LjL> jeeva no this channel is english only
+[11:58] <LjL> caps
+[11:58] <LjL> bugs
+[11:58] <LjL> x-rt-x no
+[11:58] <LjL> x-rt-x no
+[11:58] <LjL> ubun not as easy to answer as one would expect try free but interpreting the numbers can be sort of tricky
+[11:58] <LjL> ubun gnome-system-monitor most likely or whatever it's called
+[11:58] <LjL> ubotu tell crazysam about fixres crazysam see the private message from ubotu
+[11:58] <LjL> whatspy kitche centericq supports msn as well
+[11:58] <LjL> x-rt-x i told you i don't use firestarter nor plan to install it since it's a gnome app
+[11:58] <LjL> x-rt-x actually kitche said it's more likely a problem with pam didn't he
+[11:58] <LjL> x-rt-x like i knew the acronym means pluggable authentication module i think
+[11:58] <LjL> ubun because it's a non-free program and as such cannot be put in the standard repositories
+[11:58] <LjL> jkc it's not free software no
+[11:58] <LjL> and it used to be shareware anyway though not anymore
+[11:58] <LjL> darksmiley cat etcservices - is cups web interface anyway
+[11:58] <LjL> darksmiley is on the list though it refers to printing-something generically
+[11:58] <LjL> jrib indeed
+[11:58] <LjL> darksmiley i don't have open by the way
+[11:58] <LjL> darksmiley nope
+[11:58] <LjL> darksmiley well try a netstat -l
+[11:58] <LjL> darksmiley oh wait i'm an idiot i did the portscan while on ssh to my debian not on ubuntu -
+[11:58] <LjL> darksmiley yeah it's open on ubuntu
+[11:58] <LjL> darksmiley and the responsible process is hiodp
+[11:58] <LjL> darksmiley which is part of the hplip package
+[11:58] <LjL> darksmiley yes hp printers driver
+[11:58] <LjL> darksmiley is not open though i have open
+[11:58] <LjL> darksmiley doesn't matter hplip comes installed by default
+[11:58] <LjL> darksmiley hm it doesn't even show on netstat though
+[11:58] <LjL> darksmiley well i don't really care on this machine since it's behind a hardware firewall anyway but i'm wondering about this port
+[11:58] <LjL> darksmiley considering i cannot get it to show on netstat yes a tad
+[11:58] <LjL> wow jkc
+[11:58] <LjL> jkc and it's you who says the contrary who are we to believe
+[11:58] <LjL> darksmiley dpkg -l aegis-virus-scanner
+[11:58] <LjL> darksmiley but perhaps you'd want to try something like rkhunterchkrootkit as well
+[11:58] <LjL> darksmiley the command i gave you will list all files including the executable
+[11:58] <LjL> info rkhunter darksmiley
+[11:58] <LjL> darksmiley like all programs that are packaged sudo apt-get install rkhunter chkrootkit
+[11:58] <LjL> after enabling universe that is
+[11:58] <LjL> info aegis-virus-scanner
+[11:58] <LjL> dapper jpeerless
+[11:58] <LjL> ubotu tell darksmiley about software darksmiley see the private message from ubotu
+[11:58] <LjL> darksmiley addremove programs is based on synaptic if that's what you mean yeah but synaptic adept apt-get aptitude etc are all front-ends to the same apt backend anyway well with aptitude adding a bit of magic of its own and ubuntu doesn't try to create an alternative to apt at all it just uses apt and tries to give some nice user-friendly frontends to it
+[11:58] <LjL> darksmiley and on adept if you're on kde yes
+[11:58] <LjL> fishing borg
+[11:58] <LjL> ubotu tell borg about dualhead borg see the private message from ubotu
+[11:58] <LjL> bot abuse
+[11:58] <LjL> darksmiley i don't think they're already changing the standard kde colorsbackground to something more violet-looking
+[11:58] <LjL> darksmiley i wouldn't be so sure honestly unless you know something i don't
+[11:58] <LjL> darksmiley not sure that means much anyway on kubuntu by default well it works when it wants to gnome applications get the kubuntu colors and fonts and looks thanks to the gtk-qt theme engine
+[11:58] <LjL> darksmiley i suppose they might implement something like that at some stage for the gnome counterpart
+[11:58] <LjL> edgy fenix-dark
+[11:58] <LjL> offtopic jkc arrenlex coz darksmiley
+[11:58] <LjL> jeeva that's precisely the point - you're not using it anyway you seem to be on dsl
+[11:58] <LjL> jeeva yes if you read that page it explains that having it enabled and it is enabled by default may sometimes slow things down when you're not using it
+[11:58] <LjL> offtopic weneedurhelp
+[11:58] <LjL> eol gingerdog
+[11:58] <LjL> php-freak try with wget perhaps
+[11:58] <LjL> php-freak no wget -r address
+[11:58] <LjL> it
+[11:58] <LjL> info eciadsl zaka
+[11:58] <LjL> ubotu tell zaka about software zaka see the private message from ubotu
+[11:58] <LjL> jamesbrose like what
+[11:58] <LjL> jamesbrose what configuration
+[11:58] <LjL> oneseventeen no
+[11:58] <LjL> jamesbrose are you using the vmware player from the repos
+[11:58] <LjL> paste
+[11:58] <LjL> jamesbrose pastebin the output of ifconfig please
+[11:58] <LjL> jamesbrose did you try installing some other vmware flavor from a tar file before trying the one from the repos
+[11:58] <LjL> jamesbrose which did you try first
+[11:58] <LjL> jamesbrose type dpkg -s etcinitdfunctions outputs anything
+[11:58] <LjL> jamesbrose as i thought that file was installed by something external likely a separate vmware installation i don't have it on my machine and it's what causing the trouble with your installation at least the trouble that can be seen from your paste
+[11:58] <LjL> jamesbrose try sudo apt-get --purge remove vmware-player then remove anything related to vmware that you can find then try again installing
+[11:58] <LjL> jamesbrose i don't know unless they come with an uninstall script it will be guesswork mostly
+[11:58] <LjL> jamesbrose find etc grep -i vmware and find usr grep -i vmware will probably help
+[11:58] <LjL> jamesbrose also are you sure your edgy is up to date ie you have edgy edgy-updates and edgy-security enabled for restricted main universe and multiverse and you ran an upgrade recently
+[11:58] <LjL> es kcop
+[11:58] <LjL> php-freak err you don't need to be at the ftp prompt but on a shell prompt
+[11:58] <LjL> wget
+[11:58] <LjL> es inmas
+[11:58] <LjL> es jesus
+[11:58] <LjL> bot abuse
+[11:58] <LjL> language bluefox
+[11:58] <LjL> dima i guess so that will remove all data there are on the entire drive though
+[11:58] <LjL> pl
+[11:58] <LjL> es case
+[11:58] <LjL> x-rt-x i've told you about a hundred times to message the bot in private if you're using it to find things out for yourself you're muted for minutes
+[11:58] <LjL> ubotu tell alaa about beryl alaa see the private message from ubotu
+[11:58] <LjL> ubotu tell kevin about bot kevin see the private message from ubotu
+[11:58] <LjL> ubotu tell wt about away wt see the private message from ubotu
+[11:58] <LjL> gnomefreak they'll get it when they come back but then yes that way they'll probably get it better
+[11:58] <LjL> kevin read the guides posted in ubuntu-xgl
+[11:58] <LjL> cmweb bootable cds to do what with
+[11:58] <LjL> cmweb err if the cd image that you download from the ubuntu site is bootable and it is then of course the resulting cd will be bootable
+[11:58] <LjL> cmweb make sure you burn in sao aka dao mode i don't think you should need to do anything else special
+[11:58] <LjL> cmweb the command line i use normally is cdrecord -sao -speed -data imagefileiso
+[11:58] <LjL> cmweb create i'm talking about the iso of the server cd that you downloaded from the ubuntu site
+[11:58] <LjL> if you don't have that image then well i suppose it won't be easy to burn it
+[11:58] <LjL> cmweb well what i would do is take an iso from the cd and then burn the iso but then i'm sure gnomebaker or kd or any of those gui programs will allow for a more straightforward process just make sure you select all options that make the copy be as much as the original as possible
+[11:58] <LjL> cmweb
+[11:58] <LjL> rasta qemu or vmware
+[11:58] <LjL> rasta can be handy with the player
+[11:58] <LjL> anyone
+[11:58] <LjL> ubotu tell nomin- about mythtv nomin- see the private message from ubotu
+[11:58] <LjL> darkguy you need a virtual hd ie an image yes in theory you could also start it from the real partition but in practice windows doesn't like that at all
+[11:58] <LjL> darkguy it can be create with free software for that matter qemu can make it for instance i normally just create it using the site but who cares anyway vmware itself is not free software
+[11:58] <LjL> darkguy it's free as in gratis but it's as proprietary as it can get
+[11:58] <LjL> darkguy and the server is as free as the player workstation isn't no it's just that only the player is packaged in our repos
+[11:58] <LjL> seveas jmon this repository has flash
+[11:58] <LjL> jar if you install the sox package there is a play command that can play mp here
+[11:58] <LjL> it amorgin
+[11:58] <LjL> info x-window-system catshrimp
+[11:58] <LjL> info xorg catshrimp even
+[11:58] <LjL> offtopic
+[11:58] <LjL> offtopic osubucks holycow soundray catshrimp
+[11:58] <LjL> catshrimp doubt that
+[11:58] <LjL> jsoftw how could i know being such a noob
+[11:58] <LjL> lee xorg
+[11:58] <LjL> rpm lee
+[11:58] <LjL> ubotu tell lee about ati lee see the private message from ubotu
+[11:58] <LjL> caps mkaster
+[11:58] <LjL> info mysqltcl x-rt-x perhaps this
+[11:58] <LjL> x-rt-x i could or i could tell you how you can find that out by yourself -
+[11:58] <LjL> ubotu tell x-rt-x about apt-file x-rt-x see the private message from ubotu
+[11:58] <LjL> x-rt-x however i can tell you that i don't see that specific file in any package there is usrlibmysqltcl-libmysqltclso
+[11:58] <LjL> x-rt-x and it's in the mysqltcl package
+[11:58] <LjL> ubotu tell miranda about automatix miranda see the private message from ubotu
+[11:58] <LjL> ubotu tell econobeing about wifi econobeing see the private message from ubotu
+[11:58] <LjL> unorthodox to say the least -d there used to be a slackware version years ago that installed to a fat partition but i'm not sure that kind of hack is very widely available right now
+[11:58] <LjL> carlo sudo apt-get --reinstall install sun-java-bin
+[11:58] <LjL> wccv or just take advantage of apt
+[11:58] <LjL> cybermad it's explained at lengths at those links
+[11:58] <LjL> econobeing ndiswrapper-common usrsbinndiswrapper --- apt-file output which would mean that it has to be run as root - otherwise a file not found will clearly result
+[11:58] <LjL> actually nevermind what i said i do have sbin and usrsbin in my path even as a normal user
+[11:58] <LjL> econobeing ls usrsbinndiswrapper
+[11:58] <LjL> econobeing and dpkg -l ndiswrapper-common grep ndiswrapper
+[11:58] <LjL> lemao apt-cache search
+[11:58] <LjL> lemao f views new flat package list
+[11:58] <LjL> cubed no the command install is totally unrelated type man install to know what it does
+[11:58] <LjL> administrator a better question is why p
+[11:58] <LjL> cubed or gdebi
+[11:58] <LjL> gdebi cubed
+[11:58] <LjL> administrator depends sudo -i can be useful at times but yeah most of the times you want sudo something at any rate if you miss su - i'm sure you won't find anything missing with sudo -i
+[11:58] <LjL> cubed well if you've downloaded it manually it'll be on the desktop or somewhere in your home no you'll need to specify the path unless you're already there yes
+[11:58] <LjL> administrator why do you have a root password to begin with
+[11:58] <LjL> administrator secondarily not all users are administrators obviously in order for an user to have sudo access it must be made a member of the admin group
+[11:58] <LjL> ubotu tell administrator about adduser administrator see the private message from ubotu
+[11:58] <LjL> administrator of course you wouldn't want every user on your machine to have sudo access would you i mean it might be just a home machine but think if it were something bigger than that
+[11:58] <LjL> cubed uh sudo is a command to let you run things with administrator priviledges root using the sudo command syntax sudo -i is a way of saying that you don't just want to run one command as administrator but you want to start a shell as administrator when you're finished you can use exit
+[11:58] <LjL> cubed dpkg on the other hand is the program that handles deb files the -i option is for install
+[11:58] <LjL> cubed besides that -- as you correctly said you can do without the path name only if you're in the right folder in the terminal the default folder is your home homeyour-username can also be spelled the desktop folder is desktop
+[11:58] <LjL> ubotu tell cubed about cli cubed see the private message from ubotu
+[11:58] <LjL> cubed what are you looking for
+[11:58] <LjL> nothlit did i say anything different
+[11:58] <LjL> cubed hm i'm not sure you'll find that i suppose you've read the wifi howto
+[11:58] <LjL> startup majortom
+[11:58] <LjL> nothlit well you do end up in a root shell don't you
+[11:58] <LjL> wifi cubed try this one too
+[11:58] <LjL> nothlit alright keep in mind that the original question was about what difference there was between the commands sudo -i and dpkg -i -
+[11:58] <LjL> cubed i've never really dealt with wireless but for that matter you need sudo for running dpkg as well - you can't install deb files while you're not root
+[11:58] <LjL> cubed it makes sense as far as i can tell but i just don't know how ndiswrapper is supposed to be used so it could be right as well as it could be wrong
+[11:58] <LjL> gennmx no need to discuss how bans are done in here
+[11:58] <LjL> dbo -p
+[11:58] <LjL> zelda there are different versions and flavors
+[11:58] <LjL> zelda they're two quite different desktop environments based on different gui toolkits it's like looking at two different operating systems if you just go by the look and feel mostly
+[11:58] <LjL> zelda start at
+[11:58] <LjL> zelda that's a wiki yes
+[11:58] <LjL> zelda probably here
+[11:58] <LjL> zelda yes but we don't mind if you ask about things that work the same in all distributions
+[11:58] <LjL> zelda just don't ask how to install redhat or things like that
+[11:58] <LjL> zelda if they're not support questions but more like does linux not sure if i'm explaining myself maybe ubuntu-offtopic could be better
+[11:58] <LjL> zelda one of the first things you probably want to learn about is the packaging system if you're used to windows ubuntu has a different approach to installing software
+[11:58] <LjL> ubotu tell zelda about software zelda see the private message from ubotu
+[11:58] <LjL> stacey not directly you must go through dapper
+[11:58] <LjL> ubotu tell stacey about upgrade stacey see the private message from ubotu
+[11:58] <LjL> ubotu tell asgilder about grub asgilder see the private message from ubotu
+[11:58] <LjL> ubotu tell majortom about bot majortom see the private message from ubotu
+[11:58] <LjL> vmware-player
+[11:58] <LjL> ubotu tell administrator about rpm administrator see the private message from ubotu
+[11:58] <LjL> seamus what guide would that be
+[11:58] <LjL> seamus that's the jre archive that comes from the sun site it's not in deb format which is what ubuntu uses so instead ubuntu provides the sun-java-jre package
+[11:58] <LjL> seamus i suppose it might be more up-to-date than the package that is included in ubuntu but if you ask me i'd install the latter anyway
+[11:58] <LjL> seamus ubuntu is a distribution this means that it packages software made by third parties so obviously you'll be able to get the same software from both the third party and the ubuntu repositories - but normally you'd just use the repositories since that's what they exist for
+[11:58] <LjL> seamus i assume that's the reason why ubuntuguideorg mentions it yes
+[11:58] <LjL> seamus generally speaking it's quite likely that packages that are in the ubuntu repositories are older than the latest version but on the other hand they were made explicitly for ubuntu so they are easy to install and should work well with the rest of the system - which is not guaranteed otherwise
+[11:58] <LjL> administrator sudo apt-get remove package
+[11:58] <LjL> jrib you're not excused am here and i still got it right p
+[11:58] <LjL> stacey
+[11:58] <LjL> and
+[11:58] <LjL> stacey your problem i suppose
+[11:58] <LjL> works for me houton
+[11:58] <LjL> thepub files there is one file called hidden in the root but
+[11:58] <LjL> thepub like where i don't think that's right
+[11:58] <LjL> houton not if i have to go by the painful automatix troubleshooting sessions i and others have had to deal recently
+[11:58] <LjL> offtopic thepub stacey
+[11:58] <LjL> thepub i have one in media too
+[11:58] <LjL> stacey you will find me
+[11:58] <LjL> thepub i haven't the slightest idea
+[11:58] <LjL> es kco
+[11:58] <LjL> guidelines stacey
+[11:58] <LjL> thepub that's about the only one i have though besides the one in
+[11:58] <LjL> thepub if that's of any comfort i think that hidden feature is being dropped in edgy
+[11:58] <LjL> err i mean feisty
+[11:58] <LjL> soundray use reply for that kind of factoids
+[11:58] <LjL> soundray yes well no not in general - i mean the way you did it it would result in fstab is the etcfstab file is while with fstab is reply blablah it then just says the etcfstab file is
+[11:58] <LjL> soundray i borrowed something else from wikipedia for that factoid anyway since we were saying that it's not really true that it strictly lists partitions that are mounted at boot see noauto and also has the purposes of mounting partitions easily
+[11:58] <LjL> anyone
+[11:58] <LjL> automatix
+[11:58] <LjL> ubotu tell biotrox about mpe biotrox see the private message from ubotu
+[11:58] <LjL> starz the problem was
+[11:58] <LjL> starz you're using the drivers from the repositories
+[11:58] <LjL> bot lemonscc
+[11:58] <LjL> lemonscc it does but you can't use ubotu because it takes its own nickname as a command prefix
+[11:58] <LjL> starz pastebin your etcaptsourceslist
+[11:58] <LjL> botabuse
+[11:58] <LjL> starz doesn't mean there isn't something wrong in your sourceslist what irc client are you on you can probably paste it to me in a query
+[11:58] <LjL> klingn you biotrox and anyone else who was using the bot a bit randomly
+[11:58] <LjL> starz you should be able to do exec -o cat etcaptsourceslist i think do it in a query with me though not in the channel otherwise you'll flood
+[11:58] <LjL> dapper biotrox
+[11:58] <LjL> botabuse
+[11:58] <LjL> tristan sudo apt-get install openssh-server
+[11:58] <LjL> ubotu tell neobyte about ssh neobyte see the private message from ubotu
+[11:58] <LjL> fr elwario
+[11:58] <LjL> jaykul yes
+[11:58] <LjL> ubotu tell ademan about nvidia ademan see the private message from ubotu
+[11:58] <LjL> ademan i was left at i get mine from
+[11:58] <LjL> ademan if you installed it using the blob from nvidia you could easily encounter problems during upgrading with a deb i think
+[11:58] <LjL> yohan no warez
+[11:58] <LjL> belfegorash sudo dpkg
+[11:58] <LjL> doesn't work
+[11:58] <LjL> belfegorash it would help if you cdd to the right directory first possibly cd desktop if it was downloaded to the desktop
+[11:58] <LjL> ubotu tell belfegorash about cli belfegorash see the private message from ubotu
+[11:58] <LjL> worksforme valmarko
+[11:58] <LjL> lubix because it is not ontopic
+[11:58] <LjL> ubotu tell davidriep about wmv davidriep see the private message from ubotu
+[11:58] <LjL> failed
+[11:58] <LjL> automatix miraculix
+[11:58] <LjL> like he didn't get that
+[11:58] <LjL> kapilgit not very orthodox but i just copied them in the other computer's varcacheapt and it worked fine
+[11:58] <LjL> language kash
+[11:58] <LjL> feryana it was a kick please use ubuntu-offtopic for jokes and the like
+[11:58] <LjL> bot
+[11:58] <LjL> enter
+[11:58] <LjL> nicky you don't you should just avoid doing what you did above - for wlan enter cards enter for ubuntu enter anyone u would recommend enter
+[11:58] <LjL> noiesmo we were having problems with the bot before couldn't add that
+[11:58] <LjL> info defrag jvai
+[11:58] <LjL> nonsense extext are probably less affected by fragmentation than fatntfs are but they are nonetheless that's unavoidable
+[11:58] <LjL> psusi since when does defrag work with ext though
+[11:58] <LjL> psusi i see well i'm sorry but i don't quite feel like installing feisty to try that out it's nice to know it'll be there though why don't you ask in ubuntu as well
+[11:58] <LjL> language emosamurai
+[11:58] <LjL> psusi i'm on edgy let me rephrase that i don't feel like installing feisty or trying it on my precious edgy filesystem
+[11:58] <LjL> psusi i could probably set one up for that by the way do you know of any benchmarking tool that would make sense to test with
+[11:58] <LjL> psusi hm not sure bonnie is good for that though afaik it creates files and is mostly used to check which parts of the drive are physically faster not sure there's much else in the repositories though
+[11:58] <LjL> psusi ouch can't try it on a test fs either i've already got primary partitions -
+[11:58] <LjL> psusi right but that way the fs image itself will end up err fragmented
+[11:58] <LjL> heh
+[11:58] <LjL> is there a dpkg commandoption to verify a single package against the stored md there is an md stored right
+[11:58] <LjL> psusi i know about that but i meant for checking the package itself not the files more of a curiosity than anything else though i can do what i intended to through other means
+[11:58] <LjL> psusi no i mean checking the md of the deb file yes i know it's checked when it's installed
+[11:58] <LjL> psusi in other words like apt-verify somepackagedeb resulting in yes that deb file is the same as what's listed in varcacheaptsomething but again it's not really important - i thought about this because i was copying a bunch of debs from my varcacheaptarchives to a loopback fs for testing defrag
+[11:58] <LjL> psusi of course i can just mdsum the files then the mdsum -c then after the defrag which is what i'm doing and which is why what i asked wasn't really important
+[11:58] <LjL> psusi shouldn't need that i think what i did is mdsum deb sums and then mdsum -c sums it should do just about what you said but automatically i think
+[11:58] <LjL> psusi then what i'm doing is for file in varcacheaptarchiveslibdeb do cp file mntpoint done -- i think this should get them fragmented enough
+[11:58] <LjL> psusi - some testing which would show that at least under artificial conditions fragmentation does have a noticeable impact
+[11:58] <LjL> dlinkcrawxor completely irrelevant and bad taste
+[11:58] <LjL> offtopic
+[11:58] <LjL> psusi this and the site in general seems interesting for benchmarking fragmentation
+[11:58] <LjL> best
+[11:58] <LjL> i see a best movie player on google but it's for windows
+[11:58] <LjL> and i wouldn't trust developers who call their program like that anyway
+[11:58] <LjL> karthi a best
+[11:58] <LjL> vlc karthi
+[11:58] <LjL> ubotu tell karthi about software karthi see the private message from ubotu
+[11:58] <LjL> ubotu tell karthi about restricted karthi see the private message from ubotu
+[11:58] <LjL> nicola no
+[11:58] <LjL> nicola devhdbaudio makes no sense devhdb is a file specifically a device node not a directory
+[11:58] <LjL> nicola that i know of yes it's impossible you could always mount the entire drive and make a symlink to the wanted directory though no
+[11:58] <LjL> codo probably because of the gtk-qt wrapper
+[11:58] <LjL> codo go into kde run system settings go to appearance under look and feel gtk styles and fonts and unselect the various use my kde style
+[11:58] <LjL> codo go into kde run system settings go to appearance under look and feel gtk styles and fonts and unselect the various use my kde style
+[11:58] <LjL> codo if that fails you could perhaps try just removing the gtk-engines-gtk-qt package
+[11:58] <LjL> airday no you can't roll back automatically and it isn't easy manually either
+[11:58] <LjL> airday note that if you have beryl and stuff installed and their repositories enabled those messy updates probably didn't come from the ubuntu repositories but from the repositories of those things
+[11:58] <LjL> airday if you are willing to put your system into the hands of third party repositories that possibly contain experimental stuff and labelled as such yes they can make your system garbage
+[11:58] <LjL> airday remove the packages that were updated unselect the repositories edgy-updates whatever they came from and install them again
+[11:58] <LjL> airday apt-cache policy packagename
+[11:58] <LjL> airday that will probably mean you'll be left without an x server and gnome and all after you uninstall them though so you'll have to install them back using only a textmode terminal
+[11:58] <LjL> airday no that's an ubuntu repository
+[11:58] <LjL> airday can you obtain a list of all packages that were updated
+[11:58] <LjL> airday yes though they could still conflict with third party stuff possibly
+[11:58] <LjL> airday so the symptoms right now are exactly
+[11:58] <LjL> airday sounds irritating enough let's forget about beryl for a moment slow starting of programs is weird do text-mode programs also take long to start
+[11:58] <LjL> airday can you pastebin the list of updated packages though i'm using kde so i'm not sure i can be of too much help
+[11:58] <LjL> it bic
+[11:58] <LjL> ubotu tell airday about pastebin airday see the private message from ubotu
+[11:58] <LjL> airday well you could install dillo or something but just paste in a query with me
+[11:58] <LjL> codo no kde apps will still look fine
+[11:58] <LjL> codo that package is made to make gtkgnome apps look like qtkde ones
+[11:58] <LjL> codo gtk-engines-gtk-qt package
+[11:58] <LjL> airday yes
+[11:58] <LjL> airday i've pasted it here in case anybody else wants to have a look
+[11:58] <LjL> airday in a moment i'll give you instructions to downgrade note though no guarantees it might mess things up more for all i know
+[11:58] <LjL> downgrade
+[11:58] <LjL> gnochm weby
+[11:58] <LjL> nolimitsoya gui applications are extremely slow to start up and some show strange behaviors firefox doesn't start and doesn't show gui controls even when it does starts ktorrent puts tray icon outside of the tray - this after an automatic update as described at
+[11:58] <LjL> my suggestion was to try a downgrade using the command line at but somehow i'm not optimistic on this
+[11:58] <LjL> nolimitsoya he doesn't have beryl running right now though
+[11:58] <LjL> airday grep vesa etcxxorgconf
+[11:58] <LjL> airday apt-get -f install it shouldn't mention anything unless you have broken packages run it again and see if it still complains
+[11:58] <LjL> airday ah nevermind that one is alright actually
+[11:58] <LjL> dependency cycle nice
+[11:58] <LjL> airday nothing
+[11:58] <LjL> airday can you exclude hardware problems ie bad ram bad hd
+[11:58] <LjL> nolimitsoya i think it could be worth trying but perhaps not right now since it'll take quite long i think i'd try other routes first
+[11:58] <LjL> nolimitsoya like a memtest and perhaps using vesa and also a run of debsums to see if any files might be corrupted
+[11:58] <LjL> airday it would help if you were able to pastebin stuff to us if your firefox still can't run reliably can you try sudo apt-get install dillo that's a lightweight web browser that will hopefully work
+[11:58] <LjL> airday nothing for now what i suggest is sudo apt-get install debsums then debsums -v ok and pastebin the output of that
+[11:58] <LjL> airday sorry bad command i meant debsums grep -v ok
+[11:58] <LjL> airday from what you've said it output i'd say no
+[11:58] <LjL> airday you didn't execute my command line for downgrading did you
+[11:58] <LjL> airday well it's precisely the fact that the problems are so intermittent that makes me think you could have something with the hardware
+[11:58] <LjL> airday can't paste it here it is long it was the very long one i pasted in a query to you
+[11:58] <LjL> airday this one
+[11:58] <LjL> airday but don't run it anyway
+[11:58] <LjL> airday well do the debsums thing for now sudo apt-get install debsums debsums grep -v ok that will tell us if there's any corrupted files
+[11:58] <LjL> or at least it should
+[11:58] <LjL> info libgtk-dev neonempyr
+[11:58] <LjL> airday that's normal whether it's bad or not depends what stuff it lists
+[11:58] <LjL> airday bah everything in beryl sometimes works and sometimes doesn't for me so i can't say anything about that
+[11:58] <LjL> ich yes
+[11:58] <LjL> ich from the ubuntu topic - feisty is very broken at the moment - prepare to chroot in if any of the updates have broken your system so it doesn't boot
+[11:58] <LjL> airday is the debsums finished yet
+[11:58] <LjL> airday ouch what's the url
+[11:58] <LjL> ryanpg try chmod ax testphpphp sudo aenmod php
+[11:58] <LjL> ryanpg that is try first and if it still doesn't work try
+[11:58] <LjL> tom probably not some failed are normal not sure why probably the files get modified by postinst scripts and unfortunately there are a few packages that come with no checksums
+[11:58] <LjL> airday that looks ok except perhaps for the pango entry hold on
+[11:58] <LjL> ufoz man rename
+[11:58] <LjL> airday try sudo apt-get --reinstall install libpango-common
+[11:58] <LjL> ryanpg hm what if you run the script using php testscriptphp
+[11:58] <LjL> airday restart x and see if it's helped
+[11:58] <LjL> airday wait perhaps try also sudo apt-get --reinstall install xfonts-scalable shouldn't help but shouldn't hurt
+[11:58] <LjL> airday including ktorrent
+[11:58] <LjL> info gcc breezy
+[11:58] <LjL> info gcc breezy
+[11:58] <LjL> info linux breezy treepio
+[11:58] <LjL> ryanpg then make sure you have php-cli installed
+[11:58] <LjL> treepio you asked for the versions i gave you the version as for glibc the package is called libc
+[11:58] <LjL> info libc breezy treepio
+[11:58] <LjL> treepio ok didn't i answer your question
+[11:58] <LjL> treepio just look at what ubotu says now
+[11:58] <LjL> info libc breezy
+[11:58] <LjL> info linux breezy
+[11:58] <LjL> info gcc breezy
+[11:58] <LjL> treepio look at the messages from ubotu ubotu the bot
+[11:58] <LjL> treepio ubotu libc gnu c library shared libraries and timezone data in component main is required version -ubuntu breezy package size kb installed size kb ubotu linux generic complete linux kernel in component restricted is optional version breezy package size kb installed size kb ubotu gcc the gnu c compiler in component main is optional version - breezy
+[11:58] <LjL> package size kb installed size kb
+[11:58] <LjL> treepio it's called not and it's also known as breezy badger and it's old
+[11:58] <LjL> breezy treepio
+[11:58] <LjL> treepio it's not obsoleted yet but it'll be in april the current versions are dapper drake and edgy eft
+[11:58] <LjL> treepio you won't be able to compile stuff out of the box because the compiler is not installed i believe it's on the cd however so you can just type sudo apt-get build-essential to have it working you need a decent amount of ram though
+[11:58] <LjL> treepio still if you're going to compile programs that require various libraries you'll need to fetch those libraries' headers from the internet
+[11:58] <LjL> treepio that might work if the other system doesn't have too different versions of libc
+[11:58] <LjL> treepio well i don't know you can try
+[11:58] <LjL> dreamer not with a mounted cd in no
+[11:58] <LjL> dfcarney you need the alternate cd for that
+[11:58] <LjL> treepio it does ask you wether you want to erase the entire drive resize partitions or use the free space only if any then if you just click ok without looking that will happen
+[11:58] <LjL> treepio ok granted perhaps erase the entire drive shouldn't be the option that's checked by default
+[11:58] <LjL> nolimitsoya well pressing ok is supposed to be a conscious choice p perhaps it's worth a bugreport but i'd have to re-check the installation process before submitting one i don't entirely remember what it looks like
+[11:58] <LjL> anant
+[11:58] <LjL> nolimitsoya i think it's either erase or resize by default i don't remember but even if it's resize well resizing partitions is still dangerous
+[11:58] <LjL> no matter what people say about it
+[11:58] <LjL> anyone
+[11:58] <LjL> a ndy besides the fact that my anyone was directed at dv if you have a problem state your problem does anyone do x or y is simply not likely to get you an answer and also there's people here and you don't want a flood of yes and no
+[11:58] <LjL>
+[11:58] <LjL> someone
+[11:58] <LjL> try a pronoun that we don't have in the bot
+[11:58] <LjL> a ndy now that's a question
+[11:58] <LjL> botabuse
+[11:58] <LjL> basilisk gop
+[11:58] <LjL> gop not in the repositories
+[11:58] <LjL> gop google doesn't seem to hint to the existence of external ubuntu packages so i guess yeah you'll have to compile it
+[11:58] <LjL> nicola a build dependency a package that you need in order to compile another package
+[11:58] <LjL> xi
+[11:58] <LjL> automatix lemonscc elfreakz
+[11:58] <LjL> yeah we were missing a third invokation
+[11:58] <LjL> botabuse elfreakz
+[11:58] <LjL> sorush erm doesn't it say precisely that right on that page deb unstable non-free
+[11:58] <LjL> sorush and i don't see anywhere that those packages are ubuntu compatible
+[11:58] <LjL> gimpshop hoag
+[11:58] <LjL> patience james
+[11:58] <LjL> install karbon
+[11:58] <LjL> james it's possible but then repeating well won't help much with that myself i've seen your question and i simply don't know the answer
+[11:58] <LjL> corevette erm perhaps if you've installed and later removed xgl you should modify back your config files accordingly
+[11:58] <LjL> ubotu tell ghoul about grub ghoul see the private message from ubotu
+[11:58] <LjL> james there certainly is a way you just need to know what gconf key you changed -p and i don't know that
+[11:58] <LjL> opera cristi
+[11:58] <LjL> language xibalba
+[11:58] <LjL> lemonscc xibalba for swearing
+[11:58] <LjL> like these ones
+[11:58] <LjL> lynoure the tor network has limited bandwidth resources and people using it for pp are the main reason why it's so slow
+[11:58] <LjL> lynoure well i think the tor faq or something make it clear that it should not be used for pp
+[11:58] <LjL> cpudan only torrent i'm afraid
+[11:58] <LjL> repeat graham
+[11:58] <LjL> cpudan the only torrent i know of is the official one those are usually very fast here but i've only ever tried the cds
+[11:58] <LjL> flash graham javajake
+[11:58] <LjL> cpudan no
+[11:58] <LjL> cpudan err there's edgy as well
+[11:58] <LjL> cpudan the timeline is breezy - dapper - edgy - feisty feisty is not yet released and there's no reason why you should use breezy on the other hand there may be valid reasons to use dapper over edgy
+[11:58] <LjL> ubotu tell ghoul about ext ghoul see the private message from ubotu
+[11:58] <LjL> ghoul note that as arwen pointed out though there are other solutions including a stand-alone file browser that doesn't need you to install an ifs driver google ext windows as well - for reading not writing ext is effectively the same as ext
+[11:58] <LjL> alex shred that's stupid it'll ruing your card what kind of tutorial is that
+[11:58] <LjL> lynoure maybe still i can't care less he's been abusive enough
+[11:58] <LjL> alex indeed it probably won't because there's the -n option set see and for the reason why writing to flash multiple times will ruin them and shred normally does write quite a few times
+[11:58] <LjL> alex i'd have used something like dd to achieve the same effect but then as long as you take care to pass those option especially -n it should be good
+[11:58] <LjL> dia afief
+[11:58] <LjL> kivio afief
+[11:58] <LjL> alex well medialexar is where you mounted it but the device will be some file in dev like but not necessarily the mentioned devsdd
+[11:58] <LjL> alex you certainly can't run shred over a directory which is what medialexar is
+[11:58] <LjL> alex type mount and assuming the card is mounted correctly you'll see what the device is
+[11:58] <LjL> however alex if you're not familiar with this kind of stuff i think doing that soft of work with shred and the like runs you into a risk of destroying the wrong filesystem be very careful only work as root when you absolutely need to
+[11:58] <LjL> alex by the way see we have a couple of howtos for encryption as well
+[11:58] <LjL> alex that is an usb key but if you get the devsdsomething or whatever wrong during a shred dd mkfs etc command you're likely to wipe or corrupt your hard drive not the usb key
+[11:58] <LjL> beryl
+[11:58] <LjL> ubotu tell einpaule about bot einpaule see the private message from ubotu
+[11:58] <LjL> username
+[11:58] <LjL> caps tcc
+[11:58] <LjL> paste
+[11:58] <LjL> spx what's wrong with ssh
+[11:58] <LjL> spx like what
+[11:58] <LjL> spx it certainly does work over here
+[11:58] <LjL> spx what's the error
+[11:58] <LjL> flash flannel mseney jherm
+[11:58] <LjL> jherm why's backports bad
+[11:58] <LjL> jherm erm and a third-party package or bin or whatever would be supported
+[11:58] <LjL> flannel well he has a point -backports might update other packages that you have installed and that you don't want updated
+[11:58] <LjL> flannel jherm but it's easy enough to add it install whatever you need and remove it
+[11:58] <LjL> jherm how
+[11:58] <LjL> jherm i wouldn't recommend wgetdpkg if that's what you mean
+[11:58] <LjL> actually it wasn't me who banned him borg
+[11:58] <LjL> enter cmt
+[11:58] <LjL> spaghettiknife xmms
+[11:58] <LjL> schisms valmarko more importantly that debate is offtopic
+[11:58] <LjL> automatix finchx rprp
+[11:58] <LjL> ubotu tell rprp about wmv rprp see the private message from ubotu
+[11:58] <LjL> ubotu tell rprp about seveas rprp see the private message from ubotu
+[11:58] <LjL> finchx seveas' is just a repository it contains software that can be installed via the standard apt system that's the way software gets installed in ubuntu look at which software it's available from it - i don't know what automatix or easyubuntu actually do
+[11:58] <LjL> finchx i'm afraid automatix goes through things that are much more black magic than plain apt which is possibly the reason why it breaks so often and i'm not sure how that's more like windows synaptic does exactly the same thing ask you what you want installed you select the stuff and then it installs it
+[11:58] <LjL> finchx for codecs getting wcodecs from the seveas repository should mostly do the trick although for some wmv you don't even need that and following the standard howto works
+[11:58] <LjL> finchx well actually i don't think you have to go through the terminal to install things from seveas' repository and you certainly don't for installing most of the stuff that's mentioned in the howto i don't have synaptic so i'm not sure how exactly it would be done but i'm quite sure you can add repositories from there without touching the cli
+[11:58] <LjL> finchx see here it gives an example with precisely the seveas repository - no command line
+[11:58] <LjL> ubotu tell finchx about mp finchx see the private message from ubotu
+[11:58] <LjL> finchx the relevant packages are mentioned on there you can install them with apt-get from the console or from synaptic or whatever you like
+[11:58] <LjL> babelfish is your friend
+[11:58] <LjL> finchx i don't think so i've never used those
+[11:58] <LjL> finchx doubt it
+[11:58] <LjL> anyone cmweb
+[11:58] <LjL> cmweb not really i'm just amused by the fact that you never seem to learn anything
+[11:58] <LjL> motin a second i'll find you the relevant bug report
+[11:58] <LjL> motin
+[11:58] <LjL> motin make sure you install all updates for starters besides that that bug report has a few suggestions none of them appears to solve it for everyone though -
+[11:58] <LjL> skyrunner type groups does it list admin
+[11:58] <LjL> skyrunner define mess
+[11:58] <LjL> nn ar filenamedeb
+[11:58] <LjL> nn ar x filenamedeb - correction
+[11:58] <LjL> skyrunner i suggest a reinstall and i suggest not even thinking about doing that again
+[11:58] <LjL> skyrunner yeah you could do chown root usr -r -- but then who says everthing there is owned by root
+[11:58] <LjL> skyrunner i mean was and is supposed to be owned by root
+[11:58] <LjL> skyrunner did you use chmod recursively as well
+[11:58] <LjL> vigofuse it's insert the ubuntu cd and reinstall after backing up your stuff
+[11:58] <LjL> skyrunner in other words you only changed the owner
+[11:58] <LjL> skyrunner look i'll check what's owned by whom in my own usr hold on but even if i have everything owned by root it doesn't mean that on your system it has to be that way so in principle i still recommend a reinstall
+[11:58] <LjL> skyrunner i'm interested in the rationale behind using that chown command anyway why did you do that whatever it was that you wanted to achieve it can be done through other means
+[11:58] <LjL> skyrunner on my system the following files in usr are not owned by root while the rest is usrbinat usrbinlppasswd usrlibcupsdaemoncups-check-pam-auth
+[11:58] <LjL> skyrunner usrbinat is owned by daemondaemon usrbinlppasswd is owned by cupsyslpadmin and usrlibcupsdaemoncups-check-pam-auth is owned by cupsysshadow
+[11:58] <LjL> skyrunner you could chown everything to root and then set these three as above or you could reinstall doing the former doesn't guarantee anything specifically i'm using kubuntu and i might have many different packages installed than the ones you have so my permissions in theory don't mean a thing
+[11:58] <LjL> skyrunner as you rightly should
+[11:58] <LjL> skyrunner if you want to be safe reinstall
+[11:58] <LjL> nn apt-cache --recurse depends ubuntu-minimal
+[11:58] <LjL> skyrunner well the first thing to learn is don't do things as root unless you know exactly what you're doing ask here first at the very least
+[11:58] <LjL> nn what do you have installed
+[11:58] <LjL> nn it definitely shouldn't show everything you have if you've got a standard ubuntu-desktop or kubuntu-desktop system
+[11:58] <LjL> nn but you're right it definitely errs on the huge side it probably lists every possible alternative including dependencies of packages listed as conflicts and the like
+[11:58] <LjL> nn but without --recurse i think it'll just list the plain dependencies of ubuntu-minimal which are far from what you need
+[11:58] <LjL> nn look can't guarantee this works correctly ie it may not really list all needed packages but i've been making this thing yesterday
+[11:58] <LjL> offline nn
+[11:58] <LjL> nn put ubuntu-minimal in as a package and leave the metapackage box empty note that for starters it will not list the linux kernel binutils probably other stuff simply because those are not listed in ubuntu-minimal or ubuntu-desktop for that matter
+[11:58] <LjL> nn doesn't the alternate cd also give you some minimal installation options
+[11:58] <LjL> nn and see as well
+[11:58] <LjL> nn doesn't really matter
+[11:58] <LjL> nn you could always use a virtual machine to install from the cd while keeping it as an iso image and without really burning a cd
+[11:58] <LjL> ubotu tell airday about nfs airday see the private message from ubotu
+[11:58] <LjL> nn i guess you might find this howto useful as well
+[11:58] <LjL> language an
+[11:58] <LjL> fresco -- but do not make up a host name use the correct one
+[11:58] <LjL> hostname fresco
+[11:58] <LjL> fresco yes
+[11:58] <LjL> fresco well that's all i have it's kubuntu edgy
+[11:58] <LjL> drkm there isn't one it depends on preferences and religions but you should make your swap at least as big as your ram or things like hibernation won't work
+[11:58] <LjL> nn well minimal is a subjective term d
+[11:58] <LjL> nn ah well use df for that much more reliable i think du might also end up looping
+[11:58] <LjL> nn uh it was in a directory and you have proc on there
+[11:58] <LjL> had
+[11:58] <LjL> nn hm right
+[11:58] <LjL> ubotu tell olaf about paste olaf see the private message from ubotu
+[11:58] <LjL> musicshuffle bit too harsh well it's annoying when you get a ton of irc highlights while you're trying to write stuff p
+[11:58] <LjL> ubotu tell wceoscar about paste wceoscar see the private message from ubotu
+[11:58] <LjL> livingdaylight ok
+[11:58] <LjL> thomaswebb
+[11:58] <LjL> exploit
+[11:58] <LjL> livingdaylight if you have a problem bring it to ubuntu-ops - stop the questioning and sarcasm here
+[11:58] <LjL> slart oh better sudo -i
+[11:58] <LjL> vmt no
+[11:58] <LjL> vmt the first user created is in the admin group the admin group is in sudoers
+[11:58] <LjL> dualcortex or perhaps you could add it to etcnetworkinterfaces the up command in there allows you to set an arbitrary command to be executed when a network interface is brought up
+[11:58] <LjL> dualcortex something like this
+[11:58] <LjL> dualcortex hm no wait if the command you use to do that is ifconfig then it can probably be done without up
+[11:58] <LjL> dualcortex like this i think though i haven't tried it
+[11:58] <LjL> dualcortex no no sudo and no ifconfig line it makes no sense to use ifconfig inside etcnetworkinterfaces
+[11:58] <LjL> cafuego hm well except what cafuego said p check out my pastebin too wouldn't that or something similar be ok too
+[11:58] <LjL> cafuego hwaddress judging from man interfaces
+[11:58] <LjL> kerik nano is a user friendly text-mode editor i use it normally
+[11:58] <LjL> kerik so the problem is p
+[11:58] <LjL> kerik altx in nano
+[11:58] <LjL> kerik saves and exits
+[11:58] <LjL> kerik as in user of an ibm manufactured pc fortunately not p
+[11:58] <LjL> kerik i believe if you run sudo dpkg-reconfigure xserver-xorg one of the option will be related to -button mouse emulation yesno try changing the setting that it gives you as a default
+[11:58] <LjL> kerik of course you could also edit etcxxorgconf directly since that's what sudo dpkg-reconfigure xserver-xorg does but then the latter is made to help you with that
+[11:58] <LjL> ortega yes google ext windows
+[11:58] <LjL> language chirantha
+[11:58] <LjL> chirantha sometimes especially when it's used for things that are irrelevant to ubuntu support -
+[11:58] <LjL> offtopic chirantha
+[11:58] <LjL> cafuego or auto-joiners even
+[11:58] <LjL> true that
+[11:58] <LjL> mandrakelinux english please and no caps please
+[11:58] <LjL> fishing meshyf
+[11:58] <LjL> es mastin
+[11:58] <LjL> clubmadmin what the heck is going on
+[11:58] <LjL> clubmadmin uh i don't know who's who anymore
+[11:58] <LjL> java cmwe
+[11:58] <LjL> in pm cmwe in pm
+[11:58] <LjL> edulix perhaps it's a setting withing eclipse itself
+[11:58] <LjL> bot abuse tmccrary
+[11:58] <LjL> tmccrary and i'm not sure i appreciate your apparent sarcasm
+[11:58] <LjL> heh
+[11:58] <LjL> jroes it's not ntsc-j so i'm guessing either ntsc-m whatever that is or plain ntsc
+[11:58] <LjL> ubotu tell ronin about fixres ronin see the private message from ubotu
+[11:58] <LjL> botabuse
+[11:58] <LjL> netsplit
+[11:58] <LjL> traffic
+[11:58] <LjL> craigbass kubuntu-desktop is a metapackage removing it won't result in removing anything
+[11:58] <LjL> ubotu tell craigbass about ubuntu-desktop craigbass see the private message from ubotu
+[11:58] <LjL> craigbass if you've got edgy you can use apt-get autoremove for that make sure it doesn't also want to remove packages you need though
+[11:58] <LjL> craigbass and to use the gnome login screen gdm instead of kdm do sudo dpkg-reconfigure gdm
+[11:58] <LjL> sujan depends on what's broken how it's broken etc
+[11:58] <LjL> ubotu tell semboy about dvd semboy see the private message from ubotu
+[11:58] <LjL> sujan that's probably very bad did you install anything from non-ubuntu repositories guess the answer is yes
+[11:58] <LjL> sujan what
+[11:58] <LjL> info monodevelop sujan
+[11:58] <LjL> sujan apparently it's available from the ubuntu reps universe
+[11:58] <LjL> sujan so how did you install it
+[11:58] <LjL> semboy i don't even have a dvd reader
+[11:58] <LjL> sujan one thing at a time that won't fix your broken libc how did you install it
+[11:58] <LjL> sujan nice you win a reinstall i guess
+[11:58] <LjL> sujan you're not supposed to use debian repositories in ubuntu that will thrash the system completely most of the times
+[11:58] <LjL> sujan remove that debian repository from sourceslist do a sudo apt-get update then remove anything related to monodevelop and then try sudo apt-get install ubuntu-desktop
+[11:58] <LjL> sujan but note that most likely you'll have to reinstall
+[11:58] <LjL> semboy elaborate on does not work
+[11:58] <LjL> sujan when i say remove anything related to monodevelop i refer to doing that with apt-get mind you try a dpkg --get-selections grep mono to find out which packages they are
+[11:58] <LjL> doesn't work semboy
+[11:58] <LjL> sujan i can hardly know unless you tell me what command caused that and the whole output of it
+[11:58] <LjL> pastebin
+[11:58] <LjL> semboy thank you now can you tell me what the heck doesn't work mean i'm not sitting in front of your screen you know
+[11:58] <LjL> sujan well it means there's something wrong with the tzdata package a core package -- which isn't surprising since you appear to be using the debian version of it rather than the ubuntu version
+[11:58] <LjL> semboy now at least that's saying something does apt-cache policy libdvdread show it as installed
+[11:58] <LjL> semboy do dpkg -l libdvdread grep install-css what does that show if anything
+[11:58] <LjL> semboy then type sudo usrsharedoclibdvdreadinstall-csssh without that examples part
+[11:58] <LjL> hi
+[11:58] <LjL> edan what does that mean
+[11:58] <LjL> airwulf i don't think you can you can however replace the whole applications system places stuff with a single icon
+[11:58] <LjL> edan which are they do they all come from a specific repository why do you want to avoid installing them
+[11:58] <LjL> pinning edan
+[11:58] <LjL> jroes nv is an open-source driver with limited d acceleration capabilities nvidia is a proprietary driver from nvidia with extensive opengl support
+[11:58] <LjL> airwulf yes it is well i don't have gnome installed but i'm quite sure it is
+[11:58] <LjL> airwulf you need to remove the current appssystemplaces applet and replace it with another - don't remember what it's called but it's there
+[11:58] <LjL> assarix doesn't gedit do syntax highlighting
+[11:58] <LjL> good
+[11:58] <LjL> sujan by backing up the files you need somewhere inserting the ubuntu cd booting from it and installing
+[11:58] <LjL> ubotu tell sujan about packages sujan see the private message from ubotu
+[11:58] <LjL> sujan next time keep that in mind
+[11:58] <LjL> vim-gnome assarix
+[11:58] <LjL> ubotu tell assarix about packages assarix see the private message from ubotu
+[11:58] <LjL> rajivnair coincidence
+[11:58] <LjL> best
+[11:58] <LjL> sebboh i see something called gnotepad in the repos claims to be lightweight
+[11:58] <LjL> a spider
+[11:58] <LjL> wget
+[11:58] <LjL> mzanfardino you can just use ssh i suppose if you don't want to run graphical applications on the server
+[11:58] <LjL> mzanfardino yes or couldn't you just set up file sharing and do it on the client side
+[11:58] <LjL> mzanfardino at any rate if you just installed the program concerned say eclipse on the server the x libraries will be installed automatically
+[11:58] <LjL> mzanfardino err that's what access control is for - you know passwords and the like
+[11:58] <LjL> mzanfardino i'd definitely say so an nfs or samba server will do nicely
+[11:58] <LjL> ubun use quotation marks
+[11:58] <LjL> automatix j
+[11:58] <LjL> j then you know this is not the right channel for asking try automatix
+[11:58] <LjL> j ps aux to see the processes kill pid to kill kill -s pid if it doesn't die
+[11:58] <LjL> j not sure if it's really a good idea to do that though depends what automatix was doing
+[11:58] <LjL> tomkelleher did you restart the x server or the computer after installing the driver and did it work then
+[11:58] <LjL> helpme
+[11:58] <LjL> tomkelleher check varlogxorglog for hints
+[11:58] <LjL> robdeman i'd give to the rest since you haven't mentioned a separate usr partition
+[11:58] <LjL> robdeman uh having or not having a separate usr isn't quite related to the number of users
+[11:58] <LjL> robdeman but anyway what you're saying is have separate boot and var and keep everything else including usr and home in a single partition that says to me that is the one you want to be biggest
+[11:58] <LjL> arrick check out ubuntu-bots
+[11:58] <LjL> robdeman fill up well gb doesn't sound like it'd fill up that easily imho but then if you're going to put tons on videos on the webserver those are going to end up in varwww
+[11:58] <LjL> robdeman but then again i think i'd make a symbolic link to somewhere else in that case but that's just me
+[11:58] <LjL> cappiz try ubuntu-xgl
+[11:58] <LjL> mc markie
+[11:58] <LjL> ubotu tell markie about packages markie see the private message from ubotu
+[11:58] <LjL> cayou boot into single-user mode mktid mnttemp mount devyourpartition mnttemp cp -a home mnttemp make sure the files have been copied succesfully rm -r home dangerous careful edit etcfstab to add an entry for your new partition mount home test that it works reboot
+[11:58] <LjL> gumpa that you do not have all the repositories active
+[11:58] <LjL> gumpa pastebin your etcaptsourceslist
+[11:58] <LjL> robdeman if by volumes you mean partitions there can only be primary partitions on a drive if you want more than that you need to create an extended partition containing some logical partitions
+[11:58] <LjL> subversion gumpa
+[11:58] <LjL> info subversion gumpa
+[11:58] <LjL> gumpa it's in main
+[11:58] <LjL> robdeman gives less hassle i guess
+[11:58] <LjL> gumpa did you ever run a sudo apt-get update on that machine
+[11:58] <LjL> robdeman bah no not better but i use primary partitions normally i don't think it's a very big issue
+[11:58] <LjL> good
+[11:58] <LjL> helpme
+[11:58] <LjL> krw which linux
+[11:58] <LjL> krw the actual cd or
+[11:58] <LjL> krw - try booting with acpioff
+[11:58] <LjL> ubotu tell krw about install krw see the private message from ubotu
+[11:58] <LjL> language tim
+[11:58] <LjL> krw if i got you correctly you've got the system installed now just not booting right if so then just edit your grub command line to add the acpioff parameter
+[11:58] <LjL> krw that is at the grub menu if you don't have it by default press esc right after the bios press e then edit the command line then press b to boot
+[11:58] <LjL> ubuntu majorbg
+[11:58] <LjL> zugu they shouldn't it's always a dangerous sort of operation though
+[11:58] <LjL> ubotu tell santiagol about wifi santiagol see the private message from ubotu
+[11:58] <LjL> i don't know krw
+[11:58] <LjL> krw i also suggest you try putting the following into google waiting for root filesystem siteubuntucom
+[11:58] <LjL> sholden look in the ubuntu-xgl topic
+[11:58] <LjL> redguy it isn't
+[11:58] <LjL> redguy yes
+[11:58] <LjL> redguy i don't know
+[11:58] <LjL> indeed quite frustrating
+[11:58] <LjL> ubox dpkg -l xine-ui grep bin
+[11:58] <LjL> ubox the command you want is just xine
+[11:58] <LjL> noelferreira i suppose you could try
+[11:58] <LjL> thebishop he wasn't talking about your question i think
+[11:58] <LjL> noelferreira i don't have amd
+[11:58] <LjL> thebishop that's the stuff that allows to reboot without going through the bios isn't it
+[11:58] <LjL> digitalninja only if the kernel was updated
+[11:58] <LjL> digitalninja otherwise you might still want to reboot since it might be simpler than restarting all the services one by one if security patches for services were applied
+[11:58] <LjL> digitalninja then don't reboot
+[11:58] <LjL> thepub mwahah no
+[11:58] <LjL> digitalninja i think so
+[11:58] <LjL> digitalninja i mean if there were security updates involved i'd reboot personally
+[11:58] <LjL> thepub well what's funny to me may not be funny to you
+[11:58] <LjL> thepub anyway if all else fails install uae and take a screenshot
+[11:58] <LjL> thepub or perhaps aros may also support amigaos icons though i'm not sure
+[11:58] <LjL> deusjevoo
+[11:58] <LjL> thepub
+[11:58] <LjL> thepub and it isn't in edgy's netpbm package
+[11:58] <LjL> thepub i don't even seem to find a info - iff-ilbm converter for amigaos
+[11:58] <LjL> well or info - any-other-format
+[11:58] <LjL> thepub wine
+[11:58] <LjL> thepub there's an os program too for converting them but i doubt you'd have os
+[11:58] <LjL> thepub use a compass and write down the bits -p
+[11:58] <LjL> thepub
+[11:58] <LjL> gunsmok df
+[11:58] <LjL> yoshig that's quite normal and you should use sudo -i rather than sudo su
+[11:58] <LjL> ubotu tell yoshig about root yoshig see the private message from ubotu
+[11:58] <LjL> i recommend lack of recommendations
+[11:58] <LjL> gksudo even
+[11:58] <LjL> weird that though
+[11:58] <LjL> caps guzza
+[11:58] <LjL> eilker uhm i dunno i have it but then i have had some gnome programs installed i suppose
+[11:58] <LjL> caps
+[11:58] <LjL> guzza i'm not so sure automatix is open source anyway this is the official ubuntu channels - there are things we recommend and things we recommend against ubuntu-offtopic to further the discussion if you like
+[11:58] <LjL> arwen if it's oos then why do i only seem to be able to obtain some compiled bytecode python scripts
+[11:58] <LjL> oss even
+[11:58] <LjL> bashir pzip is the package
+[11:58] <LjL> bashir dpkg -l pzip will list all its files
+[11:58] <LjL> once it's installed that is
+[11:58] <LjL> thepub dpkg -s
+[11:58] <LjL> thepub or use apt-file if you don't have that package installed
+[11:58] <LjL> botabuse
+[11:58] <LjL> automatix drkm yoshig i don't suggest it
+[11:58] <LjL> drkm that's cool please don't recommend it to others in here though
+[11:58] <LjL> nvidia yoshig
+[11:58] <LjL> yoshig and there's another repository with but sure the latest available officially in ubuntu is
+[11:58] <LjL> yoshig add the repository to your list upgrade you can do that in synaptic or from the command line
+[11:58] <LjL> yoshig if you have an nvidia card that's very likely
+[11:58] <LjL> yoshig if you did it right now they're installed restart x x not xgl and you should be able to run beryl - although you might be missing window borders i guess join ubuntu-xgl for complete instructions on that
+[11:58] <LjL> yoshig update or upgrade that's different
+[11:58] <LjL> ubotu tell yoshig about gpgerr yoshig see the private message from ubotu
+[11:58] <LjL> yoshig well then why is it strange that you would have the new drivers you added the repositories that contain a new version of some packages the nvidia drivers that you already have instructed ubuntu to upgrade anything it finds upgradable
+[11:58] <LjL> at least you should have
+[11:58] <LjL> yoshig like
+[11:58] <LjL> yoshig look what does apt-cache policy nvidia-glx tell you as candidate
+[11:58] <LjL> yoshig uh driver updates like the nvidia driver p
+[11:58] <LjL> yoshig perhaps
+[11:58] <LjL> yoshig even
+[11:58] <LjL> yoshig that error was saying that ubuntu didn't know the cryptographic keys for that nvidia repository which is certainly normal since it's not an official repository if you want the error to go away you need to add the key following what the bot told you
+[11:58] <LjL> spaghettiknife type join java
+[11:58] <LjL> spaghettiknife look at what ubotu said above when rajivnair said register
+[11:58] <LjL> firewall robdeman
+[11:58] <LjL> amaranth ping see above please i think you knew how to possibly solve this one the other day
+[11:58] <LjL> amaranth from your repository at least i think he had sigh
+[11:58] <LjL> ubotu tell earthen about gpgerr earthen see the private message from ubotu
+[11:58] <LjL> amaranth the first error he's referring to is a gpg missing-keys error
+[11:58] <LjL> yoshig apt-cache policy nvidia-glx i guess
+[11:58] <LjL> yoshig so wait you restarted twice the first time you got the version mismatch and the second time it all went fine
+[11:58] <LjL> amaranth no no update from edgy-security
+[11:58] <LjL> amaranth latest -security l-r-m package is -
+[11:58] <LjL> amaranth p it's -amaranth
+[11:58] <LjL> amaranth at any rate there is version available from keeps a repository is an ubuntu member perhaps we could change the factoid to point to it if you're not maintaining yours anymore
+[11:58] <LjL> amaranth l-r-m and nvidia-glx and the vmware modules to go with those yes i take that as leave the factoid alone p
+[11:58] <LjL> amaranth not if you look at the unsable page
+[11:58] <LjL> amaranth err i mean - the opposite
+[11:58] <LjL> amaranth anyway
+[11:58] <LjL> jeffm passwd
+[11:58] <LjL> amaranth shrug
+[11:58] <LjL> amaranth hmm guess not or maybe he does since it says binary in the apt line but going to source or sources doesn't work and the directories aren't browsable
+[11:58] <LjL> paradox no it isn't it's on the cd though
+[11:58] <LjL> ubotu tell paradox about build-essential paradox see the private message from ubotu
+[11:58] <LjL> yoshig uh if you don't know why did you install it d
+[11:58] <LjL> yoshig nonsense
+[11:58] <LjL> yoshig beryl is something that gives you funny desktop effects
+[11:58] <LjL> ubotu tell yoshig about beryl yoshig see the private message from ubotu
+[11:58] <LjL> yoshig an x server that has provisions to allow things like beryl to run if you have edgy which has similar provisions in the form of something called aiglx embedded and a recent driver in case you have an nvidia card like you do you don't need xgl
+[11:58] <LjL> yoshig while using beryl or while not using it if while using it well it was very slow for me as well when i tried it
+[11:58] <LjL> yoshig what's your computer like processor memory graphics card
+[11:58] <LjL> yoshig pastebin your etcxxorgconf if you don't mind
+[11:58] <LjL> yoshig it does that here too lasts like about a tenth of a second though after i've stopped moving the window - and the window itself moves fine while with beryl the moving itself is sluggish here
+[11:58] <LjL> yoshig are you sure windows does much better than that i haven't used windows on this computer for some time but
+[11:58] <LjL> yoshig yes i'm here i don't really know what to do about that though as i said the same happens here at least from what you described and i always considered it normal the only thing though i doubt it's related is that perhaps you should have option composite enable rather than disable last three lines of the xorgconf
+[11:58] <LjL> ubotu tell mike about sudo mike see the private message from ubotu
+[11:58] <LjL> yoshig enable the composite extension which is normally enabled by default in edgy afaik but i think turning it off would at worst remove some desktop effects but i don't think any are enabled either when you're not using beryl when you're using beryl it might need to be enabled i don't really know
+[11:58] <LjL> yoshig i doubt it but you certainly do want to make a backup of your xorgconf before ever modifying it and to be ready to restore the backup from a console
+[11:58] <LjL> nvidia
+[11:58] <LjL> ubuntuguy same as floris and if you want to be able to read most formats you probably want to have the win codecs as unfortunate as that may be
+[11:58] <LjL> ubuntuguy i use kde but yes i think it does
+[11:58] <LjL> en
+[11:58] <LjL> ubuntuguy vlc is probably a nice enough choice it can read many formats by default without the win codecs
+[11:58] <LjL> info mozilla-plugin-vlc ubuntuguy
+[11:58] <LjL> pinchartl this is not the place to request backports there is a forum for that
+[11:58] <LjL> pinchartl at any rate i don't know precisely what the backports rule are but if the libraries are actually installed side by side ie they don't interfer with each other i'm not sure that should be a problem
+[11:58] <LjL> firewall washbear
+[11:58] <LjL> floating sudo iptables -d input -p tcp --destination-port -j accept -- i think
+[11:58] <LjL> floating note it will be undone at next reboot anyway unless you put it into some startup file
+[11:58] <LjL> msg the bot
+[11:58] <LjL> floating that command line is telling your system to accept connections to ports from up to it should be completely useless though since ubuntu comes with no restrictive firewalling rules by default so those ports should already be open
+[11:58] <LjL> floating if you have a router or similar you may want to open those ports on the router
+[11:58] <LjL> rrittenhouse i'd say ubuntu-minimal and xorg
+[11:58] <LjL> rrittenhouse no xserver-xorg alone doesn't do the trick you need xorg
+[11:58] <LjL> rrittenhouse which used to be x-window-system
+[11:58] <LjL> floating if they were already open it does nothing afaik well the rule gets added but it has no practical effect
+[11:58] <LjL> helpme
+[11:58] <LjL> pitchdown it should have been asked during the install as well
+[11:58] <LjL> pitchdown yes there was try your first name
+[11:58] <LjL> pitchdown all lowercase
+[11:58] <LjL> fishing
+[11:58] <LjL> pitchdown well boot from recovery mode and do a grep etcpasswd to find out what the user name is
+[11:58] <LjL> jrib enter commands without knowing the username p
+[11:58] <LjL> pitchdown that's not a regular install that's an alternate cd install which is not the regular install
+[11:58] <LjL> alternate pitchdown
+[11:58] <LjL> danny use ubuntu-bots or just type query ubotu for experiments or to find factoids if you don't know they exist doing it in here spams the channel and i've given three warnings already
+[11:58] <LjL> cyberjunkie because it makes no sense p the cd isn't alive other operating systems always had live cds or diskettes but they never were called such - they did give you a desktop and an install on hd icon just like what the ubuntu desktop cd does
+[11:58] <LjL> molly mc acts as root wow
+[11:58] <LjL> molly what about just using sudo like you're supposed to
+[11:58] <LjL> molly err yeah what did you change permissions to
+[11:58] <LjL> kjaer isn't that www-data by default
+[11:58] <LjL> jrib it is bah then i need to subscribe to the elite club of mess-with-chown-and-don't-remember-you-did
+[11:58] <LjL> huibertgill well apache just needs to be able to read the stuff
+[11:58] <LjL> ubotu tell molly about adduser molly see the private message from ubotu
+[11:58] <LjL> huibertgill so maybe ownerroot groupwww-data and no write permissions to the group or something
+[11:58] <LjL> twosouls it's weird though i'm quite sure jrib isn't the first one telling me they're rootroot by default
+[11:58] <LjL> molly you're trying to add yourself to the www-something group is that it
+[11:58] <LjL> jrib ok i understand your reasoning but i still don't remember changing the owner manually nor does huibertgill apparently
+[11:58] <LjL> jrib so either we're both forgetful or ubuntu does something weird when you install apache
+[11:58] <LjL> molly ah for ftp uhm not too familiar with that i thought you were talking local user
+[11:58] <LjL> webmin patrick
+[11:58] <LjL> patrick maybe but i don't know about it
+[11:58] <LjL> patrick call me messenger and don't kill me p
+[11:58] <LjL> jrib
+[11:58] <LjL> jrib and but that's undecided unconfirmed and uncommented
+[11:58] <LjL> wallace
+[11:58] <LjL> ailean i have no idea i poked him and he didn't give an explanation so
+[11:58] <LjL> ubotu tell php-freak about kde php-freak see the private message from ubotu
+[11:58] <LjL> php-freak ask questions that are so generic as to be totally unanswerable
+[11:58] <LjL> psusi if i decided to try defrag on my root partition would having it mounted read-only suffice or must it not be mounted at all
+[11:58] <LjL> no atlef
+[11:58] <LjL> psusi ping
+[11:58] <LjL> psusi if i decided to try defrag on my root partition would having it mounted read-only suffice or must it not be mounted at all
+[11:58] <LjL> psusi that was why i asked in the first place on the other hand you have other filesystems such as ntfs that can even be defragmented online with everything mounted rw so the question kind of made sense to me -
+[11:58] <LjL> psusi which wouldn't matter to much if the fs were in userland cough anyway offtopic discussions aside - i'm also interested in knowing in plaintext what you had to do in order to make defrag ext compatible
+[11:58] <LjL> eichi uhm i'm not sure the manpages are very translated
+[11:58] <LjL> psusi so again if i tried it on a real partition such as my root partition is there anything you'd be specifically interested in having me check out
+[11:58] <LjL> psusi yeah other than that i suppose i'm going to check that one by doing a find some-options-to-print-all-file-attributes and a full run of mdsum before and after the defrag
+[11:58] <LjL> psusi but besides that i can time the defrag and perhaps do some beforeafter benchmarking as well possibly in a smarter way than just timing the mdsum time
+[11:58] <LjL> psusi i also assume the fragmentation data before running defrag would be useful to know so is there something i might run to get some interesting data besides defrag itself with the relevant show-me-the-fragmentation-data option
+[11:58] <LjL> sercik no
+[11:58] <LjL> de xaice
+[11:58] <LjL> hi
+[11:58] <LjL> psusi so how does this sound time fsck -f -v time ls -ral ls-beforeout time mddeep -r md-beforeout frag fragout time defrag -r -n -v time defrag -n -v time fsck -f -v time ls -ral ls-afterout time mddeep -r md-afterout diff ls-beforeout ls-afterout diff md-beforeout mf-afterout
+[11:58] <LjL> blackflare first thing are you absolutely sure you want to change those permissions
+[11:58] <LjL> blackflare usrsrc should remain rootland don't change the permissions use sudo instead
+[11:58] <LjL> blackflare what's a list file
+[11:58] <LjL> username
+[11:58] <LjL> idt ie two periods - one period followed by a zero
+[11:58] <LjL> idt sg
+[11:58] <LjL> idt uh ok doesn't say much to me - what are the original file contents
+[11:58] <LjL> idt no i escaped it
+[11:58] <LjL> stormx yeah it depends on kde it's being phased out
+[11:58] <LjL> sorry
+[11:58] <LjL> es loka
+[11:58] <LjL> melnx yup
+[11:58] <LjL> deb melnx
+[11:58] <LjL> ubotu tell chaosphilipp about upgrade chaosphilipp see the private message from ubotu
+[11:58] <LjL> gdb it's hard to distinguish an exploit victim from someone whose connection simply drops if it happens while an exploit is occurring that might be the reason you ended up in -read-topic
+[11:58] <LjL> paste cyris
+[11:58] <LjL> gabone there is the search bar it doesn't work like katapult does but i think it performs similar functions you can just right click on the panel and add it
+[11:58] <LjL> paste aeromix
+[11:58] <LjL> gabone well keep in mind that it can be used as a panel icon and the textbox only comes up when you click on it also besides as a panel-space-wasting textbox
+[11:58] <LjL> elvirolo err it's possible to uninstall ubuntu-desktop but uninstalling all its dependencies means uninstalling the entire system
+[11:58] <LjL> elvirolo that's not easily achievable however removing the libgnome- package will do most of the job
+[11:58] <LjL> elvirolo after that you can do a dpkg --get-selections grep gnome to see what's left
+[11:58] <LjL> nofeardjb no
+[11:58] <LjL> ubuntu-desktop dbernar nofeardjb
+[11:58] <LjL> dbernar it will just remove the metapackage useless
+[11:58] <LjL> dbernar what i can try is to remove kubuntu-desktop since i'm a kde user
+[11:58] <LjL> dbernar and when i try that of course i don't get any packages removed
+[11:58] <LjL> except kubuntu-desktop itself
+[11:58] <LjL> dbernar it's the same whether i use aptitude or apt-get
+[11:58] <LjL> dbernar aptitude only auto-removes unused dependencies if they were installed with aptitude to begin with
+[11:58] <LjL> dbernar if my kubuntu-desktop or elvirolo's ubuntu-desktop is a result of a plain installation from the cd aptitude won't do a thing about it
+[11:58] <LjL> uhm when a run of fsck -f -v options gives a file system was modified in caps it means it has corrected errors right
+[11:58] <LjL> funnyman actually i'm quite sure it's unmounted
+[11:58] <LjL> mince what about sudo apt-get install tcl
+[11:58] <LjL> funnyman well what i got was slightly different actually what i'm doing is making sure the defrag program is not corrupting things you can see the log of the whole thing at
+[11:58] <LjL> funnyman i'll be back in a minute - that was a root filesystem so i'm rebooting now i'm from a cd and seeing which error grub gives me -
+[11:58] <LjL> zac you really find that funny don't you
+[11:58] <LjL> zac then what about stopping not banned enough times yet
+[11:58] <LjL> funnyman i was out smoking while it rebooted anyway -
+[11:58] <LjL> funnyman ext
+[11:58] <LjL> funnyman and before you ask i'm testing an experimental version of defrag that was patched to run with ext
+[11:58] <LjL> shwag
+[11:58] <LjL> funnyman well yes if you look the only difference is in the ls diff which shows a date change for perhaps defrag did that for some reason and didn't reflect it in the journal
+[11:58] <LjL> shwag if it really did nobody would have written defrag
+[11:58] <LjL> shwag and anyway under artificial conditions ie a partition i created and wrote files like mad to i found a quite important performance improvement
+[11:58] <LjL> funnyman well if you look at the fsck run that's complaining it does mention the journal while the others don't
+[11:58] <LjL> shwag i certainly will especially when as i said all i'm doing is testing an experimental patch that an ubuntu developer kindly devoted his time to see for the artificial-partition logs
+[11:58] <LjL> funnyman no idea how to do that honestly also perhaps i won't be able to reproduce this again at least until i give my fs a bit of fragmentation again
+[11:58] <LjL> mrproper sudo apt-get install packagenameversion
+[11:58] <LjL> mrproper apt-cache policy packagename
+[11:58] <LjL> funnyman sure i'll certainly do that i'll just wait until he's back on irc though i guess
+[11:58] <LjL> ubotu tell cld about build-essential cld see the private message from ubotu
+[11:58] <LjL> rndm not an ascii char ascii is bits
+[11:58] <LjL> funnyman at any rate even 'tar' alone will find out if and how the archive is compressed and extract it first
+[11:58] <LjL> arrenlex or tar xf for either gzipped or bzipped
+[11:58] <LjL> yoshig don't spam
+[11:58] <LjL> yoshig it means that the screen is redrawn during the vertical blank time which is the time during which a cathodic ray tube's ray is switched off in order to reposition it to top-left
+[11:58] <LjL> yoshig and you're muted for minutes
+[11:58] <LjL> oh hi mikem didn't notice that too many highlights nearby p
+[11:58] <LjL> mikem not really
+[11:58] <LjL> lckdwn a screenshot
+[11:58] <LjL> pricechild he triggered just about every highlight he could trigger
+[11:58] <LjL> heh
+[11:58] <LjL> flannel minimal cd would be miniiso
+[11:58] <LjL> flannel besides i'm curious how it can be that small the debian businesscard cd is about megs
+[11:58] <LjL> humblerodent i see kipi-plugins and dvd-slideshow that are probably able to do that
+[11:58] <LjL> flannel but afaik that goes for the debian bc cd as well except for packages that are considered necessary to make the cd itself run
+[11:58] <LjL> humblerodent the keyword i looked for was slideshow - thought it made sense just make one with only one image
+[11:58] <LjL> humblerodent well yes
+[11:58] <LjL> humblerodent but then it says mpegencoder create an mpeg slideshow from your images
+[11:58] <LjL> timeline note that converting lossless-lossless like that is generally not a good idea you'll lose quality
+[11:58] <LjL> cablesm hm yeah that i do
+[11:58] <LjL> lasse no i'm not
+[11:58] <LjL> arrenlex it doesn't
+[11:58] <LjL> lasse no
+[11:58] <LjL> lasse no
+[11:58] <LjL> lasse what does that have to do with anything
+[11:58] <LjL> lasse you really are if you're using a lossless format it means everything that the soundcard managed to capture is there bit by bit if you convert that to another lossless format you'll just be changing the format the data ie sound bits will remain the same
+[11:58] <LjL> lasse but mp and wma and vorbis etc obviosuly are lossy format my slip of the tongue notwithstanding so converting between those will lose quality
+[11:58] <LjL> arrenlex try the opposite i'm not sure zip supports unix permissions p
+[11:58] <LjL> lasse but that's untrue
+[11:58] <LjL> lasse lossy formats will lossless formats just won't
+[11:58] <LjL> timeline if possible absolutely yes well actually you might want to tell her to re-rip to ogg vorbis instead
+[11:58] <LjL> ubotu tell timeline about restricted timeline see the private message from ubotu
+[11:58] <LjL> gaiax a command line program
+[11:58] <LjL> gaiax if you want a gui program then why get one that converts to wav just get ones that can directly burn audio cds from mps
+[11:58] <LjL> gaiax yeah i know that kb and arson do it but i'm sure there are gnome programs that do it as well gnomebaker perhaps
+[11:58] <LjL> humblerodent apt-cache show qdvdauthor it's interesting to see the dependencies don't bother to try installing it though especially if you don't have qt - here it segfaults
+[11:58] <LjL> humblerodent i'm having bad luck with the various tools as well look i know this sounds quite stupid however what about you take some desktop recording software such as istanbul records to theora but oh well and run it while having the image you need in full-screen
+[11:58] <LjL> humblerodent i succeeded
+[11:58] <LjL> humblerodent the command is mpegend and it's provided by mpegtools
+[11:58] <LjL> ubotu tell humblerodent about apt-file humblerodent see the private message from ubotu
+[11:58] <LjL> humblerodent jpegyuv -i p -f -j inputimagejpg mpegenc -o testmpg although inputimagejpg must have an even size you must interrupt ctrlc mpegenc manually when you've reached the number of frames you want
+[11:58] <LjL> humblerodent although i suppose the -n option or something would relieve you from that i just haven't tried
+[11:58] <LjL> humblerodent wasn't needed in that case anyway since mpegenc was already install by mjpegtools which was installed by all those slideshow programs you tried and probably dvdauthor
+[11:58] <LjL> sorroww what is it that you need to do
+[11:58] <LjL> sorroww here i can just click on the exe i think but then i'm on kde
+[11:58] <LjL> sorroww perhaps installing the binfmt-support package and making sure your exe files are x would help not really sure though
+[11:58] <LjL> arrenlex doesn't it come with some defaults
+[11:58] <LjL> arrenlex ok wouldn't something very much like that be doable on gnome still
+[11:58] <LjL> sorroww then see what arrenlex said dig in your nautilus options and associate exe files with wine
+[11:58] <LjL> sorroww uhm if you're used to commands line then why do you want this in the first place p
+[11:58] <LjL> sorroww
+[11:58] <LjL> phuzion no playing with the bot please
+[11:58] <LjL> helpme gigaamd
+[11:58] <LjL> phuzion you can do that in a private query with the bot
+[11:58] <LjL> bot phuzion
+[11:58] <LjL> ubotu tell masseapplying about grub masseapplying see the private message from ubotu
+[11:58] <LjL> sorroww fdisk edits the partition table it doesn't format
+[11:58] <LjL> sorroww you need mkfs to format
+[11:58] <LjL> masseapplying i'm not sure about the specifics but i think you can do it with just the ubuntu cd and no need for a floppy i guess that page has more information though
+[11:58] <LjL> humblerodent scrambled like what perhaps you have the wrong interlacing set in that command i used progressive ie no interlacing
+[11:58] <LjL> sorroww it's a standard command you have it type man mkfs
+[11:58] <LjL> humblerodent hmm i dunno
+[11:58] <LjL> language phlite
+[11:58] <LjL> ubotu tell phlite about samba phlite see the private message from ubotu
+[11:58] <LjL> phlite cifs perhaps since smbfs is obsoleted since an age
+[11:58] <LjL> phlite mount -t cifs if that fails install the smbfs package
+[11:58] <LjL> humblerodent make a new image with magenta pixels
+[11:58] <LjL> zappa shouldn't happen you mean ifdown is recognized while you're a normal user not root
+[11:58] <LjL> engla but ifdown is a standard command that should definitely be in root's path
+[11:58] <LjL> engla i guess so
+[11:58] <LjL> zappa try sudo -i then ifdown then exit is it recognized there
+[11:58] <LjL> humblerodent hmm man mpegenc it lists options to encode to dvd-specific mpeg flavors perhaps that might do the trick
+[11:58] <LjL> zappa if it doesn't work do sudo -i again and echo path i guess there'll be something missing from there in that case grep supath etclogindefs check if the ifdown path sbin is listed
+[11:58] <LjL> offtopic mx-
+[11:58] <LjL> linuxgoober depends on what you need to do with your computer
+[11:58] <LjL> linuxgoober should work for web browsing there's links and mail clients abound i think
+[11:58] <LjL> linuxgoober that's not what i said i don't know i'm not sure i'm on a graphical interface but i find myself using the cli half of the time
+[11:58] <LjL> linuxgoober perhaps i could suggest this instead when you don't immediately know of a way to do something from your gui instead of looking up how it's done in the gui open a shell and look up how it's done in a shell
+[11:58] <LjL> ubotu tell gigaamd about firefox gigaamd see the private message from ubotu
+[11:58] <LjL> linuxgoober you could also try and use common cli programs that many people use even though they're in a gui like dunno irssi for an irc client or viemacs for text editing or mutt or whatever the free equivalent is for mail but honestly i don't do that well aside from using nano as a text editor most of the time
+[11:58] <LjL> ubotu tell cryptid about compiz cryptid see the private message from ubotu
+[11:58] <LjL> cryptid i haven't the slightest idea ask in ubuntu-xgl
+[11:58] <LjL> active vlc can stream over a network
+[11:58] <LjL> active well what you meant was an ip network
+[11:58] <LjL> active at least i suppose anyway look at vlc
+[11:58] <LjL> ubotu tell carutsu about xgl carutsu see the private message from ubotu
+[11:58] <LjL> ubotu tell nder about root nder see the private message from ubotu
+[11:58] <LjL> hiffy ubuntu-offtopic
+[11:58] <LjL> es
+[11:58] <LjL> caps feras
+[11:58] <LjL> hiffy it means don't swear
+[11:58] <LjL> helpme
+[11:58] <LjL> hiffy hm no it wasn't sarcasm
+[11:58] <LjL> feras last paragraph
+[11:58] <LjL> robdeman what if you sudo apt-get install ubuntu-desktop
+[11:58] <LjL> tuxub depends what region you have set i guess
+[11:58] <LjL> tuxub but the utf option in mounts iirc means to convert filenames to utf
+[11:58] <LjL> psusi is the fsck complaining normal my guess was that it had to do with that date discrepancy in the ls diff which defrag somehow created and which wasn't reflected in the journal does that make sense
+[11:58] <LjL> paste promind
+[11:58] <LjL> ubotu tell promind about realplayer promind see the private message from ubotu
+[11:58] <LjL> promind i suggest you use helpubuntucom and wikiubuntucom
+[11:58] <LjL> nothlit i sure do i'm not that masochist p
+[11:58] <LjL> ubotu tell kane about build-essential kane see the private message from ubotu
+[11:58] <LjL> ubotu tell kane about wine kane see the private message from ubotu
+[11:58] <LjL> kane perhaps this helps -
+[11:58] <LjL> fialar releases don't get updates except for security fixes and fixes to very serious bugs
+[11:58] <LjL> backports fialar except for this
+[11:58] <LjL> but that certainly doesn't apply to the kernel
+[11:58] <LjL> masterlexx you can't with the desktop cd
+[11:58] <LjL> ubotu tell masterlexx about alternate masterlexx see the private message from ubotu
+[11:58] <LjL> masterlexx then it should be doable but i don't precisely know how
+[11:58] <LjL> masterlexx perhaps this has some information doesn't seem too in-depth though
+[11:58] <LjL> masterlexx uh then i guess you could just skip the relevant step in the alternate cd installer and do it manually later
+[11:58] <LjL> masterlexx i believe if you hit cancel or the equivalent in the installer on most stages it will dump you to a menu that lists the thing the installer would be doing it - that way you can skip the ones you want to avoid
+[11:58] <LjL> masterlexx might be embedded in the partitioning-setup step
+[11:58] <LjL> valmarko subversion
+[11:58] <LjL> info subversion valmarko
+[11:58] <LjL> ubotu tell valmarko about subversion valmarko see the private message from ubotu
+[11:58] <LjL> as well
+[11:58] <LjL> dereks elaborate on er foobarred
+[11:58] <LjL> dereks how did the dist-upgrade fail
+[11:58] <LjL> ubotu tell dereks about pastebin dereks see the private message from ubotu
+[11:58] <LjL> dereks that's a known bug i believe let me dig it
+[11:58] <LjL> dereks not fixed yet but i don't know if it can be fixed manually reading the reports
+[11:58] <LjL> yoshig perhaps you might want to try again with the next or second-to-next version things are improving all the time
+[11:58] <LjL> yoshig and the live cds make it easy to try without committing
+[11:58] <LjL> dereks well there are some people who claimed they could fix it manually
+[11:58] <LjL> dereks
+[11:58] <LjL> dereks look at the suggestion in the last comment and perhaps also the suggestion in the comment that starts ok here is how i fixed it
+[11:58] <LjL> yoshig installing things is incredibly easy compared to windows if those things are in the repositories if they aren't it can be tough luck but then myself i didn't have to do that so often but then again not everybody uses computers to do the same things
+[11:58] <LjL> yoshig well my current system is all made up of things from the repositories i believe although admittedly some but just a couple are from non-official repositories
+[11:58] <LjL> nothlit err define should
+[11:58] <LjL> yoshig you don't double click and it's there in windows -- you have to go to a site download the software then yes double click the icon then go through the installation wizard then hope it doesn't require other software you don't have and then possibly reboot
+[11:58] <LjL> yoshig with ubuntu you either click on package manager click on the program you want and click install or if from a non-standard repository click on software sources add the repository and do the same thing as before
+[11:58] <LjL> nothlit i know of very few programs that don't require dependencies that will have to be guessed since 'configure' is often not too informative and installed manually
+[11:58] <LjL> nothlit things like auto-apt in theory can help but in practice they're horribly confusing and unreliable
+[11:58] <LjL> yoshig could be i was using an ancient matrox card until not too long ago so i'm not very up-to-date with the graphics card world
+[11:58] <LjL> nothlit you could figure which -dev packages they needed most people don't even have a clue what a -dev package is to start with and if anything they try and install the non-dev packages and then again even myself i sometimes have trouble finding the right -dev knowing about apt-file andor auto-apt helps there too
+[11:58] <LjL> nothlit you might be interested in looking at an ancient experimental and probably incredibly dangerous script i started writing once
+[11:58] <LjL> nothlit see and
+[11:58] <LjL> nothlit yes really i did horrible things with apt-get or aptitude in there
+[11:58] <LjL> nothlit you're allowed to run it wherever you like just don't come back and kill me d
+[11:58] <LjL> nothlit well yes it does that though i don't really remember if the latest version used aptitude or tried to went back to apt-get and that sort of thing -- but yeah i guess it's the one you have in mind i don't know of others
+[11:58] <LjL> yoshig ok
+[11:58] <LjL> webmin robdeman
+[11:58] <LjL> robdeman i don't know
+[11:58] <LjL> ndiy if you backup usr then you might as well just backup the entire filesystem i guess
+[11:58] <LjL> yoshig i can't agree but perhaps it's just my system that doesn't run it too smoothly
+[11:58] <LjL> nothlit anyway the idea which was only partly and brokingly put into practice was not just to wrap auto-apt and checkinstall together but also to obtain packages that are closer to real packages -- ie listing dependencies both -dev depends and runtime the first is achieved by well just listing the -dev's that were installed and the latter by using ld to check which libraries the program seems to want
+[11:58] <LjL> yoshig well yeah but i'd rather just see smooth window movement and resizing and perhaps some shadows but only if there isn't a stability price to pay the minimizemaximize effects also are slow here which makes them just annoying
+[11:58] <LjL> yoshig how can you ask for no bias everyone's biased - ntfs has some features that i always wanted chiefly transparent compression and there's encryption too though i care less about that ext is very reliable but lacks just about every feature a filesystem can lack -d ntfs also can be defragmented online while ext can though on the plus side the way it works makes fragmentation much much less of an issue
+[11:58] <LjL> yoshig as for the other unix-style filesystems reiserfs xfs they're probably nice but i'd rather just stay with ext because of the known reliability also i'd like to see a good versioning filesystem but i'm afraid none of today's oss don't have one
+[11:58] <LjL> de kry
+[11:58] <LjL> yoshig i'm not sure bz is kind of slower than gz especially when compressing it also compresses better though -- it's usually a compromise between speed and compression ratio but yeah i guess the filesystem might also make a difference especially if you're extracting an archive that contains many small files
+[11:58] <LjL> yoshig but what i was saying is that ntfs has transparent compression anyway ie you can just say this file should be stored compressed and the program will be able to still use it as a normal file
+[11:58] <LjL> loulou english please
+[11:58] <LjL> loulou then go to ubuntu-fr
+[11:58] <LjL> yoshig well yeah but those are just smart utilities to reach that function in general you can just right click a filedirectory do properties and specify whether you want it to be compressed or not and encrypted or not
+[11:58] <LjL> nothlit the last one no it's a mixture of spanish and italian more than anything else
+[11:58] <LjL> pm aialca
+[11:58] <LjL> yoshig depends if it's too offtopic perhaps you'd want to be on the safe side and try asking in ubuntu-offtopic p
+[11:58] <LjL> fr kool
+[11:58] <LjL> jrib i was a bit late
+[11:58] <LjL> ladynikon no need for insults especially to people who have left
+[11:58] <LjL> linda use visudo to edit it why do you need to anyway
+[11:58] <LjL> linda then visudo
+[11:58] <LjL> linda or you could just cat etcsudoers
+[11:58] <LjL> linda but anyway if you need to give users root access don't edit sudoers - just add the user to the admin group
+[11:58] <LjL> laparca just try a random package
+[11:58] <LjL> laparca sorry a bad joke but look at the bot it's got an answer
+[11:58] <LjL> java wyld
+[11:58] <LjL> automatix wyld
+[11:58] <LjL> bot abuse ubox
+[11:58] <LjL> ubotu tell crowley about build-essential crowley see the private message from ubotu
+[11:58] <LjL> crowley it's called gcc the gnu compiler collection it includes a c and c and others compiler and it's on the ubuntu cd as well as in the main repository component
+[11:58] <LjL> yoshig just cleaning up a couple of bans
+[11:58] <LjL> ubotu tell robdeman about boot robdeman see the private message from ubotu
+[11:58] <LjL> devnull known bug -
+[11:58] <LjL> devnull well the comments in the bug report do contain some suggestions as to the validity of them i wouldn't know
+[11:58] <LjL> devnull
+[11:58] <LjL> pt
+[11:58] <LjL> mamonassassina it doesn't matter what you and what you don't
+[11:58] <LjL> just don't use foul language censored or not and no personal attacks please
+[11:58] <LjL> if you have issues with someone resolve them in a private query
+[11:58] <LjL> and use english on here please
+[11:58] <LjL> since when do we have op anyway
+[11:58] <LjL> flash lumaqq
+[11:58] <LjL> backports lumaqq
+[11:58] <LjL> ubotu tell lumaqq about repositories lumaqq see the private message from ubotu
+[11:58] <LjL> lumaqq you should read about how ubuntu organizes software i think
+[11:58] <LjL> lumaqq because it's important to know and if you had you'd know what backports is
+[11:58] <LjL> lumaqq software management is arguably the most important thing in a distribution so you definitely want to understand how it's done
+[11:58] <LjL> lumaqq long story short ubuntu say edgy has an edgy repository containing the frozen never-changing release packages an edgy-updates repository which contains only updates that fix very serious bugs edgy-security which gives you security patches and edgy-backports which can give you if you enable it new versions of packages that were 'backported' from the next experimental distribution feisty in this case
+[11:58] <LjL> lumaqq each repository has a main officially maintained free packages component a universe community maintained free one restricted officially maintained non-free and multiverse community maintained non-free
+[11:58] <LjL> lumaqq specifically flash is in multiverse and flash since it didn't exist at the time of the edgy release is in edgy-backports's multiverse
+[11:58] <LjL> lumaqq then there are the third-party unsupported repositories usually not recommended but can be useful sometimes you can manage add remove change repositories from the command line or from software sources and you can use apt-get command line or synaptic to actually installremoveupgrade the software
+[11:58] <LjL> sup
+[11:58] <LjL> brianman i removed the 'resolvconf' package to achieve that not sure it's a reasonable route and ymmv maybe you could also just set -w resolvconf
+[11:58] <LjL> just look above
+[11:58] <LjL> lumaqq it means you try to install that using a non-ubuntu package or a package not for the right version of ubuntu
+[11:58] <LjL> fi manmadha
+[11:58] <LjL> paste erchache
+[11:58] <LjL> gdesklets perhaps
+[11:58] <LjL> nothlit i was just guessing it was the only factoid containing the word applet i thought it was what you were thinking about
+[11:58] <LjL> applets is reply to add useful applets to your panel right click on the panel and choose add applet
+[11:58] <LjL> generic paolob-parroquia
+[11:58] <LjL> bimberi ping and can i pm you
+[11:58] <LjL> epiphany-browser
+[11:58] <LjL> monkey-winxp course it's in main so there's nothing you need to do except for sudo apt-get install epiphany-browser
+[11:58] <LjL> zho no
+[11:58] <LjL> precious questions ask
+[11:58] <LjL> eltech it can do it by itself
+[11:58] <LjL> precious
+[11:58] <LjL> precious are you just churning words randomly
+[11:58] <LjL> arwen what i know is that it isn't just a security patch from ubuntu but actually a new kernel revision from upstream
+[11:58] <LjL> arwen apt-cache policy says installed -
+[11:58] <LjL> arwen the package name still ends with - yes but i guess that doesn't really mean much
+[11:58] <LjL> arwen i suppose you're right and i've never tried downgrading a kernel
+[11:58] <LjL> arwen i think it's still quite possible to have multiple kernels but one thing is having two different packages - those should be handled nicely get their grub entries each etc but in this case it's the same package just a new package version that's different
+[11:58] <LjL> arwen well one could assume that same package version binary module compatibility if it were my computer honestly i'd probably just try it but then many things i do on my computer aren't quite recommendable -
+[11:58] <LjL> arwen it's possible to do the first part it's harder to do the second part
+[11:58] <LjL> arwen installing kubuntu-desktop is a matter of well installing it but you can't just say now remove all ubuntu-desktop related packages to apt
+[11:58] <LjL> arwen no just because uninstalling ubuntu-desktop itself won't uninstall anything else
+[11:58] <LjL> arwen that's possible it's a lot of packages though what i usually do is remove libgnome that way most gnome-related stuff goes away
+[11:58] <LjL> offline arwen
+[11:58] <LjL> arwen also this might be of some help but note it's experimental enough
+[11:58] <LjL> arwen anyway if you remove libgnome not everything gnome-related is guaranteed to go away but in practice i think you should be good to go honestly
+[11:58] <LjL> lostfound arwen
+[11:58] <LjL> arwen i wouldn't delete it
+[11:58] <LjL> arwen you can delete the files it contains if after checking them you see you don't care about them
+[11:58] <LjL> arwen i'm not sure i think fsck will create one anyway next time it needs to when i said i wouldn't delete it i just meant i wasn't entirely sure of the consequences but they shouldn't be too bad i think
+[11:58] <LjL> mando i can't speak for the rest of the people of course but i have nvidia hardly can help with ati issues
+[11:58] <LjL> arwen bad it's a filesystems some people like some filesystems other people like other filesystems i'm just staying with ext because it's known to be quite reliable
+[11:58] <LjL> if not exceptionally fast or feature-packed
+[11:58] <LjL> arrenlex xfs actually
+[11:58] <LjL> offtopic arwen sorry got to give you this
+[11:58] <LjL> arwen that's supported on ext as well
+[11:58] <LjL> ack arwen
+[11:58] <LjL> arwen blah i meant acl of course anyway it would just have given you a package entry
+[11:58] <LjL> arwen i have to dig the details myself i just live with octal permissions though well i don't use the octal notation usually p
+[11:58] <LjL> arwen hold on a minute
+[11:58] <LjL> arwen what you need are mostly the setfacl and getfacl commands which are indeed in the acl package
+[11:58] <LjL> arwen i have some more info but they're on slides in italian that stuff just happened to be explained some weeks ago at uni i didn't listen though
+[11:58] <LjL> arwen - you can probably glean something from the examples
+[11:58] <LjL> eiciel arwen
+[11:58] <LjL> arwen they are indeed but the examples are still linux commands
+[11:58] <LjL> arwen haven't checked but the keywords i searched for are gnome acl
+[11:58] <LjL> arwen no
+[11:58] <LjL> eiciel actually says it integrated with nautilus wonder if there's something similar for kde doesn't seem to
+[11:58] <LjL> drkm no but perhaps you should consider using mediasomething
+[11:58] <LjL> drkm that works as well
+[11:58] <LjL> nofeardjb yes
+[11:58] <LjL> nofeardjb
+[11:58] <LjL> ubotu tell lordbelial about bot lordbelial see the private message from ubotu
+[11:58] <LjL> lordbelial you aren't a bot yourself are you
+[11:58] <LjL> checkinstall
+[11:58] <LjL> i suspect he was thinking
+[11:58] <LjL> agent well that wasn't what i meant but you shouldn't take that sort of thing for granted anyway p
+[11:58] <LjL> pinning missingxtension
+[11:58] <LjL> lovloss err yeah it's quite wrong - configure and make are meaningful only when a build system was used with the program
+[11:58] <LjL> lovloss if it's just a test program of yours type g hicpp and you'll get an executable called aout by default in the same directory
+[11:58] <LjL> lovloss if there are no errors of course
+[11:58] <LjL> lovloss you just call the cc compiler and give it the file as a parameter
+[11:58] <LjL> lovloss aout
+[11:58] <LjL> ubotu tell eltech about boot eltech see the private message from ubotu
+[11:58] <LjL> ubotu tell computermc about build-essential computermc see the private message from ubotu
+[11:58] <LjL> you mean
+[11:58] <LjL> ubuntu-desktop
+[11:58] <LjL> pl krystyna
+[11:58] <LjL> krystyna join ubuntu-pl
+[11:58] <LjL> mnoir i know i didn't but then if you have update-manager you can just use that
+[11:58] <LjL> mnoir i'm not entirely sure i thought it reinstalled it by itself but i use kubuntu anyway so i never really used update-manager
+[11:58] <LjL> cmweb try sudo aenmod php or failing that sudo aenmod php i know bit different from what i told you the other time but i only learned about this recently
+[11:58] <LjL> cmweb a restart of apache perhaps a restart of the system i doubt it
+[11:58] <LjL> cmweb i think it's just a warning that should really affect things right now
+[11:58] <LjL> cmweb what happens anyway when you try to access the pages
+[11:58] <LjL> cmweb ls etcapachemods-enabled grep php
+[11:58] <LjL> cmweb does that mention both phpconf and phpload
+[11:58] <LjL> cmweb libapache-mod-php is installed apt-cache policy libapache-mod-php
+[11:58] <LjL> mzanfardino it's a bot colors don't lie
+[11:58] <LjL> cmweb what about the phtml thing
+[11:58] <LjL> cmweb no i mean what jrib asked
+[11:58] <LjL> ubotu tell drkm about bz drkm see the private message from ubotu
+[11:58] <LjL> lame flasher
+[11:58] <LjL> ubotu tell kenzuke about beryl kenzuke see the private message from ubotu
+[11:58] <LjL> flasher probably it can convert just about anything but lame or soundkonverter is probably easier
+[11:58] <LjL> drkm kde yes
+[11:58] <LjL> carutsu there should be k system language support not sure it works extremely well though
+[11:58] <LjL> carutsu otherwise sudo apt-get install language-pack-kde-es-base kde-in-es language-pack-kde-es
+[11:58] <LjL> cmweb the browser how
+[11:58] <LjL> drkm programs i like better more flexibility at the expense of horribly crowd preferences windows and more integration
+[11:58] <LjL> ubotu tell mzanfardino about kde mzanfardino see the private message from ubotu
+[11:58] <LjL> mzanfardino to install from ubuntu what does that suggest you
+[11:58] <LjL> mzanfardino there are only two downsides that i can think of your gnome menus get crowded by kde applications and your kde menus likewise if you later decide to uninstall either gnome or kde it's not necessarily very easy
+[11:58] <LjL> mzanfardino if you install kde using aptitude instead of apt-get the latter most probably becomes easier
+[11:58] <LjL> carutsu indeed you can't if you uninstall libgnome- though you'll have gotten rid of most of it
+[11:58] <LjL> ubotu tell drkm about kde drkm see the private message from ubotu
+[11:58] <LjL> mzanfardino well if you run kde and then besides kate mostly run gnome programs on it it'll be just as unclean or worse
+[11:58] <LjL> carutsu i don't have the gnome libraries installed i see no reason to take up hundreds of megs of disk when i'm not using gnome applications
+[11:58] <LjL> blah
+[11:58] <LjL> mzanfardino i use kde myself so not really
+[11:58] <LjL> mzanfardino actually if you use aptitude to install it i think you'll be able to completely remove it and be back to your gnome desktop as you left it perhaps making a new user for kde might be best if you really are concerned
+[11:58] <LjL> mzanfardino don't take my word on it but i've done this before
+[11:58] <LjL> pr-j you just need to click on the sessions or options in gdm button in the display manager and select your session
+[11:58] <LjL> nothlit actually it's just apt-get autoremove
+[11:58] <LjL> nothlit but i didn't have very exceptional experiences with that - while aptitude always worked nicely
+[11:58] <LjL> nothlit specifically i just installed gnome to try something the other day and autoremove didn't remove even half of it
+[11:58] <LjL> nothlit apparently not - it probably does some thinking of its own in order to decide which packages you want and which you don't but i'd rather just have aptitude removing all packages that i haven't installed explicitly
+[11:58] <LjL> or perhaps it just still has some bugs
+[11:58] <LjL> cloning silentdis
+[11:58] <LjL> ask ady
+[11:58] <LjL> lart jrib
+[11:58] <LjL> hey it's enabled
+[11:58] <LjL> ady is that a trick question
+[11:58] <LjL> ady well this is the support channel for ubuntu ubuntu is a linux distribution so yeah i suppose we mostly do use linux in here
+[11:58] <LjL> ozoneco what's wrong with just doing altf and typing gksudo nautilus
+[11:58] <LjL> well right there's a few things wrong with that but still
+[11:58] <LjL> ozoneco just keep in mind that to run gui programs as root you should use gksudo rather than sudo - and also as unoperateur said you should try to avoid that anyway
+[11:58] <LjL> blanky sudo apt-get clean
+[11:58] <LjL> cmweb only if you install the mysql php module
+[11:58] <LjL> cmweb php-mysql
+[11:58] <LjL> cmweb guess so
+[11:58] <LjL> cmweb what about libapache-mod-auth-mysql
+[11:58] <LjL> usernames billybober
+[11:58] <LjL> tab ndiy billybober
+[11:58] <LjL> billybober just try typing billy and the the tab key on your keyboard
+[11:58] <LjL> ubotu tell galaeron about universe galaeron see the private message from ubotu
+[11:58] <LjL> xchat galaeron
+[11:58] <LjL> helpme
+[11:58] <LjL> ubotu tell ubuntu about sudo ubuntu see the private message from ubotu
+[11:58] <LjL> carutsu it's a gnome program so yes i guess
+[11:58] <LjL> carutsu adept yes but you can always also use apt-get aptitude
+[11:58] <LjL> carutsu no can do synaptic does depend about other gnome-related things it just can't run without them they aren't incredibly many though
+[11:58] <LjL> carutsu i suggest you just start by removing libgnome i don't think synaptic should be removed by that alone
+[11:58] <LjL> msg the bot
+[11:58] <LjL> unoperateur still sudo -s and sudo -i respectively accomplish either thing quite nicely
+[11:58] <LjL> cmweb mysqlconnect is just one function in the mysql api for php it should come with the php mysql module for all i know not sure why it doesn't work - perhaps you need an include statement though i don't on the web server i use
+[11:58] <LjL> ubotu tell fernandocordes about fsck fernandocordes see the private message from ubotu
+[11:58] <LjL> cmweb honestly - i'm kind of drunk and confused so no
+[11:58] <LjL> cmweb hey nerds sometimes go to the pub too p not very often but still
+[11:58] <LjL> drkm well that goes for gnome as well to be fair and i also find kde looks horrible by default is more like what i set my kde to look the post-it colors make it a bit ugly but still
+[11:58] <LjL> drkm they do come from a standard kde applet but i don't normally use those i only used them for illustration if i used them normally i'd certainly change the colors yes they can be changed
+[11:58] <LjL> drkm define stand out
+[11:58] <LjL> bot abuse fernandocordes
+[11:58] <LjL> drkm hey i told you i would not normally use those colors for the notes p
+[11:58] <LjL> ubotu tell billybober about bot billybober see the private message from ubotu
+[11:58] <LjL> drkm and for that matter i'm also not a fan of having a ton of icons on the desktop still i always end up like that somehow
+[11:58] <LjL> drkm well some hints if fonts look a bit on the blurry side go to system settings appearance fonts configure anti-aliasing and select full hinting rather than medium
+[11:58] <LjL> drkm as for colors remember that in appearance colors when you click on the color in widget colors you can use the color picker and pick a color from anywhere on the screens - so if you like you can pick colors from screenshots
+[11:58] <LjL> drkm and if you happen to like the top-of-the-screen menu bar it's right click on the desktop - behavior - mac os style
+[11:58] <LjL> ubotu tell goofy about windowsdrives goofy see the private message from ubotu
+[11:58] <LjL> dominussuus that's two different things
+[11:58] <LjL> dominussuus if you want to install windows withing linux you need an emulator virtual machine possibly choices are qemu or vmware there's vmware-player in the repos
+[11:58] <LjL> dominussuus if you want to just use some windows applications inside your x destkop like they were x applications you want wine
+[11:58] <LjL> dominussuus well the alternatives are wine cedega these are apis so applications run inside your x qemu vmware these are virtual machines
+[11:58] <LjL> cmweb no it isn't but to get something better you actually need to install a full-blown windows on an emulator like vmware
+[11:58] <LjL> cmweb forget the seamlessness of wine then though
+[11:58] <LjL> khaije doesn't xen needs modified version of guest oss
+[11:58] <LjL> and nevermind my s's
+[11:58] <LjL> khaije i see how new is new
+[11:58] <LjL> ie what does the cpu need to have
+[11:58] <LjL> i'd love to use hibernation even though i don't have a laptop but hm well perhaps next release as i've said for a year or so already
+[11:58] <LjL> khaije hm i'll try to keep those words in mind when i next look at cpus
+[11:58] <LjL> tonren well it's not like i never tried it
+[11:58] <LjL> tonren still it never stopped me from booting at worst it would hang on suspending or resuming
+[11:58] <LjL> tsclient cmweb
+[11:58] <LjL> i think
+[11:58] <LjL> tonren well most people who don't have laptops don't use hibernation in my experience anyway except the ones i've told to
+[11:58] <LjL> tonren let me guess you code in object oriented languages
+[11:58] <LjL> tonren well serialize seemed to give that away p
+[11:58] <LjL> fernandocordes varcacheaptarchives nothlit not unless they were source packages i think
+[11:58] <LjL> fernandocordes it's supposed to do that also you could try
+[11:58] <LjL> offline fernandocordes
+[11:58] <LjL> nothlit ah nice
+[11:58] <LjL> ubotu tell slacktyro about kde slacktyro see the private message from ubotu
+[11:58] <LjL> slacktyro if you later want to remove gnome which is non-trivial theoretically i suggest you remove the libgnome- package - that should take care of most of it
+[11:58] <LjL> lakin generic
+[11:58] <LjL>
+[11:58] <LjL> generic
+[11:58] <LjL> reverseblade lakin is right he could possibly find some help in kernel too i suppose but his question was fine for this channel
+[11:58] <LjL> lakin actually just installing it would usually put the entry in the grub menu here
+[11:58] <LjL> en sneg
+[11:58] <LjL> lakin ls sbinupdate-grub - is it there
+[11:58] <LjL> vuen lsbrelease -a
+[11:58] <LjL> knight what is a linux command
+[11:58] <LjL> vuen i suppose apt-cache policy coreutils
+[11:58] <LjL> ask
+[11:58] <LjL> fenrig ask in cedega or whatever the relevant channel or support place is it's offtopic for here i'm afraid
+[11:58] <LjL> elfreakz
+[11:58] <LjL> elfreakz read carefully
+[11:58] <LjL> elfreakz
+[11:58] <LjL> elfreakz no it mentions intel too just not in the driver installation part - but that's because the relevant intel driver is installed by default i guess
+[11:58] <LjL> phlitekontrol might be try another mirror
+[11:58] <LjL> phlitekontrol you can edit etcaptsourceslist and change the urls where it says for instance usarchiveubuntucom you can change that to say caarchiveubuntucom
+[11:58] <LjL> ubotu tell reverseblade about bot reverseblade see the private message from ubotu
+[11:58] <LjL> capslock long story short libc glibc
+[11:58] <LjL> capslock are you sure it's looking for libc and not for the build tools and includes ie build-essential and friends
+[11:58] <LjL> ubotu tell capslock about paste capslock see the private message from ubotu
+[11:58] <LjL> capslock that just looks like that shell script is bad to me perhaps
+[11:58] <LjL> dash capslock
+[11:58] <LjL> phlitekontrol cool
+[11:58] <LjL> paste georover
+[11:58] <LjL> malt i suggest apt-cache search clamav with universe enabled
+[11:58] <LjL> de schlonzo
+[11:58] <LjL> ubotu tell schlonzo about windowsdrives schlonzo see the private message from ubotu
+[11:58] <LjL> tcc i guess bootconfig---generic if you're on edgy
+[11:58] <LjL> goldbond ifconfig
+[11:58] <LjL> chemist upgrade your computer
+[11:58] <LjL> chemist i meant upgrade the hardware bit of a tongue-in-cheek answer but you know too slow is a tad subjective hard to track in any way
+[11:58] <LjL> chemist not too dissimilar from what i have - an example of an application that takes too long and how long
+[11:58] <LjL> chemist if you can make that a gtk-but-not-gnome application it would help since i'm on kde
+[11:58] <LjL> chemist with the computer idle does top look like anything is eating up the processor
+[11:58] <LjL> chemist what about the hd does sudo hdparm -tt devhda change hda for whatever your hd is show a reasonable speed
+[11:58] <LjL> minimal
+[11:58] <LjL> pelo no just wait a second
+[11:58] <LjL> foob quite similar
+[11:58] <LjL> ryanakca apt-cache show packagename
+[11:58] <LjL> macr i don't think there's such a cache by default systemwide at least
+[11:58] <LjL> ryanakca then in principle you can't
+[11:58] <LjL> ryanakca read the readme andor install files if they exist
+[11:58] <LjL> auto-apt ryanakca also this might sometimes be of some help
+[11:58] <LjL> ubotu tell ianthepetrock about upgrade ianthepetrock see the private message from ubotu
+[11:58] <LjL> ubotu tell kirby about fonts kirby see the private message from ubotu
+[11:58] <LjL> ryanakca ldd
+[11:58] <LjL> ryanakca then you can use either auto-apt or apt-file to find out what packages the cited libraries are in
+[11:58] <LjL> ianthepetrock depends
+[11:58] <LjL> ubotu tell ianthepetrock about wifi ianthepetrock see the private message from ubotu
+[11:58] <LjL> kapace what do you want to check
+[11:58] <LjL> kapace cat procmeminfo
+[11:58] <LjL> kapace generally speaking lshw can also be useful i think gnome has a front-end for that somewhere in the system menu
+[11:58] <LjL> tuna-fish- cat filename command-you-want-stdin-to-be-read-frm-file
+[11:58] <LjL> tuna-fish- that's for general passing of data from a command to another
+[11:58] <LjL> tuna-fish- but if you merely want to read from an actual file command-name filename will do
+[11:58] <LjL> ryanakca yep
+[11:58] <LjL> tuna-fish- cat devrandom name-of-your-pipe
+[11:58] <LjL> lifepositive don't abuse the bot ask it about best instead
+[11:58] <LjL> lifepositive i use knode
+[11:58] <LjL> actually i don't
+[11:58] <LjL> ryanakca i think so but are you just doing this to find out the depends for one program or do you have something more than that in mind
+[11:58] <LjL> lifepositive uhm since it's a newsreader but it's definitely not for gnome
+[11:58] <LjL> ryanakca then do it manually how many libraries can it be p
+[11:58] <LjL> ryanakca ah but wait no that's not going to work
+[11:58] <LjL> ryanakca nevermind it should
+[11:58] <LjL> ryanakca try this for some reason your version doesn't seem to work here ldd usrlocalkdebinkssh awk ' print ' xargs -n basename xargs -n apt-file search
+[11:58] <LjL> ryanakca one thing is that apt-file doesn't store the leading in filenames so if ldd gives you results that include that it won't work -- then it's also not working for some other reason probably related to newlines
+[11:58] <LjL> ryanakca see also - i've done that sort of thing in the past as you can see
+[11:58] <LjL> ubotu tell islan about build-essential islan see the private message from ubotu
+[11:58] <LjL> brohken chmod x filename sets a file as executable
+[11:58] <LjL> brohken the octal notation isn't the only possible notation in chmod
+[11:58] <LjL> ubotu tell brohken about permissions brohken see the private message from ubotu
+[11:58] <LjL> clemyeats that's not really true it's really just a matter of preferences you can set using the letters as well
+[11:58] <LjL> menek i can't look at the screenshot because it requires an account however you might want to try going in kde to system settings appearance fonts anti-aliasing and set hinting to full
+[11:58] <LjL> haggard you have a line that says htp instead of http
+[11:58] <LjL> haggard change it to say http
+[11:58] <LjL> haggard pastebin your etcaptsourceslist
+[11:58] <LjL> haggard line it says deb-src htpusarchiveubuntucomubuntu edgy universe multiverse
+[11:58] <LjL> haggard besides you really should add -updates and -security for universe and multiverse
+[11:58] <LjL> haggard ok
+[11:58] <LjL> msg the bot ffwater
+[11:58] <LjL> or query ubotu even
+[11:58] <LjL> ffwater unless gnome implements some heavy magic i don't think that's the way a cd writer works
+[11:58] <LjL> ffwater if what you have in mind is to take a file move it into the cd folder and have it written to the cd right away also with the possibility of repeating the operation no i don't think you can do that
+[11:58] <LjL> dv i suggest xorg
+[11:58] <LjL> dv no that won't give you all that is needed i'm afraid
+[11:58] <LjL> dv if you get xorg i think the basic fonts are included
+[11:58] <LjL> tuqann i suppose exporthttpproxy is a typo
+[11:58] <LjL> automatix tuqann by the way
+[11:58] <LjL> tuqann what you maybe you've also set a proxy in etcaptaptconf
+[11:58] <LjL> tuqann what happens now exactly when you try to apt-get update
+[11:58] <LjL> csalsb then run it - consider there's vmware-player ready to run in the official repositories although now that you've installed another version manually i suppose it might not work that smoothly
+[11:58] <LjL> tuqann xxxxproxy being the proxy you had originally set up i suppose
+[11:58] <LjL> tuqann make sure everything has gone away by doing echo httpproxy httpproxy
+[11:58] <LjL> tuqann and if that shows nothing try sudo sh -c echo httpproxy httpproxy
+[11:58] <LjL> jussi i think it's in the emerald settings
+[11:58] <LjL> es ubuntu
+[11:58] <LjL> tuqann wait that's when using which command
+[11:58] <LjL> ubuntu english here please join ubuntu-es for spanish
+[11:58] <LjL> frogzoo testsusf wasn't following but shutdown -f -r now will restart the computer and perform a filesystem check when it reboots without touching files manually
+[11:58] <LjL> tuqann ok then either those settings you removed haven't really gone away or you're still inside a shell that had them enabled - try starting a new shell and trying apt-get again
+[11:58] <LjL> tuqann and if that fails try export httpproxy and export httpproxy
+[11:58] <LjL> tuqann try the echo commands above
+[11:58] <LjL> tuqann i mean export
+[11:58] <LjL> dv i guess you're on dapper
+[11:58] <LjL> dv in that case use x-window-system instead
+[11:58] <LjL> tuqann i'd restart x just to be very sure and check that it still works if it doesn't it means the proxy settings are still there in some file or another
+[11:58] <LjL> dv uhm what the heck let me look around a bit i'm on edgy myself
+[11:58] <LjL> dv i think your best bet is x-window-system-core -- though that's weird enough
+[11:58] <LjL> dv i can tell you that there's no other package which depends on xbase-clients which is the very basic x programs so that must be the most complete x metapackage in dapper
+[11:58] <LjL> dv x-window-system-core provides xbase-clients so i think you should install x-window-system-core
+[11:58] <LjL> dv that x-window-system-core exists while x-window-system doesn't feels weird to me but oh well
+[11:58] <LjL> dv if you install x-window-system-core you will get startx
+[11:58] <LjL> dv these are the packages that x-window-system-core adds to a simply xserver-xorg - if you look there's 'xinit' cited that provides startx you can see there are also fonts and the basic x libraries
+[11:58] <LjL> dv i think it'll be done automatically - but you said you already made one so i don't think it'll be touched again
+[11:58] <LjL> dv you can always do sudo dpkg-reconfigure xserver-xorg
+[11:58] <LjL> minerale uhm perhaps try sudo apt-cache gencaches andor sudo apt-get check
+[11:58] <LjL> iptables zeeed
+[11:58] <LjL> zeeed you don't happen to be behind a router that blocks pings itself also do you have any other iptables rules set
+[11:58] <LjL> zeeed routers may do many things what i can tell you for sure is that ubuntu does not block pings or anything actually by default unless you tell it to
+[11:58] <LjL> a-l-a-r-m on edgy yes on dapper apt-cache search mplayer
+[11:58] <LjL> minerale run an apt-get update under gdb - do a where after it segfaults - and pastebin the whole output
+[11:58] <LjL> a-l-a-r-m edgy eft is ubuntu dapper drake is ubuntu
+[11:58] <LjL> a-l-a-r-m to know which one you're using lsbrelease -a
+[11:58] <LjL> a-l-a-r-m not - ubuntu version numbers are actually dates
+[11:58] <LjL> henning you need to be root to modify that file
+[11:58] <LjL> ubotu tell henning about root henning see the private message from ubotu
+[11:58] <LjL> henning gksudo gedit etcxxorgconf -- however depending on what you're trying to do a sudo dpkg-reconfigure xserver-xorg might be a better idea
+[11:58] <LjL> info mplayer edgy a-l-a-r-m
+[11:58] <LjL> a-l-a-r-m no if i'm saying it's there it means it's there i'm not inventing things without checking -
+[11:58] <LjL> a-l-a-r-m you need to enable universe
+[11:58] <LjL> orasis i think that's possible the live cd is set up in a way that you can modify files although of course they won't survive a reboot
+[11:58] <LjL> a-l-a-r-m wait i meant multiverse actually well enable both
+[11:58] <LjL> a-l-a-r-m that is a way yes but you may also use synaptic or adept if you're on kde
+[11:58] <LjL> a-l-a-r-m i usually do it from the command line by editing etcaptsourceslist though yes
+[11:58] <LjL> a-l-a-r-m however you do it make sure you enable universe and multiverse not only in the edgy repository but also in the edgy-updates and edgy-security repositories
+[11:58] <LjL> ubotu tell a-l-a-r-m about easysource a-l-a-r-m see the private message from ubotu
+[11:58] <LjL> a-l-a-r-m even in the package manager adept you still do need to add the relevant components universe and multiverse
+[11:58] <LjL> a-l-a-r-m if you use that source-o-matic page it will generate a sourceslist for you
+[11:58] <LjL> a-l-a-r-m err not sure whether justpaul was just checking or making a point - but he does bring up a point - at any rate if you decide to use source-o-matic you can just change every occurrence of dapper into edgy
+[11:58] <LjL> minerale sudo -i needs to be run as root gdb apt-cache run search test where
+[11:58] <LjL> minerale when you're finished exit to come back from the root login
+[11:58] <LjL> warcraft nef
+[11:58] <LjL> newbie unless you installed the kernel source it's probably not there - what you trying to do
+[11:58] <LjL> minerale which still seems like pointing to some problem with that packages file that you mentioned above from the strace output
+[11:58] <LjL> minerale i suggest that you take that file remove it after backing it up to somewhere else and try an apt-get update again
+[11:58] <LjL> minerale and even if that solves the issue it'd probably be best to run a memtest can be done from the boot menu and a smartctl -a devyourhd to make sure there is no hardware problem
+[11:58] <LjL> a-l-a-r-m i told you - in the list you get replace every dapper word with edgy you can do a searchreplace from your favorite text editor
+[11:58] <LjL> a-l-a-r-m err yes in etcaptsourceslist
+[11:58] <LjL> a-l-a-r-m as root
+[11:58] <LjL> minerale repeating previous comments not sure you've seen them - they still apply anyway
+[11:58] <LjL> minerale which still seems like pointing to some problem with that packages file that you mentioned above from the strace output
+[11:58] <LjL> minerale i suggest that you take that file remove it after backing it up to somewhere else and try an apt-get update again
+[11:58] <LjL> minerale and even if that solves the issue it'd probably be best to run a memtest can be done from the boot menu and a smartctl -a devyourhd to make sure there is no hardware problem
+[11:58] <LjL> a-l-a-r-m of course you can do that source-o-matic is just meant to make that easier
+[11:58] <LjL> a-l-a-r-m but removing the '' is not quite enough
+[11:58] <LjL> a-l-a-r-m you also need to enable multiverse only universe is mentioned there enable both universe and multiverse also for edgy-updates and edgy-security
+[11:58] <LjL> a-l-a-r-m well mplayer is in multiverse so enabling universe alone won't quite be very useful
+[11:58] <LjL> a-l-a-r-m as for the rest security and updates if you don't do it you will not get updates risk that packages in the main component get out of sync with the ones in universe and multiverse
+[11:58] <LjL> ubotu tell a-l-a-r-m about paste a-l-a-r-m see the private message from ubotu
+[11:58] <LjL> a-l-a-r-m i doubt that all of them are
+[11:58] <LjL> minerale err you sure that's it that talks about nvidia only skimmed around but haven't seen the segfaulting problem
+[11:58] <LjL> paste
+[11:58] <LjL> seveas for wincodecs
+[11:58] <LjL> kohr what about using find or locate
+[11:58] <LjL> that there is none
+[11:58] <LjL> yeah
+[11:58] <LjL> info wcodecs
+[11:58] <LjL> seveas
+[11:58] <LjL> here
+[11:58] <LjL> automatix
+[11:58] <LjL> valmarko no
+[11:58] <LjL> i don't think so
+[11:58] <LjL> tim does that fine in kde
+[11:58] <LjL> nolimitsoya the base kde stuff seems quite stable here then there are some apps that are on the crashy side which ones crash for you
+[11:58] <LjL> nolimitsoya adept as in addremove applications is extremely crash here adept proper didn't seem to crash when i used it but then i use it very rarely other apps well there's koffice that is a crash party but that's not even included by default
+[11:58] <LjL> nolimitsoya messy menus you mean messy control panel various settings
+[11:58] <LjL> thank him in lowercase please
+[11:58] <LjL> and when you do use gksudo if they're gui programs
+[11:58] <LjL> nolimitsoya synaptic like never seen such a thing -p a lot of people probably wouldn't mind getting that actually
+[11:58] <LjL> nolimitsoya as for the clutter well the basic standard kde stuff kdesktop konqueror etc is as cluttered as it can get true on the other hand a few third-party or almost applications imho tend to be less cluttered than the gnome equivalents
+[11:58] <LjL> nolimitsoya err k addremove programs
+[11:58] <LjL> nolimitsoya also if konqueror and its menus are too messy for your tastes there's dolphin that's a much simpler file manager much like nautilus i think
+[11:58] <LjL> nolimitsoya also if you base your stability statistics on feisty well -p
+[11:58] <LjL> nolimitsoya about menus what i really do like about kde is mac-style menubar
+[11:58] <LjL> hope that's not going away in kde
+[11:58] <LjL> rug well if you mean menu as in the list of applications etc at least that's very easily changeable so in the end who cares
+[11:58] <LjL> rug i haven't seen the newest one i suppose but the one i've seen looked much like windows xp - one huge menu a dialog window really wider than high with just about everything on it
+[11:58] <LjL> rug honestly i rarely use the menu anyway the applications i use of the time are in the quicklauncher which is nice enough to guess them for me and the rest i mostly launch using the terminal or katapult
+[11:58] <LjL> synchk vmware server is absolutely free as in beer no piracy as is vmware player which is even included in multiverse now stop trolling
+[11:58] <LjL> ubotu tell a-l-a-r-m about rar a-l-a-r-m see the private message from ubotu
+[11:58] <LjL> a-l-a-r-m not really it's just that you use ark instead of fileroller assuming you even want a graphical interface for that otherwise just install unrar and unrar x filename
+[11:58] <LjL> ubotu tell oo about attitude oo see the private message from ubotu
+[11:58] <LjL> ubotu tell oo about etiquette oo see the private message from ubotu
+[11:58] <LjL> ok - end of trolling here right now
+[11:58] <LjL> people please do note that i don't do bans on request if there's an emergency call ops - otherwise you saw you were here it's up to me to decide when enough is enough especially when there's so much trolling around that you don't know who's the troll and who's the one being trolled who becomes a troll on his turn
+[11:58] <LjL> i meant you saw i am here
+[11:58] <LjL> stop the trolling now everyone last warning
+[11:58] <LjL> offtopic
+[11:58] <LjL> and now i should ban you others as well for being so offtopic it's full of trolls as you can see - you know better than feeding them really if someone asks a question answer it if you wantcan if someone just arguestrolls ignore them
+[11:58] <LjL> bot
+[11:58] <LjL> gunsandroses please remove that stuff from your messages
+[11:58] <LjL> offtopic indygunfreak nolimitsoya
+[11:58] <LjL> wine
+[11:58] <LjL> lovloss there are some repositories available that are probably more up to date
+[11:58] <LjL> lovloss i'm sure you do still if you read that page you'll find the information you were looking for
+[11:58] <LjL> lovloss i think you'll need the source for that
+[11:58] <LjL> enter
+[11:58] <LjL> brainiacghost linux-headers-- usrsrclinux-headers--includelinuxioh
+[11:58] <LjL> huibertgill don't jump to conclusions he might well have downloaded it from adobe's site as they offer a trial download
+[11:58] <LjL> ubotu tell lintux about kde lintux see the private message from ubotu
+[11:58] <LjL> ubotu tell lintux about fixres lintux see the private message from ubotu
+[11:58] <LjL> fsck has died with exit status after an unclean reboot on my home partition the fsck output itself looks ok to me it scanned up to and then gave its normal report should i worry or does fsck just exit with and upstart reports that when errors have been corrected
+[11:58] <LjL> con-man i think you should be checking your ram using memtest for starters then well varlogmessages varlogkernlog well a few i guess
+[11:58] <LjL> thidr lsbrelease -a
+[11:58] <LjL> jrib ah thanks that does sound like it's just upstart being particularly meticulous in reporting that or perhaps it's always been reported but i just never noticed
+[11:58] <LjL> jrib was it you anyway you recalled didn't actually some mnemonics for remembering sysrq keys
+[11:58] <LjL> jrib right i would have needed that now i think well the keys for sync would probably have been good enough - on another note don't try to set opengl games to schedrr priority d
+[11:58] <LjL> cloning zhimsel
+[11:58] <LjL> botabuse
+[11:58] <LjL> crimsun huh no no i was referring to edgy vs dapper i've just changed desktop
+[11:58] <LjL> edgy is alias feisty
+[11:58] <LjL> feisty
+[11:58] <LjL> offtopic
+[11:58] <LjL> cafuego what about the obfuscated c code contest
+[11:58] <LjL> cafuego well which only goes to say it is considered an art considering there's even a highly held competition on it
+[11:58] <LjL> offtopic
+[11:58] <LjL> could we move the discussion about programming languages to ubuntu-offtopic please
+[11:58] <LjL> well it's gone one for a bit now perhaps it's time to give way to ubuntu support
+[11:58] <LjL> ubotu tell theresalinx about build-essential theresalinx see the private message from ubotu
+[11:58] <LjL> budward actually i mentioned it several times though it was never addressed at you specifically no need to argue about that anyway now
+[11:58] <LjL> unoperateur i suggest installing build-essential instead
+[11:58] <LjL> ubotu tell unoperateur about build-essential unoperateur see the private message from ubotu
+[11:58] <LjL> arrenlex i do know the first paragraph in that guide told you to install build-essential last time i checked it
+[11:58] <LjL> ndiy
+[11:58] <LjL> when you get one sent you usually notice it
+[11:58] <LjL> unoperateur installing just gcc will hardly ever work note that theresalinx mentioned well pasted a configure script that means there's a make that won't work with just gcc
+[11:58] <LjL> unoperateur true gcc depends on make my bad still i can assure you that you're very likely to see your compile fail unless it's a hello world if you don't install the entire build-essential hey it's called 'essential' for something
+[11:58] <LjL> ubotu tell factboy about paste factboy see the private message from ubotu
+[11:58] <LjL> unoperateur suggests right which means they aren't getting installed by default
+[11:58] <LjL> unoperateur aptitude installs recommends by default not suggests
+[11:58] <LjL> offtopic
+[11:58] <LjL> ubotu tell silentdis about bot silentdis see the private message from ubotu
+[11:58] <LjL> alex use any partitioning program to create a partition of type linux swap use mkswap to make that partition actually a swap partition add it to etcfstab swapon -a
+[11:58] <LjL> anyone
+[11:58] <LjL> ed maybe
+[11:58] <LjL> and irrelevant actually
+[11:58] <LjL> i guess either a sudo dpkg-reconfigure whateverbuntu-artwork-usplash if that will work or just remove the unwanted splash package
+[11:58] <LjL> bruenig the instruction in there are not really relevant they explain how to make your custom image etc - not how to select which standard package to take the splash screen from
+[11:58] <LjL> superkirbyartist the xubuntu one should load if it still doesn't apt-get --reinstall install it
+[11:58] <LjL> darkarcon flaming is not welcome
+[11:58] <LjL> arrenlex no i don't
+[11:58] <LjL> ladynikon actually he did come and he's banned
+[11:58] <LjL> ubotu tell zoss about grub zoss see the private message from ubotu
+[11:58] <LjL> hndaracer well you know when you type commands in a terminal well normally it's just simple one-line commands but it could be much more complicated things eventually what's normally called a shell script
+[11:58] <LjL> hndaracer it really depends if this steams from some previous discussion then well i didn't follow it are you interested in learning a programming language or what
+[11:58] <LjL> atut sure the desktop cd
+[11:58] <LjL> reiatzu please avoid flooding the channel like you did before
+[11:58] <LjL> bobbie please stay on topic
+[11:58] <LjL> offtopic bobbie
+[11:58] <LjL> info cinepaint
+[11:58] <LjL> info libgutenprintui-
+[11:58] <LjL> leobloom did you install from a third-party package
+[11:58] <LjL> paddyeire right click on the taskbar configure it's right there
+[11:58] <LjL> hi
+[11:58] <LjL> x-rt-x usplash is the boot splash screen
+[11:58] <LjL> midi gosha
+[11:58] <LjL> when i plug in my usb mp player x freezes mouse moves but no actions possible including ctrlaltbackspace commented varlogmessages at
+[11:58] <LjL> monika what's the problem
+[11:58] <LjL> monika what do you mean the whole partition what partition
+[11:58] <LjL> hidden monika nolimitsoya perhaps
+[11:58] <LjL> monika home and media you mean
+[11:58] <LjL> monika look at that page
+[11:58] <LjL> monika ubotu is a bot
+[11:58] <LjL> paste turtleboots
+[11:58] <LjL> gee always one second too late
+[11:58] <LjL> no just tab completion not working due to user having quit
+[11:58] <LjL> rpm computermc
+[11:58] <LjL> smoothop sure unzip command line but you can use it from fileroller just fine
+[11:58] <LjL> cymuhep i'm not sure i would set up a content management system if i didn't know about file permissions i mean that might not end up too secure i hope you aren't going to put it on an internet-accessible server
+[11:58] <LjL> language eldox
+[11:58] <LjL> eldox where did you take the new drivers from
+[11:58] <LjL> greevous binsh should definitely exist are you able to enter a terminal at all
+[11:58] <LjL> greevous then what does ls -l binsh show in a terminal
+[11:58] <LjL> jhaitas msg nickserv help ghost
+[11:58] <LjL> greevous well the binsh file should come from the 'dash' andor 'bash' packages i believe so you could try reinstalling those packages however the fact that that file symlink actually is missing could be a symptom of something bigger imho
+[11:58] <LjL> pm cymuhep
+[11:58] <LjL> greevous note that when i say reinstall i mean the reinstall function in synaptic or apt-get apt-get --reinstall install package not removing and installing back
+[11:58] <LjL> jhaitas it didn't show some help text try looking in your status or server window or whatever your irc client calls it it's probably there
+[11:58] <LjL> jhaitas anyway msg nickserv ghost jhaitas your-password - do this in the status window not in a channel window
+[11:58] <LjL> soundconverter alien
+[11:58] <LjL> cymuhep chmod filename
+[11:58] <LjL> cymuhep what are you trying to do though
