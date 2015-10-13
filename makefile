@@ -71,5 +71,3 @@ eval-userlearning: clean-output clean-testing
 	cp "res/evaluation/2006-12-20-#ubuntu.txt" "res/evaluation/user_input_testing/2006-12-20-#ubuntu.txt"
 	$(EVALUATOR) userlearning
 	cp -avr "res/evaluation/output" "res/evaluation/userlearning-output"
-
-eval: eval-bigdump eval-nogrammar eval-grammar eval-userlearning
