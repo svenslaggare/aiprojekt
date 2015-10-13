@@ -1,5 +1,5 @@
 CLASSPATH=libraries/commons-math3-3.5.jar:libraries/stanford-postagger.jar
-EVALUATOR=java -Xmx4g -classpath $(CLASSPATH):bin/ aiprojekt.Evaluator
+EVALUATOR=java -Xmx6g -classpath $(CLASSPATH):bin/ aiprojekt.Evaluator
 
 init: build download-data preprocess-data
 
