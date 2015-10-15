@@ -3,7 +3,7 @@ EVALUATOR=java -Xmx6g -classpath $(CLASSPATH):bin/ aiprojekt.Evaluator
 
 init: build download-data preprocess-data
 
-init: build download-model
+init-fast: build download-model
 
 run:
 	java -Xmx2g -classpath $(CLASSPATH):bin/ aiprojekt.PredictionGUI
