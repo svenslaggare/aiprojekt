@@ -23,7 +23,7 @@ preprocess-data:
 	java -Xmx8g -classpath $(CLASSPATH):bin/ aiprojekt.PreProcessor
 
 download-model:
-	curl "https://dl.dropboxusercontent.com/u/4940720/ngrams.bin" -o "res/bin"
+	curl "https://dl.dropboxusercontent.com/u/4940720/ngrams.bin" -o "res/bin/ngrams.bin"
 
 clean-output:
 	rm -fr res/evaluation/output
