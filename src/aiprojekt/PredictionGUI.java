@@ -151,7 +151,7 @@ public class PredictionGUI {
 	}
 	
 	public static void main(String[] args) {
-		if (args.length == 1 && args[0] == "grammar") {
+		if (args.length == 1 && args[0].equals("grammar")) {
 			NGramModel.GRAMMAR_CHECK = true;
 		}
 			
