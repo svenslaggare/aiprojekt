@@ -4,7 +4,10 @@ EVALUATOR=java -Xmx6g -classpath $(CLASSPATH):bin/ aiprojekt.Evaluator
 init: build download-data preprocess-data
 
 run:
-	java -classpath $(CLASSPATH):bin/ aiprojekt.PredictionGUI
+	java -Xmx2g -classpath $(CLASSPATH):bin/ aiprojekt.PredictionGUI
+
+run-grammar:
+	java -Xmx2g -classpath $(CLASSPATH):bin/ aiprojekt.PredictionGUI grammar
 
 build:
 	mkdir -p bin

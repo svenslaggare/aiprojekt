@@ -151,6 +151,10 @@ public class PredictionGUI {
 	}
 	
 	public static void main(String[] args) {
+		if (args.length == 1 && args[0] == "grammar") {
+			NGramModel.GRAMMAR_CHECK = true;
+		}
+			
 		if (!USE_LOADER) {
 			List<List<Token>> sentences = new ArrayList<List<Token>>();
 			TextParser parser = new TextParser();

@@ -12,11 +12,13 @@ Run "make init" command. This should take about 5 minutes.
 ## Run the prediction program
 Run "make run". The program should take ~10 sec to start.
 
+## Run the prediction program with grammar check enabled
+Run "make run-grammar". The program should take ~10 sec to start.
+
 ## Generate results
-There are four types of results that can be runned:
-"make eval-bigdump"
+There are three types of results that can be runned:
 "make eval-nogrammar"
 "make eval-grammar"
 "make eval-userlearning"
-This takes about 1 hour to complete.
+This takes about 30 mins to complete.
 
