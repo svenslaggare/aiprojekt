@@ -9,6 +9,9 @@ To be able to compile and run:
 ## Build and preprocess
 Run "make init" command. This should take about 5 minutes.
 
+## Preprocess
+If you want to use a pre made n-gram file, rum "make init-fast".
+
 ## Run the prediction program
 Run "make run". The program should take ~10 sec to start.
 
@@ -16,9 +19,9 @@ Run "make run". The program should take ~10 sec to start.
 Run "make run-grammar". The program should take ~10 sec to start.
 
 ## Generate results
-There are three types of results that can be runned:
+There are three types of results that can be generated: 
 "make eval-nogrammar"
 "make eval-grammar"
 "make eval-userlearning"
-This takes about 30 mins to complete.
+This takes about 20 mins to complete and the output is res/evaluation folder (each type in a seperate folder).
 

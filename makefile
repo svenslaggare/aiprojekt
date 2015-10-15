@@ -3,6 +3,8 @@ EVALUATOR=java -Xmx6g -classpath $(CLASSPATH):bin/ aiprojekt.Evaluator
 
 init: build download-data preprocess-data
 
+init: build download-model
+
 run:
 	java -Xmx2g -classpath $(CLASSPATH):bin/ aiprojekt.PredictionGUI
 
@@ -19,6 +21,9 @@ download-data:
 
 preprocess-data:
 	java -Xmx8g -classpath $(CLASSPATH):bin/ aiprojekt.PreProcessor
+
+download-model:
+	curl "https://dl.dropboxusercontent.com/u/4940720/ngrams.bin" -o "res/bin"
 
 clean-output:
 	rm -fr res/evaluation/output
