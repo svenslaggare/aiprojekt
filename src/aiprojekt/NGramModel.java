@@ -483,7 +483,7 @@ public class NGramModel {
 		// Removes results where nextWord-proposal is of same word class as last word of the written words
 		if (GRAMMAR_CHECK) {
 			GrammarChecker grammarChecker = new GrammarChecker(); 
-			for (int i = 0; i<numResults; i++) {
+			for (int i = 0; i < Math.min(numResults, results.size()); i++) {
 				if (!grammarChecker.hasCorrectGrammar(ngram.last(), results.get(i).getNGram())) {
 					results.remove(i);
 					continue;
@@ -491,8 +491,7 @@ public class NGramModel {
 			}
 		}
 		
-		for (int i = results.size() - 1; i >= numResults; i--) {
-			
+		for (int i = results.size() - 1; i >= numResults; i--) {		
 			results.remove(results.size() - 1);
 		}
 		
