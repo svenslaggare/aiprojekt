@@ -9,7 +9,7 @@ To be able to compile and run:
 ## Build and preprocess
 Run "make init" command. This should take about 5 minutes.
 
-## Preprocess
+## Build and fast preprocess
 If you want to use a pre made n-gram file, rum "make init-fast".
 
 ## Run the prediction program
