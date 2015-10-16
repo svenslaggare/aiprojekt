@@ -23,5 +23,5 @@ There are three types of results that can be generated:
 "make eval-nogrammar"
 "make eval-grammar"
 "make eval-userlearning"
-This takes about 20 mins to complete and the output is res/evaluation folder (each type in a seperate folder).
+This takes about 20 mins to complete and the output is in the res/evaluation folder, where each type of result get an own result output folder.
 
